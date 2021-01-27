@@ -1,5 +1,5 @@
 package non_food;
 
-public class Kleidung {
+public class Kleidung  extends waren.Non_Food {
 
 }

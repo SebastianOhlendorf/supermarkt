@@ -1,5 +1,5 @@
 package waren;
 
-public class Backwaren {
+public class Backwaren extends Lebensmittel{
 
 }

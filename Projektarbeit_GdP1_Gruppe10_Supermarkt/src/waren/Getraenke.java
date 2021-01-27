@@ -1,5 +1,5 @@
 package waren;
 
-public class Getraenke {
+public class Getraenke extends Waren {
 
 }

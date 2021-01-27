@@ -1,5 +1,5 @@
 package waren;
 
-public class Lebensmittel {
+public class Lebensmittel extends Waren {
 
 }

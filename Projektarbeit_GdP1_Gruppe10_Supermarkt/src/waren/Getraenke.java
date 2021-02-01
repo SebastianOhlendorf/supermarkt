@@ -1,5 +1,22 @@
 package waren;
 
-public class Getraenke extends Waren {
+public class Getraenke extends Ware {
+
+	public Getraenke(String name, double preis) {
+		super(name, preis);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean nachbestellen(int menge) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean herausgeben(int menge) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

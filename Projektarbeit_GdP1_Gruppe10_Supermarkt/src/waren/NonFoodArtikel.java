@@ -10,15 +10,14 @@ import java.time.LocalDate;
  *
  */
 public class NonFoodArtikel extends Ware{
-
 	
 	/**
 	 * Konstruktor der Klasse NonFoodArtikel um ein neues NonFoodArtikel-Objekt zu erzeugen.
 	 * @author Sebastian Ohlendorf / 01.02.2020
 	 * @param name Die Bezeichnung des Non-Food-Artikels oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
-	 * @param anzahl 
-	 * @param seitWannImBestand 
+	 * @param anzahl Stellt die Menge einer Ware als Integer dar
+	 * @param seitWannImBestand Gibt das Datum an seit wann der Die Ware im Bestand ist
 	 * 
 	 */
 	public NonFoodArtikel(String name, double preis, int anzahl, LocalDate seitWannImBestand) {
@@ -43,7 +42,10 @@ public class NonFoodArtikel extends Ware{
 		return null;
 	}
 	
-	public static void gebeNFArtikelAus() {
+	/**
+	 * 
+	 */
+	public static void gebenNFArtikelAus() {
 		
 	}
 

@@ -2,8 +2,6 @@ package waren;
 
 import java.time.LocalDate;
 
-
-
 /**
  * Eine Abstrakte Klasse mit der neue Warenobjekte angelegt, Waren nachbestellt oder herausgegeben werden können.
  * @author 

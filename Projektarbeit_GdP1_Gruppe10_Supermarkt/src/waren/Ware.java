@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 
 /**
- * Klasse mit der neue Warenobjekte angelegt, Waren nachbestellt oder herausgegeben werden können.
+ * Eine Abstrakte Klasse mit der neue Warenobjekte angelegt, Waren nachbestellt oder herausgegeben werden können.
  * @author 
  * @version
  * @date
@@ -25,12 +25,12 @@ public abstract class Ware {
 	 * @param name Die Bezeichnung der Ware oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
 	 */
-	public Ware(String name, double preis) {
+	public Ware(String name, double preis, int anzahl, LocalDate seitWannImBestand) {
 		
 		this.name = name;
 		this.preis = preis;
-		this.anzahl = 0;
-		this.seitWannImBestand = LocalDate.now();
+		this.anzahl = anzahl;
+		this.seitWannImBestand = seitWannImBestand;
 	}
 	
 	/**

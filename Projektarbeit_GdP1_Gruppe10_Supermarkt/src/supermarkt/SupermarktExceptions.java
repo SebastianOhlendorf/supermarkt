@@ -10,6 +10,11 @@ package supermarkt;
 public class SupermarktExceptions extends Exception{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * Konstruktor um ein eigenes Exceptionsobjekt zu erstellen
 	 * @param s Übergebene Exception Nachricht als String
 	 */

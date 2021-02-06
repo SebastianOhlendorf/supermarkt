@@ -3,7 +3,7 @@ package supermarkt;
 
 /**
  * Eine Klasse die zu Testzwecken des Programms von jeder Warenart 10 Objekte jeweils anlegt.
- * @author 
+ * @author Sebastian
  * @version
  * @date
  *

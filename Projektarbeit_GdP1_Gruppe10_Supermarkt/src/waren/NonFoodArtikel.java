@@ -26,14 +26,14 @@ public class NonFoodArtikel extends Ware{
 	 * 
 	 */
 	public NonFoodArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			boolean obImBestand, String beschreibung, String unterGruppe)  {
-			super(name, preis, anzahl, seitWannImBestand);
+			String obImBestand, String beschreibung, String unterGruppe)  {
+			super(name, preis, anzahl, seitWannImBestand, obImBestand);
 			
 		this.beschreibung = beschreibung;
 		this.unterGruppe = unterGruppe;
 		
 		// TODO Auto-generated constructor stub
-		Scanner in = new Scanner(System.in);
+		
 		
 		
 		
@@ -45,26 +45,25 @@ public class NonFoodArtikel extends Ware{
 		String [] nonFoodArray;
 		nonFoodArray = new String [30];
 		
-		if(nonFoodArtikelInsgesamt <=30) {
+		if(nonFoodArtikelInsgesamt <30) {
 			
-		for (int i = 0; i <= nonFoodArray.length; i++) {
+		for (int i = 0; i < nonFoodArray.length -1; i++) {
 			
-			System.out.println("Bitte geben Sie einen Namen für den Non Food Artikel ein ");
-			getraenkeArray[i] = in.next();
+			nonFoodArray[i] = this.name;
+	
+			nonFoodArray[i] = String.valueOf(this.preis);
 			
-			System.out.println("Bitte geben Sie einen Preis für den Non Food Artikel ein");
-			getraenkeArray[i] = in.nextDouble();
 			
-			System.out.println("Bitte geben Sie eine genaue Beschreibung für den Non Food Artikel an");
+			nonFoodArray[i] = this.beschreibung;
 			
-			System.out.println("Bitte geben Sie eine Untergruppe für den Non Food Artikeln an");
+			nonFoodArray[i] = this.unterGruppe;
 			
 			this.anzahl = 100;
 			this.seitWannImBestand = LocalDate.now();
 			//this.ObImBestand = true;
 			
 
-			i++;
+			
 			nonFoodArtikelInsgesamt ++;
 			
 		} 
@@ -72,7 +71,7 @@ public class NonFoodArtikel extends Ware{
 		} else {
 			System.out.println("Es wurden bereits 30 Non Food Artikel erstellt");
 			
-			in.close();
+			
 		}
 		
 		// Besprechen: Müsste mit in Ware als Vererbung	obImBestand = true;!!
@@ -98,7 +97,11 @@ public class NonFoodArtikel extends Ware{
 	
 	@Override
 	public String toString() {
-		return null;
+		
+		return "neuer NonFood Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
+				" anzahl= " + anzahl + " obImBestand= "+ obImBestand + " beschreibung= " + beschreibung +
+				" unterGruppe = "+ unterGruppe + "]";
+			
 	}
 	
 	/**

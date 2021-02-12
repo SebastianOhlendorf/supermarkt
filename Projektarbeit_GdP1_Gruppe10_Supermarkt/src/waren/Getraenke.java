@@ -25,32 +25,34 @@ public class Getraenke extends Ware {
 			boolean obImBestand, int alcProzente)  {
 		super(name, preis, anzahl, seitWannImBestand);
 		// TODO Auto-generated constructor stub
+		this.alcProzente = alcProzente;
 		
 		Scanner in = new Scanner(System.in);
-		
-		this.alcProzente = alcProzente;
 		
 		// Prüfung ob bei Anlegung Getränk bereits 30 verschiedene Getränke vorhanden sind
 		int getraenkeInsgesamt = 0;
 		this.anzahl = 0;
-		boolean enthaeltAlc = false;
+		boolean enthaeltAlc = true;
 		
-		String [] getraenkeArray;
-		getraenkeArray = new String [30];
+		
+		String [][] getraenkeArray;
+		getraenkeArray = new String [31][6];
 		
 		if(getraenkeInsgesamt <=30) {
 			
-		for (int i = 0; i <= getraenkeArray.length; i++) {
+		for (int i = 0; i < getraenkeArray.length; i++) {
+			for(int j = 0; j<getraenkeArray.length; j++) {
 			
 			System.out.println("Bitte geben Sie einen Namen für das Getränk ein ");
-			getraenkeArray[i] = in.next();
+			getraenkeArray[i][j] = in.next();
 			
 			System.out.println("Bitte geben Sie einen Preis für das Getränk ein");
-			getraenkeArray[i] = in.nextDouble();
+			getraenkeArray[i][j] = in.next();
 			
-			System.out.println("Bitte geben Sie einen Alkoholgehalt an");
-			this.alcProzente = in.nextDouble();
-			istAlkoholhaltig(enthaeltAlc);
+			System.out.println("Bitte geben Sie einen Alkoholgehalt für das Getränk an");
+			//this.alcProzente = this.alcProzente.parseDouble(in.next());
+			//this.alcProzente.parseDouble
+			//istAlkoholhaltig(enthaeltAlc);
 			
 			
 			
@@ -59,12 +61,13 @@ public class Getraenke extends Ware {
 			//this.ObImBestand = true;
 			
 
-			i++;
+			
 			getraenkeInsgesamt ++;
 			
 		} 
-		
-		} else {
+		} 
+		}
+		else {
 			System.out.println("Es wurden bereits 30 Getraenke erstellt");
 			
 			in.close();
@@ -109,15 +112,17 @@ public class Getraenke extends Ware {
 		return alkoholhaltig;
 	}
 	
-	public static void gebeGetraenkeAus() {
+	//public static void gebeGetraenkeAus(getraenkeArray[]) {
 		
-		
+		//for (int i = 1; i < getraenkeArray.length; i++) {
+		//    System.out.println(getraenkeArray[i]);
+	//	}
 		//Gibt eine Liste aller vorhandener Lebensmittel (ihrer Namen) nummeriert aus. (Dies soll dem Nutzer später als Auswahl dienen, zB:
 		//	(1) Schokolade
 		//	(2) Nudeln
 		//	(3) Gurke
 		//	… )
-	}
+	//}
 	
 	public static void gebeNonAlkGetraenkeAus() {
 		//für nicht alkoholische Getränke

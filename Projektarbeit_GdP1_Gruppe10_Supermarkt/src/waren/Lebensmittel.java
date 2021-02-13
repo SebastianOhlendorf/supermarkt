@@ -25,8 +25,7 @@ public class Lebensmittel extends Ware {
 	
 	//Klassenattribut
 	protected static ArrayList<Lebensmittel> alleLebensmittel = new ArrayList<Lebensmittel>();
-	//protected static Lebensmittel[] alleLebensmittel = new Lebensmittel[30];
-	//private static int anzahlLebensmittel = 0;
+;
 	
 	/**
 	 * Konstruktor der Klasse Lebensmittel um ein neues Lebensmittel-Objekt zu erzeugen.
@@ -184,7 +183,8 @@ public class Lebensmittel extends Ware {
 	
 	
 	/**
-	 * 
+	 * toString Methode der Klasse Lebensmittel um eine Ausgabe
+	 * zu dem Lebensmittel zu tätigen
 	 */
 	@Override
 	public String toString() {

@@ -3,9 +3,9 @@ package supermarkt;
 
 /**
  * Eine Klasse die zu Testzwecken des Programms von jeder Warenart 10 Objekte jeweils anlegt.
- * @author Lennar
+ * @author Sebastian
  * @version
- * @date 06.02.2021
+ * @date
  *
  */
 public class Lager {

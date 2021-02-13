@@ -257,7 +257,7 @@ public class Lebensmittel extends Ware {
 	 * 
 	 * @return ArrayListe mit allen Lebensmitteln welche eine Halbarkeit von 0 bis 2 haben
 	 */
-	public static ArrayList<String> kurzesMHD() {
+	public ArrayList<String> kurzesMHD() {
 		
 		ArrayList<String> kurzesMHD = new ArrayList<String>();
 		

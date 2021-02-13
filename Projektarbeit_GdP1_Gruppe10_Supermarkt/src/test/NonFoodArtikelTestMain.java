@@ -2,8 +2,8 @@ package test;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import supermarkt.einAusgabe;
 import waren.NonFoodArtikel;
-import waren.einAusgabe;
 public class NonFoodArtikelTestMain {
 
 	public static void main(String[] args) {
@@ -40,7 +40,7 @@ public class NonFoodArtikelTestMain {
 		
 		
 		/**
-		 * Erzeugung eines neuen NonFood Artikels
+		 * Erzeugung eines neuen NonFood Artikels   
 		 */
 		
 		NonFoodArtikel neueErstellung = new NonFoodArtikel(name,preis,seitWannImBestand,anzahl,

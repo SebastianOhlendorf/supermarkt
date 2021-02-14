@@ -19,7 +19,7 @@ public abstract class Ware {
 	protected LocalDate seitWannImBestand;
 	private int kennung;
 	
-	//Konstante da der Wert immer auf 100 gesetzt werden soll
+	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;
 	protected static final int MAXANZAHLWAREN = 30;
 	protected static final int LEBENSMITTEL = 1;
@@ -70,6 +70,7 @@ public abstract class Ware {
 	 */
 	protected abstract int istHaltbar();
 
+	
 	//--------------- GETTER und SETTER -------------------------
 
 	public int getKennung() {

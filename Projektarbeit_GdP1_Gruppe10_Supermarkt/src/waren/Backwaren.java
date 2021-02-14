@@ -39,6 +39,7 @@ public class Backwaren extends Lebensmittel{
 	@Override
 	public boolean herausgeben(int menge) {
 		
+		//Bestimmiung ob die Menge im Lager nach der herausgabe größer gleich 0 ist
 		int mengeLager = this.anzahl - menge;
 		boolean herausgeben;
 		
@@ -61,11 +62,8 @@ public class Backwaren extends Lebensmittel{
 							this.anzahl));
 			
 			nachbestellen(MAXMENGE);
-			
 			herausgeben = false;
-			
 		}
-		
 		return herausgeben;
 	}
 	
@@ -92,26 +90,20 @@ public class Backwaren extends Lebensmittel{
 	 */
 	public boolean backeWare() {
 		
+		//Methodenvariable ob eine Ware aufebacken werden muss
 		boolean backWare = false;
 		
 		for(int i = 0; i < alleWaren.size(); i++)
 		{
 		  if(alleWaren.get(i).getKennung() == BACKWAREN){
-			    
-			  	System.out.println("Waren wird aufgebacken!");
-			  	
+			  	//"Waren wird aufgebacken!"
 			  	backWare = true;
-			  
 			}else {
-				
-				System.out.println("Ist keine Backware!");
-				
+				//Ware wird nicht aufgebacken
 				backWare =  false;
 			}
-
 		}
 		return backWare;
-
 	}
 	
 	
@@ -125,10 +117,6 @@ public class Backwaren extends Lebensmittel{
 			if(alleWaren.get(i).getKennung() == BACKWAREN){
 			  System.out.println("(" + i + ") " + alleWaren.get(i));
 			}
-
 		}
-		
 	}
-	
-	
 }

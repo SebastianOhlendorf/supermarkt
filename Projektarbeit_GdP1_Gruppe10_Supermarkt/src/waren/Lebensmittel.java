@@ -15,10 +15,12 @@ import supermarkt.SupermarktExceptions;
  */
 public class Lebensmittel extends Ware {
 	
-	//Variablen anlegen
+	//Objektattribute für das Lebensmittelobjekt
 	protected double gewicht;
 	protected int haltbarkeit; //Die Haltbarkeit wird in Tagen gemessen
 	protected boolean bedarfKuehlung;
+	
+	//Klassenattribute zum zaehlen der Lebensmittel und Backwaren 
 	private static int zaehler_lebensmittel = 0;
 	private static int zaehler_backwaren = 0;
 
@@ -124,10 +126,12 @@ public class Lebensmittel extends Ware {
 	@Override
 	public boolean nachbestellen(int menge) {
 		
+		//Methodenvariablen
 		int mengeLager = this.anzahl + menge;
 		int diffMenge;
 		boolean nachbestellung;
 		
+		//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
 		if (this.anzahl == MAXMENGE) {
 			
 			System.out.println(
@@ -138,6 +142,7 @@ public class Lebensmittel extends Ware {
 			nachbestellung = false;
 			
 		}
+		//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
 		else if(mengeLager > MAXMENGE) {
 			diffMenge = MAXMENGE - this.anzahl;
 			this.anzahl = this.anzahl + diffMenge;
@@ -148,22 +153,16 @@ public class Lebensmittel extends Ware {
 							diffMenge));
 			this.seitWannImBestand = LocalDate.now();
 			
-			toString();
-			
-			nachbestellung = true;
-			
-			
-		}else {
+			nachbestellung = true;	
+		}
+		//Nachbestellung der Ware
+		else {
 			
 			this.anzahl = this.anzahl + menge;
-			
 			this.seitWannImBestand = LocalDate.now();
-			
-			toString();
 			
 			nachbestellung = true;
 		}
-		
 		return nachbestellung;
 	}
 
@@ -180,9 +179,11 @@ public class Lebensmittel extends Ware {
 	@Override
 	public boolean herausgeben(int menge) {
 		
+		//Methodenvariablen
 		int mengeLager = this.anzahl - menge;
 		boolean herausgeben;
 		
+		//Prüfung ob noch genug im Lager ist zum herausgeben
 		if(mengeLager > 0) {
 			this.anzahl = this.anzahl - menge;
 			
@@ -193,7 +194,9 @@ public class Lebensmittel extends Ware {
 							menge));
 			
 			herausgeben = true;
-		} else {
+		} 
+		//Keine herausgabe der Waren und es werden neue Waren nachbestellt
+		else {
 			
 			System.out.println(
 					String.format(
@@ -206,7 +209,6 @@ public class Lebensmittel extends Ware {
 			herausgeben = false;
 			
 		}
-		
 		return herausgeben;
 	}
 	
@@ -299,11 +301,9 @@ public class Lebensmittel extends Ware {
 			} else if(alleWaren.get(i).istHaltbar() < 0){
 				
 				alleWaren.remove(i);
-
+				zaehler_lebensmittel--;
 			}
-			
 		}
-		
 		return kurzesMHD;
 	}
 	

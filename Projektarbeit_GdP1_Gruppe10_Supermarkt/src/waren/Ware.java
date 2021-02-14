@@ -69,6 +69,12 @@ public abstract class Ware {
 	 * @return Gibt die Dauer der Haltbarkeit als Integer zurück
 	 */
 	protected abstract int istHaltbar();
+	
+	/**
+	 * Abstrakte Methode zum feststellen ob ein Getränk alokolhaltig ist
+	 * @return Gibt ein True zurück wenn das Getränk akloholhaltig ist, andernfalls False
+	 */
+	protected abstract boolean istAlkoholhaltig();
 
 	
 	//--------------- GETTER und SETTER -------------------------
@@ -80,6 +86,8 @@ public abstract class Ware {
 	public void setKennung(int kennung) {
 		this.kennung = kennung;
 	}
+
+	
 
 	
 }

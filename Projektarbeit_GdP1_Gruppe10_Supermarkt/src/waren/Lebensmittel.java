@@ -1,16 +1,14 @@
 package waren;
 
 import java.time.LocalDate;
-
 import java.util.ArrayList;
-
 import supermarkt.SupermarktExceptions;
 
 /**
  * Kinderklasse der Klasse Ware zum anlegen von Lebensmittelobjekten
- * @author 
- * @version
- * @date
+ * @author Sebastian Ohlendorf
+ * @version 1.0
+ * @date 14.02.2021
  *
  */
 public class Lebensmittel extends Ware {
@@ -48,7 +46,7 @@ public class Lebensmittel extends Ware {
 	
 	
 	/**
-	 * Fuegt dem Array alleLebensmittel ein neues Lebensmittel hinzu, solange dieses nicht
+	 * Fuegt dem Array alleWaren ein neues Lebensmittel hinzu, solange dieses nicht
 	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
 	 * Lebensmittel (Name) nicht hinugefuegt werden konnte.
 	 * @author Sebastian Ohlendorf
@@ -80,7 +78,7 @@ public class Lebensmittel extends Ware {
 	
 	
 	/**
-	 * Fuegt dem Array alleLebensmittel ein neue Backware hinzu, solange dieses nicht
+	 * Fuegt dem Array alleWaren ein neue Backware hinzu, solange dieses nicht
 	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
 	 * Backware (Name) nicht hinugefuegt werden konnte.
 	 * @author Sebastian Ohlendorf
@@ -321,6 +319,13 @@ public class Lebensmittel extends Ware {
 			
 		}
 		
+	}
+
+
+	@Override
+	protected boolean istAlkoholhaltig() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

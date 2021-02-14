@@ -4,7 +4,9 @@ import java.time.LocalDate;
 
 /**
  * Kinderklasse der Klasse Lebensmittel zum anlegen von Backwaren-Objekten
- * @author SebastianOhlendorf
+ * @author Sebastian Ohlendorf
+ * @version 1.0
+ * @date 12.02.2021
  *
  */
 public class Backwaren extends Lebensmittel{	

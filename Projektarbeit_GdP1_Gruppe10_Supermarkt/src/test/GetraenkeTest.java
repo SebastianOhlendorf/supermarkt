@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import supermarkt.SupermarktExceptions;
 import waren.Getraenke;
-
+//jojo
 public class GetraenkeTest {
 
 	public static void main(String[] args) throws SupermarktExceptions {

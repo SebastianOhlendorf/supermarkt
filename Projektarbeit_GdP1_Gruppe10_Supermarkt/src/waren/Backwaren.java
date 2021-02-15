@@ -1,22 +1,15 @@
 package waren;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-
-import supermarkt.SupermarktExceptions;
 
 /**
  * Kinderklasse der Klasse Lebensmittel zum anlegen von Backwaren-Objekten
- * @author SebastianOhlendorf
+ * @author Sebastian Ohlendorf
+ * @version 1.0
+ * @date 12.02.2021
  *
  */
-public class Backwaren extends Lebensmittel{
-	
-	//Konstante da der Wert immer auf 100 gesetzt werden soll
-	private static final int MAXMENGE = 100;
-	
-	//Klassenattribut
-	protected static ArrayList<Backwaren> alleBackwaren = new ArrayList<Backwaren>();
+public class Backwaren extends Lebensmittel{	
 	
 	/**
 	 * Konstruktor der Klasse Backwaren um ein Backwaren-Objekt zu erzeugen
@@ -34,34 +27,6 @@ public class Backwaren extends Lebensmittel{
 		super(name, preis, anzahl, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
 	}
 	
-	/**
-	 * Fuegt dem Array alleBackwaren ein neue Backware hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
-	 * Backware (Name) nicht hinugefuegt werden konnte.
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
-	 */
-	public static void addBackwaren(Backwaren backwaren) throws SupermarktExceptions {
-		
-		if(alleBackwaren.size() < 30) {
-			alleBackwaren.add(backwaren);
-			backwaren.anzahl = MAXMENGE;
-			backwaren.seitWannImBestand = LocalDate.now();
-			
-			if(backwaren.haltbarkeit <= 0) {
-				throw new SupermarktExceptions("Fehler: Die Haltbarkeit keinen positiven Wert!");
-			}
-		}else {
-			System.out.println(
-					String.format(
-							"Die Anzahl (30) verschiedeneser Waren wurde überschritten.! Die Backware %s konnte nicht hinzugefügt werden", 
-							backwaren.name)
-					);
-		}
-		
-	}
 	
 	/**
 	 * Abstrakte Methoden der Klasse Ware, welche zum herausgeben von Lebensmitteln verwendet wird.
@@ -76,6 +41,7 @@ public class Backwaren extends Lebensmittel{
 	@Override
 	public boolean herausgeben(int menge) {
 		
+		//Bestimmiung ob die Menge im Lager nach der herausgabe größer gleich 0 ist
 		int mengeLager = this.anzahl - menge;
 		boolean herausgeben;
 		
@@ -98,11 +64,8 @@ public class Backwaren extends Lebensmittel{
 							this.anzahl));
 			
 			nachbestellen(MAXMENGE);
-			
 			herausgeben = false;
-			
 		}
-		
 		return herausgeben;
 	}
 	
@@ -129,12 +92,20 @@ public class Backwaren extends Lebensmittel{
 	 */
 	public boolean backeWare() {
 		
-		if(alleBackwaren.contains(this.name)) {
-			return true;
-		}else {
-			return false;
+		//Methodenvariable ob eine Ware aufebacken werden muss
+		boolean backWare = false;
+		
+		for(int i = 0; i < alleWaren.size(); i++)
+		{
+		  if(alleWaren.get(i).getKennung() == BACKWAREN){
+			  	//"Waren wird aufgebacken!"
+			  	backWare = true;
+			}else {
+				//Ware wird nicht aufgebacken
+				backWare =  false;
+			}
 		}
-
+		return backWare;
 	}
 	
 	
@@ -143,11 +114,11 @@ public class Backwaren extends Lebensmittel{
 	 */
 	public static void gebeBackwareAus() {
 		
-		for(int i = 0; i < alleBackwaren.size(); i++) {
-			System.out.println("(" + i + ") " + alleBackwaren.get(i));
+		for(int i = 0; i < alleWaren.size(); i++){
+			
+			if(alleWaren.get(i).getKennung() == BACKWAREN){
+			  System.out.println("(" + i + ") " + alleWaren.get(i));
+			}
 		}
-		
 	}
-	
-	
 }

@@ -2,6 +2,8 @@ package waren;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import supermarkt.SupermarktExceptions;
+
 /**
  * Kinderklasse der Klasse Ware zum anlegen von Getränke-Objekten
  * @author Lennart Sparbier
@@ -11,121 +13,228 @@ import java.util.Scanner;
  */
 public class Getraenke extends Ware {
 
+	//Objektattribute
 	protected double alcProzente;
+	
+	//Klassenattribut zum zählen der Getränke
+	private static int zaehler_getraenke = 0;
+	
+	/**
+	 * Konstruktor der Klasse Getraenke um ein neues Getränke-Objekt zu erzeugen.
+	 * @author Sebastian Ohlendorf / 14.02.2020
+	 * 
+	 * @param name Die Bezeichnung des Getränks oder des Produkts als String
+	 * @param preis Der Preis der Ware als Double
+	 * @param anzahl Die Anzahl der Waren (Lagermenge) als Integer
+	 * @param seitWannImBestand Datum seit wann die Ware im Bestand ist als LocalDate
+	 * @param alcProzente Gibt den alkoholgehalt des Getränks in Double an
+	 */
+	public Getraenke(String name, double preis, int anzahl, LocalDate seitWannImBestand, double alcProzente)  {
+		super(name, preis, anzahl, seitWannImBestand);
+		this.alcProzente = alcProzente;			
+	}
+	
+	/**
+	 * Fuegt dem Array alleWaren ein neue Getränk hinzu, solange dieses nicht
+	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
+	 * Getränk (Name) nicht hinugefuegt werden konnte.
+	 * @author Sebastian Ohlendorf
+	 * 
+	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
+	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
+	 */
+	public static void addGetraenke(Getraenke getraenk) throws SupermarktExceptions {
+			
+		if(zaehler_getraenke < MAXANZAHLWAREN) {
+			alleWaren.add(getraenk);
+			getraenk.anzahl = MAXMENGE;
+			getraenk.seitWannImBestand = LocalDate.now();
+			getraenk.setKennung(GETRAENKE);
+			
+			if(getraenk.alcProzente < 0.00) {
+				throw new SupermarktExceptions("Fehler: Der Alkoholgehalt kann nicht kleiner 0 sein!");
+			}
+
+			zaehler_getraenke++;
+				
+		}else {
+			System.out.println(
+					String.format(
+							"Die Anzahl (30) verschiedeneser Waren wurde überschritten.! Das Getränk %s konnte nicht hinzugefügt werden", 
+							getraenk.name));
+		}
+	}
+
+	/**
+	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein Getränke-Objekt eine Nachbestellung zu tätigen.
+	 * Ist die Maximale Lagermenge bereits gegeben wird darüber Informiert
+	 * Ist die Bestellemenge plus die auf Lager liegende Menge größer als die Maximale Lagermenge, 
+	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darüber Infomiert
+	 * Wenn die Maximal Menge nicht überschritten wird, dann wird die übergebene Menge bestellt
+	 * Bei den Aktualisierungen der Lagermenge wird auch das Bestandsdatum aktualisiert
+	 * @author Sebastian Ohlendorf
+	 * 
+	 * @param menge Gibt die Anzahl der zu bestellenden Menge als Integer dar
+	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurück ob eine Bestellung getätigt wurde 
+	 */
+	@Override
+	public boolean nachbestellen(int menge) {
+		
+		//Methodenvariablen
+		int mengeLager = this.anzahl + menge;
+		int diffMenge;
+		boolean nachbestellung;
+		
+		//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
+		if (this.anzahl == MAXMENGE) {
+			
+			System.out.println(
+					String.format(
+							"Das Getränk %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+							this.name));
+			
+			nachbestellung = false;
+			
+		}
+		//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
+		else if(mengeLager > MAXMENGE) {
+			diffMenge = MAXMENGE - this.anzahl;
+			this.anzahl = this.anzahl + diffMenge;
+			
+			System.out.println(
+					String.format(
+							"Die Maximale Lagermenge (100) wurde überschritten! Es wurden daher %s Einheiten nachbestellt", 
+							diffMenge));
+			this.seitWannImBestand = LocalDate.now();
+			
+			nachbestellung = true;	
+		}
+		//Nachbestellung der Ware
+		else {
+			
+			this.anzahl = this.anzahl + menge;
+			this.seitWannImBestand = LocalDate.now();
+			
+			nachbestellung = true;
+		}
+		return nachbestellung;
+	}
+
+	/**
+	 * Abstrakte Methoden der Klasse Ware, welche zum herausgeben von Getränken verwendet wird.
+	 * Ist die angegebene Menge zum herausgeben möglich wird der Mengenbestand aktualisiert.
+	 * Sind nicht mehr genug Einheiten auf Lager wird eine Meldung ausgegeben und die Methode nachbestellen aufgerufen.
+	 * @author Sebastian Ohlendorf
+	 * 
+	 * @param menge Gibt die Anzahl der zu herausgebende Menge als Integer an
+	 * @return Gibt ein Boolean (True = es wurde herausgegeben, False = wurde nicht nicht herausgegeben) zurück ob eine Ausgabe getätigt wurde 
+	 * 
+	 */
+	@Override
+	public boolean herausgeben(int menge) {
+		
+		//Methodenvariablen
+		int mengeLager = this.anzahl - menge;
+		boolean herausgeben;
+		
+		//Prüfung ob noch genug im Lager ist zum herausgeben
+		if(mengeLager > 0) {
+			this.anzahl = this.anzahl - menge;
+			
+			System.out.println(
+					String.format(
+							"Für das Getränk %s wurden %s Einheiten herausgegeben.", 
+							this.name,
+							menge));
+			
+			herausgeben = true;
+		} 
+		//Keine herausgabe der Waren und es werden neue Waren nachbestellt
+		else {
+			
+			System.out.println(
+					String.format(
+							"Für das Getränk %s gibt es nur noch %s Einheiten auf Lager.", 
+							this.name,
+							this.anzahl));
+			
+			nachbestellen(MAXMENGE);
+			
+			herausgeben = false;
+			
+		}
+		return herausgeben;
+	}
+	
+	/**
+	 * toString Methode der Klasse Getraenk um eine Ausgabe
+	 * zu dem Getränk zu tätigen
+	 */
+	@Override
+	public String toString() {
+		
+		String ausgabe =String.format(
+							"Das Getränk %s ist aktuell auf Lager!", 
+							this.name);
+		
+		return	ausgabe; 
+	}
 	
 	
 	/**
+	 * Objektmethode zur Prüfung ob ein Getränk Alkoholhaltig ist oder nicht
+	 * @author Sebastian Ohlendorf
 	 * 
-	 * @param name
-	 * @param preis
-	 * @param seitWannImBestand
-	 * @param anzahl
+	 * @return Gibt ein Boolean zurück der True ist wenn das Getränk alkoholisch ist, andernfalls False
 	 */
-	public Getraenke(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			boolean obImBestand, int alcProzente)  {
-		super(name, preis, anzahl, seitWannImBestand);
-		// TODO Auto-generated constructor stub
-		this.alcProzente = alcProzente;
+	public boolean istAlkoholhaltig() {
 		
-		Scanner in = new Scanner(System.in);
-		
-		// Prüfung ob bei Anlegung Getränk bereits 30 verschiedene Getränke vorhanden sind
-		int getraenkeInsgesamt = 0;
-		this.anzahl = 0;
-		boolean enthaeltAlc = true;
-		
-		
-		String [][] getraenkeArray;
-		getraenkeArray = new String [31][6];
-		
-		if(getraenkeInsgesamt <=30) {
-			
-		for (int i = 0; i < getraenkeArray.length; i++) {
-			for(int j = 0; j<getraenkeArray.length; j++) {
-			
-			System.out.println("Bitte geben Sie einen Namen für das Getränk ein ");
-			getraenkeArray[i][j] = in.next();
-			
-			System.out.println("Bitte geben Sie einen Preis für das Getränk ein");
-			getraenkeArray[i][j] = in.next();
-			
-			System.out.println("Bitte geben Sie einen Alkoholgehalt für das Getränk an");
-			//this.alcProzente = this.alcProzente.parseDouble(in.next());
-			//this.alcProzente.parseDouble
-			//istAlkoholhaltig(enthaeltAlc);
-			
-			
-			
-			this.anzahl = 100;
-			this.seitWannImBestand = LocalDate.now();
-			//this.ObImBestand = true;
-			
-
-			
-			getraenkeInsgesamt ++;
-			
-		} 
-		} 
-		}
-		else {
-			System.out.println("Es wurden bereits 30 Getraenke erstellt");
-			
-			in.close();
-		}
-		
-		// Besprechen: Müsste mit in Ware als Vererbung	obImBestand = true;!!
-		//this.obImBestand = true; ( Benötigen im Hauptprogramm if abfrage 
-		// if this.anzahl = 0  this.obImBestand= false)
-		
-		// Die Ware soll ins Lager gepackt werden Klasse Lager
-			
-	}
-	
-	
-
-	@Override
-	public boolean nachbestellen(int menge) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean herausgeben(int menge) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	@Override
-	public String toString() {
-		return null;
-	}
-	
-	public boolean istAlkoholhaltig(boolean alkoholhaltig) {
-		
+		//Methodenvariable
+		boolean istAlkoholhaltig = false;
 		
 		if ( this.alcProzente > 0) {
-			alkoholhaltig = true;
-		} else {
-			System.out.println("Dieses Getränk enthält keinen Alkohol");
+			istAlkoholhaltig = true;
 		}
 		
-		return alkoholhaltig;
+		return istAlkoholhaltig;
 	}
 	
-	//public static void gebeGetraenkeAus(getraenkeArray[]) {
+	
+	/**
+	 * Klassenmethode, welche alle Getränke ausgibt
+	 */
+	public static void gebeGetraenkeAus() {
 		
-		//for (int i = 1; i < getraenkeArray.length; i++) {
-		//    System.out.println(getraenkeArray[i]);
-	//	}
-		//Gibt eine Liste aller vorhandener Lebensmittel (ihrer Namen) nummeriert aus. (Dies soll dem Nutzer später als Auswahl dienen, zB:
-		//	(1) Schokolade
-		//	(2) Nudeln
-		//	(3) Gurke
-		//	… )
-	//}
-	
-	public static void gebeNonAlkGetraenkeAus() {
-		//für nicht alkoholische Getränke
+		for(int i = 0; i < alleWaren.size(); i++) {
+			
+			if(alleWaren.get(i).getKennung() == GETRAENKE) {
+				System.out.println("(" + i + ") " + alleWaren.get(i));
+			}
+			
+		}
 	}
+	
+	
+	/**
+	 * Klassenmethode, welche alle Getränke ausgibt, welche nicht alkoholisch sind
+	 */
+	public static void gebeNonAlkGetraenkeAus() {
+
+		for(int i = 0; i < alleWaren.size(); i++) {
+			
+			if(alleWaren.get(i).getKennung() == GETRAENKE && !alleWaren.get(i).istAlkoholhaltig() ) {
+				System.out.println("(" + i + ") " + alleWaren.get(i));
+			}
+			
+		}
+	}
+
+	@Override
+	protected int istHaltbar() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 
 }

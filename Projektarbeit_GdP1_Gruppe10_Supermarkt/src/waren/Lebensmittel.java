@@ -1,31 +1,27 @@
 package waren;
 
 import java.time.LocalDate;
-
 import java.util.ArrayList;
-
 import supermarkt.SupermarktExceptions;
 
 /**
  * Kinderklasse der Klasse Ware zum anlegen von Lebensmittelobjekten
- * @author 
- * @version
- * @date
+ * @author Sebastian Ohlendorf
+ * @version 1.0
+ * @date 14.02.2021
  *
  */
 public class Lebensmittel extends Ware {
 	
-	//Variablen anlegen
+	//Objektattribute für das Lebensmittelobjekt
 	protected double gewicht;
 	protected int haltbarkeit; //Die Haltbarkeit wird in Tagen gemessen
 	protected boolean bedarfKuehlung;
-
-	//Konstante da der Wert immer auf 100 gesetzt werden soll
-	private static final int MAXMENGE = 100;
 	
-	//Klassenattribut
-	protected static ArrayList<Lebensmittel> alleLebensmittel = new ArrayList<Lebensmittel>();
-;
+	//Klassenattribute zum zaehlen der Lebensmittel und Backwaren 
+	private static int zaehler_lebensmittel = 0;
+	private static int zaehler_backwaren = 0;
+
 	
 	/**
 	 * Konstruktor der Klasse Lebensmittel um ein neues Lebensmittel-Objekt zu erzeugen.
@@ -45,13 +41,12 @@ public class Lebensmittel extends Ware {
 		this.gewicht = gewicht;
 		this.haltbarkeit = haltbarkeit;
 		this.bedarfKuehlung = bedarfKuehlung;
-		
-		//Lebensmittel.anzahlLebensmittel++;
+
 	}
 	
 	
 	/**
-	 * Fuegt dem Array alleLebensmittel ein neues Lebensmittel hinzu, solange dieses nicht
+	 * Fuegt dem Array alleWaren ein neues Lebensmittel hinzu, solange dieses nicht
 	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
 	 * Lebensmittel (Name) nicht hinugefuegt werden konnte.
 	 * @author Sebastian Ohlendorf
@@ -60,23 +55,57 @@ public class Lebensmittel extends Ware {
 	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
 	 */
 	public static void addLebensmittel(Lebensmittel lebensmittel) throws SupermarktExceptions {
-		
-		if(alleLebensmittel.size() < 30) {
-			alleLebensmittel.add(lebensmittel);
+			
+		if(zaehler_lebensmittel < MAXANZAHLWAREN) {
+			alleWaren.add(lebensmittel);
 			lebensmittel.anzahl = MAXMENGE;
 			lebensmittel.seitWannImBestand = LocalDate.now();
+			lebensmittel.setKennung(LEBENSMITTEL);
 			
 			if(lebensmittel.haltbarkeit <= 0) {
 				throw new SupermarktExceptions("Fehler: Die Haltbarkeit keinen positiven Wert!");
 			}
+					
+			zaehler_lebensmittel++;
+					
 		}else {
 			System.out.println(
 					String.format(
 							"Die Anzahl (30) verschiedeneser Waren wurde überschritten.! Das Lebensmittel %s konnte nicht hinzugefügt werden", 
-							lebensmittel.name)
-					);
+							lebensmittel.name));
 		}
-		
+	}
+	
+	
+	/**
+	 * Fuegt dem Array alleWaren ein neue Backware hinzu, solange dieses nicht
+	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
+	 * Backware (Name) nicht hinugefuegt werden konnte.
+	 * @author Sebastian Ohlendorf
+	 * 
+	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
+	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
+	 */
+	public static void addBackwaren(Backwaren backwaren) throws SupermarktExceptions {
+			
+		if(zaehler_backwaren < MAXANZAHLWAREN) {
+			alleWaren.add(backwaren);
+			backwaren.anzahl = MAXMENGE;
+			backwaren.seitWannImBestand = LocalDate.now();
+			backwaren.setKennung(BACKWAREN);
+			
+			if(backwaren.haltbarkeit <= 0) {
+				throw new SupermarktExceptions("Fehler: Die Haltbarkeit keinen positiven Wert!");
+			}
+				
+			zaehler_backwaren++;
+				
+		}else {
+			System.out.println(
+					String.format(
+							"Die Anzahl (30) verschiedeneser Waren wurde überschritten.! Die Backware %s konnte nicht hinzugefügt werden", 
+							backwaren.name));
+		}
 	}
 	
 	
@@ -95,10 +124,12 @@ public class Lebensmittel extends Ware {
 	@Override
 	public boolean nachbestellen(int menge) {
 		
+		//Methodenvariablen
 		int mengeLager = this.anzahl + menge;
 		int diffMenge;
 		boolean nachbestellung;
 		
+		//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
 		if (this.anzahl == MAXMENGE) {
 			
 			System.out.println(
@@ -109,6 +140,7 @@ public class Lebensmittel extends Ware {
 			nachbestellung = false;
 			
 		}
+		//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
 		else if(mengeLager > MAXMENGE) {
 			diffMenge = MAXMENGE - this.anzahl;
 			this.anzahl = this.anzahl + diffMenge;
@@ -119,22 +151,16 @@ public class Lebensmittel extends Ware {
 							diffMenge));
 			this.seitWannImBestand = LocalDate.now();
 			
-			toString();
-			
-			nachbestellung = true;
-			
-			
-		}else {
+			nachbestellung = true;	
+		}
+		//Nachbestellung der Ware
+		else {
 			
 			this.anzahl = this.anzahl + menge;
-			
 			this.seitWannImBestand = LocalDate.now();
-			
-			toString();
 			
 			nachbestellung = true;
 		}
-		
 		return nachbestellung;
 	}
 
@@ -151,9 +177,11 @@ public class Lebensmittel extends Ware {
 	@Override
 	public boolean herausgeben(int menge) {
 		
+		//Methodenvariablen
 		int mengeLager = this.anzahl - menge;
 		boolean herausgeben;
 		
+		//Prüfung ob noch genug im Lager ist zum herausgeben
 		if(mengeLager > 0) {
 			this.anzahl = this.anzahl - menge;
 			
@@ -164,7 +192,9 @@ public class Lebensmittel extends Ware {
 							menge));
 			
 			herausgeben = true;
-		} else {
+		} 
+		//Keine herausgabe der Waren und es werden neue Waren nachbestellt
+		else {
 			
 			System.out.println(
 					String.format(
@@ -177,7 +207,6 @@ public class Lebensmittel extends Ware {
 			herausgeben = false;
 			
 		}
-		
 		return herausgeben;
 	}
 	
@@ -261,20 +290,18 @@ public class Lebensmittel extends Ware {
 		
 		ArrayList<String> kurzesMHD = new ArrayList<String>();
 		
-		for(int i = 0; i < alleLebensmittel.size(); i++) {
+		for(int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleLebensmittel.get(i).istHaltbar() <= 2 && alleLebensmittel.get(i).istHaltbar() >= 0) {
-							
-				kurzesMHD.add("Lebensmittel: " + alleLebensmittel.get(i).name + ", Bestandsmenge: " + alleLebensmittel.get(i).anzahl);
+			if(alleWaren.get(i).istHaltbar() <= 2 && alleWaren.get(i).istHaltbar() >= 0) {
 
-			} else if(alleLebensmittel.get(i).istHaltbar() < 0){
+				kurzesMHD.add("Lebensmittel: " + alleWaren.get(i).name + ", Bestandsmenge: " + alleWaren.get(i).anzahl);
+
+			} else if(alleWaren.get(i).istHaltbar() < 0){
 				
-				alleLebensmittel.remove(i);
-
+				alleWaren.remove(i);
+				zaehler_lebensmittel--;
 			}
-			
 		}
-		
 		return kurzesMHD;
 	}
 	
@@ -284,10 +311,23 @@ public class Lebensmittel extends Ware {
 	 */
 	public static void gebeLebensmittelAus() {
 		
-		for(int i = 0; i < alleLebensmittel.size(); i++) {
-			System.out.println("(" + i + ") " + alleLebensmittel.get(i));
+		for(int i = 0; i < alleWaren.size(); i++) {
+			
+			if(alleWaren.get(i).getKennung() == LEBENSMITTEL) {
+				System.out.println("(" + i + ") " + alleWaren.get(i));
+			}
+			
 		}
 		
 	}
 
+
+	@Override
+	protected boolean istAlkoholhaltig() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
+
+

@@ -1,6 +1,7 @@
 package waren;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Eine Abstrakte Klasse mit der neue Warenobjekte angelegt, Waren nachbestellt oder herausgegeben werden können.
@@ -16,6 +17,22 @@ public abstract class Ware {
 	protected double preis;
 	protected int anzahl;
 	protected LocalDate seitWannImBestand;
+	private int kennung;
+	
+	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
+	protected static final int MAXMENGE = 100;
+	protected static final int MAXANZAHLWAREN = 30;
+	protected static final int LEBENSMITTEL = 1;
+	protected static final int GETRAENKE = 2;
+	protected static final int NONFOODARTIKEL = 3;
+	protected static final int BACKWAREN = 4;
+	protected static final int KLEIDUNG = 5;
+	protected static final int MEDIEN = 6;
+	protected static final int DROGERIEARTIKEL = 7;
+	protected static final int FILME = 8;
+	
+	//ArrayList für alle Warentypen
+	protected static ArrayList<Ware> alleWaren = new ArrayList<Ware>();
 	
 	/**
 	 * Konstruktor der Klasse Ware um ein neues Warenobjekt zu erzeugen.
@@ -46,4 +63,31 @@ public abstract class Ware {
 	 * @return Gibt ein True oder False zurück ob Waren herausgegeben werden können
 	 */
 	public abstract boolean herausgeben(int menge);
+	
+	/**
+	 * Abstrakte Methode zum feststellen der Haltbarkeit einer Ware
+	 * @return Gibt die Dauer der Haltbarkeit als Integer zurück
+	 */
+	protected abstract int istHaltbar();
+	
+	/**
+	 * Abstrakte Methode zum feststellen ob ein Getränk alokolhaltig ist
+	 * @return Gibt ein True zurück wenn das Getränk akloholhaltig ist, andernfalls False
+	 */
+	protected abstract boolean istAlkoholhaltig();
+
+	
+	//--------------- GETTER und SETTER -------------------------
+
+	public int getKennung() {
+		return kennung;
+	}
+
+	public void setKennung(int kennung) {
+		this.kennung = kennung;
+	}
+
+	
+
+	
 }

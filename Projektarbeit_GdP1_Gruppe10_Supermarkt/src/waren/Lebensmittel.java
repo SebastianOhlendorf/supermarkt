@@ -13,7 +13,7 @@ import supermarkt.SupermarktExceptions;
  */
 public class Lebensmittel extends Ware {
 	
-	//Objektattribute für das Lebensmittelobjekt
+	//Objektattribute fï¿½r das Lebensmittelobjekt
 	protected double gewicht;
 	protected int haltbarkeit; //Die Haltbarkeit wird in Tagen gemessen
 	protected boolean bedarfKuehlung;
@@ -33,7 +33,7 @@ public class Lebensmittel extends Ware {
 	 * @param seitWannImBestand Datum seit wann die Ware im Bestand ist als LocalDate
 	 * @param gewicht Gewicht der Ware als Double
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
-	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekühlt werden muss
+	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekï¿½hlt werden muss
 	 */
 	public Lebensmittel(String name, double preis, int anzahl, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
 		
@@ -52,7 +52,7 @@ public class Lebensmittel extends Ware {
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param lebensmittel das hinzuzufuegende neue Lebensmittel
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
+	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthï¿½lt
 	 */
 	public static void addLebensmittel(Lebensmittel lebensmittel) throws SupermarktExceptions {
 			
@@ -71,7 +71,7 @@ public class Lebensmittel extends Ware {
 		}else {
 			System.out.println(
 					String.format(
-							"Die Anzahl (30) verschiedeneser Waren wurde überschritten.! Das Lebensmittel %s konnte nicht hinzugefügt werden", 
+							"Die Anzahl (30) verschiedeneser Waren wurde ï¿½berschritten.! Das Lebensmittel %s konnte nicht hinzugefï¿½gt werden", 
 							lebensmittel.name));
 		}
 	}
@@ -84,7 +84,7 @@ public class Lebensmittel extends Ware {
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
+	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthï¿½lt
 	 */
 	public static void addBackwaren(Backwaren backwaren) throws SupermarktExceptions {
 			
@@ -103,23 +103,23 @@ public class Lebensmittel extends Ware {
 		}else {
 			System.out.println(
 					String.format(
-							"Die Anzahl (30) verschiedeneser Waren wurde überschritten.! Die Backware %s konnte nicht hinzugefügt werden", 
+							"Die Anzahl (30) verschiedeneser Waren wurde ï¿½berschritten.! Die Backware %s konnte nicht hinzugefï¿½gt werden", 
 							backwaren.name));
 		}
 	}
 	
 	
 	/**
-	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein Lebensmittel-Objekt eine Nachbestellung zu tätigen.
-	 * Ist die Maximale Lagermenge bereits gegeben wird darüber Informiert
-	 * Ist die Bestellemenge plus die auf Lager liegende Menge größer als die Maximale Lagermenge, 
-	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darüber Infomiert
-	 * Wenn die Maximal Menge nicht überschritten wird, dann wird die übergebene Menge bestellt
+	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird fï¿½r ein Lebensmittel-Objekt eine Nachbestellung zu tï¿½tigen.
+	 * Ist die Maximale Lagermenge bereits gegeben wird darï¿½ber Informiert
+	 * Ist die Bestellemenge plus die auf Lager liegende Menge grï¿½ï¿½er als die Maximale Lagermenge, 
+	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darï¿½ber Infomiert
+	 * Wenn die Maximal Menge nicht ï¿½berschritten wird, dann wird die ï¿½bergebene Menge bestellt
 	 * Bei den Aktualisierungen der Lagermenge wird auch das Bestandsdatum aktualisiert
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param menge Gibt die Anzahl der zu bestellenden Menge als Integer dar
-	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurück ob eine Bestellung getätigt wurde 
+	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurï¿½ck ob eine Bestellung getï¿½tigt wurde 
 	 */
 	@Override
 	public boolean nachbestellen(int menge) {
@@ -129,25 +129,25 @@ public class Lebensmittel extends Ware {
 		int diffMenge;
 		boolean nachbestellung;
 		
-		//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
+		//Prï¿½fung ob Lagermene einer Ware gleich der Lagergroeï¿½e ist
 		if (this.anzahl == MAXMENGE) {
 			
 			System.out.println(
 					String.format(
-							"Das Lebensmittel %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+							"Das Lebensmittel %s hat bereits die maximale Lagerkapazitï¿½t, daher wird keine Nachbestellung durchgefï¿½hrt!", 
 							this.name));
 			
 			nachbestellung = false;
 			
 		}
-		//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
+		//Prï¿½fung b die zu bestellende Megen mit der Lagermenge gï¿½ï¿½er ist als die Lagerroeï¿½e
 		else if(mengeLager > MAXMENGE) {
 			diffMenge = MAXMENGE - this.anzahl;
 			this.anzahl = this.anzahl + diffMenge;
 			
 			System.out.println(
 					String.format(
-							"Die Maximale Lagermenge (100) wurde überschritten! Es wurden daher %s Einheiten nachbestellt", 
+							"Die Maximale Lagermenge (100) wurde ï¿½berschritten! Es wurden daher %s Einheiten nachbestellt", 
 							diffMenge));
 			this.seitWannImBestand = LocalDate.now();
 			
@@ -163,15 +163,15 @@ public class Lebensmittel extends Ware {
 		}
 		return nachbestellung;
 	}
-
+		
 	/**
 	 * Abstrakte Methoden der Klasse Ware, welche zum herausgeben von Lebensmitteln verwendet wird.
-	 * Ist die angegebene Menge zum herausgeben möglich wird der Mengenbestand aktualisiert.
+	 * Ist die angegebene Menge zum herausgeben mï¿½glich wird der Mengenbestand aktualisiert.
 	 * Sind nicht mehr genug Einheiten auf Lager wird eine Meldung ausgegeben und die Methode nachbestellen aufgerufen.
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param menge Gibt die Anzahl der zu herausgebende Menge als Integer an
-	 * @return Gibt ein Boolean (True = es wurde herausgegeben, False = wurde nicht nicht herausgegeben) zurück ob eine Ausgabe getätigt wurde 
+	 * @return Gibt ein Boolean (True = es wurde herausgegeben, False = wurde nicht nicht herausgegeben) zurï¿½ck ob eine Ausgabe getï¿½tigt wurde 
 	 * 
 	 */
 	@Override
@@ -181,13 +181,13 @@ public class Lebensmittel extends Ware {
 		int mengeLager = this.anzahl - menge;
 		boolean herausgeben;
 		
-		//Prüfung ob noch genug im Lager ist zum herausgeben
+		//Prï¿½fung ob noch genug im Lager ist zum herausgeben
 		if(mengeLager > 0) {
 			this.anzahl = this.anzahl - menge;
 			
 			System.out.println(
 					String.format(
-							"Für das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
+							"Fï¿½r das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
 							this.name,
 							menge));
 			
@@ -198,7 +198,7 @@ public class Lebensmittel extends Ware {
 			
 			System.out.println(
 					String.format(
-							"Für das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager.", 
+							"Fï¿½r das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager.", 
 							this.name,
 							this.anzahl));
 			
@@ -213,7 +213,7 @@ public class Lebensmittel extends Ware {
 	
 	/**
 	 * toString Methode der Klasse Lebensmittel um eine Ausgabe
-	 * zu dem Lebensmittel zu tätigen
+	 * zu dem Lebensmittel zu tï¿½tigen
 	 */
 	@Override
 	public String toString() {
@@ -232,7 +232,7 @@ public class Lebensmittel extends Ware {
 	 * Ist das MHD abgelaufen wird eine Meldung herausgegeben
 	 * @author Sebastian Ohlendorf
 	 * 
-	 * @return Gibt das MHD als Zeichenkette zurück
+	 * @return Gibt das MHD als Zeichenkette zurï¿½ck
 	 */
 	public String haltbarBis() {
 		
@@ -257,12 +257,12 @@ public class Lebensmittel extends Ware {
 	
 	/**
 	 * Mit der Methode wird die Haltbarkeit in Tagen ermittelt.
-	 * Wenn der ermittelte Wert gößer 0 ist, dann werden die Tage als Int ausgegeben,
-	 * ist der ermittelte Wert gleich 0 wird eine 0 zurückgegeben
-	 * Trifft keiner der Prüfungen zu, dann ist das MHD überschritten und es wird eine -1 zurückgegeben
+	 * Wenn der ermittelte Wert gï¿½ï¿½er 0 ist, dann werden die Tage als Int ausgegeben,
+	 * ist der ermittelte Wert gleich 0 wird eine 0 zurï¿½ckgegeben
+	 * Trifft keiner der Prï¿½fungen zu, dann ist das MHD ï¿½berschritten und es wird eine -1 zurï¿½ckgegeben
 	 * @author Sebastian Ohlendorf
 	 * 
-	 * @return Gibt die Haltbarkeit in Tagen als Integer zurück
+	 * @return Gibt die Haltbarkeit in Tagen als Integer zurï¿½ck
 	 */
 	public int istHaltbar() {
 		
@@ -281,8 +281,8 @@ public class Lebensmittel extends Ware {
 	
 	
 	/**
-	 * Eine Methode von Typ ArrayList welche alle Lebensmittel zurückliefert welche eine haltbarkeit von 0-2 haben.
-	 * Hat ein Lebensmittel eine Haltbarkeit kleiner 0, dann wird dieses aus der ArrayList gelöscht
+	 * Eine Methode von Typ ArrayList welche alle Lebensmittel zurï¿½ckliefert welche eine haltbarkeit von 0-2 haben.
+	 * Hat ein Lebensmittel eine Haltbarkeit kleiner 0, dann wird dieses aus der ArrayList gelï¿½scht
 	 * 
 	 * @return ArrayListe mit allen Lebensmitteln welche eine Halbarkeit von 0 bis 2 haben
 	 */

@@ -318,7 +318,7 @@ public class Lebensmittel extends Ware {
 			}
 			
 		}
-		
+		 
 	}
 
 

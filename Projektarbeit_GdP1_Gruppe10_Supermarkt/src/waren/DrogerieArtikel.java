@@ -21,4 +21,4 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		return null;
 	}
 
-}
+} 

@@ -22,4 +22,4 @@ public class SupermarktExceptions extends Exception{
 		super(s);
 	}
 
-}
+} 

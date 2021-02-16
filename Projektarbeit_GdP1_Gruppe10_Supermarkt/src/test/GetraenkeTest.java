@@ -27,7 +27,7 @@ public class GetraenkeTest {
 		Getraenke.gebeGetraenkeAus();
 		System.out.println("NonAlkohol");
 		Getraenke.gebeNonAlkGetraenkeAus();
-
+ 
 
 	}
 

@@ -18,6 +18,8 @@ public abstract class Ware {
 	protected int anzahl;
 	protected LocalDate seitWannImBestand;
 	private int kennung;
+	protected String stofftyp;
+	protected int jahreszeit;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;
@@ -27,7 +29,7 @@ public abstract class Ware {
 	protected static final int NONFOODARTIKEL = 3;
 	protected static final int BACKWAREN = 4;
 	protected static final int KLEIDUNG = 5;
-	protected static final int MEDIEN = 6;
+	protected static final int MEDIEN = 6; 
 	protected static final int DROGERIEARTIKEL = 7;
 	protected static final int FILME = 8;
 	
@@ -85,6 +87,18 @@ public abstract class Ware {
 
 	public void setKennung(int kennung) {
 		this.kennung = kennung;
+	}
+
+	public String getStofftyp() {
+		return stofftyp;
+	}
+
+	public int getJahreszeit() {
+		return jahreszeit;
+	}
+
+	public void setJahreszeit(int jahreszeit) {
+		this.jahreszeit = jahreszeit;
 	}
 
 	

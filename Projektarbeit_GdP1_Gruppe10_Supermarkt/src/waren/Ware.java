@@ -20,6 +20,7 @@ public abstract class Ware {
 	private int kennung;
 	protected String stofftyp;
 	protected int jahreszeit;
+	protected int unterGruppe;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;
@@ -99,6 +100,10 @@ public abstract class Ware {
 
 	public void setJahreszeit(int jahreszeit) {
 		this.jahreszeit = jahreszeit;
+	}
+	
+	public void setUnterGruppe (int unterGruppe) {
+		this.unterGruppe = unterGruppe;
 	}
 
 	

@@ -50,6 +50,9 @@ public class einAusgabe {
 	
 	// Ab nun an nicht mehr allgemeine Variablen. In dem Fall für Non Food Artikel
 	
+	
+	
+	//explizite Eingabe für NonFood Artikel
 	public static String eingabeBeschreibung (String eingabeString) {
 		 System.out.println(eingabeString);
 		String beschreibung = in.next();
@@ -62,6 +65,54 @@ public class einAusgabe {
 		return unterGruppe;
 	}
 
+	
+	//explizite Eingaben für Lebensmittel
+	
+	public static Double eingabeGewicht (String eingabeString) {
+		 System.out.println(eingabeString);
+		double gewicht = in.nextDouble();
+		return gewicht;
+	}
+	
+	public static int eingabeHaltbarkeit (String eingabeString) {
+		boolean größerNull;
+		System.out.println(eingabeString);
+		int haltbarkeit = in.nextInt();
+		
+		if (haltbarkeit <=0) {
+			größerNull = false;
+			System.out.println("Die Haltbarkeit des Produkts darf nicht unter 0 Tagen liegen ");
+		} else {
+			größerNull = true;
+			
+		}
+		return haltbarkeit;
+	}
+	
+	//public static eingabeBedarfKühlung (String eingabeString) {
+	//	System.out.println(eingabeString);
+		
+	//}
+	
+	//explizite Eingaben für Getränke
+	
+	public static Double eingabeAlkoholGehalt (String eingabeString) {
+		System.out.println(eingabeString);
+		double alkoholGehalt = in.nextDouble();
+		return alkoholGehalt;
+	}
+	
+	
+	//explizite Eingaben für Backwaren
+	
+	public static Boolean überprüfungAufgebacken (String eingabeString) {
+		System.out.println(eingabeString);
+		boolean istAufgebacken = true;
+		if(istAufgebacken == false) {
+			System.out.println("Das Produkt ist nicht aufgebacken");
+		}
+		return istAufgebacken;
+	}
 	
 	public static void schliesseScanner() {
 		in.close();

@@ -16,8 +16,11 @@ public class NonFoodArtikel extends Ware {
 	protected  String beschreibung;
 	protected int unterGruppe;
 	
+	
 	//Klassenattribut. Zählt die NonFood Artikel
 	private static int nonFoodArtikel_zaehler = 0;
+	
+
 	/**
 	 * Konstruktor der Klasse NonFoodArtikel um ein neues NonFoodArtikel-Objekt zu erzeugen.
 	 * @author Lennart Sparbier / 16.02.2021
@@ -166,6 +169,8 @@ public boolean nachbestellen(int menge) {
 			
 		}
 	}
+	
+	
 	
 }
 

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 /**
- * Kinderklasse von Ware um Non-Food Artikel Objekte erstellen zu können
+ * Kinderklasse von Ware um Non-Food Artikel Objekte erstellen zu kï¿½nnen
  * @author 
  * @version
  * @date
@@ -37,7 +37,7 @@ public class NonFoodArtikel extends Ware{
 		
 		
 		
-		// Prüfung ob bei Anlegung Getränk bereits 30 verschiedene Getränke vorhanden sind
+		// Prï¿½fung ob bei Anlegung Getrï¿½nk bereits 30 verschiedene Getrï¿½nke vorhanden sind
 		int nonFoodArtikelInsgesamt = 0;
 		this.anzahl = 0;
 		
@@ -74,8 +74,8 @@ public class NonFoodArtikel extends Ware{
 			
 		}
 		
-		// Besprechen: Müsste mit in Ware als Vererbung	obImBestand = true;!!
-		//this.obImBestand = true; ( Benötigen im Hauptprogramm if abfrage 
+		// Besprechen: Mï¿½sste mit in Ware als Vererbung	obImBestand = true;!!
+		//this.obImBestand = true; ( Benï¿½tigen im Hauptprogramm if abfrage 
 		// if this.anzahl = 0  this.obImBestand= false)
 		
 		// Die Ware soll ins Lager gepackt werden Klasse Lager

@@ -24,8 +24,8 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * @param seitWannImBestand Zeitstempel von wann das Drogerieartikel hinzugefügt wurde.
 	 * @param beschreibung	Beschreibung vom Drogerieartikel.
 	 */
-	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, String beschreibung, String nutzung, double stiftungwarentest, String allergene) {
-		super(name, preis, seitWannImBestand, beschreibung);
+	public DrogerieArtikel(String name, double preis, int anzahl, LocalDate seitWannImBestand, String beschreibung, String nutzung, double stiftungwarentest, String allergene) {
+		super(name, preis, anzahl, seitWannImBestand, beschreibung);
 							
 		this.nutzung = nutzung;
 		this.stiftungwarentest = stiftungwarentest;
@@ -44,9 +44,44 @@ public class DrogerieArtikel extends NonFoodArtikel {
 			DrogerieArtikel.allergene = "Dieses Produkt enthält folgendes Allergen: " + drogerieArtikel.allergene; 
 			
 		}else {
-			System.out.println("Die Anzahl 30 verschiedener Waren wurde �berschritten. " + "Das Produkt konnte nicht hinzugef�gt werden. : " + drogerieArtikel.name);
+			System.out.println(("Die Anzahl 30 verschiedener Waren wurde ueberschritten. Das Produkt konnte nicht hinzugefuegt werden. : %s ")  drogerieArtikel.name );
 }	
  }
+ 	public boolean nachbestellen(int menge) {
+		
+		//Methodenvariablen
+		int mengeLager = this.anzahl + menge;
+		int diffMenge;
+		boolean nachbestellung;
+	
+		//Pruefung ob Lagermenge einer Ware gleich der Lagergroesse ist
+		if (this.anzahl == MAXMENGE) {
+		
+			System.out.println(String.format("Der NonFoodArtikel hat bereits die maximale Lagerkapazit�t, daher wird keine Nachbestellung durchgefuehrt!", this.name));
+		
+			nachbestellung = false;	
+		}
+		//Pr�fung ob die zu bestellende Megen mit der Lagermenge g��er ist als die Lagerroe�e
+		else if(mengeLager > MAXMENGE) {
+			diffMenge = MAXMENGE - this.anzahl;
+			this.anzahl = this.anzahl + diffMenge;
+		
+			System.out.println(String.format("Die Maximale Lagermenge (100) wurde �berschritten! Es wurden daher %s Einheiten nachbestellt", diffMenge));
+			this.seitWannImBestand = LocalDate.now();
+		
+			nachbestellung = true;	
+		}
+		//Nachbestellung der Ware
+		else {
+		
+			this.anzahl = this.anzahl + menge;
+			this.seitWannImBestand = LocalDate.now();
+		
+			nachbestellung = true;
+		}
+			return nachbestellung;
+}
+
 
 	public boolean herausgeben(int menge) {
 		
@@ -57,15 +92,13 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		if(mengeLager > 0) {
 			this.anzahl = this.anzahl - menge;
 			
-			System.out.println(String.format("Fuer D Drogerieartikel %s wurden %s Einheiten herausgegeben.", this.name,menge));
+			System.out.println(String.format("Fuer das Drogerieartikel %s wurden %s Einheiten herausgegeben.", this.name, menge));
 			
 			herausgeben = true;
 		} else {
 			
 			System.out.println(
-					String.format("Fuer die Drogerieartikel %s gibt es nur noch %s Einheiten auf Lager.", 
-							this.name,
-							this.anzahl));
+					String.format("Fuer die Drogerieartikel %s gibt es nur noch %s Einheiten auf Lager.", this.name, this.anzahl));
 			
 			nachbestellen(MAXMENGE);
 			herausgeben = false;

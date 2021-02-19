@@ -23,7 +23,7 @@ public class NonFoodArtikelTestMain {
 		//speziell für NonFoodArtikel
 		String beschreibung;
 		String unterGruppe;
-		
+		 
 		/**
 		 * Eingaben vom Benutzer
 		 */

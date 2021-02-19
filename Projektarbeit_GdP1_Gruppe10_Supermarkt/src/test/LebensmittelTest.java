@@ -1,12 +1,9 @@
 package test;
 
 import java.time.LocalDate;
-import java.util.Scanner;
-
 import supermarkt.SupermarktExceptions;
 import waren.Backwaren;
 import waren.Lebensmittel;
-import waren.Ware;
 
 public class LebensmittelTest {
 
@@ -19,7 +16,7 @@ public class LebensmittelTest {
 					+ "(3) haltbarBis\n"
 					+ "(4) istHalbar\n"
 					+ "(5) kurzesMHD\n"
-					+ "(6) liste\n"
+					+ "(6) liste\n" 
 					+ "(7) beenden\n");
 			
 					Lebensmittel lebensmittel = new Lebensmittel("Kekse_" + 0, 2.98, 5, LocalDate.now(), 0.5, 25, false);

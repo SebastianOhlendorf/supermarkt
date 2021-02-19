@@ -1,7 +1,5 @@
 package waren;
 import java.time.LocalDate;
-import java.util.Scanner;
-
 import supermarkt.SupermarktExceptions;
 
 /**
@@ -40,7 +38,7 @@ public class Getraenke extends Ware {
 	 * Getränk (Name) nicht hinugefuegt werden konnte.
 	 * @author Sebastian Ohlendorf
 	 * 
-	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
+	 * @param getraenk das hinzuzufuegende eines neuen Getränke-Objektes
 	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
 	 */
 	public static void addGetraenke(Getraenke getraenk) throws SupermarktExceptions {
@@ -161,7 +159,7 @@ public class Getraenke extends Ware {
 			nachbestellen(MAXMENGE);
 			
 			herausgeben = false;
-			
+			 
 		}
 		return herausgeben;
 	}

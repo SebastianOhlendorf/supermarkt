@@ -82,7 +82,7 @@ public class Backwaren extends Lebensmittel{
 							this.anzahl);
 		
 		return	ausgabe; 
-	}
+	} 
 	
 	/**
 	 * Methode zum aufbacken von Waren. 

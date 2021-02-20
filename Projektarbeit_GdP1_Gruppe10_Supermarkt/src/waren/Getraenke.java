@@ -1,6 +1,6 @@
 package waren;
 import java.time.LocalDate;
-import supermarkt.SupermarktExceptions;
+import java.util.ArrayList;
 
 /**
  * Kinderklasse der Klasse Ware zum anlegen von Getränke-Objekten
@@ -12,7 +12,7 @@ import supermarkt.SupermarktExceptions;
 public class Getraenke extends Ware {
 
 	//Objektattribute
-	protected double alcProzente;
+	
 	
 	//Klassenattribut zum zählen der Getränke
 	private static int zaehler_getraenke = 0;
@@ -41,25 +41,33 @@ public class Getraenke extends Ware {
 	 * @param getraenk das hinzuzufuegende eines neuen Getränke-Objektes
 	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
 	 */
-	public static void addGetraenke(Getraenke getraenk) throws SupermarktExceptions {
+	public static void addGetraenke(Getraenke getraenk) {
 			
-		if(zaehler_getraenke < MAXANZAHLWAREN) {
-			alleWaren.add(getraenk);
-			getraenk.anzahl = MAXMENGE;
-			getraenk.seitWannImBestand = LocalDate.now();
-			getraenk.setKennung(GETRAENKE);
-			
-			if(getraenk.alcProzente < 0.00) {
-				throw new SupermarktExceptions("Fehler: Der Alkoholgehalt kann nicht kleiner 0 sein!");
-			}
-
-			zaehler_getraenke++;
-				
-		}else {
+		ArrayList<Ware> neuesGetraenk = new ArrayList<Ware>();
+		
+		if(getraenk.alcProzente < 0.00) {
 			System.out.println(
 					String.format(
-							"Die Anzahl (30) verschiedeneser Waren wurde überschritten.! Das Getränk %s konnte nicht hinzugefügt werden", 
-							getraenk.name));
+							"Fehler: Die übergebene Alkoholgehalt <%s> beinhaltet keinen positiven Wert!", 
+							getraenk.alcProzente));
+
+		}else if(zaehler_getraenke < MAXANZAHLWAREN) {
+			
+				for(int i = 0; i < MAXMENGE; i++) {
+			
+					neuesGetraenk.add(getraenk);
+					getraenk.seitWannImBestand = LocalDate.now();
+					getraenk.setKennung(GETRAENKE);
+				}
+		
+				zaehler_getraenke++;
+				alleWaren.add(neuesGetraenk);
+				
+		}else {
+				System.out.println(
+						String.format(
+								"Die Anzahl (30) verschiedeneser Getränkearten wurde überschritten! Das Getränk %s konnte nicht hinzugefügt werden", 
+								getraenk.name));
 		}
 	}
 
@@ -79,43 +87,71 @@ public class Getraenke extends Ware {
 	public boolean nachbestellen(int menge) {
 		
 		//Methodenvariablen
-		int mengeLager = this.anzahl + menge;
-		int diffMenge;
-		boolean nachbestellung;
-		
-		//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
-		if (this.anzahl == MAXMENGE) {
-			
-			System.out.println(
-					String.format(
-							"Das Getränk %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
-							this.name));
-			
-			nachbestellung = false;
-			
-		}
-		//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
-		else if(mengeLager > MAXMENGE) {
-			diffMenge = MAXMENGE - this.anzahl;
-			this.anzahl = this.anzahl + diffMenge;
-			
-			System.out.println(
-					String.format(
-							"Die Maximale Lagermenge (100) wurde überschritten! Es wurden daher %s Einheiten nachbestellt", 
-							diffMenge));
-			this.seitWannImBestand = LocalDate.now();
-			
-			nachbestellung = true;	
-		}
-		//Nachbestellung der Ware
-		else {
-			
-			this.anzahl = this.anzahl + menge;
-			this.seitWannImBestand = LocalDate.now();
-			
-			nachbestellung = true;
-		}
-		return nachbestellung;
+				String name = this.name;
+				double preis = this.preis;
+				double alcProzente = this.alcProzente;
+				
+				boolean nachbestellung = false;
+				
+				for (int i = 0; i < alleWaren.size(); i++) {
+					
+					if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
+						
+						int aktuellLagermenge = alleWaren.get(i).size();
+						int neueLegermenge = aktuellLagermenge + menge;
+						int diffMenge = 0;
+					
+						//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
+						if (alleWaren.get(i).size() == MAXMENGE) {
+							
+							System.out.println(
+									String.format(
+											"Das Lebensmittel %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+											this.name));
+							
+							nachbestellung = false;
+							
+						}
+						//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
+						else if(neueLegermenge > MAXMENGE) {
+							
+							diffMenge = MAXMENGE - aktuellLagermenge;
+							
+							Getraenke getraenk = new Getraenke(name, preis, 0, LocalDate.now(), alcProzente);
+							
+							for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
+								
+								alleWaren.get(i).add(getraenk);
+								getraenk.setKennung(GETRAENKE);
+								
+							}
+							
+							System.out.println(
+									String.format(
+											"Es wurden daher %s Einheiten nachbestellt um die maximale Lagerkapazität (100) zu erreichen.", 
+											diffMenge));
+							
+							nachbestellung = true;	
+						}
+						//Nachbestellung der Ware
+						else {
+							
+							Getraenke getraenk = new Getraenke(name, preis, 0, LocalDate.now(), alcProzente);
+							
+							for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
+								
+								alleWaren.get(i).add(getraenk);
+								getraenk.setKennung(GETRAENKE);
+								
+							}
+							
+							System.out.println("Waren wurden nachbestellt! Lager hat nun die Menge " + alleWaren.get(i).size());
+							
+							nachbestellung = true;
+						}
+					}
+				}
+				return nachbestellung;
 	}
 
 	/**
@@ -132,36 +168,52 @@ public class Getraenke extends Ware {
 	public boolean herausgeben(int menge) {
 		
 		//Methodenvariablen
-		int mengeLager = this.anzahl - menge;
-		boolean herausgeben;
-		
-		//Prüfung ob noch genug im Lager ist zum herausgeben
-		if(mengeLager > 0) {
-			this.anzahl = this.anzahl - menge;
-			
-			System.out.println(
-					String.format(
-							"Für das Getränk %s wurden %s Einheiten herausgegeben.", 
-							this.name,
-							menge));
-			
-			herausgeben = true;
-		} 
-		//Keine herausgabe der Waren und es werden neue Waren nachbestellt
-		else {
-			
-			System.out.println(
-					String.format(
-							"Für das Getränk %s gibt es nur noch %s Einheiten auf Lager.", 
-							this.name,
-							this.anzahl));
-			
-			nachbestellen(MAXMENGE);
-			
-			herausgeben = false;
-			 
-		}
-		return herausgeben;
+				String name = this.name;
+				boolean herausgeben = false;
+				
+				for (int i = 0; i < alleWaren.size(); i++) { 
+					
+					if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
+						
+						int aktuellLagermenge = alleWaren.get(i).size();
+						int neueLegermenge = aktuellLagermenge - menge;
+						
+						
+						//Prüfung ob noch genug im Lager ist zum herausgeben
+						if(neueLegermenge > 0) {
+							
+							for(int j = 0; j < menge; j++) {
+								
+								alleWaren.get(i).remove(j);
+							}
+							
+							System.out.println(
+									String.format(
+											"Für das Getränk %s wurden %s Einheiten herausgegeben.", 
+											this.name,
+											menge));
+							
+							herausgeben = true;
+						} 
+						//Keine herausgabe der Waren und es werden neue Waren nachbestellt
+						else {
+							
+							System.out.println(
+									String.format(
+											"Für das Getränk %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
+											+ "Daher wird eine Nachbestellung getätigt.", 
+											this.name,
+											alleWaren.get(i).size(),
+											menge));
+							
+							nachbestellen(MAXMENGE);
+							
+							herausgeben = false;
+							
+						}
+					}
+				}
+				return herausgeben;
 	}
 	
 	/**
@@ -171,11 +223,7 @@ public class Getraenke extends Ware {
 	@Override
 	public String toString() {
 		
-		String ausgabe =String.format(
-							"Das Getränk %s ist aktuell auf Lager!", 
-							this.name);
-		
-		return	ausgabe; 
+		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Alkoholgehalt: " + this.alcProzente +"]"; 
 	}
 	
 	
@@ -189,9 +237,29 @@ public class Getraenke extends Ware {
 		
 		//Methodenvariable
 		boolean istAlkoholhaltig = false;
+		String name = this.name;
 		
-		if ( this.alcProzente > 0) {
-			istAlkoholhaltig = true;
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
+					
+				if(alleWaren.get(i).get(0).alcProzente > 0.00) {
+						
+					System.out.println(
+							String.format("Das Getränk %s hat einen Akolholgehalt von %s.",
+									alleWaren.get(i).get(0).name,
+									alleWaren.get(i).get(0).alcProzente));
+					
+					istAlkoholhaltig = true;
+				}else {
+					
+					System.out.println(
+							String.format("Das Getränk %s ist nicht alkoholisch.",
+									alleWaren.get(i).get(0).name));
+					//Ware wird nicht aufgebacken
+					istAlkoholhaltig =  false;
+				}	
+			}
 		}
 		
 		return istAlkoholhaltig;
@@ -203,12 +271,10 @@ public class Getraenke extends Ware {
 	 */
 	public static void gebeGetraenkeAus() {
 		
-		for(int i = 0; i < alleWaren.size(); i++) {
-			
-			if(alleWaren.get(i).getKennung() == GETRAENKE) {
-				System.out.println("(" + i + ") " + alleWaren.get(i));
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == GETRAENKE) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
-			
 		}
 	}
 	
@@ -218,21 +284,10 @@ public class Getraenke extends Ware {
 	 */
 	public static void gebeNonAlkGetraenkeAus() {
 
-		for(int i = 0; i < alleWaren.size(); i++) {
-			
-			if(alleWaren.get(i).getKennung() == GETRAENKE && !alleWaren.get(i).istAlkoholhaltig() ) {
-				System.out.println("(" + i + ") " + alleWaren.get(i));
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).alcProzente == 0.00) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
-			
 		}
 	}
-
-	@Override
-	protected int istHaltbar() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-
 }

@@ -35,6 +35,21 @@ public class Medien extends NonFoodArtikel {
 	private static int zaehler_medien = 0;
 	
 	
+	/**
+	Konstruktor der Klasse Medien um ein neues Medien-Objekt zu erzeugen.
+	* @author Lennart Sparbier / 18.02.2020
+ * 
+ * @param name
+ * @param preis
+ * @param seitWannImBestand
+ * @param anzahl
+ * @param beschreibung
+ * @param unterGruppe
+ * @param isDigital
+ * @param genre
+ * @param erscheinungsjahr
+
+ */
 	public Medien(
 			 String name, double preis, LocalDate seitWannImBestand, int anzahl, 
 			 String beschreibung, int unterGruppe, boolean isDigital, int genre, int erscheinungsjahr) {
@@ -90,7 +105,7 @@ public class Medien extends NonFoodArtikel {
 			}
 			
 
-			// gibt true zurück( ist dann Digital) wenn digitanAnalog auch true ist
+			// gibt true zurück.Ist dann Digital,wenn digitanAnalog auch true ist
 			if(digitalAnalog) {
 				medien.isDigital = true;
 						System.out.println( "digital");

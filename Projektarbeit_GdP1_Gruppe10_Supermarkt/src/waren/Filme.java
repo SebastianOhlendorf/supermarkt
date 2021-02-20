@@ -13,7 +13,7 @@ import supermarkt.SupermarktExceptions;
 public class Filme extends Medien {
 
 	
-		//Objektattribute speziell für die Filme
+		//Objektattribute speziell für die Klasse Filme
 		protected double dauer;
 		protected int FSK;
 		protected int sprache;
@@ -45,8 +45,24 @@ public class Filme extends Medien {
 		protected static final int TÜRKISCH = 13;
 		protected static final int VIETNAMESISCH = 14;
 		
-		
-		
+		/**
+		Konstruktor der Klasse Filme um ein neues Film-Objekt zu erzeugen.
+		* @author Lennart Sparbier / 18.02.2020
+	 * 
+	 * @param name
+	 * @param preis
+	 * @param seitWannImBestand
+	 * @param anzahl
+	 * @param beschreibung
+	 * @param unterGruppe
+	 * @param isDigital
+	 * @param genre
+	 * @param erscheinungsjahr
+	 * @param dauer
+	 * @param FSK
+	 * @param sprache
+	 */
+		 
 		public Filme(
 				 String name, double preis, LocalDate seitWannImBestand, int anzahl, 
 				 String beschreibung, int unterGruppe, boolean isDigital, int genre, int erscheinungsjahr,
@@ -170,7 +186,7 @@ public class Filme extends Medien {
 }
 
 		@Override
-		// toString Methode um alles Daten leserlich als String auszugeben
+		// toString Methode um alle Daten leserlich als String auszugeben
 		public String toString() {
 		return "neuer Film Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
 		" anzahl= " + anzahl +  " beschreibung= " + beschreibung + " unterGruppe = "+ unterGruppe + 

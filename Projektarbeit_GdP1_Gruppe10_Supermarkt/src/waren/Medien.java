@@ -13,12 +13,14 @@ import java.time.LocalDate;
  */
 public class Medien extends NonFoodArtikel {
 	
-	// Dient zum setzen der Genres im Switch Case
+	
 	
 	//Objektattribute
 	protected boolean isDigital;
 	protected int genre;
 	protected int erscheinungsjahr;
+	
+	// Dient zum setzen der Genres im Switch Case
 	protected static final int HORROR =1;
 	protected static final int ACTION = 2;
 	protected static final int THRILLER =3;
@@ -36,7 +38,8 @@ public class Medien extends NonFoodArtikel {
 	public Medien(
 			 String name, double preis, LocalDate seitWannImBestand, int anzahl, 
 			 String beschreibung, int unterGruppe, boolean isDigital, int genre, int erscheinungsjahr) {
-		super( name,  preis,  seitWannImBestand,  anzahl, beschreibung,  unterGruppe);
+		super( name,  preis,  seitWannImBestand,  anzahl, 
+				  beschreibung,  unterGruppe);
 		
 		this.isDigital = isDigital;
 		this.genre = genre;
@@ -54,6 +57,7 @@ public class Medien extends NonFoodArtikel {
 			medien.anzahl = MAXMENGE;
 			medien.seitWannImBestand = LocalDate.now();
 			medien.setKennung(MEDIEN);
+			//medien.erscheinungsjahr
 			
 			
 			switch(medien.genre) {

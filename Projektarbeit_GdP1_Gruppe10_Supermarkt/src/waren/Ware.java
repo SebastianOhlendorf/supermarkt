@@ -22,6 +22,8 @@ public abstract class Ware {
 	protected int jahreszeit;
 	protected int unterGruppe;
 	protected int genre;
+	protected int FSK;
+	protected int Sprache;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;
@@ -33,7 +35,7 @@ public abstract class Ware {
 	protected static final int KLEIDUNG = 5;
 	protected static final int MEDIEN = 6; 
 	protected static final int DROGERIEARTIKEL = 7;
-	protected static final int FILME = 8;
+	protected static final int FILM = 8;
 	
 	//ArrayList für alle Warentypen
 	protected static ArrayList<Ware> alleWaren = new ArrayList<Ware>();
@@ -110,6 +112,13 @@ public abstract class Ware {
 	public void setGenre (int genre) {
 		this.genre = genre;
 	}
-
+	
+	public void setFSK (int FSK) {
+		this.FSK = FSK;
+	}
+	
+	public void setSprache (int Sprache) {
+		this.Sprache= Sprache;
+	}
 	
 }

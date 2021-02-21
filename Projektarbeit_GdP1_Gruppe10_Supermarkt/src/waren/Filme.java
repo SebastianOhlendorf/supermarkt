@@ -61,7 +61,6 @@ public class Filme extends Medien {
 		 * @author Sebastian Ohlendorf
 		 * 
 		 * @param lebensmittel das hinzuzufuegende neue Lebensmittel
-		 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
 		 */
 		public static void addFilm(Filme film){
 			

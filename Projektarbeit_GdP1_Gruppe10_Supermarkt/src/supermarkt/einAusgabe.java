@@ -6,7 +6,13 @@ public class einAusgabe {
 	
 	static Scanner in = new Scanner(System.in);
 	
-	
+	public static int eingabeAuswahl(String eingabeString) {
+
+		System.out.println(eingabeString);
+		int auswahl = in.nextInt();
+		return auswahl;
+	}
+
     public static String eingabeName(String eingabeString) {
 
         System.out.println(eingabeString);
@@ -16,19 +22,19 @@ public class einAusgabe {
 	
 	public static double eingabePreis(String eingabeString) {
 		
-		 System.out.println(eingabeString);
+		System.out.println(eingabeString);
 		double preis = in.nextDouble();
 		return preis; 
 	}
 	
 	public static LocalDate eingabeSeitWannImBestand (String eingabeString) {
 		LocalDate seitWannImBestand = LocalDate.now();
-		 System.out.println(eingabeString );
+		System.out.println(eingabeString );
 		return seitWannImBestand;
 	}
 	
 	public static int eingabeAnzahl (String eingabeString) {
-		 System.out.println(eingabeString);
+		System.out.println(eingabeString);
 		int anzahl = 100;
 		return anzahl;
 	}
@@ -48,11 +54,11 @@ public class einAusgabe {
 		
 	//}
 	
-	// Ab nun an nicht mehr allgemeine Variablen. In dem Fall für Non Food Artikel
+	// Ab nun an nicht mehr allgemeine Variablen. In dem Fall fï¿½r Non Food Artikel
 	
 	
 	
-	//explizite Eingabe für NonFood Artikel
+	//explizite Eingabe fï¿½r NonFood Artikel
 	public static String eingabeBeschreibung (String eingabeString) {
 		 System.out.println(eingabeString);
 		String beschreibung = in.next();
@@ -66,7 +72,7 @@ public class einAusgabe {
 	}
 
 	
-	//explizite Eingaben für Lebensmittel
+	//explizite Eingaben fï¿½r Lebensmittel
 	
 	public static Double eingabeGewicht (String eingabeString) {
 		 System.out.println(eingabeString);
@@ -75,26 +81,26 @@ public class einAusgabe {
 	}
 	
 	public static int eingabeHaltbarkeit (String eingabeString) {
-		boolean größerNull;
+		boolean grï¿½ï¿½erNull;
 		System.out.println(eingabeString);
 		int haltbarkeit = in.nextInt();
 		
 		if (haltbarkeit <=0) {
-			größerNull = false;
+			grï¿½ï¿½erNull = false;
 			System.out.println("Die Haltbarkeit des Produkts darf nicht unter 0 Tagen liegen ");
 		} else {
-			größerNull = true;
+			grï¿½ï¿½erNull = true;
 			
 		}
 		return haltbarkeit;
 	}
 	
-	//public static eingabeBedarfKühlung (String eingabeString) {
+	//public static eingabeBedarfKï¿½hlung (String eingabeString) {
 	//	System.out.println(eingabeString);
 		
 	//}
 	
-	//explizite Eingaben für Getränke
+	//explizite Eingaben fï¿½r Getrï¿½nke
 	
 	public static Double eingabeAlkoholGehalt (String eingabeString) {
 		System.out.println(eingabeString);
@@ -103,9 +109,9 @@ public class einAusgabe {
 	}
 	
 	
-	//explizite Eingaben für Backwaren
+	//explizite Eingaben fï¿½r Backwaren
 	
-	public static Boolean überprüfungAufgebacken (String eingabeString) {
+	public static Boolean ï¿½berprï¿½fungAufgebacken (String eingabeString) {
 		System.out.println(eingabeString);
 		boolean istAufgebacken = true;
 		if(istAufgebacken == false) {
@@ -120,7 +126,7 @@ public class einAusgabe {
 	
 	
 	
-	// explizite Eingaben für Medien
+	// explizite Eingaben fï¿½r Medien
 	
 	
 	

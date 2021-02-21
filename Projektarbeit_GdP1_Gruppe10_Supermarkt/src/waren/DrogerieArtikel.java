@@ -80,9 +80,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 			nachbestellung = true;
 		}
 			return nachbestellung;
-}
-
-
+}	
 	public boolean herausgeben(int menge) {
 		
 		//Bestimmiung ob die Menge im Lager nach der herausgabe groesser gleich 0 ist
@@ -104,6 +102,17 @@ public class DrogerieArtikel extends NonFoodArtikel {
 			herausgeben = false;
 		}
 		return herausgeben;
+	}
+	public static void gebeDrogerieArtikelAus() {
+		
+		for(int i = 0; i < alleWaren.size(); i++) {
+			
+			if(alleWaren.get(i).getKennung() == DROGERIEARTIKEL) {
+				System.out.println("(" + i + ") " + alleWaren.get(i));
+			}
+			
+		}
+		 
 	}
 	@Override
 	public String toString() {

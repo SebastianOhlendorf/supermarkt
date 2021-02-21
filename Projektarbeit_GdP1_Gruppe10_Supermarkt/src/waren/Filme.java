@@ -9,7 +9,7 @@ import enums.Sprachen;
 import enums.Untergruppen;
 
 /**
- * Kinderklasse der Klasse NonFoodArtikel zum anlegen von Film-Objekten
+ * Kinderklasse der Klasse Medien zum anlegen von Film-Objekten
  * @author Lennart Sparbier
  * @version 1.0
  * @date 18.02.2021

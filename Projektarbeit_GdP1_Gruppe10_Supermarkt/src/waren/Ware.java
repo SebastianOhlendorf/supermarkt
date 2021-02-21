@@ -71,8 +71,8 @@ public abstract class Ware {
 		return kennung;
 	}
 
-	public void setKennung(Kennungen kleidung2) {
-		this.kennung = kleidung2;
+	public void setKennung(Kennungen kleidung) {
+		this.kennung = kleidung;
 	}
 
 	public String getStofftyp() {

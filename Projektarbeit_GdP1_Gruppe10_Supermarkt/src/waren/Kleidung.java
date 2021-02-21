@@ -3,6 +3,10 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Jahreszeit;
+import enums.Kennungen;
+import enums.Untergruppen;
+
 /**
  * Kinderklasse der Klasse Kleidung zum anlegen von Kleidung-Objekten
  * @author Sebastian Ohlendorf
@@ -13,12 +17,6 @@ import java.util.ArrayList;
 public class Kleidung  extends NonFoodArtikel {
 	
 	protected String koerperteil;
-	
-	//Konstanten für die Jahreszeiten
-	protected static final int WINTER = 1;
-	protected static final int FRUEHLING = 2;
-	protected static final int SOMMER = 3;
-	protected static final int HERBST = 4;
 	
 	//Klassenvariablen zum zählen der Kleidungsartikel
 	private static int zaehler_kleidung = 0;
@@ -39,7 +37,7 @@ public class Kleidung  extends NonFoodArtikel {
 	 * @param stofftyp
 	 */
 	public Kleidung(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			String beschreibung, int unterGruppe, int jahreszeit, String koerperteil, String stofftyp) {
+			String beschreibung, Untergruppen unterGruppe, Jahreszeit jahreszeit, String koerperteil, String stofftyp) {
 		super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe);
 		
 		this.jahreszeit = jahreszeit;
@@ -66,9 +64,9 @@ public class Kleidung  extends NonFoodArtikel {
 			
 					neueKleidung.add(kleidung);
 					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = WINTER;
+					kleidung.setKennung(Kennungen.KLEIDUNG);
+					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
+					kleidung.jahreszeit = Jahreszeit.WINTER;
 					
 				}
 		
@@ -102,9 +100,9 @@ public class Kleidung  extends NonFoodArtikel {
 			
 					neueKleidung.add(kleidung);
 					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = FRUEHLING;
+					kleidung.setKennung(Kennungen.KLEIDUNG);
+					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
+					kleidung.jahreszeit = Jahreszeit.FRUEHLING;
 					
 				}
 		
@@ -138,9 +136,9 @@ public class Kleidung  extends NonFoodArtikel {
 			
 					neueKleidung.add(kleidung);
 					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = SOMMER;
+					kleidung.setKennung(Kennungen.KLEIDUNG);
+					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
+					kleidung.jahreszeit = Jahreszeit.SOMMER;
 					
 				}
 		
@@ -174,9 +172,9 @@ public class Kleidung  extends NonFoodArtikel {
 			
 					neueKleidung.add(kleidung);
 					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = HERBST;
+					kleidung.setKennung(Kennungen.KLEIDUNG);
+					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
+					kleidung.jahreszeit = Jahreszeit.HERBST;
 					
 				}
 		
@@ -211,8 +209,8 @@ public class Kleidung  extends NonFoodArtikel {
 		String name = this.name;
 		double preis = this.preis;
 		String beschreibung = this.beschreibung;
-		int untergruppe = this.unterGruppe;
-		int jahreszeit = this.jahreszeit;
+		Untergruppen untergruppe = this.unterGruppe;
+		Jahreszeit jahreszeit = this.jahreszeit;
 		String koerperteil = this.koerperteil;
 		String stofftyp = this.stofftyp;
 		
@@ -220,7 +218,7 @@ public class Kleidung  extends NonFoodArtikel {
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -247,7 +245,7 @@ public class Kleidung  extends NonFoodArtikel {
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
 						alleWaren.get(i).add(kleidung);
-						kleidung.setKennung(KLEIDUNG);
+						kleidung.setKennung(Kennungen.KLEIDUNG);
 								
 					}
 							
@@ -266,7 +264,7 @@ public class Kleidung  extends NonFoodArtikel {
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(kleidung);
-						kleidung.setKennung(KLEIDUNG);
+						kleidung.setKennung(Kennungen.KLEIDUNG);
 						
 					}
 					
@@ -300,7 +298,7 @@ public class Kleidung  extends NonFoodArtikel {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -350,9 +348,9 @@ public class Kleidung  extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"neuer Kleidung Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
-				" anzahl= " + anzahl +  " beschreibung= " + beschreibung + " unterGruppe = "+ unterGruppe + 
-				" Jaherszeit= " + jahreszeit + " Körperteil= " + koerperteil + " Stofftyp= " + stofftyp + "]";
+		return"neuer Kleidung Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
+				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
+				" Jaherszeit= " + this.jahreszeit + " Körperteil= " + this.koerperteil + " Stofftyp= " + this.stofftyp + "]";
 			
 	}
 	
@@ -363,10 +361,10 @@ public class Kleidung  extends NonFoodArtikel {
 	 * 
 	 * @param jahreszeit übergebene Jahreszeit als Integer (Winter = 1, Frühling = 2, Sommer = 3 und Herbst = 4)
 	 */
-	public static void gibKleidungJahreszeitAus(int jahreszeit) {
+	public static void gibKleidungJahreszeitAus(Jahreszeit jahreszeit) {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).jahreszeit == jahreszeit) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).jahreszeit == jahreszeit) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size() + " für die Jahreszeit: " + alleWaren.get(i).get(0).jahreszeit);
 			}
 		}		
@@ -384,7 +382,7 @@ public class Kleidung  extends NonFoodArtikel {
 		String stofftypUebergabe = stofftyp.toLowerCase();
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).stofftyp.toLowerCase() == stofftypUebergabe) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).stofftyp.toLowerCase() == stofftypUebergabe) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size() + " vom Stofftyp: " + alleWaren.get(i).get(0).stofftyp);
 			}
 		}	

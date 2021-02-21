@@ -3,7 +3,7 @@ package enums;
 public enum Jahreszeit {
 	
 	WINTER,
-	FRUEHLUNG,
+	FRUEHLING,
 	SOMMER,
 	HERBST
 

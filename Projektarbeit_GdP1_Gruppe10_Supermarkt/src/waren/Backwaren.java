@@ -3,6 +3,8 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Kennungen;
+
 /**
  * Kinderklasse der Klasse Lebensmittel zum anlegen von Backwaren-Objekten
  * @author Sebastian Ohlendorf
@@ -49,7 +51,7 @@ public class Backwaren extends Lebensmittel{
 					neueBackwaren.add(backwaren);
 					backwaren.seitWannImBestand = LocalDate.now();
 					backwaren.setAufgebacken(false);
-					backwaren.setKennung(BACKWAREN);
+					backwaren.setKennung(Kennungen.BACKWAREN);
 				}
 		
 				zaehler_backwaren++;
@@ -89,7 +91,7 @@ public class Backwaren extends Lebensmittel{
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -116,7 +118,7 @@ public class Backwaren extends Lebensmittel{
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 						
 						alleWaren.get(i).add(backware);
-						backware.setKennung(BACKWAREN);
+						backware.setKennung(Kennungen.BACKWAREN);
 						
 					}
 					
@@ -135,7 +137,7 @@ public class Backwaren extends Lebensmittel{
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(backware);
-						backware.setKennung(BACKWAREN);
+						backware.setKennung(Kennungen.BACKWAREN);
 						
 					}
 					
@@ -168,7 +170,7 @@ public class Backwaren extends Lebensmittel{
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -236,7 +238,7 @@ public class Backwaren extends Lebensmittel{
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
 					
 				if(alleWaren.get(i).get(0).isAufgebacken() == false) {
 						
@@ -268,7 +270,7 @@ public class Backwaren extends Lebensmittel{
 	public static void gebeBackwareAus() {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}

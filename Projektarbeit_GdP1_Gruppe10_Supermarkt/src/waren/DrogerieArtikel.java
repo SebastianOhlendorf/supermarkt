@@ -3,6 +3,9 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Kennungen;
+import enums.Untergruppen;
+
 /**
  * Kinderklasse der Klasse NonFoodArtikel zum anlegen von DrogerieArtkiel-Objekten
  * @author Ethan Stapff
@@ -33,7 +36,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * @param allergene Gibt an ob bei dem Artikel Allergene enthalten sind als String
 	 */
 	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, String beschreibung,
-			int unterGruppe, String nutzung, double stiftungwarentest, String allergene) {
+			Untergruppen unterGruppe, String nutzung, double stiftungwarentest, String allergene) {
 		super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe);
 		
 		this.nutzung = nutzung;
@@ -61,8 +64,8 @@ public class DrogerieArtikel extends NonFoodArtikel {
 			
 					neuerDrogeriArtikel.add(drogerieArtikel);
 					drogerieArtikel.seitWannImBestand = LocalDate.now();
-					drogerieArtikel.setKennung(DROGERIEARTIKEL);
-					drogerieArtikel.unterGruppe = DROGERIEARTIKEL;
+					drogerieArtikel.setKennung(Kennungen.DROGERIEARTIKEL);
+					drogerieArtikel.unterGruppe = Untergruppen.DROGERIEARTIKEL;
 					
 				}
 		
@@ -96,7 +99,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		String name = this.name;
 		double preis = this.preis;
 		String beschreibung = this.beschreibung;
-		int untergruppe = this.unterGruppe;
+		Untergruppen untergruppe = this.unterGruppe;
 		String nutzung = this.nutzung;
 		double stiftungwarentest = this.stiftungwarentest;
 		String allergene = this.allergene;
@@ -105,7 +108,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == DROGERIEARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -132,7 +135,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
 						alleWaren.get(i).add(drogerieArtikel);
-						drogerieArtikel.setKennung(DROGERIEARTIKEL);
+						drogerieArtikel.setKennung(Kennungen.DROGERIEARTIKEL);
 								
 					}
 							
@@ -151,7 +154,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(drogerieArtikel);
-						drogerieArtikel.setKennung(DROGERIEARTIKEL);
+						drogerieArtikel.setKennung(Kennungen.DROGERIEARTIKEL);
 						
 					}
 					
@@ -185,7 +188,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == DROGERIEARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -235,9 +238,9 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"Neuer Kleidung Artikel [Name= "+ name + " Preis= "+ preis + " Seit wann im Bestand= " + seitWannImBestand +  
-				" Beschreibung= " + beschreibung + " Nutzung = "+ nutzung + 
-				" Stiftungwarentest= " + stiftungwarentest + " Allergene= " + allergene + "]";
+		return"Neuer Kleidung Artikel [Name= "+ this.name + " Preis= "+ this.preis + " Seit wann im Bestand= " + this.seitWannImBestand +  
+				" Beschreibung= " + this.beschreibung + " Nutzung = "+ this.nutzung + 
+				" Stiftungwarentest= " + this.stiftungwarentest + " Allergene= " + this.allergene + "]";
 			
 	}
 	
@@ -247,7 +250,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 */
 	public static void gibDrogerieArtikelAus() {
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == DROGERIEARTIKEL) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}

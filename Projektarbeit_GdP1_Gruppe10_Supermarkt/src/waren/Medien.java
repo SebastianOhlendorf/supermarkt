@@ -3,6 +3,10 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Filmgenre;
+import enums.Kennungen;
+import enums.Untergruppen;
+
 //import supermarkt.SupermarktExceptions;
 
 /**
@@ -18,18 +22,8 @@ public class Medien extends NonFoodArtikel {
 	
 	//Objektattribute
 	protected boolean isDigital;
-	protected int genre;
+	protected Filmgenre genre;
 	protected int erscheinungsjahr;
-	
-	// Dient zum setzen der Genres im Switch Case
-	protected static final int HORROR =1;
-	protected static final int ACTION = 2;
-	protected static final int THRILLER =3;
-	protected static final int HUMOR =4;
-	protected static final int DRAMA =5; 
-	protected static final int KRIEG =6;
-	protected static final int LIEBE =7;
-	protected static final int WESTERN =8;
 	
 	//Klassenattribute
 	private static int zaehler_medien = 0;
@@ -50,7 +44,7 @@ public class Medien extends NonFoodArtikel {
  	 * @param erscheinungsjahr Gibt das Erscheinungsjahr als Integer an
 	 */
 	public Medien(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			 String beschreibung, int unterGruppe, boolean isDigital, int genre, int erscheinungsjahr) {
+			 String beschreibung, Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr) {
 		
 		super( name,  preis,  seitWannImBestand,  anzahl, 
 				  beschreibung,  unterGruppe);
@@ -80,8 +74,8 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
 					
 				}
 		
@@ -115,9 +109,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = HORROR;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.HORROR;
 					
 				}
 		
@@ -151,9 +145,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = ACTION;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.ACTION;
 					
 				}
 		
@@ -187,9 +181,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = THRILLER;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.THRILLER;
 					
 				}
 		
@@ -223,9 +217,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = HUMOR;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.HUMOR;
 					
 				}
 		
@@ -259,9 +253,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = DRAMA;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.DRAMA;
 					
 				}
 		
@@ -295,9 +289,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = KRIEG;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.KRIEG;
 					
 				}
 		
@@ -331,9 +325,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = LIEBE;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.LIEBE;
 					
 				}
 		
@@ -367,9 +361,9 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = WESTERN;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
+					medien.genre = Filmgenre.WESTERN;
 					
 				}
 		
@@ -404,16 +398,16 @@ public class Medien extends NonFoodArtikel {
 		String name = this.name;
 		double preis = this.preis;
 		String beschreibung = this.beschreibung;
-		int untergruppe = this.unterGruppe;
+		Untergruppen untergruppe = this.unterGruppe;
 		boolean isDigital = this.isDigital;
-		int genre = this.genre;
+		Filmgenre genre = this.genre;
 		int erscheinungsjahr = this.erscheinungsjahr;
 		
 		boolean nachbestellung = false;
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -440,7 +434,7 @@ public class Medien extends NonFoodArtikel {
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
 						alleWaren.get(i).add(medien);
-						medien.setKennung(MEDIEN);
+						medien.setKennung(Kennungen.MEDIEN);
 								
 					}
 							
@@ -459,7 +453,7 @@ public class Medien extends NonFoodArtikel {
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(medien);
-						medien.setKennung(MEDIEN);
+						medien.setKennung(Kennungen.MEDIEN);
 						
 					}
 					
@@ -493,7 +487,7 @@ public class Medien extends NonFoodArtikel {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -543,9 +537,9 @@ public class Medien extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"neuer Medien Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
-				" anzahl= " + anzahl +  " beschreibung= " + beschreibung + " unterGruppe = "+ unterGruppe + 
-				" isDigital= " + isDigital + " genre= " + genre + " erscheinungsjahr= " + erscheinungsjahr + "]";
+		return"neuer Medien Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
+				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
+				" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + "]";
 			
 	}
 	
@@ -554,7 +548,7 @@ public class Medien extends NonFoodArtikel {
 	 */
 	public static void gebenMedienrtikelAus() {
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == MEDIEN) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}

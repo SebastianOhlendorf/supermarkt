@@ -2,6 +2,12 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Filmgenre;
+import enums.Fsk;
+import enums.Kennungen;
+import enums.Sprachen;
+import enums.Untergruppen;
+
 /**
  * Kinderklasse der Klasse NonFoodArtikel zum anlegen von Film-Objekten
  * @author Lennart Sparbier
@@ -14,36 +20,11 @@ public class Filme extends Medien {
 	
 		//Objektattribute speziell für die Klasse Filme
 		protected double dauer;
-		protected int fsk;
-		protected int sprache;
+		protected Fsk fsk;
+		protected Sprachen sprache;
 		
 		//Klassenattribute
-		private static int zaehler_filme = 0;
-		
-		// Dient zum setzen der FSK im Switch Case
-		protected static final int FSK18 = 18;
-		protected static final int FSK16 = 16;
-		protected static final int FSK12 = 12;
-		protected static final int FSK6 =  6;
-		protected static final int FSK0 =  0;
-		
-		
-		// Dient zum setzen der Sprache im Switch Case
-		protected static final int CHINESISCH = 1;
-		protected static final int DEUTSCH = 2;
-		protected static final int ENGLISCH = 3;
-		protected static final int FRANZÖSISCH = 4;
-		protected static final int GRIECHISCH = 5;
-		protected static final int INDISCH = 6;
-		protected static final int ITALIENISCH = 7;
-		protected static final int JAPANISCH = 8;
-		protected static final int NIEDERLÄNDISCH = 9;
-		protected static final int POLNISCH = 10;
-		protected static final int RUSSISCH = 11;
-		protected static final int SPANISCH = 12;
-		protected static final int TÜRKISCH = 13;
-		protected static final int VIETNAMESISCH = 14;
-		
+		private static int zaehler_filme = 0;		
 		
 		/**
 		 * Konstruktor der Klasse Filme um ein neues Film-Objekt zu erzeugen.
@@ -63,7 +44,7 @@ public class Filme extends Medien {
 		 * @param sprache Gibt die Sprache als Integer an
 		 */
 		public Filme(String name, double preis, LocalDate seitWannImBestand, int anzahl, String beschreibung,
-				int unterGruppe, boolean isDigital, int genre, int erscheinungsjahr, double dauer, int fsk, int sprache) {
+				Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr, double dauer, Fsk fsk, Sprachen sprache) {
 			super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe, isDigital, genre, erscheinungsjahr);
 			
 			this.dauer = dauer;
@@ -92,56 +73,9 @@ public class Filme extends Medien {
 				
 						neuerFilm.add(film);
 						film.seitWannImBestand = LocalDate.now();
-						film.setKennung(FILME);
-						film.unterGruppe = FILME;
-						
-						switch(film.fsk) {
-						case 0: film.fsk = FSK0;
-								break;	
-						case 6: film.fsk = FSK6;
-								break;
-						case 12: film.fsk = FSK12;
-								break;
-						case 16: film.fsk = FSK16;
-								break;
-						case 18: film.fsk = FSK18;
-							break;	
-						default: System.out.println("Es wurde keine gültige FSK ausgewählt");
-						}
-						
-						switch(film.sprache) {
-						case 1: film.sprache = CHINESISCH;
-								break;	
-						case 2: film.sprache = DEUTSCH;
-								break;
-						case 3: film.sprache = ENGLISCH;
-								break;
-						case 4: film.sprache = FRANZÖSISCH;
-								break;
-						case 5: film.sprache = GRIECHISCH;
-								break;	
-						case 6: film.sprache = INDISCH;
-								break;	
-						case 7: film.sprache = ITALIENISCH;
-								break;
-						case 8: film.sprache = JAPANISCH;
-								break;
-						case 9: film.sprache = NIEDERLÄNDISCH;
-								break;
-						case 10: film.sprache = POLNISCH;
-								break;	
-						case 11: film.sprache = RUSSISCH;
-								break;	
-						case 12: film.sprache = SPANISCH;
-								break;
-						case 13: film.sprache = TÜRKISCH;
-								break;
-						case 14: film.sprache = VIETNAMESISCH;
-								break;
-						
-						default: System.out.println("Es wurde keine gültige Sprache ausgewählt");
-						}
-						
+						film.setKennung(Kennungen.FILME);
+						film.unterGruppe = Untergruppen.FILME;
+									
 					}
 			
 					zaehler_filme++;
@@ -174,20 +108,20 @@ public class Filme extends Medien {
 			String name = this.name;
 			double preis = this.preis;
 			String beschreibung = this.beschreibung;
-			int untergruppe = this.unterGruppe;
+			Untergruppen untergruppe = this.unterGruppe;
 			boolean isDigital = this.isDigital;
-			int genre = this.genre;
+			Filmgenre genre = this.genre;
 			int erscheinungsjahr = this.erscheinungsjahr;
 			double dauer = this.dauer;
-			int fsk = this.fsk;
-			int sprache = this.sprache;
+			Fsk fsk = this.fsk;
+			Sprachen sprache = this.sprache;
 
 			
 			boolean nachbestellung = false;
 			
 			for (int i = 0; i < alleWaren.size(); i++) {
 				
-				if(alleWaren.get(i).get(0).getKennung() == FILME && alleWaren.get(i).get(0).name.equals(name)) {
+				if(alleWaren.get(i).get(0).getKennung() == Kennungen.FILME && alleWaren.get(i).get(0).name.equals(name)) {
 					
 					int aktuellLagermenge = alleWaren.get(i).size();
 					int neueLegermenge = aktuellLagermenge + menge;
@@ -214,7 +148,7 @@ public class Filme extends Medien {
 						for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 									
 							alleWaren.get(i).add(film);
-							film.setKennung(FILME);
+							film.setKennung(Kennungen.FILME);
 									
 						}
 								
@@ -233,7 +167,7 @@ public class Filme extends Medien {
 						for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 							
 							alleWaren.get(i).add(film);
-							film.setKennung(FILME);
+							film.setKennung(Kennungen.FILME);
 							
 						}
 						
@@ -267,7 +201,7 @@ public class Filme extends Medien {
 			
 			for (int i = 0; i < alleWaren.size(); i++) { 
 				
-				if(alleWaren.get(i).get(0).getKennung() == FILME && alleWaren.get(i).get(0).name.equals(name)) {
+				if(alleWaren.get(i).get(0).getKennung() == Kennungen.FILME && alleWaren.get(i).get(0).name.equals(name)) {
 					
 					int aktuellLagermenge = alleWaren.get(i).size();
 					int neueLegermenge = aktuellLagermenge - menge;
@@ -316,7 +250,7 @@ public class Filme extends Medien {
 		 */
 		public static void gibFilmeAus() {
 			for (int i = 0; i < alleWaren.size(); i++) { 
-				if(alleWaren.get(i).get(0).getKennung() == FILME) {
+				if(alleWaren.get(i).get(0).getKennung() == Kennungen.FILME) {
 					System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 				}
 			}
@@ -328,9 +262,9 @@ public class Filme extends Medien {
 		 */
 		@Override
 		public String toString() {
-		return "neuer Film Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
-		" anzahl= " + anzahl +  " beschreibung= " + beschreibung + " unterGruppe = "+ unterGruppe + 
-		" isDigital= " + isDigital + " genre= " + genre + " erscheinungsjahr= " + erscheinungsjahr + 
-		" dauer= " + dauer + " FSK= " + fsk + " sprache= " + sprache + "]";
+		return "neuer Film Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
+		" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
+		" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + 
+		" dauer= " + this.dauer + " FSK= " + this.fsk + " sprache= " + this.sprache + "]";
 		}
 }	

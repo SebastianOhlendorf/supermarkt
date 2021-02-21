@@ -2,6 +2,8 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Kennungen;
+
 /**
  * Kinderklasse der Klasse Ware zum anlegen von Getränke-Objekten
  * @author Lennart Sparbier
@@ -56,7 +58,7 @@ public class Getraenke extends Ware {
 			
 					neuesGetraenk.add(getraenk);
 					getraenk.seitWannImBestand = LocalDate.now();
-					getraenk.setKennung(GETRAENKE);
+					getraenk.setKennung(Kennungen.GETRAENKE);
 				}
 		
 				zaehler_getraenke++;
@@ -94,7 +96,7 @@ public class Getraenke extends Ware {
 				
 				for (int i = 0; i < alleWaren.size(); i++) {
 					
-					if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
+					if(alleWaren.get(i).get(0).getKennung() == Kennungen.GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
 						
 						int aktuellLagermenge = alleWaren.get(i).size();
 						int neueLegermenge = aktuellLagermenge + menge;
@@ -121,7 +123,7 @@ public class Getraenke extends Ware {
 							for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
 								alleWaren.get(i).add(getraenk);
-								getraenk.setKennung(GETRAENKE);
+								getraenk.setKennung(Kennungen.GETRAENKE);
 								
 							}
 							
@@ -140,7 +142,7 @@ public class Getraenke extends Ware {
 							for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 								
 								alleWaren.get(i).add(getraenk);
-								getraenk.setKennung(GETRAENKE);
+								getraenk.setKennung(Kennungen.GETRAENKE);
 								
 							}
 							
@@ -172,7 +174,7 @@ public class Getraenke extends Ware {
 				
 				for (int i = 0; i < alleWaren.size(); i++) { 
 					
-					if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
+					if(alleWaren.get(i).get(0).getKennung() == Kennungen.GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
 						
 						int aktuellLagermenge = alleWaren.get(i).size();
 						int neueLegermenge = aktuellLagermenge - menge;
@@ -240,7 +242,7 @@ public class Getraenke extends Ware {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.GETRAENKE && alleWaren.get(i).get(0).name.equals(name)) {
 					
 				if(alleWaren.get(i).get(0).alcProzente > 0.00) {
 						
@@ -271,7 +273,7 @@ public class Getraenke extends Ware {
 	public static void gebeGetraenkeAus() {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == GETRAENKE) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.GETRAENKE) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
@@ -284,7 +286,7 @@ public class Getraenke extends Ware {
 	public static void gebeNonAlkGetraenkeAus() {
 
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == GETRAENKE && alleWaren.get(i).get(0).alcProzente == 0.00) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.GETRAENKE && alleWaren.get(i).get(0).alcProzente == 0.00) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}

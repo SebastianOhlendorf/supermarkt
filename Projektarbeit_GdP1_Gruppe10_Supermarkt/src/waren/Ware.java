@@ -3,6 +3,9 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Jahreszeit;
+import enums.Kennungen;
+
 /**
  * Eine Abstrakte Klasse mit der neue Warenobjekte angelegt, Waren nachbestellt oder herausgegeben werden können.
  * @author 
@@ -20,21 +23,13 @@ public abstract class Ware {
 	protected int haltbarkeit;
 	private boolean aufgebacken;
 	protected double alcProzente;
-	private int kennung;
+	private Kennungen kennung;
 	protected String stofftyp;
-	protected int jahreszeit;
+	protected Jahreszeit jahreszeit;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;
 	protected static final int MAXANZAHLWAREN = 30;
-	protected static final int LEBENSMITTEL = 1;
-	protected static final int GETRAENKE = 2;
-	protected static final int NONFOODARTIKEL = 3;
-	protected static final int BACKWAREN = 4;
-	protected static final int KLEIDUNG = 5;
-	protected static final int MEDIEN = 6; 
-	protected static final int DROGERIEARTIKEL = 7;
-	protected static final int FILME = 8;
 	
 	//ArrayList für alle Warentypen
 	protected static ArrayList<ArrayList<Ware>> alleWaren = new ArrayList<ArrayList<Ware>>();
@@ -72,23 +67,23 @@ public abstract class Ware {
 	
 	//--------------- GETTER und SETTER -------------------------
 
-	public int getKennung() {
+	public Kennungen getKennung() {
 		return kennung;
 	}
 
-	public void setKennung(int kennung) {
-		this.kennung = kennung;
+	public void setKennung(Kennungen kleidung2) {
+		this.kennung = kleidung2;
 	}
 
 	public String getStofftyp() {
 		return stofftyp;
 	}
 
-	public int getJahreszeit() {
+	public Jahreszeit getJahreszeit() {
 		return jahreszeit;
 	}
 
-	public void setJahreszeit(int jahreszeit) {
+	public void setJahreszeit(Jahreszeit jahreszeit) {
 		this.jahreszeit = jahreszeit;
 	}
 

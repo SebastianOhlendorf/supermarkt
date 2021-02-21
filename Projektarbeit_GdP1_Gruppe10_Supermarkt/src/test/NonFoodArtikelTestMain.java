@@ -1,6 +1,11 @@
 package test;
 import java.time.LocalDate;
 
+import enums.Filmgenre;
+import enums.Fsk;
+import enums.Jahreszeit;
+import enums.Sprachen;
+import enums.Untergruppen;
 import waren.DrogerieArtikel;
 import waren.Filme;
 import waren.Kleidung;
@@ -25,17 +30,17 @@ public class NonFoodArtikelTestMain {
 		
 		//---------------------------NonFoodArtikel-----------------------------------------
 		
-		NonFoodArtikel nonfood = new NonFoodArtikel("Jacke" + 0, 2.98, LocalDate.now(), 0, "Jacke zum anziehen", 5);
+		NonFoodArtikel nonfood = new NonFoodArtikel("Jacke" + 0, 2.98, LocalDate.now(), 0, "Jacke zum anziehen", Untergruppen.KLEIDUNG);
 		NonFoodArtikel.addNonFoodArtikel(nonfood);
 		nonfood.nachbestellen(5);
 		nonfood.herausgeben(5);
 		nonfood.nachbestellen(200);
 		nonfood.herausgeben(200);
-		NonFoodArtikel lebensmittel2 = new NonFoodArtikel("Musik" + 0, 2.98, LocalDate.now(), 0, "Musik CD", 6);
+		NonFoodArtikel lebensmittel2 = new NonFoodArtikel("Musik" + 0, 2.98, LocalDate.now(), 0, "Musik CD", Untergruppen.MEDIEN);
 		NonFoodArtikel.addNonFoodArtikel(lebensmittel2);
 						
 		for(int i = 0; i < 40; i++) {
-			NonFoodArtikel lebensmittel5 = new NonFoodArtikel("Shampoo" + i, 2.98, LocalDate.now(), 0, "Zum waschen von Haaren", 7);
+			NonFoodArtikel lebensmittel5 = new NonFoodArtikel("Shampoo" + i, 2.98, LocalDate.now(), 0, "Zum waschen von Haaren", Untergruppen.DROGERIEARTIKEL);
 			NonFoodArtikel.addNonFoodArtikel(lebensmittel5);
 			
 		}
@@ -47,28 +52,28 @@ public class NonFoodArtikelTestMain {
 		 * String beschreibung, int unterGruppe, int jahreszeit, String koerperteil, String stofftyp
 		 */
 		
-		Kleidung keidung = new Kleidung("Jacke" + 0, 2.98, LocalDate.now(), 0, "Jacke zum anziehen", 5, 1, "Oberkörper", "polyester");
+		Kleidung keidung = new Kleidung("Jacke" + 0, 2.98, LocalDate.now(), 0, "Jacke zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.WINTER, "Oberkörper", "polyester");
 		Kleidung.addKleidungWinter(keidung);
 		keidung.nachbestellen(5);
 		keidung.herausgeben(5);
 		keidung.nachbestellen(200);
 		keidung.herausgeben(200);
-		Kleidung keidung2 = new Kleidung("Hose" + 0, 2.98, LocalDate.now(), 0, "Hose zum anziehen", 5, 2, "Beine", "Baumwolle");
+		Kleidung keidung2 = new Kleidung("Hose" + 0, 2.98, LocalDate.now(), 0, "Hose zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.FRUEHLING, "Beine", "Baumwolle");
 		Kleidung.addKleidungFruehling(keidung2);
-		Kleidung keidung3 = new Kleidung("Mütze" + 0, 2.98, LocalDate.now(), 0, "Mütze zum anziehen", 5, 3, "Kopf", "Baumwolle");
+		Kleidung keidung3 = new Kleidung("Mütze" + 0, 2.98, LocalDate.now(), 0, "Mütze zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.SOMMER, "Kopf", "Baumwolle");
 		Kleidung.addKleidungSommer(keidung3);
 						
 		for(int i = 0; i < 40; i++) {
-			Kleidung keidung5 = new Kleidung("Handschuhe" + i, 2.98, LocalDate.now(), 0, "Handschuhe zum anziehen", 5, 4, "Hand", "Baumwolle");
+			Kleidung keidung5 = new Kleidung("Handschuhe" + i, 2.98, LocalDate.now(), 0, "Handschuhe zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.HERBST, "Hand", "Baumwolle");
 			Kleidung.addKleidungHerbst(keidung5);
 			
 		}
 		
 		
-		Kleidung.gibKleidungJahreszeitAus(1);
-		Kleidung.gibKleidungJahreszeitAus(2);
-		Kleidung.gibKleidungJahreszeitAus(3);
-		Kleidung.gibKleidungJahreszeitAus(4);
+		Kleidung.gibKleidungJahreszeitAus(Jahreszeit.WINTER);
+		Kleidung.gibKleidungJahreszeitAus(Jahreszeit.FRUEHLING);
+		Kleidung.gibKleidungJahreszeitAus(Jahreszeit.SOMMER);
+		Kleidung.gibKleidungJahreszeitAus(Jahreszeit.HERBST);
 		
 		Kleidung.gibKleidungStofftypAus("Baumwolle");
 		Kleidung.gibKleidungStofftypAus("polyester");
@@ -87,27 +92,27 @@ public class NonFoodArtikelTestMain {
 		 * protected static final int WESTERN =8;
 		 */
 		
-		Medien medien = new Medien("CD" + 0, 2.98, LocalDate.now(), 0, "Musik", 6, true, 1, 2020);
+		Medien medien = new Medien("CD" + 0, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.HORROR, 2020);
 		Medien.addMedienHorror(medien);
 		medien.nachbestellen(5);
 		medien.herausgeben(5);
 		medien.nachbestellen(200);
 		medien.herausgeben(200);
-		Medien medien2 = new Medien("CD" + 1, 2.98, LocalDate.now(), 0, "Musik", 6, true, 2, 2020);
+		Medien medien2 = new Medien("CD" + 1, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.ACTION, 2020);
 		Medien.addMedienAction(medien2);
-		Medien medien3 = new Medien("CD" + 2, 2.98, LocalDate.now(), 0, "Musik", 6, true, 3, 2020);
+		Medien medien3 = new Medien("CD" + 2, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.THRILLER, 2020);
 		Medien.addMedienThriller(medien3);
-		Medien medien4 = new Medien("CD" + 3, 2.98, LocalDate.now(), 0, "Musik", 6, true, 4, 2020);
+		Medien medien4 = new Medien("CD" + 3, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.HUMOR, 2020);
 		Medien.addMedienHumor(medien4);
-		Medien medien5 = new Medien("CD" + 4, 2.98, LocalDate.now(), 0, "Musik", 6, true, 5, 2020);
+		Medien medien5 = new Medien("CD" + 4, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.DRAMA, 2020);
 		Medien.addMedienDrama(medien5);
-		Medien medien6 = new Medien("CD" + 5, 2.98, LocalDate.now(), 0, "Musik", 6, true, 6, 2020);
+		Medien medien6 = new Medien("CD" + 5, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.KRIEG, 2020);
 		Medien.addMedienKrieg(medien6);
-		Medien medien7 = new Medien("CD" + 6, 2.98, LocalDate.now(), 0, "Musik", 6, true, 7, 2020);
+		Medien medien7 = new Medien("CD" + 6, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.LIEBE, 2020);
 		Medien.addMedienLiebe(medien7);
 						
 		for(int i = 0; i < 40; i++) {
-			Medien medien8 = new Medien("CD" + 7, 2.98, LocalDate.now(), 0, "Musik", 6, true, 8, 2020);
+			Medien medien8 = new Medien("CD" + 7, 2.98, LocalDate.now(), 0, "Musik", Untergruppen.MEDIEN, true, Filmgenre.WESTERN, 2020);
 			Medien.addMedienWestern(medien8);
 			
 		}
@@ -119,17 +124,17 @@ public class NonFoodArtikelTestMain {
 		 * int unterGruppe, String nutzung, double stiftungwarentest, String allergene
 		 */
 		
-		DrogerieArtikel drogerie = new DrogerieArtikel("Kerze" + 0, 2.98, LocalDate.now(), 0, "Macht Licht", 7, "Anzünden", 1.00, "Keine Allergene");
+		DrogerieArtikel drogerie = new DrogerieArtikel("Kerze" + 0, 2.98, LocalDate.now(), 0, "Macht Licht", Untergruppen.DROGERIEARTIKEL, "Anzünden", 1.00, "Keine Allergene");
 		DrogerieArtikel.addDrogerieArtikel(drogerie);
 		drogerie.nachbestellen(5);
 		drogerie.herausgeben(5);
 		drogerie.nachbestellen(200);
 		drogerie.herausgeben(200);
-		DrogerieArtikel drogerie2 = new DrogerieArtikel("Foto" + 0, 2.98, LocalDate.now(), 0, "Bild zum ansehen", 7, "Visualisierung", 1.53, "Keine Allergene");
+		DrogerieArtikel drogerie2 = new DrogerieArtikel("Foto" + 0, 2.98, LocalDate.now(), 0, "Bild zum ansehen", Untergruppen.DROGERIEARTIKEL, "Visualisierung", 1.53, "Keine Allergene");
 		DrogerieArtikel.addDrogerieArtikel(drogerie2);
 						
 		for(int i = 0; i < 40; i++) {
-			DrogerieArtikel drogerie3 = new DrogerieArtikel("Batterien" + i, 2.98, LocalDate.now(), 0, "Energieträger", 7, "Für Geräte mit Batterien", 1.53, "Zink");
+			DrogerieArtikel drogerie3 = new DrogerieArtikel("Batterien" + i, 2.98, LocalDate.now(), 0, "Energieträger", Untergruppen.DROGERIEARTIKEL, "Für Geräte mit Batterien", 1.53, "Zink");
 			DrogerieArtikel.addDrogerieArtikel(drogerie3);
 			
 		}
@@ -171,41 +176,41 @@ public class NonFoodArtikelTestMain {
 		 * protected static final int FSK0 =  0;
 		 * 
 		 */ 
-		Filme film = new Filme("Horror" + 0, 2.98, LocalDate.now(), 0, "Horrorfilm", 8, true, 1, 2020, 1.56, 18, 1);
+		Filme film = new Filme("Horror" + 0, 2.98, LocalDate.now(), 0, "Horrorfilm", Untergruppen.FILME, true, Filmgenre.HORROR, 2020, 1.56, Fsk.FSK18, Sprachen.CHINESISCH);
 		Filme.addFilm(film);
 		film.nachbestellen(5);
 		film.herausgeben(5);
 		film.nachbestellen(200);
 		film.herausgeben(200);
-		Filme film2 = new Filme("Action" + 0, 2.98, LocalDate.now(), 0, "Action", 8, true, 2, 2020, 1.56, 16, 2);
+		Filme film2 = new Filme("Action" + 0, 2.98, LocalDate.now(), 0, "Action", Untergruppen.FILME, true, Filmgenre.ACTION, 2020, 1.56, Fsk.FSK16, Sprachen.DEUTSCH);
 		Filme.addFilm(film2);
-		Filme film3 = new Filme("Thriller" + 0, 2.98, LocalDate.now(), 0, "Thriller", 8, true, 3, 2020, 1.56, 12, 3);
+		Filme film3 = new Filme("Thriller" + 0, 2.98, LocalDate.now(), 0, "Thriller", Untergruppen.FILME, true, Filmgenre.THRILLER, 2020, 1.56, Fsk.FSK12, Sprachen.ENGLISCH);
 		Filme.addFilm(film3);
-		Filme film4 = new Filme("Humor" + 0, 2.98, LocalDate.now(), 0, "Humor", 8, true, 4, 2020, 1.56, 6, 4);
+		Filme film4 = new Filme("Humor" + 0, 2.98, LocalDate.now(), 0, "Humor", Untergruppen.FILME, true, Filmgenre.HUMOR, 2020, 1.56, Fsk.FSK6, Sprachen.FRANZÖSISCH);
 		Filme.addFilm(film4);
-		Filme film5 = new Filme("Drama" + 0, 2.98, LocalDate.now(), 0, "Drama", 8, true, 5, 2020, 1.56, 0, 5);
+		Filme film5 = new Filme("Drama" + 0, 2.98, LocalDate.now(), 0, "Drama", Untergruppen.FILME, true, Filmgenre.DRAMA, 2020, 1.56, Fsk.FSK0, Sprachen.GRIECHISCH);
 		Filme.addFilm(film5);
-		Filme film6 = new Filme("Krieg" + 0, 2.98, LocalDate.now(), 0, "Krieg", 8, true, 6, 2020, 1.56, 18, 6);
+		Filme film6 = new Filme("Krieg" + 0, 2.98, LocalDate.now(), 0, "Krieg", Untergruppen.FILME, true, Filmgenre.KRIEG, 2020, 1.56, Fsk.FSK18, Sprachen.INDISCH);
 		Filme.addFilm(film6);
-		Filme film7 = new Filme("Liebe" + 0, 2.98, LocalDate.now(), 0, "Liebe", 8, true, 7, 2020, 1.56, 16, 7);
+		Filme film7 = new Filme("Liebe" + 0, 2.98, LocalDate.now(), 0, "Liebe", Untergruppen.FILME, true, Filmgenre.LIEBE, 2020, 1.56, Fsk.FSK16, Sprachen.ITALIENISCH);
 		Filme.addFilm(film7);
-		Filme film8 = new Filme("Western" + 0, 2.98, LocalDate.now(), 0, "Western", 8, true, 8, 2020, 1.56, 12, 8);
+		Filme film8 = new Filme("Western" + 0, 2.98, LocalDate.now(), 0, "Western", Untergruppen.FILME, true, Filmgenre.WESTERN, 2020, 1.56, Fsk.FSK12, Sprachen.JAPANISCH);
 		Filme.addFilm(film8);
-		Filme film9 = new Filme("Horror" + 0, 2.98, LocalDate.now(), 0, "Horror", 8, true, 1, 2020, 1.56, 6, 9);
+		Filme film9 = new Filme("Horror" + 0, 2.98, LocalDate.now(), 0, "Horror", Untergruppen.FILME, true, Filmgenre.HORROR, 2020, 1.56, Fsk.FSK6, Sprachen.NIEDERLÄNDISCH);
 		Filme.addFilm(film9);
-		Filme film10 = new Filme("Action" + 0, 2.98, LocalDate.now(), 0, "Action", 8, true, 2, 2020, 1.56, 0, 10);
+		Filme film10 = new Filme("Action" + 0, 2.98, LocalDate.now(), 0, "Action", Untergruppen.FILME, true, Filmgenre.ACTION, 2020, 1.56, Fsk.FSK0, Sprachen.POLNISCH);
 		Filme.addFilm(film10);
-		Filme film11 = new Filme("Humor" + 0, 2.98, LocalDate.now(), 0, "Humor", 8, true, 4, 2020, 1.56, 18, 11);
+		Filme film11 = new Filme("Humor" + 0, 2.98, LocalDate.now(), 0, "Humor", Untergruppen.FILME, true, Filmgenre.HUMOR, 2020, 1.56, Fsk.FSK18, Sprachen.RUSSISCH);
 		Filme.addFilm(film11);
-		Filme film12 = new Filme("Drama" + 0, 2.98, LocalDate.now(), 0, "Drama", 8, true, 5, 2020, 1.56, 16, 12);
+		Filme film12 = new Filme("Drama" + 0, 2.98, LocalDate.now(), 0, "Drama", Untergruppen.FILME, true, Filmgenre.DRAMA, 2020, 1.56, Fsk.FSK16, Sprachen.SPANISCH);
 		Filme.addFilm(film12);
-		Filme film13 = new Filme("Krieg" + 0, 2.98, LocalDate.now(), 0, "Krieg", 8, true, 6, 2020, 1.56, 12, 13);
+		Filme film13 = new Filme("Krieg" + 0, 2.98, LocalDate.now(), 0, "Krieg", Untergruppen.FILME, true, Filmgenre.KRIEG, 2020, 1.56, Fsk.FSK12, Sprachen.TÜRKISCH);
 		Filme.addFilm(film13);
-		Filme film15 = new Filme("Liebe" + 0, 2.98, LocalDate.now(), 0, "Liebe", 8, true, 7, 2020, 1.56, 6, 14);
+		Filme film15 = new Filme("Liebe" + 0, 2.98, LocalDate.now(), 0, "Liebe", Untergruppen.FILME, true, Filmgenre.LIEBE, 2020, 1.56, Fsk.FSK6, Sprachen.VIETNAMESISCH);
 		Filme.addFilm(film15);
 						
 		for(int i = 0; i < 40; i++) {
-			Filme film14 = new Filme("Western" + i, 2.98, LocalDate.now(), 0, "Western", 8, true, 8, 2020, 1.56, 0, 1);
+			Filme film14 = new Filme("Western" + i, 2.98, LocalDate.now(), 0, "Western", Untergruppen.FILME, true, Filmgenre.WESTERN, 2020, 1.56, Fsk.FSK0, Sprachen.CHINESISCH);
 			Filme.addFilm(film14);
 			
 		}

@@ -29,8 +29,8 @@ public class Getraenke extends Ware {
 	 * @param seitWannImBestand Datum seit wann die Ware im Bestand ist als LocalDate
 	 * @param alcProzente Gibt den alkoholgehalt des Getränks in Double an
 	 */
-	public Getraenke(String name, double preis, int anzahl, LocalDate seitWannImBestand, double alcProzente)  {
-		super(name, preis, anzahl, seitWannImBestand);
+	public Getraenke(String name, double preis, LocalDate seitWannImBestand, double alcProzente)  {
+		super(name, preis, seitWannImBestand);
 		this.alcProzente = alcProzente;			
 	}
 	
@@ -118,7 +118,7 @@ public class Getraenke extends Ware {
 							
 							diffMenge = MAXMENGE - aktuellLagermenge;
 							
-							Getraenke getraenk = new Getraenke(name, preis, 0, LocalDate.now(), alcProzente);
+							Getraenke getraenk = new Getraenke(name, preis, LocalDate.now(), alcProzente);
 							
 							for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
@@ -137,7 +137,7 @@ public class Getraenke extends Ware {
 						//Nachbestellung der Ware
 						else {
 							
-							Getraenke getraenk = new Getraenke(name, preis, 0, LocalDate.now(), alcProzente);
+							Getraenke getraenk = new Getraenke(name, preis, LocalDate.now(), alcProzente);
 							
 							for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 								

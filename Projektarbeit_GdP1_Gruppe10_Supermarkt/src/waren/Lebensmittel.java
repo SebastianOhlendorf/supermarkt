@@ -42,9 +42,9 @@ public class Lebensmittel extends Ware {
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
 	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekühlt werden muss
 	 */
-	public Lebensmittel(String name, double preis, int anzahl, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
+	public Lebensmittel(String name, double preis, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
 		
-		super(name, preis, anzahl, seitWannImBestand);
+		super(name, preis, seitWannImBestand);
 		this.gewicht = gewicht;
 		this.haltbarkeit = haltbarkeit;
 		this.bedarfKuehlung = bedarfKuehlung;
@@ -140,7 +140,7 @@ public class Lebensmittel extends Ware {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 					
-					Lebensmittel lebensmittel = new Lebensmittel(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Lebensmittel lebensmittel = new Lebensmittel(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 						
@@ -159,7 +159,7 @@ public class Lebensmittel extends Ware {
 				//Nachbestellung der Ware
 				else {
 					
-					Lebensmittel lebensmittel = new Lebensmittel(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Lebensmittel lebensmittel = new Lebensmittel(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						

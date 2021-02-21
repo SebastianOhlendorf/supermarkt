@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 import enums.Jahreszeit;
 import enums.Kennungen;
+import enums.Koerperteile;
+import enums.Stofftypen;
 import enums.Untergruppen;
 
 /**
@@ -16,7 +18,7 @@ import enums.Untergruppen;
  */
 public class Kleidung  extends NonFoodArtikel {
 	
-	protected String koerperteil;
+	protected Koerperteile koerperteil;
 	
 	//Klassenvariablen zum zählen der Kleidungsartikel
 	private static int zaehler_kleidung = 0;
@@ -26,19 +28,19 @@ public class Kleidung  extends NonFoodArtikel {
 	 * Konstruktor der Klasse Kleidung um ein neues Kleidung-Objekt zu erzeugen.
 	 * @author Sebastian Ohlendorf / 14.02.2020
 	 * 
-	 * @param name
-	 * @param preis
-	 * @param seitWannImBestand
-	 * @param anzahl
-	 * @param beschreibung
-	 * @param unterGruppe
-	 * @param jahreszeit
-	 * @param koerperteil
-	 * @param stofftyp
+	 * @param name Die Bezeichnung des Non-Food-Artikels oder des Produkts als String
+	 * @param preis Der Preis der Ware als Double
+	 * @param anzahl Stellt die Menge einer Ware als Integer dar
+	 * @param seitWannImBestand Gibt das Datum an seit wann der Die Ware im Bestand ist
+	 * @param beschreibung Enthält zusätzliche Informationen zum Artikel als String
+	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Enum
+	 * @param jahreszeit gibt die Jahreszeit an zu welcher der Artikel gehört als Enum
+	 * @param koerperteil gibt den Körperteil an ao der Artikel getragern werden kann als Enum
+	 * @param stofftyp gibt den Stofftyp des Kleidungstücks an als Enum
 	 */
-	public Kleidung(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			String beschreibung, Untergruppen unterGruppe, Jahreszeit jahreszeit, String koerperteil, String stofftyp) {
-		super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe);
+	public Kleidung(String name, double preis, LocalDate seitWannImBestand, 
+			String beschreibung, Untergruppen unterGruppe, Jahreszeit jahreszeit, Koerperteile koerperteil, Stofftypen stofftyp) {
+		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
 		this.jahreszeit = jahreszeit;
 		this.koerperteil = koerperteil;
@@ -211,8 +213,8 @@ public class Kleidung  extends NonFoodArtikel {
 		String beschreibung = this.beschreibung;
 		Untergruppen untergruppe = this.unterGruppe;
 		Jahreszeit jahreszeit = this.jahreszeit;
-		String koerperteil = this.koerperteil;
-		String stofftyp = this.stofftyp;
+		Koerperteile koerperteil = this.koerperteil;
+		Stofftypen stofftyp = this.stofftyp;
 		
 		boolean nachbestellung = false;
 		
@@ -240,7 +242,7 @@ public class Kleidung  extends NonFoodArtikel {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 
-					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
+					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
 							
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
@@ -259,7 +261,7 @@ public class Kleidung  extends NonFoodArtikel {
 				//Nachbestellung der Ware
 				else {
 					
-					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
+					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
@@ -377,12 +379,11 @@ public class Kleidung  extends NonFoodArtikel {
 	 * 
 	 * @param stofftyp Übergabe des zu prüfenden Stofftyps der Kleidungsstücke als String
 	 */
-	public static void gibKleidungStofftypAus(String stofftyp) {
+	public static void gibKleidungStofftypAus(Stofftypen stofftyp) {
 			
-		String stofftypUebergabe = stofftyp.toLowerCase();
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).stofftyp.toLowerCase() == stofftypUebergabe) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).stofftyp == stofftyp) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size() + " vom Stofftyp: " + alleWaren.get(i).get(0).stofftyp);
 			}
 		}	

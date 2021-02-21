@@ -43,9 +43,9 @@ public class Filme extends Medien {
 		 * @param fsk Gibt die FSK des Films als Integer an
 		 * @param sprache Gibt die Sprache als Integer an
 		 */
-		public Filme(String name, double preis, LocalDate seitWannImBestand, int anzahl, String beschreibung,
+		public Filme(String name, double preis, LocalDate seitWannImBestand, String beschreibung,
 				Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr, double dauer, Fsk fsk, Sprachen sprache) {
-			super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe, isDigital, genre, erscheinungsjahr);
+			super(name, preis, seitWannImBestand, beschreibung, unterGruppe, isDigital, genre, erscheinungsjahr);
 			
 			this.dauer = dauer;
 			this.fsk = fsk;
@@ -142,7 +142,7 @@ public class Filme extends Medien {
 						
 						diffMenge = MAXMENGE - aktuellLagermenge;
 						
-						Filme film = new Filme(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr, dauer, fsk, sprache);
+						Filme film = new Filme(name, preis, LocalDate.now(), beschreibung, untergruppe, isDigital, genre, erscheinungsjahr, dauer, fsk, sprache);
 								
 						for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 									
@@ -161,7 +161,7 @@ public class Filme extends Medien {
 					//Nachbestellung der Ware
 					else {
 						
-						Filme film = new Filme(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr, dauer, fsk, sprache);
+						Filme film = new Filme(name, preis, LocalDate.now(), beschreibung, untergruppe, isDigital, genre, erscheinungsjahr, dauer, fsk, sprache);
 						
 						for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 							

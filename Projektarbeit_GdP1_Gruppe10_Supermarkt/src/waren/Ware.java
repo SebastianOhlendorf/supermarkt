@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import enums.Jahreszeit;
 import enums.Kennungen;
+import enums.Stofftypen;
 
 /**
  * Eine Abstrakte Klasse mit der neue Warenobjekte angelegt, Waren nachbestellt oder herausgegeben werden können.
@@ -24,7 +25,7 @@ public abstract class Ware {
 	private boolean aufgebacken;
 	protected double alcProzente;
 	private Kennungen kennung;
-	protected String stofftyp;
+	protected Stofftypen stofftyp;
 	protected Jahreszeit jahreszeit;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
@@ -40,11 +41,10 @@ public abstract class Ware {
 	 * @param name Die Bezeichnung der Ware oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
 	 */
-	public Ware(String name, double preis, int anzahl, LocalDate seitWannImBestand) {
+	public Ware(String name, double preis,LocalDate seitWannImBestand) {
 		
 		this.name = name;
 		this.preis = preis;
-		this.anzahl = anzahl;
 		this.seitWannImBestand = seitWannImBestand;
 	}
 	
@@ -75,7 +75,7 @@ public abstract class Ware {
 		this.kennung = kleidung;
 	}
 
-	public String getStofftyp() {
+	public Stofftypen getStofftyp() {
 		return stofftyp;
 	}
 

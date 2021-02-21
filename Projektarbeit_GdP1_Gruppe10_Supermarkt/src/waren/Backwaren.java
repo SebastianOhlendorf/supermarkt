@@ -28,8 +28,8 @@ public class Backwaren extends Lebensmittel{
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
 	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekühlt werden muss
 	 */
-	public Backwaren(String name, double preis, int anzahl, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
-		super(name, preis, anzahl, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
+	public Backwaren(String name, double preis, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
+		super(name, preis, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
 	}
 	
 	/**
@@ -102,7 +102,7 @@ public class Backwaren extends Lebensmittel{
 					
 					System.out.println(
 							String.format(
-									"Das Lebensmittel %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+									"Die Backware %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
 									this.name));
 					
 					nachbestellung = false;
@@ -113,7 +113,7 @@ public class Backwaren extends Lebensmittel{
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 					
-					Backwaren backware = new Backwaren(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Backwaren backware = new Backwaren(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 						
@@ -132,7 +132,7 @@ public class Backwaren extends Lebensmittel{
 				//Nachbestellung der Ware
 				else {
 					
-					Backwaren backware = new Backwaren(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Backwaren backware = new Backwaren(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						

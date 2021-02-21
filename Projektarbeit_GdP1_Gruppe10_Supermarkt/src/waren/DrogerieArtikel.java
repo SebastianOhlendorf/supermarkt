@@ -3,7 +3,9 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Allergene;
 import enums.Kennungen;
+import enums.Nutzung;
 import enums.Untergruppen;
 
 /**
@@ -15,9 +17,9 @@ import enums.Untergruppen;
  */
 public class DrogerieArtikel extends NonFoodArtikel {
 	
-	protected String nutzung;
+	protected Nutzung nutzung;
 	protected double stiftungwarentest;
-	protected String allergene;	
+	protected Allergene allergene;	
 	
 	//Klassenvariable zum Zählen der Drogerieartikeltypen
 	private static int DrogerieArtikel_zaehler = 0;
@@ -35,13 +37,13 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * @param stiftungwarentest Gibt die Bewertung des Stiftungwarentestes als Double an
 	 * @param allergene Gibt an ob bei dem Artikel Allergene enthalten sind als String
 	 */
-	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, String beschreibung,
-			Untergruppen unterGruppe, String nutzung, double stiftungwarentest, String allergene) {
-		super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe);
+	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, String beschreibung,
+			Untergruppen unterGruppe, Nutzung nutzung, double stiftungwarentest, Allergene allergene) {
+		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
 		this.nutzung = nutzung;
 		this.stiftungwarentest = stiftungwarentest;
-		this. allergene = allergene;
+		this.allergene = allergene;
 	}
 
 	
@@ -100,9 +102,9 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		double preis = this.preis;
 		String beschreibung = this.beschreibung;
 		Untergruppen untergruppe = this.unterGruppe;
-		String nutzung = this.nutzung;
+		Nutzung nutzung = this.nutzung;
 		double stiftungwarentest = this.stiftungwarentest;
-		String allergene = this.allergene;
+		Allergene allergene = this.allergene;
 		
 		boolean nachbestellung = false;
 		
@@ -130,7 +132,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 
-					DrogerieArtikel drogerieArtikel = new DrogerieArtikel(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, nutzung, stiftungwarentest, allergene);
+					DrogerieArtikel drogerieArtikel = new DrogerieArtikel(name, preis, LocalDate.now(), beschreibung, untergruppe, nutzung, stiftungwarentest, allergene);
 							
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
@@ -149,7 +151,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 				//Nachbestellung der Ware
 				else {
 					
-					DrogerieArtikel drogerieArtikel = new DrogerieArtikel(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, nutzung, stiftungwarentest, allergene);
+					DrogerieArtikel drogerieArtikel = new DrogerieArtikel(name, preis, LocalDate.now(), beschreibung, untergruppe, nutzung, stiftungwarentest, allergene);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						

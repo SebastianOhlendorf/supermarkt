@@ -36,9 +36,9 @@ public class NonFoodArtikel extends Ware {
 	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Integer
 	 * 
 	 */
-	public NonFoodArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
+	public NonFoodArtikel(String name, double preis, LocalDate seitWannImBestand, 
 			 String beschreibung, Untergruppen unterGruppe)  {
-			super(name, preis, anzahl, seitWannImBestand);
+			super(name, preis, seitWannImBestand);
 			
 			this.beschreibung = beschreibung;
 			this.unterGruppe = unterGruppe;
@@ -124,7 +124,7 @@ public class NonFoodArtikel extends Ware {
 							
 							diffMenge = MAXMENGE - aktuellLagermenge;
 							
-							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), 0, beschreibung, untergruppe);
+							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), beschreibung, untergruppe);
 							
 							for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
@@ -143,7 +143,7 @@ public class NonFoodArtikel extends Ware {
 						//Nachbestellung der Ware
 						else {
 							
-							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), 0, beschreibung, untergruppe);
+							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), beschreibung, untergruppe);
 							
 							for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 								

@@ -17,9 +17,7 @@ import enums.Untergruppen;
  *
  */
 public class Medien extends NonFoodArtikel {
-	
-	
-	
+
 	//Objektattribute
 	protected boolean isDigital;
 	protected Filmgenre genre;
@@ -43,11 +41,10 @@ public class Medien extends NonFoodArtikel {
  	 * @param genre Gibt an zu welchen Genre der Medienartikel gehört als Integer
  	 * @param erscheinungsjahr Gibt das Erscheinungsjahr als Integer an
 	 */
-	public Medien(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
+	public Medien(String name, double preis, LocalDate seitWannImBestand, 
 			 String beschreibung, Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr) {
 		
-		super( name,  preis,  seitWannImBestand,  anzahl, 
-				  beschreibung,  unterGruppe);
+		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
 		this.isDigital = isDigital;
 		this.genre = genre;
@@ -429,7 +426,7 @@ public class Medien extends NonFoodArtikel {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 
-					Medien medien = new Medien(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
+					Medien medien = new Medien(name, preis, LocalDate.now(), beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
 							
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
@@ -448,7 +445,7 @@ public class Medien extends NonFoodArtikel {
 				//Nachbestellung der Ware
 				else {
 					
-					Medien medien = new Medien(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
+					Medien medien = new Medien(name, preis, LocalDate.now(), beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						

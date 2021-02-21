@@ -2,7 +2,7 @@ package supermarkt;
 
 import waren.Backwaren;
 import waren.Getraenke;
-import waren.Kleidung;
+import waren-+.Kleidung;
 import waren.Lebensmittel;
 import waren.NonFoodArtikel;
 
@@ -179,11 +179,28 @@ public class Supermarkt {
 		System.out.println("text");
 	}
 	/**
-	 * Methode soll vielleicht die wiederholte Ausgabe des jeweiligen Menus übernehmen.
+	 * Methode soll die jeweilige Ausgabe des jeweiligen Menus übernehmen.
 	 */
-	public static void auswahlmenu () {
-	
-		System.out.println("Auswahlmenu");
+	public static int auswahlmenu (int auswahl) {	
+		
+		switch (auswahl) {
+			case 1: System.out.println("Hauptmenü"+ "/n" + "Ausgabe vom Gesamten Lager: 1"+ "/n"+ "Auswahl der Warengruppen: 2" + "/n" + "Anwendung schliessen: 3");
+					einAusgabe.eingabeAuswahl();
+			
+					case 2: System.out.println("Warengruppenmenü" + "/n" + "Bitte wählen sie eine Warengruppe aus" + "/n" + "Lebensmittel: 1"+ "/n" + "Backwaren: 2" + "/n" + "Getränke: 3"
+					+ "/n" + "NonFoodArtikel: 4" + "/n" + "Kleidung: 5" + "/n" + "Drogerieartikel: 6" + "/n" + "Medien: 7" + "/n" + "Filme: 8" + "/n" + "Zurück zum Hauptmenü: 9");
+					einAusgabe.eingabeAuswahl();
+			
+		case 3: System.out.println("Auswahlmenü Lebensmittel" + "/n" + "Neues Lebensmittel hinzufügen: 1" + "/n" + "Lebensmittel herausgeben: 2" + "/n" + "Lebensmittel nachbestellen: 3" + "/n" +
+				"Zurück zum Warengruppenmenü: 4" + "/n" + "Zurück zum Hauptmenü: 5");
+				Lebensmittel.gebeLebensmittelAus();
+		case 4: System.out.println("Auswahlmenü Backwaren" + "/n" + "Neue Backware hinzufügen: 1" + "/n" + "Backware backen: 2" + "/n" + "Backwaren herausgeben: 3" + "/n" + "Backwaren nachbestellen: 4"
+				 + "/n" + "Zurück zum Warengruppenmenü: 5" + "/n" + "Zurück zum Hauptmenü: 6");
+				Backwaren.gebeBackwareAus();
+		case 5: System.out.println("Auswahlmenü Getränke" + "/n" + "Neues Getränk hinzufügen: 1" + "/n" + "Backware backen: 2" + "/n" + "Backwaren herausgeben: 3" + "/n" + "Backwaren nachbestellen: 4"
+				+ "/n" + "Zurück zum Warengruppenmenü: 5" + "/n" + "Zurück zum Hauptmenü: 6");
+	   			Backwaren.gebeBackwareAus();
+		}			
 	}
 	public static void auswahlOption(int aktion) {
 

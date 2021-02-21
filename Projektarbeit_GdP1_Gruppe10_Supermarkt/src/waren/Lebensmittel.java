@@ -56,7 +56,6 @@ public class Lebensmittel extends Ware {
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param lebensmittel das hinzuzufuegende neue Lebensmittel
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
 	 */
 	public static void addLebensmittel(Lebensmittel lebensmittel) {
 		
@@ -283,7 +282,6 @@ public class Lebensmittel extends Ware {
 				}
 			}
 		}
-		
 		return haltbarBis;	
 	}
 	
@@ -356,7 +354,6 @@ public class Lebensmittel extends Ware {
 			}
 		}
 		return kurzesMHD;
-		
 	}	
 	
 	/**
@@ -369,20 +366,7 @@ public class Lebensmittel extends Ware {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
-		
-		/*
-		System.out.println("\n\n");
-		
-		for (int i = 0; i < alleWaren.size(); i++) { 
-            for (int j = 0; j < alleWaren.get(i).size(); j++) { 
-                System.out.println("(" + j + ") " + alleWaren.get(i).get(j)); 
-            } 
-            System.out.println(); 
-        } */
-
 	}
-
-
 }
 
 

@@ -19,6 +19,7 @@ public abstract class Ware {
 	protected LocalDate seitWannImBestand;
 	protected int haltbarkeit;
 	private boolean aufgebacken;
+	protected double alcProzente;
 	private int kennung;
 	protected String stofftyp;
 	protected int jahreszeit;

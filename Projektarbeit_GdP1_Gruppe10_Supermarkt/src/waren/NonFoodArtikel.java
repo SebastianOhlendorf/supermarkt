@@ -24,10 +24,13 @@ public class NonFoodArtikel extends Ware {
 	/**
 	 * Konstruktor der Klasse NonFoodArtikel um ein neues NonFoodArtikel-Objekt zu erzeugen.
 	 * @author Lennart Sparbier / 16.02.2021
+	 * 
 	 * @param name Die Bezeichnung des Non-Food-Artikels oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
 	 * @param anzahl Stellt die Menge einer Ware als Integer dar
 	 * @param seitWannImBestand Gibt das Datum an seit wann der Die Ware im Bestand ist
+	 * @param beschreibung Enthält zusätzliche Informationen zum Artikel als String
+	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Integer
 	 * 
 	 */
 	public NonFoodArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
@@ -44,7 +47,7 @@ public class NonFoodArtikel extends Ware {
 	 * NonFoodArtikel (Name) nicht hinugefuegt werden konnte.
 	 * @author Sebastian Ohlendorf
 	 * 
-	 * @param nonFoodArtikel das hinzuzufuegende eines neuen Getränke-Objektes
+	 * @param nonFoodArtikel das hinzuzufuegende eines neuen NonFoodArtikel-Objektes
 	 */
 	public static void addNonFoodArtikel(NonFoodArtikel nonFoodArtikel )  {
 		

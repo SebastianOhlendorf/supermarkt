@@ -37,7 +37,6 @@ public class Backwaren extends Lebensmittel{
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
 	 */
 	public static void addBackwaren(Backwaren backwaren){
 			

@@ -39,7 +39,6 @@ public class Getraenke extends Ware {
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param getraenk das hinzuzufuegende eines neuen Getränke-Objektes
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthält
 	 */
 	public static void addGetraenke(Getraenke getraenk) {
 			

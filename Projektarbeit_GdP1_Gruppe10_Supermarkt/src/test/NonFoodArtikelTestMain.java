@@ -57,19 +57,19 @@ public class NonFoodArtikelTestMain {
 		 */
 		
 		Kleidung keidung = new Kleidung("Jacke" + 0, 2.98, LocalDate.now(), "Jacke zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.WINTER, Koerperteile.OBERKOERPER, Stofftypen.BAUMWOLLE);
-		Kleidung.addKleidungWinter(keidung);
+		Kleidung.addKleidung(keidung);
 		keidung.nachbestellen(5);
 		keidung.herausgeben(5);
 		keidung.nachbestellen(200);
 		keidung.herausgeben(200);
 		Kleidung keidung2 = new Kleidung("Hose" + 0, 2.98, LocalDate.now(), "Hose zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.FRUEHLING, Koerperteile.BEINE, Stofftypen.WOLLE);
-		Kleidung.addKleidungFruehling(keidung2);
+		Kleidung.addKleidung(keidung2);
 		Kleidung keidung3 = new Kleidung("Mütze" + 0, 2.98, LocalDate.now(), "Mütze zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.SOMMER, Koerperteile.KOPF, Stofftypen.SEIDE);
-		Kleidung.addKleidungSommer(keidung3);
+		Kleidung.addKleidung(keidung3);
 						
 		for(int i = 0; i < 40; i++) {
 			Kleidung keidung5 = new Kleidung("Handschuhe" + i, 2.98, LocalDate.now(), "Handschuhe zum anziehen", Untergruppen.KLEIDUNG, Jahreszeit.HERBST, Koerperteile.HAENDE, Stofftypen.CHEMIEFASER);
-			Kleidung.addKleidungHerbst(keidung5);
+			Kleidung.addKleidung(keidung5);
 			
 		}
 		
@@ -97,27 +97,27 @@ public class NonFoodArtikelTestMain {
 		 */
 		
 		Medien medien = new Medien("CD" + 0, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.HORROR, 2020);
-		Medien.addMedienHorror(medien);
+		Medien.addMedien(medien);
 		medien.nachbestellen(5);
 		medien.herausgeben(5);
 		medien.nachbestellen(200);
 		medien.herausgeben(200);
 		Medien medien2 = new Medien("CD" + 1, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.ACTION, 2020);
-		Medien.addMedienAction(medien2);
+		Medien.addMedien(medien2);
 		Medien medien3 = new Medien("CD" + 2, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.THRILLER, 2020);
-		Medien.addMedienThriller(medien3);
+		Medien.addMedien(medien3);
 		Medien medien4 = new Medien("CD" + 3, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.HUMOR, 2020);
-		Medien.addMedienHumor(medien4);
+		Medien.addMedien(medien4);
 		Medien medien5 = new Medien("CD" + 4, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.DRAMA, 2020);
-		Medien.addMedienDrama(medien5);
+		Medien.addMedien(medien5);
 		Medien medien6 = new Medien("CD" + 5, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.KRIEG, 2020);
-		Medien.addMedienKrieg(medien6);
+		Medien.addMedien(medien6);
 		Medien medien7 = new Medien("CD" + 6, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.LIEBE, 2020);
-		Medien.addMedienLiebe(medien7);
+		Medien.addMedien(medien7);
 						
 		for(int i = 0; i < 40; i++) {
 			Medien medien8 = new Medien("CD" + 7, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.WESTERN, 2020);
-			Medien.addMedienWestern(medien8);
+			Medien.addMedien(medien8);
 			
 		}
 		Medien.gebenMedienrtikelAus();

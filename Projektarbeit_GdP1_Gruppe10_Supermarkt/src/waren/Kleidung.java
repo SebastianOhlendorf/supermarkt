@@ -56,7 +56,7 @@ public class Kleidung  extends NonFoodArtikel {
 	 * 
 	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
 	 */
-	public static void addKleidungWinter(Kleidung kleidung) {
+	public static void addKleidung(Kleidung kleidung) {
 		
 		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
 		
@@ -68,7 +68,6 @@ public class Kleidung  extends NonFoodArtikel {
 					kleidung.seitWannImBestand = LocalDate.now();
 					kleidung.setKennung(Kennungen.KLEIDUNG);
 					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
-					kleidung.jahreszeit = Jahreszeit.WINTER;
 					
 				}
 		
@@ -82,115 +81,7 @@ public class Kleidung  extends NonFoodArtikel {
 								kleidung.name));
 		}
 	}
-	
-	/**
-	 * Fuegt dem Array alleWaren eine neue Kleidung hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und die
-	 * Kleidung (Name) nicht hinugefuegt werden konnte.
-	 * Es handelt sich hierbei um ein Kleidungsstück welches der Jahreszeit Frühling zugeordnet ist
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
-	 */
-	public static void addKleidungFruehling(Kleidung kleidung) {
 		
-		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
-		
-		if(zaehler_kleidung < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueKleidung.add(kleidung);
-					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(Kennungen.KLEIDUNG);
-					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
-					kleidung.jahreszeit = Jahreszeit.FRUEHLING;
-					
-				}
-		
-				zaehler_kleidung++;
-				alleWaren.add(neueKleidung);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Kleidung-Artikelarten wurde überschritten! Der Kleidung-Artikel %s konnte nicht hinzugefügt werden", 
-								kleidung.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren eine neue Kleidung hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und die
-	 * Kleidung (Name) nicht hinugefuegt werden konnte.
-	 * Es handelt sich hierbei um ein Kleidungsstück welches der Jahreszeit Sommer zugeordnet ist
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
-	 */
-	public static void addKleidungSommer(Kleidung kleidung) {
-		
-		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
-		
-		if(zaehler_kleidung < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueKleidung.add(kleidung);
-					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(Kennungen.KLEIDUNG);
-					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
-					kleidung.jahreszeit = Jahreszeit.SOMMER;
-					
-				}
-		
-				zaehler_kleidung++;
-				alleWaren.add(neueKleidung);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Kleidung-Artikelarten wurde überschritten! Der Kleidung-Artikel %s konnte nicht hinzugefügt werden", 
-								kleidung.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren eine neue Kleidung hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und die
-	 * Kleidung (Name) nicht hinugefuegt werden konnte.
-	 * Es handelt sich hierbei um ein Kleidungsstück welches der Jahreszeit Herbst zugeordnet ist
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
-	 */
-	public static void addKleidungHerbst(Kleidung kleidung) {
-		
-		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
-		
-		if(zaehler_kleidung < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueKleidung.add(kleidung);
-					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(Kennungen.KLEIDUNG);
-					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
-					kleidung.jahreszeit = Jahreszeit.HERBST;
-					
-				}
-		
-				zaehler_kleidung++;
-				alleWaren.add(neueKleidung);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Kleidung-Artikelarten wurde überschritten! Der Kleidung-Artikel %s konnte nicht hinzugefügt werden", 
-								kleidung.name));
-		}
-	}
-	
 	
 	/**
 	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein Kleidung-Objekt eine Nachbestellung zu tätigen.

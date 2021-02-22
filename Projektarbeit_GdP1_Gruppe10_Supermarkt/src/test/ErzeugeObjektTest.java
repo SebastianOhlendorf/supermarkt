@@ -17,6 +17,8 @@ public class ErzeugeObjektTest {
 		ErzeugeObjekt.erzeugeLebensmittel();
 		System.out.println("Lebensmittel erzeugt\n");
 		
+		FindeObjekt.ermittelLebensmittelObjekt();
+		
 		ErzeugeObjekt.erzeugeBackware();
 		System.out.println("Backware erzeugt\n");
 		
@@ -38,7 +40,7 @@ public class ErzeugeObjektTest {
 		ErzeugeObjekt.erzeugeFilm();
 		System.out.println("Film erzeugt\n");
 		
-		FindeObjekt.ermittelLebensmittelObjekt();
+		
 		FindeObjekt.ermittelBackwarenObjekt();
 		FindeObjekt.ermittelGetraenkeObjekt();
 		FindeObjekt.ermittelNonFoodArtikelObjekt();

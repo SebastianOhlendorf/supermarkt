@@ -1,5 +1,7 @@
 package hilfsklassen;
 
+import java.util.InputMismatchException;
+
 import waren.Backwaren;
 import waren.DrogerieArtikel;
 import waren.Filme;
@@ -18,114 +20,223 @@ import waren.NonFoodArtikel;
  */
 public class FindeObjekt {
 	
+	/**
+	 * Diese Methode ermittelt ein Lebensmittel-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten Lebensmittelobjektes
+	 */
 	public static Lebensmittel ermittelLebensmittelObjekt() {
 		
 		int objektID;
-		Lebensmittel lebensmittelObjekt;
+		Lebensmittel lebensmittelObjekt = null;
 		
 		Lebensmittel.gebeLebensmittelAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			lebensmittelObjekt = Lebensmittel.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Lebensmittel ermittelt werden!");
+		}
 		
-		lebensmittelObjekt = Lebensmittel.erhalteObjekt(objektID);
 		
 		return lebensmittelObjekt;
 	}
 	
+	/**
+	 * Diese Methode ermittelt ein Backwaren-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten Backwaren-Objekt
+	 */
 	public static Backwaren ermittelBackwarenObjekt() {
 		
 		int objektID;
-		Backwaren backwarenObjekt;
+		Backwaren backwarenObjekt = null;
 		
 		Backwaren.gebeBackwareAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-		
-		backwarenObjekt = Backwaren.erhalteObjekt(objektID);
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			backwarenObjekt = Backwaren.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte keine Backware ermittelt werden!");
+		}
 		
 		return backwarenObjekt;
 	}
 	
+	/**
+	 * Diese Methode ermittelt ein Getraenke-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten Getraenke-Objekt
+	 */
 	public static Getraenke ermittelGetraenkeObjekt() {
 		
 		int objektID;
-		Getraenke getraenkeObjekt;
+		Getraenke getraenkeObjekt = null;
 		
 		Getraenke.gebeGetraenkeAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-		
-		getraenkeObjekt = Getraenke.erhalteObjekt(objektID);
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			getraenkeObjekt = Getraenke.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Getränk ermittelt werden!");
+		}
 		
 		return getraenkeObjekt;
 	}
 	
+	/**
+	 * Diese Methode ermittelt ein NonFoodArtikel-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten NonFoodArtikel-Objekt
+	 */
 	public static NonFoodArtikel ermittelNonFoodArtikelObjekt() {
 		
 		int objektID;
-		NonFoodArtikel nonFoodArtikelObjekt;
+		NonFoodArtikel nonFoodArtikelObjekt = null;
 		
 		NonFoodArtikel.gebenNFArtikelAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			nonFoodArtikelObjekt = NonFoodArtikel.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein NonFood-Artikel ermittelt werden!");
+		}
 		
-		nonFoodArtikelObjekt = NonFoodArtikel.erhalteObjekt(objektID);
 		
 		return nonFoodArtikelObjekt;
 	}
 	
+	/**
+	 * Diese Methode ermittelt ein Medien-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten Medien-Objekt
+	 */
 	public static Medien ermittelMedienObjekt() {
 		
 		int objektID;
-		Medien medienObjekt;
+		Medien medienObjekt = null;
 		
 		Medien.gebenMedienArtikelAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			medienObjekt = Medien.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Medienartikel ermittelt werden!");
+		}
 		
-		medienObjekt = Medien.erhalteObjekt(objektID);
 		
 		return medienObjekt;
 	}
 	
+	/**
+	 * Diese Methode ermittelt ein Kleidung-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten Kleidung-Objekt
+	 */
 	public static Kleidung ermittelKleidungObjekt() {
 		
 		int objektID;
-		Kleidung kleidungObjekt;
+		Kleidung kleidungObjekt = null;
 		
 		Kleidung.gebeKleidungAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-		
-		kleidungObjekt = Kleidung.erhalteObjekt(objektID);
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			kleidungObjekt = Kleidung.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte keine Kleidung ermittelt werden!");
+		}
 		
 		return kleidungObjekt;
 	}
 	
+	/**
+	 * Diese Methode ermittelt ein DrogerieArtikel-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten DrogerieArtikel-Objekt
+	 */
 	public static DrogerieArtikel ermittelDrogerieArtikelObjekt() {
 		
 		int objektID;
-		DrogerieArtikel drogerieArtikelObjekt;
+		DrogerieArtikel drogerieArtikelObjekt = null;
 		
 		DrogerieArtikel.gibDrogerieArtikelAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			drogerieArtikelObjekt = DrogerieArtikel.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Drogerieartikel ermittelt werden!");
+		}
 		
-		drogerieArtikelObjekt = DrogerieArtikel.erhalteObjekt(objektID);
 		
 		return drogerieArtikelObjekt;
 	}
 	
+	/**
+	 * Diese Methode ermittelt ein Filme-Objekt aus dem Warenlager (Array) alleWaren
+	 * Hierzu kann der Benutzer durch eine Benutzerausgabe (Zahlen eingabe) sich das gewünschte Objekt auswählen
+	 * Wird ein Fehler in der Eingabe getätigt wird die Verabeitung beendet und die Operation muss von vorne begonnen werden
+	 * @author Sebastian Ohlendorf
+	 * @version 1.0
+	 * 
+	 * @return Rückgabe des ausgewählten Filme-Objekt
+	 */
 	public static Filme ermittelFilmObjekt() {
 		
 		int objektID;
-		Filme filmobjektObjekt;
+		Filme filmobjektObjekt = null;
 		
 		Filme.gibFilmeAus();
 		
-		objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+		try {
+			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
+			filmobjektObjekt = Filme.erhalteObjekt(objektID);
+			
+		}catch (InputMismatchException e) {
+			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte keine Backware ermittelt werden!");
+		}
 		
-		filmobjektObjekt = Filme.erhalteObjekt(objektID);
 		
 		return filmobjektObjekt;
 	}

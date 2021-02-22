@@ -63,7 +63,6 @@ public class Eingaben {
 
 		System.out.println(eingabeString);
 		int ganzzahl = in.nextInt();
-
 		return ganzzahl;
 	}
 	
@@ -102,7 +101,7 @@ public class Eingaben {
 				+ "(4) Filme");
 		
 		int untergruppeID = in.nextInt();
-		
+
 		switch(untergruppeID) {
 		
 		case 0: untergruppe = Untergruppen.KEINE;
@@ -183,7 +182,7 @@ public class Eingaben {
 				+ "(6) Füsse\n");
 		
 		int koerperteileID = in.nextInt();
-		
+
 		switch(koerperteileID) {
 		
 		case 0: koerperteil = Koerperteile.KEINE;

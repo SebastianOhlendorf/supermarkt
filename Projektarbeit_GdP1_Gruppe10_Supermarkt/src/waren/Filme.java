@@ -243,6 +243,18 @@ public class Filme extends Medien {
 		return herausgeben;
 		}
 			
+		
+		/**
+		 * toString Methode der Klasse Filme um eine Ausgabe
+		 * zu den Filmen zu tätigen
+		 */
+		@Override
+		public String toString() {
+		return "neuer Film Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
+		" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
+		" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + 
+		" dauer= " + this.dauer + " FSK= " + this.fsk + " sprache= " + this.sprache + "]";
+		}
 
 		/**
 		 * Klassenmethode, welche alle Filme-Artikel ausgibt
@@ -254,16 +266,15 @@ public class Filme extends Medien {
 				}
 			}
 		}
-
+		
 		/**
-		 * toString Methode der Klasse Filme um eine Ausgabe
-		 * zu den Filmen zu tätigen
+		 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+		 * @param objektId ID des Objektes aus dem Array alleWaren
+		 * @return Gibt ein Filme-Objekt zurück
 		 */
-		@Override
-		public String toString() {
-		return "neuer Film Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
-		" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
-		" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + 
-		" dauer= " + this.dauer + " FSK= " + this.fsk + " sprache= " + this.sprache + "]";
+		public static Filme erhalteObjekt(int objektId) {
+			
+			return (Filme) alleWaren.get(objektId).get(0);
+			
 		}
 }	

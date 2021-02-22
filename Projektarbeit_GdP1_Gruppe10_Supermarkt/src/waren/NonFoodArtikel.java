@@ -249,6 +249,17 @@ public class NonFoodArtikel extends Ware {
 			}
 		}
 	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein NonFoodArtikel-Objekt zurück
+	 */
+	public static NonFoodArtikel erhalteObjekt(int objektId) {
+		
+		return (NonFoodArtikel) alleWaren.get(objektId).get(0);
+		
+	}
 }
 
 	

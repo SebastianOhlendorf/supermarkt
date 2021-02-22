@@ -279,4 +279,27 @@ public class Kleidung  extends NonFoodArtikel {
 			}
 		}	
 	}
+	
+	/**
+	 * Methode welche alle Lebensmittel ausgibt welche sich im Lager befinden.
+	 */
+	public static void gebeKleidungAus() {
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Kleidung-Objekt zurück
+	 */
+	public static Kleidung erhalteObjekt(int objektId) {
+		
+		return (Kleidung) alleWaren.get(objektId).get(0);
+		
+	}
 }

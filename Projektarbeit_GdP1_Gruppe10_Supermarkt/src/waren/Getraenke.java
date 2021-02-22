@@ -291,4 +291,15 @@ public class Getraenke extends Ware {
 			}
 		}
 	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Getraenkeobjekt zurück
+	 */
+	public static Getraenke erhalteObjekt(int objektId) {
+		
+		return (Getraenke) alleWaren.get(objektId).get(0);
+		
+	}
 }

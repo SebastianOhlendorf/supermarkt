@@ -275,4 +275,15 @@ public class Backwaren extends Lebensmittel{
 			}
 		}
 	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Backwarenobjekt zurück
+	 */
+	public static Backwaren erhalteObjekt(int objektId) {
+		
+		return (Backwaren) alleWaren.get(objektId).get(0);
+		
+	}
 }

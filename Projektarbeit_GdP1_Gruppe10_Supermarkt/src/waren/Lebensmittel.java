@@ -370,6 +370,17 @@ public class Lebensmittel extends Ware {
 			}
 		}
 	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Lebensmittelobjekt zurück
+	 */
+	public static Lebensmittel erhalteObjekt(int objektId) {
+		
+		return (Lebensmittel) alleWaren.get(objektId).get(0);
+		
+	}
 }
 
 

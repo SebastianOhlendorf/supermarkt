@@ -258,5 +258,15 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		}
 	}
 
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein DrogerieArtikel-Objekt zurück
+	 */
+	public static DrogerieArtikel erhalteObjekt(int objektId) {
+		
+		return (DrogerieArtikel) alleWaren.get(objektId).get(0);
+		
+	}
 
 }

@@ -255,12 +255,23 @@ public class Medien extends NonFoodArtikel {
 	/**
 	 * Klassenmethode, welche alle Medien-Artikel ausgibt
 	 */
-	public static void gebenMedienrtikelAus() {
+	public static void gebenMedienArtikelAus() {
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
+	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Medien-Objekt zurück
+	 */
+	public static Medien erhalteObjekt(int objektId) {
+		
+		return (Medien) alleWaren.get(objektId).get(0);
+		
 	}
 }
  

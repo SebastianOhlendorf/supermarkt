@@ -1,4 +1,4 @@
-package supermarkt;
+package hilfsklassen;
 
 import java.time.LocalDate;
 
@@ -64,12 +64,12 @@ public class ErzeugeObjekt {
 		int haltbarkeit;
 		boolean bedarfKuehlung;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		gewicht = einAusgabe.eingabeDouble("Bitte geben Sie das Gewicht des Artikels in X.XX an:");
-		haltbarkeit = einAusgabe.eingabeInteger("Bitte geben Sie die Haltbarkeit des Artikels als Zahl in Tagen an:");
-		bedarfKuehlung = einAusgabe.eingabeBoolean("Bitte geben Sie an ob der Artikel Kuehlung benötigt (true/false):");
+		gewicht = Eingaben.eingabeDouble("Bitte geben Sie das Gewicht des Artikels in X.XX an:");
+		haltbarkeit = Eingaben.eingabeInteger("Bitte geben Sie die Haltbarkeit des Artikels als Zahl in Tagen an:");
+		bedarfKuehlung = Eingaben.eingabeBoolean("Bitte geben Sie an ob der Artikel Kuehlung benötigt (true/false):");
 		
 		Lebensmittel lebensmittel = new Lebensmittel(name, preis, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
 		Lebensmittel.addLebensmittel(lebensmittel);
@@ -92,12 +92,12 @@ public class ErzeugeObjekt {
 		int haltbarkeit;
 		boolean bedarfKuehlung;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		gewicht = einAusgabe.eingabeDouble("Bitte geben Sie das Gewicht des Artikels in X.XX an:");
-		haltbarkeit = einAusgabe.eingabeInteger("Bitte geben Sie die Haltbarkeit des Artikels als Zahl in Tagen an:");
-		bedarfKuehlung = einAusgabe.eingabeBoolean("Bitte geben Sie an ob der Artikel Kuehlung benötigt (true/false):");
+		gewicht = Eingaben.eingabeDouble("Bitte geben Sie das Gewicht des Artikels in X.XX an:");
+		haltbarkeit = Eingaben.eingabeInteger("Bitte geben Sie die Haltbarkeit des Artikels als Zahl in Tagen an:");
+		bedarfKuehlung = Eingaben.eingabeBoolean("Bitte geben Sie an ob der Artikel Kuehlung benötigt (true/false):");
 		
 		Backwaren backware = new Backwaren(name, preis, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
 		Backwaren.addBackwaren(backware);
@@ -118,10 +118,10 @@ public class ErzeugeObjekt {
 		LocalDate seitWannImBestand;
 		double alcProzente;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		alcProzente = einAusgabe.eingabeDouble("Bitte geben Sie das Gewicht des Artikels in X.XX an:");
+		alcProzente = Eingaben.eingabeDouble("Bitte geben Sie das Gewicht des Artikels in X.XX an:");
 		
 		Getraenke getraenk = new Getraenke(name, preis, seitWannImBestand, alcProzente);
 		Getraenke.addGetraenke(getraenk);
@@ -143,11 +143,11 @@ public class ErzeugeObjekt {
 		String beschreibung;
 		Untergruppen untergruppe;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		beschreibung = einAusgabe.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
-		untergruppe = einAusgabe.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
+		beschreibung = Eingaben.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
+		untergruppe = Eingaben.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
 		
 		NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, seitWannImBestand, beschreibung, untergruppe);
 		NonFoodArtikel.addNonFoodArtikel(nonFoodArtikel);
@@ -172,14 +172,14 @@ public class ErzeugeObjekt {
 		Koerperteile koerperteil;
 		Stofftypen stofftyp;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		beschreibung = einAusgabe.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
-		untergruppe = einAusgabe.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
-		jahreszeit = einAusgabe.eingabeJahreszeit("Bitte geben Sie die Jahreszeit des Artikels als Zahl an:");
-		koerperteil = einAusgabe.eingabeKoerperteil("Bitte geben Sie den Körpertiel des Artikels als Zahl an:");
-		stofftyp = einAusgabe.eingabeStofftyp("Bitte geben Sie den Stofftyp des Artikels als Zahl an:");
+		beschreibung = Eingaben.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
+		untergruppe = Eingaben.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
+		jahreszeit = Eingaben.eingabeJahreszeit("Bitte geben Sie die Jahreszeit des Artikels als Zahl an:");
+		koerperteil = Eingaben.eingabeKoerperteil("Bitte geben Sie den Körpertiel des Artikels als Zahl an:");
+		stofftyp = Eingaben.eingabeStofftyp("Bitte geben Sie den Stofftyp des Artikels als Zahl an:");
 		
 		Kleidung kleidung = new Kleidung(name, preis, seitWannImBestand, beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
 		Kleidung.addKleidung(kleidung);
@@ -204,14 +204,14 @@ public class ErzeugeObjekt {
 		double stiftungwarentest;
 		Allergene allergene;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		beschreibung = einAusgabe.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
-		untergruppe = einAusgabe.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
-		nutzung = einAusgabe.eingabeNutzung("Bitte geben Sie die Nutzung des Artikels als Zahl an:");
-		stiftungwarentest = einAusgabe.eingabeDouble("Bitte geben Sie die Stiftungwarentest Bewertung des Artikels X.XX an:");
-		allergene = einAusgabe.eingabeAllergene("Bitte geben Sie das Allergen des Artikels als Zahl an:");
+		beschreibung = Eingaben.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
+		untergruppe = Eingaben.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
+		nutzung = Eingaben.eingabeNutzung("Bitte geben Sie die Nutzung des Artikels als Zahl an:");
+		stiftungwarentest = Eingaben.eingabeDouble("Bitte geben Sie die Stiftungwarentest Bewertung des Artikels X.XX an:");
+		allergene = Eingaben.eingabeAllergene("Bitte geben Sie das Allergen des Artikels als Zahl an:");
 		
 		DrogerieArtikel drogerieArtikel = new DrogerieArtikel(name, preis, seitWannImBestand, beschreibung, untergruppe, nutzung, stiftungwarentest, allergene);
 		DrogerieArtikel.addDrogerieArtikel(drogerieArtikel);
@@ -239,17 +239,17 @@ public class ErzeugeObjekt {
 		Fsk fsk;
 		Sprachen sprachen;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		beschreibung = einAusgabe.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
-		untergruppe = einAusgabe.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
-		isDigital = einAusgabe.eingabeBoolean("Bitte geben Sie an ob der Artikel Digital (true) oder Analog (false) ist:");
-		genre = einAusgabe.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
-		erscheinungsjahr = einAusgabe.eingabeInteger("Bitte geben Sie das Erscheinungsjahr des Artikels in XXXX an:");
-		dauer = einAusgabe.eingabeDouble("Bitte geben Sie das Erscheinungsjahr des Artikels in X.XX an:");
-		fsk= einAusgabe.eingabeFsk("Bitte geben Sie das FSK des Artikels als Zahl an:");
-		sprachen = einAusgabe.eingabeSprache("Bitte geben Sie die Sprache des Artikels als Zahl an:");
+		beschreibung = Eingaben.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
+		untergruppe = Eingaben.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
+		isDigital = Eingaben.eingabeBoolean("Bitte geben Sie an ob der Artikel Digital (true) oder Analog (false) ist:");
+		genre = Eingaben.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
+		erscheinungsjahr = Eingaben.eingabeInteger("Bitte geben Sie das Erscheinungsjahr des Artikels in XXXX an:");
+		dauer = Eingaben.eingabeDouble("Bitte geben Sie das Erscheinungsjahr des Artikels in X.XX an:");
+		fsk= Eingaben.eingabeFsk("Bitte geben Sie das FSK des Artikels als Zahl an:");
+		sprachen = Eingaben.eingabeSprache("Bitte geben Sie die Sprache des Artikels als Zahl an:");
 		
 		Filme film = new Filme(name, preis, seitWannImBestand, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr, dauer, fsk, sprachen);
 		Filme.addFilm(film);
@@ -274,14 +274,14 @@ public class ErzeugeObjekt {
 		Filmgenre genre;
 		int erscheinungsjahr;
 		
-		name = einAusgabe.eingabeString("Bitte geben Sie den Namen des Artikels an:");
-		preis = einAusgabe.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
+		name = Eingaben.eingabeString("Bitte geben Sie den Namen des Artikels an:");
+		preis = Eingaben.eingabeDouble("Bitte geben Sie den Preis des Artikels X.XX an:");
 		seitWannImBestand = LocalDate.now();
-		beschreibung = einAusgabe.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
-		untergruppe = einAusgabe.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
-		isDigital = einAusgabe.eingabeBoolean("Bitte geben Sie an ob der Artikel Digital (true) oder Analog (false) ist:");
-		genre = einAusgabe.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
-		erscheinungsjahr = einAusgabe.eingabeInteger("Bitte geben Sie das Erscheinungsjahr des Artikels in XXXX an:");
+		beschreibung = Eingaben.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
+		untergruppe = Eingaben.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
+		isDigital = Eingaben.eingabeBoolean("Bitte geben Sie an ob der Artikel Digital (true) oder Analog (false) ist:");
+		genre = Eingaben.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
+		erscheinungsjahr = Eingaben.eingabeInteger("Bitte geben Sie das Erscheinungsjahr des Artikels in XXXX an:");
 		
 		Medien medien = new Medien(name, preis, seitWannImBestand, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
 		Medien.addMedien(medien);

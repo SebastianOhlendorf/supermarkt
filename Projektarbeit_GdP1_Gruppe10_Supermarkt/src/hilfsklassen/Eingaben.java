@@ -1,4 +1,4 @@
-package supermarkt;
+package hilfsklassen;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import enums.Nutzung;
 import enums.Sprachen;
 import enums.Stofftypen;
 import enums.Untergruppen;
-public class einAusgabe {
+public class Eingaben {
 
 	
 	static Scanner in = new Scanner(System.in);
@@ -108,7 +108,7 @@ public class einAusgabe {
 		case 4: untergruppe = Untergruppen.FILME;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie die Untergruppe des Artikels als Zahl an:");
 		}
 		
 		return untergruppe;
@@ -146,7 +146,7 @@ public class einAusgabe {
 		case 3: jahreszeit = Jahreszeit.HERBST;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie die Jahreszeit des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie die Jahreszeit des Artikels als Zahl an:");
 		}
 		
 		return jahreszeit;
@@ -193,7 +193,7 @@ public class einAusgabe {
 		case 6: koerperteil = Koerperteile.FUESSE;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie den Körperteil des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie den Körperteil des Artikels als Zahl an:");
 		}
 		
 		return koerperteil;
@@ -237,7 +237,7 @@ public class einAusgabe {
 		case 5: stofftyp = Stofftypen.CHEMIEFASER;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie den Stofftyp des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie den Stofftyp des Artikels als Zahl an:");
 		}
 		
 		return stofftyp;
@@ -299,7 +299,7 @@ public class einAusgabe {
 		case 11: nutzung = Nutzung.ELEKTRONIK;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie die Nutzung des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie die Nutzung des Artikels als Zahl an:");
 		}
 		
 		return nutzung;
@@ -349,7 +349,7 @@ public class einAusgabe {
 		case 7: allergene = Allergene.SOJA;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie das Allergen des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie das Allergen des Artikels als Zahl an:");
 		}
 		
 		return allergene;
@@ -390,7 +390,7 @@ public class einAusgabe {
 		case 4: fsk = Fsk.FSK18;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie das FSK des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie das FSK des Artikels als Zahl an:");
 		}
 		
 		return fsk;
@@ -440,7 +440,7 @@ public class einAusgabe {
 		case 7: genre = Filmgenre.WESTERN;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");
 		}
 		
 		return genre;
@@ -508,7 +508,7 @@ public class einAusgabe {
 		case 13: sprache = Sprachen.VIETNAMESISCH;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				einAusgabe.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");
+				Eingaben.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");
 		}
 		
 		return sprache;

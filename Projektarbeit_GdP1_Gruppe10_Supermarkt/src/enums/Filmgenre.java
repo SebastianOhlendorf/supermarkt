@@ -2,6 +2,7 @@ package enums;
 
 public enum Filmgenre {
 
+	KEINE,
 	HORROR,
 	ACTION,
 	THRILLER,
@@ -9,6 +10,5 @@ public enum Filmgenre {
 	DRAMA,
 	KRIEG,
 	LIEBE,
-	WESTERN,
-	KEINE
+	WESTERN
 }

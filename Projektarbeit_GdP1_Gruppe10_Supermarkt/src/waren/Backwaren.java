@@ -186,7 +186,7 @@ public class Backwaren extends Lebensmittel{
 					
 					System.out.println(
 							String.format(
-									"Für das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
+									"Für die Backware %s wurden %s Einheiten herausgegeben.", 
 									this.name,
 									menge));
 					
@@ -197,7 +197,7 @@ public class Backwaren extends Lebensmittel{
 					
 					System.out.println(
 							String.format(
-									"Für das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
+									"Für die Backware %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
 									+ "Daher wird eine Nachbestellung getätigt.", 
 									this.name,
 									alleWaren.get(i).size(),
@@ -220,7 +220,7 @@ public class Backwaren extends Lebensmittel{
 	 */
 	@Override
 	public String toString() {
-		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
+		return "Neuer Backwaren Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
 				" Haltbarkeit in Tagen: "+ this.haltbarkeit + " Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
 	} 
 	

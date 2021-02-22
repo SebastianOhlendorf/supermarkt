@@ -1,5 +1,4 @@
 package hilfsklassen;
-import java.time.LocalDate;
 import java.util.Scanner;
 
 import enums.Allergene;
@@ -13,8 +12,16 @@ import enums.Stofftypen;
 import enums.Untergruppen;
 public class Eingaben {
 
+	/** Scanner initialisiert. */
+	private static Scanner in = new Scanner(System.in).useDelimiter(System.lineSeparator());
 	
-	static Scanner in = new Scanner(System.in);
+	
+	/**
+	 * Methode zum schließen des Scanners
+	 */
+    public static void scannerSchliessen() {
+    	in.close();
+    }
 	
 	/**
 	 * Klassenmethode um einen Text zu ermitteln
@@ -24,11 +31,12 @@ public class Eingaben {
 	 * @return text String aus der Eingabe
 	 */
     public static String eingabeString(String eingabeString) {
-
+    	
         System.out.println(eingabeString);
         String text = in.next();
         return text;
     }
+    
 	
 	/**
 	 * Klassenmethode um einen Kommazahl zu ermitteln
@@ -69,7 +77,7 @@ public class Eingaben {
 	public static boolean eingabeBoolean(String eingabeString) {
 		
 		System.out.println(eingabeString);
-		boolean isWahr = in.hasNextBoolean();
+		boolean isWahr = in.nextBoolean();
 		return isWahr;
 	}
 	
@@ -319,7 +327,7 @@ public class Eingaben {
 		
 		System.out.println(eingabeString);
 		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
-		System.out.println("(0) Kein Nutzung\n"
+		System.out.println("(0) Kein Allergen\n"
 				+ "(1) Eier\n"
 				+ "(2) Erdnüsse\n"
 				+ "(3) Fisch\n"
@@ -410,37 +418,37 @@ public class Eingaben {
 		
 		System.out.println(eingabeString);
 		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
-		System.out.println("(0) Horror\n"
-				+ "(1) Action\n"
-				+ "(2) Thriller\n"
-				+ "(3) Humor\n"
-				+ "(4) Drama\n"
-				+ "(5) Krieg\n"
-				+ "(6) Liebe\n"
-				+ "(7) Western\n"
-				+ "(8) Keine Genre\n");
+		System.out.println("(0) Kein Genre\n"
+				+ "(1) Horror\n"
+				+ "(2) Action\n"
+				+ "(3) Thriller\n"
+				+ "(4) Humor\n"
+				+ "(5) Drama\n"
+				+ "(6) Krieg\n"
+				+ "(7) Liebe\n"
+				+ "(8) Western\n");
 		
 		int genreID = in.nextInt();
 		
 		switch(genreID) {
 		
-		case 0: genre = Filmgenre.HORROR;
+		case 0: genre = Filmgenre.KEINE;
 				break;
-		case 1: genre = Filmgenre.ACTION;
+		case 1: genre = Filmgenre.HORROR;
 				break;
-		case 2: genre = Filmgenre.THRILLER;
+		case 2: genre = Filmgenre.ACTION;
 				break;
-		case 3: genre = Filmgenre.HUMOR;
+		case 3: genre = Filmgenre.THRILLER;
 				break;
-		case 4: genre = Filmgenre.DRAMA;
+		case 4: genre = Filmgenre.HUMOR;
 				break;
-		case 5: genre = Filmgenre.KRIEG;
+		case 5: genre = Filmgenre.DRAMA;
 				break;
-		case 6: genre = Filmgenre.LIEBE;
+		case 6: genre = Filmgenre.KRIEG;
 				break;
-		case 7: genre = Filmgenre.WESTERN;
+		case 7: genre = Filmgenre.LIEBE;
 				break;
-		case 8: genre = Filmgenre.KEINE;
+		case 8: genre = Filmgenre.WESTERN;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
 				Eingaben.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");

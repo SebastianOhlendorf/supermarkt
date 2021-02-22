@@ -1,6 +1,5 @@
 package hilfsklassen;
 
-import enums.Kennungen;
 import waren.Backwaren;
 import waren.DrogerieArtikel;
 import waren.Filme;

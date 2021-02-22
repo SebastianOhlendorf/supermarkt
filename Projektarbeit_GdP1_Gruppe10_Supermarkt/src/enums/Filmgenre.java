@@ -9,5 +9,6 @@ public enum Filmgenre {
 	DRAMA,
 	KRIEG,
 	LIEBE,
-	WESTERN
+	WESTERN,
+	KEINE
 }

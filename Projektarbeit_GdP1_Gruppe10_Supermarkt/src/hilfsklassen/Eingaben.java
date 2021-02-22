@@ -417,7 +417,8 @@ public class Eingaben {
 				+ "(4) Drama\n"
 				+ "(5) Krieg\n"
 				+ "(6) Liebe\n"
-				+ "(7) Western\n");
+				+ "(7) Western\n"
+				+ "(8) Keine Genre\n");
 		
 		int genreID = in.nextInt();
 		
@@ -438,6 +439,8 @@ public class Eingaben {
 		case 6: genre = Filmgenre.LIEBE;
 				break;
 		case 7: genre = Filmgenre.WESTERN;
+				break;
+		case 8: genre = Filmgenre.KEINE;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
 				Eingaben.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");

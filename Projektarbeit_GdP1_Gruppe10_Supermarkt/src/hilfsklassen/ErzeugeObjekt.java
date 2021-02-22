@@ -271,7 +271,7 @@ public class ErzeugeObjekt {
 	 * @date 21.02.2021
 	 */
 	public static void erzeugeMedien() {
-		//String name, double preis, LocalDate seitWannImBestand, String beschreibung, Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr
+
 		String name;
 		double preis;
 		LocalDate seitWannImBestand;

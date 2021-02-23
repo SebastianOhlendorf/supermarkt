@@ -14,7 +14,7 @@ public class Ausgaben {
 	 */
 	public static void supermaktLogo() {
 		
-		System.out.print(
+		System.out.println(
 				    "###################################################################################################################\r\n"
 				  + "#                                                                                                                 #\r\n"
 				  + "#  .oooooo..o                                                                                oooo            .    #\r\n"
@@ -36,7 +36,7 @@ public class Ausgaben {
 	 */
 	public static void gruppeZehn() {
 		
-		System.out.print(
+		System.out.println(
 				  "###################################################################################################################\r\n"
 				+ "#   .oooooo.                                                                .o    .oooo.                          #\r\n"
 				+ "#  d8P'  `Y8b                                                             o888   d8P'`Y8b                         #\r\n"
@@ -56,7 +56,7 @@ public class Ausgaben {
 	 */
 	public static void hauptmenue() {
 		
-		System.out.print(
+		System.out.println(
 				  "###################################################################################################################\r\n"
 				+ "# ooooo   ooooo                                      .                                            o8o   o8o       #\r\n"
 				+ "# `888'   `888'                                    .o8                                            `\"'   `\"'       #\r\n"
@@ -76,7 +76,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueLebensmittel() {
 		
-		System.out.print(
+		System.out.println(
 				  "############################################################################################################################\r\n"
 				+ "# ooooo                   .o8                                                         o8o      .       .             oooo  #\r\n"
 				+ "# `888'                  \"888                                                         `\"'    .o8     .o8             `888  #\r\n"
@@ -94,7 +94,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueBackwaren() {
 		
-		System.out.print(
+		System.out.println(
 				  "###########################################################################################################\r\n"
 				+ "# oooooooooo.                      oooo                                                                   #\r\n"
 				+ "# `888'   `Y8b                     `888                                                                   #\r\n"
@@ -112,7 +112,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueGetraenke() {
 		
-		System.out.print(
+		System.out.println(
 				  "##########################################################################################\r\n"
 				+ "#   .oooooo.                  .            o8o   o8o             oooo                    #\r\n"
 				+ "#  d8P'  `Y8b               .o8            `\"'   `\"'             `888                    #\r\n"
@@ -130,7 +130,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueNonFood() {
 		
-		System.out.print(
+		System.out.println(
 				  "####################################################################################\r\n"
 				+ "# ooooo      ooo                       oooooooooooo                           .o8  #\r\n"
 				+ "# `888b.     `8'                       `888'     `8                          \"888  #\r\n"
@@ -148,7 +148,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueMedien() {
 		
-		System.out.print(
+		System.out.println(
 				  "######################################################################\r\n"
 				+ "# ooo        ooooo                 .o8   o8o                         #\r\n"
 				+ "# `88.       .888'                \"888   `\"'                         #\r\n"
@@ -166,7 +166,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueKleidung() {
 		
-		System.out.print(
+		System.out.println(
 				  "#####################################################################################\r\n"
 				+ "# oooo    oooo oooo             o8o        .o8                                      #\r\n"
 				+ "# `888   .8P'  `888             `\"'       \"888                                      #\r\n"
@@ -185,7 +185,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueDrogerieArtikel() {
 		
-		System.out.print(
+		System.out.println(
 				  "###################################################################################\r\n"
 				+ "# oooooooooo.                                                     o8o             #\r\n"
 				+ "# `888'   `Y8b                                                    `\"'             #\r\n"
@@ -204,7 +204,7 @@ public class Ausgaben {
 	 */
 	public static void untermenueFilme() {
 		
-		System.out.print(
+		System.out.println(
 				  "#########################################################\r\n"
 				+ "# oooooooooooo  o8o  oooo                               #\r\n"
 				+ "# `888'     `8  `\"'  `888                               #\r\n"
@@ -214,7 +214,7 @@ public class Ausgaben {
 				+ "#  888          888   888   888   888   888  888    .o  #\r\n"
 				+ "# o888o        o888o o888o o888o o888o o888o `Y8bod8P'  #\r\n"
 				+ "#                                                       #\r\n"
-				+ "#########################################################");
+				+ "#########################################################\r\n");
 	}
 	
 	/**

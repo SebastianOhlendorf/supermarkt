@@ -25,6 +25,8 @@ public class AusgabenTest {
 		Ausgaben.untermenueKleidung();
 		Ausgaben.untermenueDrogerieArtikel();
 		Ausgaben.untermenueFilme();
+		Ausgaben.begruessung();
+		Ausgaben.beendigung();
 
 	}
 

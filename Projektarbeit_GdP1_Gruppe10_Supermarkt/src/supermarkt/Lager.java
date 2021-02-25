@@ -174,7 +174,7 @@ public class Lager {
 		
 		
 
-		/**
+		/***
 		 * Befüllen des Lagers mit Kleidungsstücken
 		 */
 		

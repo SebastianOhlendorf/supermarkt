@@ -10,19 +10,19 @@ public class LebensmittelTest {
 	public static void main(String[] args) {
 
 					//---------------Lebensmittel---------------------------
-					Lebensmittel lebensmittel = new Lebensmittel("Tee", 2.98, 0, LocalDate.now(), 0.5, 25, false);
-					Lebensmittel.addLebensmittel(new Lebensmittel("Kekse", 2.98, 0, LocalDate.now(), 0.5, 0, false));
-					Lebensmittel.addLebensmittel(new Lebensmittel("Käse", 2.98, 0, LocalDate.now(), 0.5, 2, false));
+					Lebensmittel lebensmittel = new Lebensmittel("Tee", 2.98, LocalDate.now(), 0.5, 25, false);
+					Lebensmittel.addLebensmittel(new Lebensmittel("Kekse", 2.98, LocalDate.now(), 0.5, 0, false));
+					Lebensmittel.addLebensmittel(new Lebensmittel("Käse", 2.98, LocalDate.now(), 0.5, 2, false));
 					Lebensmittel.addLebensmittel(lebensmittel);
 					Lebensmittel.gebeLebensmittelAus();
 					
 					LocalDate date = LocalDate.parse("2021-01-17");
-					Lebensmittel lebensmittel2 = new Lebensmittel("Suppe", 2.98, 0, date, 0.5, 1, false);
+					Lebensmittel lebensmittel2 = new Lebensmittel("Suppe", 2.98, date, 0.5, 1, false);
 					Lebensmittel.addLebensmittel(lebensmittel2);
 					
 					for(int i = 0; i < 40; i++) {
 
-						Lebensmittel.addLebensmittel(new Lebensmittel("Gemüse" + i, 2.98, 5, LocalDate.now(), 0.5, 25, false));
+						Lebensmittel.addLebensmittel(new Lebensmittel("Gemüse" + i, 2.98, LocalDate.now(), 0.5, 25, false));
 						
 					}	
 					System.out.println("Start herausgabe:");
@@ -81,15 +81,15 @@ public class LebensmittelTest {
 					
 					//---------------Backwaren---------------------------
 					
-					Backwaren backwaren = new Backwaren("Semmel", 2.98, 0, LocalDate.now(), 0.5, 25, false);
-					Backwaren.addBackwaren(new Backwaren("Laugenstange", 2.98, 0, LocalDate.now(), 0.5, 0, false));
-					Backwaren.addBackwaren(new Backwaren("Mehrkornbrötchen", 2.98, 0, LocalDate.now(), 0.5, 25, false));
+					Backwaren backwaren = new Backwaren("Semmel", 2.98, LocalDate.now(), 0.5, 25, false);
+					Backwaren.addBackwaren(new Backwaren("Laugenstange", 2.98, LocalDate.now(), 0.5, 0, false));
+					Backwaren.addBackwaren(new Backwaren("Mehrkornbrötchen", 2.98, LocalDate.now(), 0.5, 25, false));
 					Backwaren.addBackwaren(backwaren);
 					Backwaren.gebeBackwareAus();
 					
 					for(int i = 0; i < 40; i++) {
 
-						Backwaren.addBackwaren(new Backwaren("Breze" + i, 2.98, 5, LocalDate.now(), 0.5, 25, false));
+						Backwaren.addBackwaren(new Backwaren("Breze" + i, 2.98, LocalDate.now(), 0.5, 25, false));
 						
 					}	
 					

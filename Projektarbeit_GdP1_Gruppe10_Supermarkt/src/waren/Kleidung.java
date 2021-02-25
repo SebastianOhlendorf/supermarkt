@@ -3,6 +3,12 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Jahreszeit;
+import enums.Kennungen;
+import enums.Koerperteile;
+import enums.Stofftypen;
+import enums.Untergruppen;
+
 /**
  * Kinderklasse der Klasse Kleidung zum anlegen von Kleidung-Objekten
  * @author Sebastian Ohlendorf
@@ -12,13 +18,7 @@ import java.util.ArrayList;
  */
 public class Kleidung  extends NonFoodArtikel {
 	
-	protected String koerperteil;
-	
-	//Konstanten für die Jahreszeiten
-	protected static final int WINTER = 1;
-	protected static final int FRUEHLING = 2;
-	protected static final int SOMMER = 3;
-	protected static final int HERBST = 4;
+	protected Koerperteile koerperteil;
 	
 	//Klassenvariablen zum zählen der Kleidungsartikel
 	private static int zaehler_kleidung = 0;
@@ -28,19 +28,19 @@ public class Kleidung  extends NonFoodArtikel {
 	 * Konstruktor der Klasse Kleidung um ein neues Kleidung-Objekt zu erzeugen.
 	 * @author Sebastian Ohlendorf / 14.02.2020
 	 * 
-	 * @param name
-	 * @param preis
-	 * @param seitWannImBestand
-	 * @param anzahl
-	 * @param beschreibung
-	 * @param unterGruppe
-	 * @param jahreszeit
-	 * @param koerperteil
-	 * @param stofftyp
+	 * @param name Die Bezeichnung des Non-Food-Artikels oder des Produkts als String
+	 * @param preis Der Preis der Ware als Double
+	 * @param anzahl Stellt die Menge einer Ware als Integer dar
+	 * @param seitWannImBestand Gibt das Datum an seit wann der Die Ware im Bestand ist
+	 * @param beschreibung Enthält zusätzliche Informationen zum Artikel als String
+	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Enum
+	 * @param jahreszeit gibt die Jahreszeit an zu welcher der Artikel gehört als Enum
+	 * @param koerperteil gibt den Körperteil an ao der Artikel getragern werden kann als Enum
+	 * @param stofftyp gibt den Stofftyp des Kleidungstücks an als Enum
 	 */
-	public Kleidung(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			String beschreibung, int unterGruppe, int jahreszeit, String koerperteil, String stofftyp) {
-		super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe);
+	public Kleidung(String name, double preis, LocalDate seitWannImBestand, 
+			String beschreibung, Untergruppen unterGruppe, Jahreszeit jahreszeit, Koerperteile koerperteil, Stofftypen stofftyp) {
+		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
 		this.jahreszeit = jahreszeit;
 		this.koerperteil = koerperteil;
@@ -56,7 +56,7 @@ public class Kleidung  extends NonFoodArtikel {
 	 * 
 	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
 	 */
-	public static void addKleidungWinter(Kleidung kleidung) {
+	public static void addKleidung(Kleidung kleidung) {
 		
 		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
 		
@@ -66,9 +66,8 @@ public class Kleidung  extends NonFoodArtikel {
 			
 					neueKleidung.add(kleidung);
 					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = WINTER;
+					kleidung.setKennung(Kennungen.KLEIDUNG);
+					kleidung.unterGruppe = Untergruppen.KLEIDUNG;
 					
 				}
 		
@@ -82,115 +81,7 @@ public class Kleidung  extends NonFoodArtikel {
 								kleidung.name));
 		}
 	}
-	
-	/**
-	 * Fuegt dem Array alleWaren eine neue Kleidung hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und die
-	 * Kleidung (Name) nicht hinugefuegt werden konnte.
-	 * Es handelt sich hierbei um ein Kleidungsstück welches der Jahreszeit Frühling zugeordnet ist
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
-	 */
-	public static void addKleidungFruehling(Kleidung kleidung) {
 		
-		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
-		
-		if(zaehler_kleidung < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueKleidung.add(kleidung);
-					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = FRUEHLING;
-					
-				}
-		
-				zaehler_kleidung++;
-				alleWaren.add(neueKleidung);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Kleidung-Artikelarten wurde überschritten! Der Kleidung-Artikel %s konnte nicht hinzugefügt werden", 
-								kleidung.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren eine neue Kleidung hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und die
-	 * Kleidung (Name) nicht hinugefuegt werden konnte.
-	 * Es handelt sich hierbei um ein Kleidungsstück welches der Jahreszeit Sommer zugeordnet ist
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
-	 */
-	public static void addKleidungSommer(Kleidung kleidung) {
-		
-		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
-		
-		if(zaehler_kleidung < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueKleidung.add(kleidung);
-					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = SOMMER;
-					
-				}
-		
-				zaehler_kleidung++;
-				alleWaren.add(neueKleidung);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Kleidung-Artikelarten wurde überschritten! Der Kleidung-Artikel %s konnte nicht hinzugefügt werden", 
-								kleidung.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren eine neue Kleidung hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und die
-	 * Kleidung (Name) nicht hinugefuegt werden konnte.
-	 * Es handelt sich hierbei um ein Kleidungsstück welches der Jahreszeit Herbst zugeordnet ist
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param kleidung das hinzuzufuegende eines neuen Kleingund-Objektes
-	 */
-	public static void addKleidungHerbst(Kleidung kleidung) {
-		
-		ArrayList<Ware> neueKleidung = new ArrayList<Ware>();
-		
-		if(zaehler_kleidung < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueKleidung.add(kleidung);
-					kleidung.seitWannImBestand = LocalDate.now();
-					kleidung.setKennung(KLEIDUNG);
-					kleidung.unterGruppe = KLEIDUNG;
-					kleidung.jahreszeit = HERBST;
-					
-				}
-		
-				zaehler_kleidung++;
-				alleWaren.add(neueKleidung);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Kleidung-Artikelarten wurde überschritten! Der Kleidung-Artikel %s konnte nicht hinzugefügt werden", 
-								kleidung.name));
-		}
-	}
-	
 	
 	/**
 	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein Kleidung-Objekt eine Nachbestellung zu tätigen.
@@ -211,16 +102,16 @@ public class Kleidung  extends NonFoodArtikel {
 		String name = this.name;
 		double preis = this.preis;
 		String beschreibung = this.beschreibung;
-		int untergruppe = this.unterGruppe;
-		int jahreszeit = this.jahreszeit;
-		String koerperteil = this.koerperteil;
-		String stofftyp = this.stofftyp;
+		Untergruppen untergruppe = this.unterGruppe;
+		Jahreszeit jahreszeit = this.jahreszeit;
+		Koerperteile koerperteil = this.koerperteil;
+		Stofftypen stofftyp = this.stofftyp;
 		
 		boolean nachbestellung = false;
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -242,12 +133,12 @@ public class Kleidung  extends NonFoodArtikel {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 
-					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
+					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
 							
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
 						alleWaren.get(i).add(kleidung);
-						kleidung.setKennung(KLEIDUNG);
+						kleidung.setKennung(Kennungen.KLEIDUNG);
 								
 					}
 							
@@ -261,12 +152,12 @@ public class Kleidung  extends NonFoodArtikel {
 				//Nachbestellung der Ware
 				else {
 					
-					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
+					Kleidung kleidung = new Kleidung(name, preis, LocalDate.now(), beschreibung, untergruppe, jahreszeit, koerperteil, stofftyp);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(kleidung);
-						kleidung.setKennung(KLEIDUNG);
+						kleidung.setKennung(Kennungen.KLEIDUNG);
 						
 					}
 					
@@ -300,7 +191,7 @@ public class Kleidung  extends NonFoodArtikel {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -350,9 +241,9 @@ public class Kleidung  extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"neuer Kleidung Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
-				" anzahl= " + anzahl +  " beschreibung= " + beschreibung + " unterGruppe = "+ unterGruppe + 
-				" Jaherszeit= " + jahreszeit + " Körperteil= " + koerperteil + " Stofftyp= " + stofftyp + "]";
+		return"neuer Kleidung Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
+				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
+				" Jaherszeit= " + this.jahreszeit + " Körperteil= " + this.koerperteil + " Stofftyp= " + this.stofftyp + "]";
 			
 	}
 	
@@ -363,10 +254,10 @@ public class Kleidung  extends NonFoodArtikel {
 	 * 
 	 * @param jahreszeit übergebene Jahreszeit als Integer (Winter = 1, Frühling = 2, Sommer = 3 und Herbst = 4)
 	 */
-	public static void gibKleidungJahreszeitAus(int jahreszeit) {
+	public static void gibKleidungJahreszeitAus(Jahreszeit jahreszeit) {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).jahreszeit == jahreszeit) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).jahreszeit == jahreszeit) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size() + " für die Jahreszeit: " + alleWaren.get(i).get(0).jahreszeit);
 			}
 		}		
@@ -379,14 +270,36 @@ public class Kleidung  extends NonFoodArtikel {
 	 * 
 	 * @param stofftyp Übergabe des zu prüfenden Stofftyps der Kleidungsstücke als String
 	 */
-	public static void gibKleidungStofftypAus(String stofftyp) {
+	public static void gibKleidungStofftypAus(Stofftypen stofftyp) {
 			
-		String stofftypUebergabe = stofftyp.toLowerCase();
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == KLEIDUNG && alleWaren.get(i).get(0).stofftyp.toLowerCase() == stofftypUebergabe) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG && alleWaren.get(i).get(0).stofftyp == stofftyp) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size() + " vom Stofftyp: " + alleWaren.get(i).get(0).stofftyp);
 			}
 		}	
+	}
+	
+	/**
+	 * Methode welche alle Lebensmittel ausgibt welche sich im Lager befinden.
+	 */
+	public static void gebeKleidungAus() {
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Kleidung-Objekt zurück
+	 */
+	public static Kleidung erhalteObjekt(int objektId) {
+		
+		return (Kleidung) alleWaren.get(objektId).get(0);
+		
 	}
 }

@@ -3,6 +3,8 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Kennungen;
+
 /**
  * Kinderklasse der Klasse Lebensmittel zum anlegen von Backwaren-Objekten
  * @author Sebastian Ohlendorf
@@ -26,8 +28,8 @@ public class Backwaren extends Lebensmittel{
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
 	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekühlt werden muss
 	 */
-	public Backwaren(String name, double preis, int anzahl, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
-		super(name, preis, anzahl, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
+	public Backwaren(String name, double preis, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
+		super(name, preis, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
 	}
 	
 	/**
@@ -49,7 +51,7 @@ public class Backwaren extends Lebensmittel{
 					neueBackwaren.add(backwaren);
 					backwaren.seitWannImBestand = LocalDate.now();
 					backwaren.setAufgebacken(false);
-					backwaren.setKennung(BACKWAREN);
+					backwaren.setKennung(Kennungen.BACKWAREN);
 				}
 		
 				zaehler_backwaren++;
@@ -89,7 +91,7 @@ public class Backwaren extends Lebensmittel{
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -100,7 +102,7 @@ public class Backwaren extends Lebensmittel{
 					
 					System.out.println(
 							String.format(
-									"Das Lebensmittel %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+									"Die Backware %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
 									this.name));
 					
 					nachbestellung = false;
@@ -111,12 +113,12 @@ public class Backwaren extends Lebensmittel{
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 					
-					Backwaren backware = new Backwaren(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Backwaren backware = new Backwaren(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 						
 						alleWaren.get(i).add(backware);
-						backware.setKennung(BACKWAREN);
+						backware.setKennung(Kennungen.BACKWAREN);
 						
 					}
 					
@@ -130,12 +132,12 @@ public class Backwaren extends Lebensmittel{
 				//Nachbestellung der Ware
 				else {
 					
-					Backwaren backware = new Backwaren(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Backwaren backware = new Backwaren(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(backware);
-						backware.setKennung(BACKWAREN);
+						backware.setKennung(Kennungen.BACKWAREN);
 						
 					}
 					
@@ -168,7 +170,7 @@ public class Backwaren extends Lebensmittel{
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -184,7 +186,7 @@ public class Backwaren extends Lebensmittel{
 					
 					System.out.println(
 							String.format(
-									"Für das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
+									"Für die Backware %s wurden %s Einheiten herausgegeben.", 
 									this.name,
 									menge));
 					
@@ -195,7 +197,7 @@ public class Backwaren extends Lebensmittel{
 					
 					System.out.println(
 							String.format(
-									"Für das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
+									"Für die Backware %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
 									+ "Daher wird eine Nachbestellung getätigt.", 
 									this.name,
 									alleWaren.get(i).size(),
@@ -218,7 +220,7 @@ public class Backwaren extends Lebensmittel{
 	 */
 	@Override
 	public String toString() {
-		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
+		return "Neuer Backwaren Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
 				" Haltbarkeit in Tagen: "+ this.haltbarkeit + " Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
 	} 
 	
@@ -236,7 +238,7 @@ public class Backwaren extends Lebensmittel{
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
 					
 				if(alleWaren.get(i).get(0).isAufgebacken() == false) {
 						
@@ -268,9 +270,20 @@ public class Backwaren extends Lebensmittel{
 	public static void gebeBackwareAus() {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
+	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Backwarenobjekt zurück
+	 */
+	public static Backwaren erhalteObjekt(int objektId) {
+		
+		return (Backwaren) alleWaren.get(objektId).get(0);
+		
 	}
 }

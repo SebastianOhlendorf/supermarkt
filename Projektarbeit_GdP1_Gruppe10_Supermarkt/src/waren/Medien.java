@@ -3,6 +3,10 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Filmgenre;
+import enums.Kennungen;
+import enums.Untergruppen;
+
 //import supermarkt.SupermarktExceptions;
 
 /**
@@ -13,23 +17,6 @@ import java.util.ArrayList;
  *
  */
 public class Medien extends NonFoodArtikel {
-	
-	
-	
-	//Objektattribute
-	protected boolean isDigital;
-	protected int genre;
-	protected int erscheinungsjahr;
-	
-	// Dient zum setzen der Genres im Switch Case
-	protected static final int HORROR =1;
-	protected static final int ACTION = 2;
-	protected static final int THRILLER =3;
-	protected static final int HUMOR =4;
-	protected static final int DRAMA =5; 
-	protected static final int KRIEG =6;
-	protected static final int LIEBE =7;
-	protected static final int WESTERN =8;
 	
 	//Klassenattribute
 	private static int zaehler_medien = 0;
@@ -49,11 +36,10 @@ public class Medien extends NonFoodArtikel {
  	 * @param genre Gibt an zu welchen Genre der Medienartikel gehört als Integer
  	 * @param erscheinungsjahr Gibt das Erscheinungsjahr als Integer an
 	 */
-	public Medien(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			 String beschreibung, int unterGruppe, boolean isDigital, int genre, int erscheinungsjahr) {
+	public Medien(String name, double preis, LocalDate seitWannImBestand, 
+			 String beschreibung, Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr) {
 		
-		super( name,  preis,  seitWannImBestand,  anzahl, 
-				  beschreibung,  unterGruppe);
+		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
 		this.isDigital = isDigital;
 		this.genre = genre;
@@ -80,8 +66,8 @@ public class Medien extends NonFoodArtikel {
 			
 					neueMedien.add(medien);
 					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
+					medien.setKennung(Kennungen.MEDIEN);
+					medien.unterGruppe = Untergruppen.MEDIEN;
 					
 				}
 		
@@ -96,294 +82,6 @@ public class Medien extends NonFoodArtikel {
 		}
 	}
 	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Horror mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienHorror(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = HORROR;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Action mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienAction(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = ACTION;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Thriller mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienThriller(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = THRILLER;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Humor mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienHumor(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = HUMOR;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Drama mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienDrama(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = DRAMA;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Krieg mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienKrieg(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = KRIEG;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Liebe mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienLiebe(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = LIEBE;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-	
-	/**
-	 * Fuegt dem Array alleWaren ein neues Medienobjekt hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
-	 * Medien-Artikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das Genre Western mit übergeben
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param medien das hinzuzufuegende eines neuen Medien-Objektes
-	 */
-	public static void addMedienWestern(Medien medien)  {
-		
-		ArrayList<Ware> neueMedien = new ArrayList<Ware>();
-		
-		if(zaehler_medien < MAXANZAHLWAREN) {
-			
-				for(int i = 0; i < MAXMENGE; i++) {
-			
-					neueMedien.add(medien);
-					medien.seitWannImBestand = LocalDate.now();
-					medien.setKennung(MEDIEN);
-					medien.unterGruppe = MEDIEN;
-					medien.genre = WESTERN;
-					
-				}
-		
-				zaehler_medien++;
-				alleWaren.add(neueMedien);
-				
-		}else {
-				System.out.println(
-						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
-								medien.name));
-		}
-	}
-
 	
 	/**
 	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein Medien-Objekt eine Nachbestellung zu tätigen.
@@ -404,16 +102,16 @@ public class Medien extends NonFoodArtikel {
 		String name = this.name;
 		double preis = this.preis;
 		String beschreibung = this.beschreibung;
-		int untergruppe = this.unterGruppe;
+		Untergruppen untergruppe = this.unterGruppe;
 		boolean isDigital = this.isDigital;
-		int genre = this.genre;
+		Filmgenre genre = this.genre;
 		int erscheinungsjahr = this.erscheinungsjahr;
 		
 		boolean nachbestellung = false;
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -435,12 +133,12 @@ public class Medien extends NonFoodArtikel {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 
-					Medien medien = new Medien(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
+					Medien medien = new Medien(name, preis, LocalDate.now(), beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
 							
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
 						alleWaren.get(i).add(medien);
-						medien.setKennung(MEDIEN);
+						medien.setKennung(Kennungen.MEDIEN);
 								
 					}
 							
@@ -454,12 +152,12 @@ public class Medien extends NonFoodArtikel {
 				//Nachbestellung der Ware
 				else {
 					
-					Medien medien = new Medien(name, preis, LocalDate.now(), 0, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
+					Medien medien = new Medien(name, preis, LocalDate.now(), beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(medien);
-						medien.setKennung(MEDIEN);
+						medien.setKennung(Kennungen.MEDIEN);
 						
 					}
 					
@@ -493,7 +191,7 @@ public class Medien extends NonFoodArtikel {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -543,21 +241,65 @@ public class Medien extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"neuer Medien Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
-				" anzahl= " + anzahl +  " beschreibung= " + beschreibung + " unterGruppe = "+ unterGruppe + 
-				" isDigital= " + isDigital + " genre= " + genre + " erscheinungsjahr= " + erscheinungsjahr + "]";
+		return"neuer Medien Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
+				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
+				" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + "]";
 			
 	}
 	
 	/**
 	 * Klassenmethode, welche alle Medien-Artikel ausgibt
 	 */
-	public static void gebenMedienrtikelAus() {
+	public static void gebenMedienArtikelAus() {
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == MEDIEN) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Medien-Artikel ausgibt welche Digital sind
+	 */
+	public static void gebenMedienArtikelDigitalAus() {
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).isDigital == true) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Medien-Artikel ausgibt welche Analog sind
+	 */
+	public static void gebenMedienArtikelAnalogAus() {
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).isDigital == false) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Medien-Artikel mit Genre ausgibt
+	 */
+	public static void gebenGenreAus(Filmgenre genre) {
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).genre == genre) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Genre: " + alleWaren.get(i).get(0).genre);
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Medien-Objekt zurück
+	 */
+	public static Medien erhalteObjekt(int objektId) {
+		
+		return (Medien) alleWaren.get(objektId).get(0);
+		
 	}
 }
  

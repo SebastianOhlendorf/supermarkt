@@ -2,6 +2,7 @@ package enums;
 
 public enum Filmgenre {
 
+	KEINE,
 	HORROR,
 	ACTION,
 	THRILLER,

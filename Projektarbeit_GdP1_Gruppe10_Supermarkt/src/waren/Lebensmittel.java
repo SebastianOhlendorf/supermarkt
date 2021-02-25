@@ -2,6 +2,9 @@ package waren;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import enums.Kennungen;
+
 import java.time.temporal.ChronoUnit;
 
 
@@ -39,9 +42,9 @@ public class Lebensmittel extends Ware {
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
 	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekühlt werden muss
 	 */
-	public Lebensmittel(String name, double preis, int anzahl, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
+	public Lebensmittel(String name, double preis, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
 		
-		super(name, preis, anzahl, seitWannImBestand);
+		super(name, preis, seitWannImBestand);
 		this.gewicht = gewicht;
 		this.haltbarkeit = haltbarkeit;
 		this.bedarfKuehlung = bedarfKuehlung;
@@ -73,7 +76,7 @@ public class Lebensmittel extends Ware {
 			
 					neuesLebensmittel.add(lebensmittel);
 					lebensmittel.seitWannImBestand = LocalDate.now();
-					lebensmittel.setKennung(LEBENSMITTEL);
+					lebensmittel.setKennung(Kennungen.LEBENSMITTEL);
 				}
 		
 				zaehler_lebensmittel++;
@@ -115,7 +118,7 @@ public class Lebensmittel extends Ware {
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge + menge;
@@ -137,12 +140,12 @@ public class Lebensmittel extends Ware {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
 					
-					Lebensmittel lebensmittel = new Lebensmittel(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Lebensmittel lebensmittel = new Lebensmittel(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 						
 						alleWaren.get(i).add(lebensmittel);
-						lebensmittel.setKennung(LEBENSMITTEL);
+						lebensmittel.setKennung(Kennungen.LEBENSMITTEL);
 						
 					}
 					
@@ -156,12 +159,12 @@ public class Lebensmittel extends Ware {
 				//Nachbestellung der Ware
 				else {
 					
-					Lebensmittel lebensmittel = new Lebensmittel(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					Lebensmittel lebensmittel = new Lebensmittel(name, preis, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
 					
 					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 						
 						alleWaren.get(i).add(lebensmittel);
-						lebensmittel.setKennung(LEBENSMITTEL);
+						lebensmittel.setKennung(Kennungen.LEBENSMITTEL);
 						
 					}
 					
@@ -193,7 +196,7 @@ public class Lebensmittel extends Ware {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -263,7 +266,7 @@ public class Lebensmittel extends Ware {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				for(int j = 0; j < alleWaren.get(i).size(); j++) {
 					
@@ -302,7 +305,7 @@ public class Lebensmittel extends Ware {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				for(int j = 0; j < alleWaren.get(i).size(); j++) {
 					
@@ -336,7 +339,7 @@ public class Lebensmittel extends Ware {
 		
 		for(int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL) {
 				
 				for(int j = 0; j < alleWaren.get(i).size(); j++) {
 					
@@ -362,10 +365,21 @@ public class Lebensmittel extends Ware {
 	public static void gebeLebensmittelAus() {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
+	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein Lebensmittelobjekt zurück
+	 */
+	public static Lebensmittel erhalteObjekt(int objektId) {
+		
+		return (Lebensmittel) alleWaren.get(objektId).get(0);
+		
 	}
 }
 

@@ -3,6 +3,9 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Kennungen;
+import enums.Untergruppen;
+
 /**
  * Kinderklasse der Klasse Ware zum anlegen von NonFoodArtikel-Objekten
  * @author Lennart Sparbier
@@ -14,7 +17,7 @@ public class NonFoodArtikel extends Ware {
 	
 	//Objektattribute
 	protected  String beschreibung;
-	protected int unterGruppe;
+	protected Untergruppen unterGruppe;
 	
 	
 	//Klassenattribut. Zählt die NonFood Artikel
@@ -33,9 +36,9 @@ public class NonFoodArtikel extends Ware {
 	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Integer
 	 * 
 	 */
-	public NonFoodArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, 
-			 String beschreibung, int unterGruppe)  {
-			super(name, preis, anzahl, seitWannImBestand);
+	public NonFoodArtikel(String name, double preis, LocalDate seitWannImBestand, 
+			 String beschreibung, Untergruppen unterGruppe)  {
+			super(name, preis, seitWannImBestand);
 			
 			this.beschreibung = beschreibung;
 			this.unterGruppe = unterGruppe;
@@ -59,17 +62,7 @@ public class NonFoodArtikel extends Ware {
 			
 					neuerNonFoodArtikel.add(nonFoodArtikel);
 					nonFoodArtikel.seitWannImBestand = LocalDate.now();
-					nonFoodArtikel.setKennung(NONFOODARTIKEL);
-					
-					switch(nonFoodArtikel.unterGruppe) {
-					case 5: nonFoodArtikel.unterGruppe = KLEIDUNG;
-							break;
-					case 6: nonFoodArtikel.unterGruppe = MEDIEN;
-							break;
-					case 7: nonFoodArtikel.unterGruppe = DROGERIEARTIKEL;	
-							break;
-					default: System.out.println("Es wurde keine korrekte Untergruppe uebergeben");		
-					}
+					nonFoodArtikel.setKennung(Kennungen.NONFOODARTIKEL);
 				}
 		
 				nonFoodArtikel_zaehler++;
@@ -103,13 +96,13 @@ public class NonFoodArtikel extends Ware {
 				String name = this.name;
 				double preis = this.preis;
 				String beschreibung = this.beschreibung;
-				int untergruppe = this.unterGruppe;
+				Untergruppen untergruppe = this.unterGruppe;
 				
 				boolean nachbestellung = false;
 				
 				for (int i = 0; i < alleWaren.size(); i++) {
 					
-					if(alleWaren.get(i).get(0).getKennung() == NONFOODARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
+					if(alleWaren.get(i).get(0).getKennung() == Kennungen.NONFOODARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
 						
 						int aktuellLagermenge = alleWaren.get(i).size();
 						int neueLegermenge = aktuellLagermenge + menge;
@@ -131,12 +124,12 @@ public class NonFoodArtikel extends Ware {
 							
 							diffMenge = MAXMENGE - aktuellLagermenge;
 							
-							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), 0, beschreibung, untergruppe);
+							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), beschreibung, untergruppe);
 							
 							for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
 								
 								alleWaren.get(i).add(nonFoodArtikel);
-								nonFoodArtikel.setKennung(NONFOODARTIKEL);
+								nonFoodArtikel.setKennung(Kennungen.NONFOODARTIKEL);
 								
 							}
 							
@@ -150,12 +143,12 @@ public class NonFoodArtikel extends Ware {
 						//Nachbestellung der Ware
 						else {
 							
-							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), 0, beschreibung, untergruppe);
+							NonFoodArtikel nonFoodArtikel = new NonFoodArtikel(name, preis, LocalDate.now(), beschreibung, untergruppe);
 							
 							for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
 								
 								alleWaren.get(i).add(nonFoodArtikel);
-								nonFoodArtikel.setKennung(NONFOODARTIKEL);
+								nonFoodArtikel.setKennung(Kennungen.NONFOODARTIKEL);
 								
 							}
 							
@@ -189,7 +182,7 @@ public class NonFoodArtikel extends Ware {
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			if(alleWaren.get(i).get(0).getKennung() == NONFOODARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.NONFOODARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
 				int aktuellLagermenge = alleWaren.get(i).size();
 				int neueLegermenge = aktuellLagermenge - menge;
@@ -239,9 +232,9 @@ public class NonFoodArtikel extends Ware {
 	@Override
 	public String toString() {
 		
-		return "neuer NonFood Artikel [ name= "+ name + " preis= "+ preis + " seitWannImBestand= " + seitWannImBestand +  
-				" anzahl= " + anzahl +  " beschreibung= " + beschreibung +
-				" unterGruppe = "+ unterGruppe + "]";
+		return "neuer NonFood Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
+				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung +
+				" unterGruppe = "+ this.unterGruppe + "]";
 			
 	}
 	
@@ -251,10 +244,21 @@ public class NonFoodArtikel extends Ware {
 	public static void gebenNFArtikelAus() {
 	
 		for (int i = 0; i < alleWaren.size(); i++) { 
-			if(alleWaren.get(i).get(0).getKennung() == NONFOODARTIKEL) {
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.NONFOODARTIKEL) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
+	}
+	
+	/**
+	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * @param objektId ID des Objektes aus dem Array alleWaren
+	 * @return Gibt ein NonFoodArtikel-Objekt zurück
+	 */
+	public static NonFoodArtikel erhalteObjekt(int objektId) {
+		
+		return (NonFoodArtikel) alleWaren.get(objektId).get(0);
+		
 	}
 }
 

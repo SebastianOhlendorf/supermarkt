@@ -117,6 +117,10 @@ public class NonFoodArtikelTestMain {
 		medien.herausgeben(5);
 		medien.nachbestellen(200);
 		medien.herausgeben(200);
+		Medien.gebenMedienArtikelAnalogAus();
+		Medien.gebenMedienArtikelDigitalAus();
+		Medien.gebenGenreAus(Filmgenre.THRILLER);
+		
 						
 		for(int i = 0; i < 40; i++) {
 			Medien medien8 = new Medien("CD" + 7, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.WESTERN, 2020);
@@ -131,23 +135,27 @@ public class NonFoodArtikelTestMain {
 		 * int unterGruppe, String nutzung, double stiftungwarentest, String allergene
 		 */
 		
-		DrogerieArtikel drogerie = new DrogerieArtikel("Kerze" + 0, 2.98, LocalDate.now(), "Macht Licht", Untergruppen.DROGERIEARTIKEL, Nutzung.WELLNESS, 1.00, Allergene.KEINE);
+		DrogerieArtikel drogerie = new DrogerieArtikel("Kerze" + 0, 2.98, LocalDate.now(), "Macht Licht", Untergruppen.DROGERIEARTIKEL, Nutzung.WELLNESS, 1.79, Allergene.KEINE);
 		DrogerieArtikel.addDrogerieArtikel(drogerie);
-		DrogerieArtikel drogerie2 = new DrogerieArtikel("Foto" + 0, 2.98, LocalDate.now(), "Bild zum ansehen", Untergruppen.DROGERIEARTIKEL, Nutzung.WELLNESS, 1.53, Allergene.KEINE);
+		DrogerieArtikel drogerie2 = new DrogerieArtikel("Foto" + 0, 2.98, LocalDate.now(), "Bild zum ansehen", Untergruppen.DROGERIEARTIKEL, Nutzung.WELLNESS, 2.36, Allergene.KEINE);
 		DrogerieArtikel.addDrogerieArtikel(drogerie2);
 		
 		drogerie.nachbestellen(5);
 		drogerie.herausgeben(5);
 		drogerie.nachbestellen(200);
 		drogerie.herausgeben(200);
-						
+		
+							
 		for(int i = 0; i < 40; i++) {
-			DrogerieArtikel drogerie3 = new DrogerieArtikel("Batterien" + i, 2.98, LocalDate.now(), "Energieträger", Untergruppen.DROGERIEARTIKEL, Nutzung.ELEKTRONIK, 1.53,  Allergene.GLUTEN);
+			DrogerieArtikel drogerie3 = new DrogerieArtikel("Batterien" + i, 2.98, LocalDate.now(), "Energieträger", Untergruppen.DROGERIEARTIKEL, Nutzung.ELEKTRONIK, 1.65,  Allergene.GLUTEN);
 			DrogerieArtikel.addDrogerieArtikel(drogerie3);
 			
 		}
 		DrogerieArtikel.gibDrogerieArtikelAus();
 		
+		DrogerieArtikel.gibAllergeneAus(Allergene.GLUTEN);
+		DrogerieArtikel.gibBestnoteAus();
+
 		//---------------------------Filme-----------------------------------------
 		/*
 		 * String name, double preis, LocalDate seitWannImBestand, int anzahl, String beschreibung,

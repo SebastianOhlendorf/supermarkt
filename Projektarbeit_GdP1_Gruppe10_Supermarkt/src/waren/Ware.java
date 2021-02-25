@@ -3,8 +3,11 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import enums.Allergene;
+import enums.Filmgenre;
 import enums.Jahreszeit;
 import enums.Kennungen;
+import enums.Nutzung;
 import enums.Stofftypen;
 
 /**
@@ -27,6 +30,12 @@ public abstract class Ware {
 	private Kennungen kennung;
 	protected Stofftypen stofftyp;
 	protected Jahreszeit jahreszeit;
+	protected boolean isDigital;
+	protected Filmgenre genre;
+	protected int erscheinungsjahr;
+	protected Nutzung nutzung;
+	protected double stiftungwarentest;
+	protected Allergene allergene;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;

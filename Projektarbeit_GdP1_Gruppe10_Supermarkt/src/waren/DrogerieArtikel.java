@@ -2,7 +2,6 @@ package waren;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import enums.Allergene;
 import enums.Kennungen;
 import enums.Nutzung;
@@ -16,10 +15,6 @@ import enums.Untergruppen;
  *
  */
 public class DrogerieArtikel extends NonFoodArtikel {
-	
-	protected Nutzung nutzung;
-	protected double stiftungwarentest;
-	protected Allergene allergene;	
 	
 	//Klassenvariable zum Zählen der Drogerieartikeltypen
 	private static int DrogerieArtikel_zaehler = 0;
@@ -248,12 +243,43 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	
 
 	/**
-	 * Klassenmethode, welche alle Filme-Artikel ausgibt
+	 * Klassenmethode, welche alle Drogerie-Artikel ausgibt
 	 */
 	public static void gibDrogerieArtikelAus() {
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Drogerie-Artikel aus sortiert nach Note
+	 */
+	public static void gibBestnoteAus() {
+
+		for(int j = 0; j <= 600; j++) {
+			
+			for (int i = 0; i < alleWaren.size(); i++) {
+				
+				int noteWarentest = (int)(alleWaren.get(i).get(0).stiftungwarentest * 100.00);
+								
+				if(noteWarentest == j && alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL) {
+				
+					System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Benotung Stiftungwarentest: " + alleWaren.get(i).get(0).stiftungwarentest);
+				}
+			}
+
+		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Drogerie-Artikel ausgibt die ein bestimmtes Allergen haben
+	 */
+	public static void gibAllergeneAus(Allergene allergen) {
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL && alleWaren.get(i).get(0).allergene == allergen) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Allergen: " + alleWaren.get(i).get(0).allergene);
 			}
 		}
 	}

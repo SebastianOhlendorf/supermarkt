@@ -17,11 +17,6 @@ import enums.Untergruppen;
  *
  */
 public class Medien extends NonFoodArtikel {
-
-	//Objektattribute
-	protected boolean isDigital;
-	protected Filmgenre genre;
-	protected int erscheinungsjahr;
 	
 	//Klassenattribute
 	private static int zaehler_medien = 0;
@@ -259,6 +254,39 @@ public class Medien extends NonFoodArtikel {
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Medien-Artikel ausgibt welche Digital sind
+	 */
+	public static void gebenMedienArtikelDigitalAus() {
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).isDigital == true) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Medien-Artikel ausgibt welche Analog sind
+	 */
+	public static void gebenMedienArtikelAnalogAus() {
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).isDigital == false) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+			}
+		}
+	}
+	
+	/**
+	 * Klassenmethode, welche alle Medien-Artikel mit Genre ausgibt
+	 */
+	public static void gebenGenreAus(Filmgenre genre) {
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).genre == genre) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Genre: " + alleWaren.get(i).get(0).genre);
 			}
 		}
 	}

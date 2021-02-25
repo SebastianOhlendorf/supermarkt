@@ -16,6 +16,8 @@ import waren.DrogerieArtikel;
 import waren.Filme;
 import waren.Getraenke;
 import waren.Kleidung;
+import waren.Lebensmittel;
+import waren.Medien;
 import waren.NonFoodArtikel;
 
 /**
@@ -102,7 +104,7 @@ public class Lager {
 		DrogerieArtikel.addDrogerieArtikel(niveaVitalSojaAntiAge);
 		
 		/**
-		 * Befüllen des Lagers mit Film Artikeln
+		 * Befüllen des Lagers mit Filmen
 		 */
 		
 		Filme saw5 = new Filme("Saw 5" , 9.99, LocalDate.now(), "verstörender Horror mit Tobin Bell ", Untergruppen.FILME, true, Filmgenre.HORROR, 2014, 1.45, Fsk.FSK18, Sprachen.DEUTSCH);
@@ -137,7 +139,7 @@ public class Lager {
 		
 		
 		/**
-		 * Befüllen des Lagers mit Getränke Artikeln
+		 * Befüllen des Lagers mit Getränken
 		 */
 		
 		Getraenke becksGold = new Getraenke("Becks Gold_", 2.50, LocalDate.now(), 4.90);
@@ -207,6 +209,114 @@ public class Lager {
 		
 		Kleidung calvinKleinUnterhose = new Kleidung("Calvin Klein Unterhosen" , 29.99, LocalDate.now(), "Unterhosen unterschiedliche Größen", Untergruppen.KLEIDUNG, Jahreszeit.WINTER, Koerperteile.BEINE, Stofftypen.BAUMWOLLE);
 		Kleidung.addKleidung(calvinKleinUnterhose);
+		
+		
+		/***
+		 * Befüllen des Lagers mit Lebensmitteln
+		 */
+		
+		Lebensmittel butterJa = new Lebensmittel("Butter von der Marke Ja", 0.60, LocalDate.now(), 500, 90, true);
+		Lebensmittel.addLebensmittel(butterJa);
+		
+		Lebensmittel mettwurstDreiEichen = new Lebensmittel("Mettwurst, Firma Drei Eichen", 5.50, LocalDate.now(), 700, 210, false);
+		Lebensmittel.addLebensmittel(mettwurstDreiEichen);
+		
+		Lebensmittel chesterGutUndGuenstig = new Lebensmittel("Chester Scheiblettenkäse von Gut und Günstig", 0.99, LocalDate.now(), 250, 30, false);
+		Lebensmittel.addLebensmittel(chesterGutUndGuenstig);
+		
+		Lebensmittel grandDessertvanillePuddingEhrmann = new Lebensmittel("Ehrmann GrandDessert Vaille Pudding",0.70, LocalDate.now(), 100, 10, true);
+		Lebensmittel.addLebensmittel(grandDessertvanillePuddingEhrmann);
+		
+		Lebensmittel superSandwichHarryBrot = new Lebensmittel("Harry Brot Sammys Super Sandwich", 1.30, LocalDate.now(), 750, 21, false);
+		Lebensmittel.addLebensmittel(superSandwichHarryBrot);
+		
+		Lebensmittel schwartauExtraErdbeere = new Lebensmittel("Schwartau Extra Erdbeere Konfitüre", 1.99, LocalDate.now(), 400, 35, false);
+		Lebensmittel.addLebensmittel(schwartauExtraErdbeere);
+		
+		Lebensmittel genussKroneMittelscharfSenf = new Lebensmittel("Genuss Krone mittelscharfer Tafel-Senf", 0.99, LocalDate.now(), 200, 150, false);
+		Lebensmittel.addLebensmittel(genussKroneMittelscharfSenf);
+		
+		Lebensmittel gemischtesHackfleischMeineMetzgerei = new Lebensmittel("Gemischtes Hackfleisch von meine Metzgerei", 2.99, LocalDate.now(), 500,15, true);
+		Lebensmittel.addLebensmittel(gemischtesHackfleischMeineMetzgerei);
+		
+		Lebensmittel barillaPastaFusilliNudeln = new Lebensmittel("Nudeln Barilla Pasta Fusilli", 1.65, LocalDate.now(), 500, 150, false);
+		Lebensmittel.addLebensmittel(barillaPastaFusilliNudeln);
+		
+		Lebensmittel dieOfenFrischeSalami = new Lebensmittel("Die Ofenfrische Salami", 2.50, LocalDate.now(), 320, 200, true);
+		Lebensmittel.addLebensmittel(dieOfenFrischeSalami);
+		
+		
+		/***
+		 * Befüllen des Lagers mit Medien Artikeln
+		 */
+		
+		Medien eminemRelapseAlbum = new Medien("Eminem mit dem Album Relapse" ,9.99, LocalDate.now(), "Album von Eminem", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2009);
+		Medien.addMedien(eminemRelapseAlbum);
+		
+		Medien theRaid = new Medien("The Raid Actionfilm" , 7.99, LocalDate.now(), "Actionfilm", Untergruppen.MEDIEN, true, Filmgenre.ACTION, 2011);
+		Medien.addMedien(theRaid);
+		
+		Medien dieGeissensStaffel3 = new Medien("Die Geissens Staffel 3 DVD", 15.00, LocalDate.now(), "DVD von den Geissens", Untergruppen.MEDIEN, true, Filmgenre.HUMOR, 2015);
+		Medien.addMedien(dieGeissensStaffel3);
+		
+		Medien intelligentInvestierenBenjaminGraham = new Medien("Buch Intelligent investieren von Benjamin Graham" , 30.00, LocalDate.now(), "Buch investieren", Untergruppen.MEDIEN, false, Filmgenre.KEINE, 2016);
+		Medien.addMedien(intelligentInvestierenBenjaminGraham);
+		
+		Medien sakrileg = new Medien("das Buch Sakrileg" , 9.99, LocalDate.now(), "Buch zu dem Bestseller Sakrileg", Untergruppen.MEDIEN,false, Filmgenre.KEINE, 2003);
+		Medien.addMedien(sakrileg);
+		
+		Medien volbeatRewindReplayRebound = new Medien("Volbeat mit dem Album Rewind Replay Rebound" , 20.00, LocalDate.now(), "Musik Album Volbeat", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2019);
+		Medien.addMedien(volbeatRewindReplayRebound);
+		
+		Medien romeTotalWar2Computer = new Medien("Computerspiel Rome Total War 2 von Creative Assembly " , 18.99, LocalDate.now(), "Computerspiel Strategie", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2013);
+		Medien.addMedien(romeTotalWar2Computer);
+		
+		Medien battlefield5Computer = new Medien("Computerspiel Battlefield 5 von Electronic Arts", 30.00, LocalDate.now(), "Computerspiel Ego Shooter", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2018);
+		Medien.addMedien(battlefield5Computer);
+		
+		Medien mrBeanZeichentrickSerieStaffel2 = new Medien("Mr Bean die Cartoon Zeichentrick Serie Staffel 2" , 19.99, LocalDate.now(), "Zeichentrick Serie", Untergruppen.MEDIEN, true, Filmgenre.HUMOR, 2006);
+		Medien.addMedien(mrBeanZeichentrickSerieStaffel2);
+		
+		Medien einerFlogUeberDasKuckucksnestFilm = new Medien("Einer Flog über das Kuckucksnest" , 5.99, LocalDate.now(), "DVD Film von 1975", Untergruppen.MEDIEN, false, Filmgenre.DRAMA, 1975);
+		Medien.addMedien(einerFlogUeberDasKuckucksnestFilm);
+		
+		
+		/***
+		 * Befüllen des Lagers mit NonFood Artikeln
+		 */
+		
+		NonFoodArtikel somatSpuelmaschinenSalz = new NonFoodArtikel("Somat Spülmaschinensalz" , 1.99, LocalDate.now(), "Spülmaschinensalz für Geschirrspüler", Untergruppen.DROGERIEARTIKEL);
+		NonFoodArtikel.addNonFoodArtikel(somatSpuelmaschinenSalz);
+		
+		NonFoodArtikel funnyToilettenPapier = new NonFoodArtikel("dreilagiges Toilettenpapier von der Firma Funny" , 2.29, LocalDate.now(), "Toilettenpapier Funny", Untergruppen.DROGERIEARTIKEL);
+		NonFoodArtikel.addNonFoodArtikel(funnyToilettenPapier);
+		
+		NonFoodArtikel reinigungsgelHautklarGarnier = new NonFoodArtikel("Reinigungsgel Hautklar Reinigungs- & Abschmink-Gel 2 in 1" , 4.95, LocalDate.now(), "200ml Reinigungsgel", Untergruppen.DROGERIEARTIKEL);
+		NonFoodArtikel.addNonFoodArtikel(reinigungsgelHautklarGarnier);
+		
+		NonFoodArtikel yumayaNagelschereEdelstahl = new NonFoodArtikel("YUMAYA Profi Nagelschere Edelstahl rostfrei" , 12.95, LocalDate.now(), "Nagelschere von YUMAYA", Untergruppen.DROGERIEARTIKEL);
+		NonFoodArtikel.addNonFoodArtikel(yumayaNagelschereEdelstahl);
+		
+		NonFoodArtikel somatClassicsSpuellmaschinenTabs= new NonFoodArtikel("Somat Classic 82 Tabs Spüllmaschinentabs" , 5.00, LocalDate.now(), "für die Geschirrspülmaschine", Untergruppen.DROGERIEARTIKEL);
+		NonFoodArtikel.addNonFoodArtikel(somatClassicsSpuellmaschinenTabs);
+		
+		NonFoodArtikel jamesBond007Spectre = new NonFoodArtikel("James Bond 007 Spectre DVD" , 12.00, LocalDate.now(), "James Bond Film mit Daniel Craig", Untergruppen.FILME);
+		NonFoodArtikel.addNonFoodArtikel(jamesBond007Spectre);
+		
+		NonFoodArtikel acDcBlackIce = new NonFoodArtikel("Das Album AC/DC Black Ice aus 2008" , 16.99, LocalDate.now(), "Album aus 2008", Untergruppen.MEDIEN);
+		NonFoodArtikel.addNonFoodArtikel(acDcBlackIce);
+		
+		NonFoodArtikel jackAndJonesTshirtBlau = new NonFoodArtikel("Jack and Jones T-Shirt in Blau" , 15.99, LocalDate.now(), "T-shirt von Jack & Jones", Untergruppen.KLEIDUNG);
+		NonFoodArtikel.addNonFoodArtikel(jackAndJonesTshirtBlau);
+		
+		NonFoodArtikel yamtionLaptopRucksack= new NonFoodArtikel("Yamtion Laptop Rucksack mit USB Ladeanschluss" , 29.99, LocalDate.now(), "Rucksack für Laptops", Untergruppen.KLEIDUNG);
+		NonFoodArtikel.addNonFoodArtikel(yamtionLaptopRucksack);
+		
+		NonFoodArtikel pampersPremiumWindelnGr1 = new NonFoodArtikel("Pampers Größe 1 Premium Protection Baby Windeln, 96 Stück," , 14.58, LocalDate.now(), "Windeln für Babys", Untergruppen.DROGERIEARTIKEL);
+		NonFoodArtikel.addNonFoodArtikel(pampersPremiumWindelnGr1);
+		
+		
+		
 		
 	}
 

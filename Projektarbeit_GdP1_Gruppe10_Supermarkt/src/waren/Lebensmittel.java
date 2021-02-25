@@ -2,7 +2,8 @@ package waren;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import supermarkt.SupermarktExceptions;
+import java.time.temporal.ChronoUnit;
+
 
 /**
  * Kinderklasse der Klasse Ware zum anlegen von Lebensmittelobjekten
@@ -13,14 +14,17 @@ import supermarkt.SupermarktExceptions;
  */
 public class Lebensmittel extends Ware {
 	
-	//Objektattribute fï¿½r das Lebensmittelobjekt
+	//Objektattribute für das Lebensmittelobjekt
 	protected double gewicht;
-	protected int haltbarkeit; //Die Haltbarkeit wird in Tagen gemessen
+	//protected int haltbarkeit; //Die Haltbarkeit wird in Tagen gemessen
 	protected boolean bedarfKuehlung;
 	
 	//Klassenattribute zum zaehlen der Lebensmittel und Backwaren 
 	private static int zaehler_lebensmittel = 0;
-	private static int zaehler_backwaren = 0;
+
+	
+	
+	
 
 	
 	/**
@@ -33,7 +37,7 @@ public class Lebensmittel extends Ware {
 	 * @param seitWannImBestand Datum seit wann die Ware im Bestand ist als LocalDate
 	 * @param gewicht Gewicht der Ware als Double
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
-	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekï¿½hlt werden muss
+	 * @param bedarfKuehlung Legt mit einem True oder False fest ob eine Ware gekühlt werden muss
 	 */
 	public Lebensmittel(String name, double preis, int anzahl, LocalDate seitWannImBestand, double gewicht, int haltbarkeit, boolean bedarfKuehlung) {
 		
@@ -52,160 +56,182 @@ public class Lebensmittel extends Ware {
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param lebensmittel das hinzuzufuegende neue Lebensmittel
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthï¿½lt
 	 */
-	public static void addLebensmittel(Lebensmittel lebensmittel) throws SupermarktExceptions {
-			
-		if(zaehler_lebensmittel < MAXANZAHLWAREN) {
-			alleWaren.add(lebensmittel);
-			lebensmittel.anzahl = MAXMENGE;
-			lebensmittel.seitWannImBestand = LocalDate.now();
-			lebensmittel.setKennung(LEBENSMITTEL);
-			
-			if(lebensmittel.haltbarkeit <= 0) {
-				throw new SupermarktExceptions("Fehler: Die Haltbarkeit keinen positiven Wert!");
-			}
-					
-			zaehler_lebensmittel++;
-					
-		}else {
+	public static void addLebensmittel(Lebensmittel lebensmittel) {
+		
+		ArrayList<Ware> neuesLebensmittel = new ArrayList<Ware>();
+		
+		if(lebensmittel.haltbarkeit <= 0) {
 			System.out.println(
 					String.format(
-							"Die Anzahl (30) verschiedeneser Waren wurde ï¿½berschritten.! Das Lebensmittel %s konnte nicht hinzugefï¿½gt werden", 
-							lebensmittel.name));
+							"Fehler: Die übergebene Haltbarkeit <%s> beinhaltet keinen positiven Wert!", 
+							lebensmittel.haltbarkeit));
+
+		}else if(zaehler_lebensmittel < MAXANZAHLWAREN) {
+			
+				for(int i = 0; i < MAXMENGE; i++) {
+			
+					neuesLebensmittel.add(lebensmittel);
+					lebensmittel.seitWannImBestand = LocalDate.now();
+					lebensmittel.setKennung(LEBENSMITTEL);
+				}
+		
+				zaehler_lebensmittel++;
+				alleWaren.add(neuesLebensmittel);
+				
+		}else {
+				System.out.println(
+						String.format(
+								"Die Anzahl (30) verschiedeneser Lebensmittelarten wurde überschritten! Das Lebensmittel %s konnte nicht hinzugefügt werden", 
+								lebensmittel.name));
 		}
 	}
 	
 	
+
 	/**
-	 * Fuegt dem Array alleWaren ein neue Backware hinzu, solange dieses nicht
-	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
-	 * Backware (Name) nicht hinugefuegt werden konnte.
-	 * @author Sebastian Ohlendorf
-	 * 
-	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
-	 * @throws SupermarktExceptions Eigene Exceptionmeldung wenn die Haltbarkeit keinen positiven Wert enthï¿½lt
-	 */
-	public static void addBackwaren(Backwaren backwaren) throws SupermarktExceptions {
-			
-		if(zaehler_backwaren < MAXANZAHLWAREN) {
-			alleWaren.add(backwaren);
-			backwaren.anzahl = MAXMENGE;
-			backwaren.seitWannImBestand = LocalDate.now();
-			backwaren.setKennung(BACKWAREN);
-			
-			if(backwaren.haltbarkeit <= 0) {
-				throw new SupermarktExceptions("Fehler: Die Haltbarkeit keinen positiven Wert!");
-			}
-				
-			zaehler_backwaren++;
-				
-		}else {
-			System.out.println(
-					String.format(
-							"Die Anzahl (30) verschiedeneser Waren wurde ï¿½berschritten.! Die Backware %s konnte nicht hinzugefï¿½gt werden", 
-							backwaren.name));
-		}
-	}
-	
-	
-	/**
-	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird fï¿½r ein Lebensmittel-Objekt eine Nachbestellung zu tï¿½tigen.
-	 * Ist die Maximale Lagermenge bereits gegeben wird darï¿½ber Informiert
-	 * Ist die Bestellemenge plus die auf Lager liegende Menge grï¿½ï¿½er als die Maximale Lagermenge, 
-	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darï¿½ber Infomiert
-	 * Wenn die Maximal Menge nicht ï¿½berschritten wird, dann wird die ï¿½bergebene Menge bestellt
+	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein Lebensmittel-Objekt eine Nachbestellung zu tätigen.
+	 * Ist die Maximale Lagermenge bereits gegeben wird darüber Informiert
+	 * Ist die Bestellemenge plus die auf Lager liegende Menge größer als die Maximale Lagermenge, 
+	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darüber Infomiert
+	 * Wenn die Maximal Menge nicht überschritten wird, dann wird die übergebene Menge bestellt
 	 * Bei den Aktualisierungen der Lagermenge wird auch das Bestandsdatum aktualisiert
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param menge Gibt die Anzahl der zu bestellenden Menge als Integer dar
-	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurï¿½ck ob eine Bestellung getï¿½tigt wurde 
+	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurück ob eine Bestellung getätigt wurde 
 	 */
 	@Override
 	public boolean nachbestellen(int menge) {
 		
 		//Methodenvariablen
-		int mengeLager = this.anzahl + menge;
-		int diffMenge;
-		boolean nachbestellung;
+		String name = this.name;
+		double preis = this.preis;
+		double gewicht = this.gewicht;
+		int haltbarkeit = this.haltbarkeit;
+		boolean bedarfKuehlung = this.bedarfKuehlung;
 		
-		//Prï¿½fung ob Lagermene einer Ware gleich der Lagergroeï¿½e ist
-		if (this.anzahl == MAXMENGE) {
+		boolean nachbestellung = false;
+		
+		for (int i = 0; i < alleWaren.size(); i++) {
 			
-			System.out.println(
-					String.format(
-							"Das Lebensmittel %s hat bereits die maximale Lagerkapazitï¿½t, daher wird keine Nachbestellung durchgefï¿½hrt!", 
-							this.name));
+			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+				
+				int aktuellLagermenge = alleWaren.get(i).size();
+				int neueLegermenge = aktuellLagermenge + menge;
+				int diffMenge = 0;
 			
-			nachbestellung = false;
-			
-		}
-		//Prï¿½fung b die zu bestellende Megen mit der Lagermenge gï¿½ï¿½er ist als die Lagerroeï¿½e
-		else if(mengeLager > MAXMENGE) {
-			diffMenge = MAXMENGE - this.anzahl;
-			this.anzahl = this.anzahl + diffMenge;
-			
-			System.out.println(
-					String.format(
-							"Die Maximale Lagermenge (100) wurde ï¿½berschritten! Es wurden daher %s Einheiten nachbestellt", 
-							diffMenge));
-			this.seitWannImBestand = LocalDate.now();
-			
-			nachbestellung = true;	
-		}
-		//Nachbestellung der Ware
-		else {
-			
-			this.anzahl = this.anzahl + menge;
-			this.seitWannImBestand = LocalDate.now();
-			
-			nachbestellung = true;
+				//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
+				if (alleWaren.get(i).size() == MAXMENGE) {
+					
+					System.out.println(
+							String.format(
+									"Das Lebensmittel %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+									this.name));
+					
+					nachbestellung = false;
+					
+				}
+				//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
+				else if(neueLegermenge > MAXMENGE) {
+					
+					diffMenge = MAXMENGE - aktuellLagermenge;
+					
+					Lebensmittel lebensmittel = new Lebensmittel(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					
+					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
+						
+						alleWaren.get(i).add(lebensmittel);
+						lebensmittel.setKennung(LEBENSMITTEL);
+						
+					}
+					
+					System.out.println(
+							String.format(
+									"Es wurden daher %s Einheiten nachbestellt um die maximale Lagerkapazität (100) zu erreichen.", 
+									diffMenge));
+					
+					nachbestellung = true;	
+				}
+				//Nachbestellung der Ware
+				else {
+					
+					Lebensmittel lebensmittel = new Lebensmittel(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					
+					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
+						
+						alleWaren.get(i).add(lebensmittel);
+						lebensmittel.setKennung(LEBENSMITTEL);
+						
+					}
+					
+					System.out.println("Waren wurden nachbestellt! Lager hat nun die Menge " + alleWaren.get(i).size());
+					
+					nachbestellung = true;
+				}
+			}
 		}
 		return nachbestellung;
 	}
-		
+
 	/**
 	 * Abstrakte Methoden der Klasse Ware, welche zum herausgeben von Lebensmitteln verwendet wird.
-	 * Ist die angegebene Menge zum herausgeben mï¿½glich wird der Mengenbestand aktualisiert.
+	 * Ist die angegebene Menge zum herausgeben möglich wird der Mengenbestand aktualisiert.
 	 * Sind nicht mehr genug Einheiten auf Lager wird eine Meldung ausgegeben und die Methode nachbestellen aufgerufen.
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param menge Gibt die Anzahl der zu herausgebende Menge als Integer an
-	 * @return Gibt ein Boolean (True = es wurde herausgegeben, False = wurde nicht nicht herausgegeben) zurï¿½ck ob eine Ausgabe getï¿½tigt wurde 
+	 * @return Gibt ein Boolean (True = es wurde herausgegeben, False = wurde nicht nicht herausgegeben) zurück ob eine Ausgabe getätigt wurde 
 	 * 
 	 */
 	@Override
 	public boolean herausgeben(int menge) {
 		
 		//Methodenvariablen
-		int mengeLager = this.anzahl - menge;
-		boolean herausgeben;
+		String name = this.name;
+		boolean herausgeben = false;
 		
-		//Prï¿½fung ob noch genug im Lager ist zum herausgeben
-		if(mengeLager > 0) {
-			this.anzahl = this.anzahl - menge;
+		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			System.out.println(
-					String.format(
-							"Fï¿½r das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
-							this.name,
-							menge));
-			
-			herausgeben = true;
-		} 
-		//Keine herausgabe der Waren und es werden neue Waren nachbestellt
-		else {
-			
-			System.out.println(
-					String.format(
-							"Fï¿½r das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager.", 
-							this.name,
-							this.anzahl));
-			
-			nachbestellen(MAXMENGE);
-			
-			herausgeben = false;
-			
+			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+				
+				int aktuellLagermenge = alleWaren.get(i).size();
+				int neueLegermenge = aktuellLagermenge - menge;
+				
+				
+				//Prüfung ob noch genug im Lager ist zum herausgeben
+				if(neueLegermenge > 0) {
+					
+					for(int j = 0; j < menge; j++) {
+						
+						alleWaren.get(i).remove(j);
+					}
+					
+					System.out.println(
+							String.format(
+									"Für das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
+									this.name,
+									menge));
+					
+					herausgeben = true;
+				} 
+				//Keine herausgabe der Waren und es werden neue Waren nachbestellt
+				else {
+					
+					System.out.println(
+							String.format(
+									"Für das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
+									+ "Daher wird eine Nachbestellung getätigt.", 
+									this.name,
+									alleWaren.get(i).size(),
+									menge));
+					
+					nachbestellen(MAXMENGE);
+					
+					herausgeben = false;
+					
+				}
+			}
 		}
 		return herausgeben;
 	}
@@ -213,16 +239,12 @@ public class Lebensmittel extends Ware {
 	
 	/**
 	 * toString Methode der Klasse Lebensmittel um eine Ausgabe
-	 * zu dem Lebensmittel zu tï¿½tigen
+	 * zu dem Lebensmittel zu tätigen
 	 */
 	@Override
 	public String toString() {
-		
-		String ausgabe =String.format(
-							"Das Lebensmittel %s ist aktuell auf Lager!", 
-							this.name);
-		
-		return	ausgabe; 
+		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
+				" Haltbarkeit in Tagen: "+ this.haltbarkeit + " Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
 	}
 	
 	
@@ -232,102 +254,119 @@ public class Lebensmittel extends Ware {
 	 * Ist das MHD abgelaufen wird eine Meldung herausgegeben
 	 * @author Sebastian Ohlendorf
 	 * 
-	 * @return Gibt das MHD als Zeichenkette zurï¿½ck
+	 * @return Gibt das MHD als Zeichenkette zurück
 	 */
 	public String haltbarBis() {
 		
+		String name = this.name;
 		String haltbarBis = null;
 		
-		if(LocalDate.now().compareTo(this.seitWannImBestand.plusDays(this.haltbarkeit)) >= 0) {
+		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			haltbarBis = this.seitWannImBestand.plusDays(this.haltbarkeit).toString();
-		
-		}else {
+			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+				
+				for(int j = 0; j < alleWaren.get(i).size(); j++) {
+					
+					if(alleWaren.get(i).get(j).seitWannImBestand.plusDays(alleWaren.get(i).get(j).haltbarkeit).isAfter(LocalDate.now())) {
+
+						haltbarBis = "Das Lebensmittel ist haltbar bis " + alleWaren.get(i).get(j).seitWannImBestand.plusDays(alleWaren.get(i).get(j).haltbarkeit);
 			
-			System.out.println(
-					String.format(
-							"Das Mindesthaltbatkeitsdatum ist abgelaufen. Das Lebensmittel %s sollte aus den Bestand genommen werden",
-							this.name));
-			
+					}else {
+
+						haltbarBis = String.format(
+										"Das Mindesthaltbatkeitsdatum der Lebensmittels %s (%s) ist abgelaufen.",
+										this.name,
+										j);
+				
+					}
+				}
+			}
 		}
-		
-		return haltbarBis;
+		return haltbarBis;	
 	}
 	
 	
 	/**
 	 * Mit der Methode wird die Haltbarkeit in Tagen ermittelt.
-	 * Wenn der ermittelte Wert gï¿½ï¿½er 0 ist, dann werden die Tage als Int ausgegeben,
-	 * ist der ermittelte Wert gleich 0 wird eine 0 zurï¿½ckgegeben
-	 * Trifft keiner der Prï¿½fungen zu, dann ist das MHD ï¿½berschritten und es wird eine -1 zurï¿½ckgegeben
+	 * Wenn der ermittelte Wert gößer 0 ist, dann werden die Tage als Int ausgegeben,
+	 * ist der ermittelte Wert gleich 0 wird eine 0 zurückgegeben
+	 * Trifft keiner der Prüfungen zu, dann ist das MHD überschritten und es wird eine -1 zurückgegeben
 	 * @author Sebastian Ohlendorf
 	 * 
-	 * @return Gibt die Haltbarkeit in Tagen als Integer zurï¿½ck
+	 * @return Gibt die Haltbarkeit in Tagen als Integer zurück
 	 */
 	public int istHaltbar() {
+
+		String name = this.name;
+		int istHaltbar = 0;
 		
-		int istHaltbar = LocalDate.now().compareTo(this.seitWannImBestand.plusDays(this.haltbarkeit));
-		
-		if(istHaltbar > 0) {
+		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			return istHaltbar;
-		
-		} else if (istHaltbar == 0){
-			return 0;
-		} else {
-			return -1;
+			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
+				
+				for(int j = 0; j < alleWaren.get(i).size(); j++) {
+					
+					long haltbarInTagen = ChronoUnit.DAYS.between(LocalDate.now(), alleWaren.get(i).get(j).seitWannImBestand.plusDays(alleWaren.get(i).get(j).haltbarkeit));
+					
+					if(haltbarInTagen > 0) {
+						
+						istHaltbar = (int)haltbarInTagen;
+					
+					} else if (haltbarInTagen == 0){
+						istHaltbar = 0;
+					} else {
+						istHaltbar = -1;
+					}
+				}
+			}
 		}
+		return istHaltbar;
 	}
 	
 	
 	/**
-	 * Eine Methode von Typ ArrayList welche alle Lebensmittel zurï¿½ckliefert welche eine haltbarkeit von 0-2 haben.
-	 * Hat ein Lebensmittel eine Haltbarkeit kleiner 0, dann wird dieses aus der ArrayList gelï¿½scht
+	 * Eine Methode von Typ ArrayList welche alle Lebensmittel zurückliefert welche eine haltbarkeit von 0-2 haben.
+	 * Hat ein Lebensmittel eine Haltbarkeit kleiner 0, dann wird dieses aus der ArrayList gelöscht
 	 * 
 	 * @return ArrayListe mit allen Lebensmitteln welche eine Halbarkeit von 0 bis 2 haben
 	 */
-	public ArrayList<String> kurzesMHD() {
+	public static ArrayList<String> kurzesMHD() {
 		
 		ArrayList<String> kurzesMHD = new ArrayList<String>();
 		
 		for(int i = 0; i < alleWaren.size(); i++) {
 			
-			if(alleWaren.get(i).istHaltbar() <= 2 && alleWaren.get(i).istHaltbar() >= 0) {
-
-				kurzesMHD.add("Lebensmittel: " + alleWaren.get(i).name + ", Bestandsmenge: " + alleWaren.get(i).anzahl);
-
-			} else if(alleWaren.get(i).istHaltbar() < 0){
+			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL) {
 				
-				alleWaren.remove(i);
-				zaehler_lebensmittel--;
+				for(int j = 0; j < alleWaren.get(i).size(); j++) {
+					
+					int haltbarInTagen = (int)ChronoUnit.DAYS.between(LocalDate.now(), alleWaren.get(i).get(j).seitWannImBestand.plusDays(alleWaren.get(i).get(j).haltbarkeit));
+					
+					if(haltbarInTagen <= 2 && haltbarInTagen >= 0) {
+
+						kurzesMHD.add("Lebensmittel: " + alleWaren.get(i).get(j).name + "\n");
+
+					} else if(haltbarInTagen < 0){
+						
+						alleWaren.get(i).remove(j);
+					}
+				}
 			}
 		}
 		return kurzesMHD;
-	}
-	
+	}	
 	
 	/**
 	 * Methode welche alle Lebensmittel ausgibt welche sich im Lager befinden.
 	 */
 	public static void gebeLebensmittelAus() {
 		
-		for(int i = 0; i < alleWaren.size(); i++) {
-			
-			if(alleWaren.get(i).getKennung() == LEBENSMITTEL) {
-				System.out.println("(" + i + ") " + alleWaren.get(i));
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == LEBENSMITTEL) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
-			
 		}
-		 
 	}
-
-
-	@Override
-	protected boolean istAlkoholhaltig() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 }
 
 

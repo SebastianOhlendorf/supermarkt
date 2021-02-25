@@ -17,11 +17,12 @@ public abstract class Ware {
 	protected double preis;
 	protected int anzahl;
 	protected LocalDate seitWannImBestand;
+	protected int haltbarkeit;
+	private boolean aufgebacken;
+	protected double alcProzente;
 	private int kennung;
 	protected String stofftyp;
 	protected int jahreszeit;
-	protected int unterGruppe;
-	protected int genre;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;
@@ -36,7 +37,7 @@ public abstract class Ware {
 	protected static final int FILME = 8;
 	
 	//ArrayList für alle Warentypen
-	protected static ArrayList<Ware> alleWaren = new ArrayList<Ware>();
+	protected static ArrayList<ArrayList<Ware>> alleWaren = new ArrayList<ArrayList<Ware>>();
 	
 	/**
 	 * Konstruktor der Klasse Ware um ein neues Warenobjekt zu erzeugen.
@@ -67,18 +68,6 @@ public abstract class Ware {
 	 * @return Gibt ein True oder False zurück ob Waren herausgegeben werden können
 	 */
 	public abstract boolean herausgeben(int menge);
-	
-	/**
-	 * Abstrakte Methode zum feststellen der Haltbarkeit einer Ware
-	 * @return Gibt die Dauer der Haltbarkeit als Integer zurück
-	 */
-	protected abstract int istHaltbar();
-	
-	/**
-	 * Abstrakte Methode zum feststellen ob ein Getränk alokolhaltig ist
-	 * @return Gibt ein True zurück wenn das Getränk akloholhaltig ist, andernfalls False
-	 */
-	protected abstract boolean istAlkoholhaltig();
 
 	
 	//--------------- GETTER und SETTER -------------------------
@@ -102,14 +91,16 @@ public abstract class Ware {
 	public void setJahreszeit(int jahreszeit) {
 		this.jahreszeit = jahreszeit;
 	}
-	
-	public void setUnterGruppe (int unterGruppe) {
-		this.unterGruppe = unterGruppe;
+
+	public boolean isAufgebacken() {
+		return aufgebacken;
 	}
 
-	public void setGenre (int genre) {
-		this.genre = genre;
+	public void setAufgebacken(boolean aufgebacken) {
+		this.aufgebacken = aufgebacken;
 	}
+
+	
 
 	
 }

@@ -1,6 +1,7 @@
 package waren;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Kinderklasse der Klasse Lebensmittel zum anlegen von Backwaren-Objekten
@@ -10,6 +11,8 @@ import java.time.LocalDate;
  *
  */
 public class Backwaren extends Lebensmittel{	
+	
+	private static int zaehler_backwaren = 0;
 	
 	/**
 	 * Konstruktor der Klasse Backwaren um ein Backwaren-Objekt zu erzeugen
@@ -27,6 +30,124 @@ public class Backwaren extends Lebensmittel{
 		super(name, preis, anzahl, seitWannImBestand, gewicht, haltbarkeit, bedarfKuehlung);
 	}
 	
+	/**
+	 * Fuegt dem Array alleWaren ein neue Backware hinzu, solange dieses nicht
+	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und das
+	 * Backware (Name) nicht hinugefuegt werden konnte.
+	 * @author Sebastian Ohlendorf
+	 * 
+	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
+	 */
+	public static void addBackwaren(Backwaren backwaren){
+			
+		ArrayList<Ware> neueBackwaren = new ArrayList<Ware>();
+		
+		if(zaehler_backwaren < MAXANZAHLWAREN) {
+			
+				for(int i = 0; i < MAXMENGE; i++) {
+			
+					neueBackwaren.add(backwaren);
+					backwaren.seitWannImBestand = LocalDate.now();
+					backwaren.setAufgebacken(false);
+					backwaren.setKennung(BACKWAREN);
+				}
+		
+				zaehler_backwaren++;
+				alleWaren.add(neueBackwaren);
+				
+		}else {
+				System.out.println(
+						String.format(
+								"Die Anzahl (30) verschiedeneser Backwarenarten wurde überschritten! Das Lebensmittel %s konnte nicht hinzugefügt werden", 
+								backwaren.name));
+		}
+	}
+	
+	/**
+	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein Lebensmittel-Objekt eine Nachbestellung zu tätigen.
+	 * Ist die Maximale Lagermenge bereits gegeben wird darüber Informiert
+	 * Ist die Bestellemenge plus die auf Lager liegende Menge größer als die Maximale Lagermenge, 
+	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darüber Infomiert
+	 * Wenn die Maximal Menge nicht überschritten wird, dann wird die übergebene Menge bestellt
+	 * Bei den Aktualisierungen der Lagermenge wird auch das Bestandsdatum aktualisiert
+	 * @author Sebastian Ohlendorf
+	 * 
+	 * @param menge Gibt die Anzahl der zu bestellenden Menge als Integer dar
+	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurück ob eine Bestellung getätigt wurde 
+	 */
+	@Override
+	public boolean nachbestellen(int menge) {
+		
+		//Methodenvariablen
+		String name = this.name;
+		double preis = this.preis;
+		double gewicht = this.gewicht;
+		int haltbarkeit = this.haltbarkeit;
+		boolean bedarfKuehlung = this.bedarfKuehlung;
+		
+		boolean nachbestellung = false;
+		
+		for (int i = 0; i < alleWaren.size(); i++) {
+			
+			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+				
+				int aktuellLagermenge = alleWaren.get(i).size();
+				int neueLegermenge = aktuellLagermenge + menge;
+				int diffMenge = 0;
+			
+				//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
+				if (alleWaren.get(i).size() == MAXMENGE) {
+					
+					System.out.println(
+							String.format(
+									"Das Lebensmittel %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+									this.name));
+					
+					nachbestellung = false;
+					
+				}
+				//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
+				else if(neueLegermenge > MAXMENGE) {
+					
+					diffMenge = MAXMENGE - aktuellLagermenge;
+					
+					Backwaren backware = new Backwaren(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					
+					for(int j = aktuellLagermenge; j < MAXMENGE; j++) {
+						
+						alleWaren.get(i).add(backware);
+						backware.setKennung(BACKWAREN);
+						
+					}
+					
+					System.out.println(
+							String.format(
+									"Es wurden daher %s Einheiten nachbestellt um die maximale Lagerkapazität (100) zu erreichen.", 
+									diffMenge));
+					
+					nachbestellung = true;	
+				}
+				//Nachbestellung der Ware
+				else {
+					
+					Backwaren backware = new Backwaren(name, preis, 0, LocalDate.now(), gewicht, haltbarkeit, bedarfKuehlung);
+					
+					for(int j = aktuellLagermenge + 1; j <= neueLegermenge; j++) {
+						
+						alleWaren.get(i).add(backware);
+						backware.setKennung(BACKWAREN);
+						
+					}
+					
+					System.out.println("Waren wurden nachbestellt! Lager hat nun die Menge " + alleWaren.get(i).size());
+					
+					nachbestellung = true;
+				}
+			}
+		}
+		return nachbestellung;
+	}
+	
 	
 	/**
 	 * Abstrakte Methoden der Klasse Ware, welche zum herausgeben von Lebensmitteln verwendet wird.
@@ -40,32 +161,54 @@ public class Backwaren extends Lebensmittel{
 	 */
 	@Override
 	public boolean herausgeben(int menge) {
+
+		//Methodenvariablen
+		String name = this.name;
+		boolean herausgeben = false;
 		
-		//Bestimmiung ob die Menge im Lager nach der herausgabe größer gleich 0 ist
-		int mengeLager = this.anzahl - menge;
-		boolean herausgeben;
-		
-		if(mengeLager > 0) {
-			this.anzahl = this.anzahl - menge;
+		for (int i = 0; i < alleWaren.size(); i++) { 
 			
-			System.out.println(
-					String.format(
-							"Für das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
-							this.name,
-							menge));
-			
-			herausgeben = true;
-		} else {
-			
-			System.out.println(
-					String.format(
-							"Für das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager.", 
-							this.name,
-							this.anzahl));
-			
-			nachbestellen(MAXMENGE);
-			herausgeben = false;
+			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+				
+				int aktuellLagermenge = alleWaren.get(i).size();
+				int neueLegermenge = aktuellLagermenge - menge;
+				
+				
+				//Prüfung ob noch genug im Lager ist zum herausgeben
+				if(neueLegermenge > 0) {
+					
+					for(int j = 0; j < menge; j++) {
+						
+						alleWaren.get(i).remove(j);
+					}
+					
+					System.out.println(
+							String.format(
+									"Für das Lebensmittel %s wurden %s Einheiten herausgegeben.", 
+									this.name,
+									menge));
+					
+					herausgeben = true;
+				} 
+				//Keine herausgabe der Waren und es werden neue Waren nachbestellt
+				else {
+					
+					System.out.println(
+							String.format(
+									"Für das Lebensmittel %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
+									+ "Daher wird eine Nachbestellung getätigt.", 
+									this.name,
+									alleWaren.get(i).size(),
+									menge));
+					
+					nachbestellen(MAXMENGE);
+					
+					herausgeben = false;
+					
+				}
+			}
 		}
+		
 		return herausgeben;
 	}
 	
@@ -75,13 +218,8 @@ public class Backwaren extends Lebensmittel{
 	 */
 	@Override
 	public String toString() {
-		
-		String ausgabe =String.format(
-							"Die Backware %s ist mit %s Einheiten aktuell auf Lager!", 
-							this.name,
-							this.anzahl);
-		
-		return	ausgabe; 
+		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
+				" Haltbarkeit in Tagen: "+ this.haltbarkeit + " Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
 	} 
 	
 	/**
@@ -94,18 +232,33 @@ public class Backwaren extends Lebensmittel{
 		
 		//Methodenvariable ob eine Ware aufebacken werden muss
 		boolean backWare = false;
+		String name = this.name;
 		
-		for(int i = 0; i < alleWaren.size(); i++)
-		{
-		  if(alleWaren.get(i).getKennung() == BACKWAREN){
-			  	//"Waren wird aufgebacken!"
-			  	backWare = true;
-			}else {
-				//Ware wird nicht aufgebacken
-				backWare =  false;
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
+					
+				if(alleWaren.get(i).get(0).isAufgebacken() == false) {
+						
+					System.out.println(
+							String.format("Die Backware %s wurde aufgebacken.",
+									alleWaren.get(i).get(0).name));
+					
+					alleWaren.get(i).get(0).setAufgebacken(true);
+					
+					//"Waren wird aufgebacken!"
+				  	backWare = true;
+				}else {
+					
+					System.out.println(
+							String.format("Die Backware %s wurde bereits aufgebacken.",
+									alleWaren.get(i).get(0).name));
+					//Ware wird nicht aufgebacken
+					backWare =  false;
+				}	
 			}
 		}
-		return backWare;
+	return backWare;
 	}
 	
 	
@@ -114,10 +267,9 @@ public class Backwaren extends Lebensmittel{
 	 */
 	public static void gebeBackwareAus() {
 		
-		for(int i = 0; i < alleWaren.size(); i++){
-			
-			if(alleWaren.get(i).getKennung() == BACKWAREN){
-			  System.out.println("(" + i + ") " + alleWaren.get(i));
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == BACKWAREN) {
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
 			}
 		}
 	}

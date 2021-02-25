@@ -33,7 +33,7 @@ public class Lager {
 	 */
 	public static void erstelleLager() {
 		
-		/**
+		/***
 		 * Befüllen des Lagers mit Backwaren
 		 */
 		

@@ -37,22 +37,21 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * @param stiftungwarentest Gibt die Bewertung des Stiftungwarentestes als Double an
 	 * @param allergene Gibt an ob bei dem Artikel Allergene enthalten sind als String
 	 */
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	public DrogerieArtikel(String name, double preis, int anzahl, LocalDate seitWannImBestand, String beschreibung, String nutzung, double stiftungwarentest, String allergene) {
 		super(name, preis, anzahl, seitWannImBestand, beschreibung);
 							
-=======
+
 	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, String beschreibung,
 			int unterGruppe, String nutzung, double stiftungwarentest, String allergene) {
 		super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe);
-=======
+
 	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, String beschreibung,
 			Untergruppen unterGruppe, Nutzung nutzung, double stiftungwarentest, Allergene allergene) {
 		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
->>>>>>> 40745afacf3e9bc379fb866d41db92721022616b
 		
->>>>>>> 4efd2070ba7e4f3f2ba861c093ba613a3e31a6ae
+		
+
 		this.nutzung = nutzung;
 		this.stiftungwarentest = stiftungwarentest;
 		this.allergene = allergene;

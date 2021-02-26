@@ -26,14 +26,14 @@ public class Supermarkt {
 	private int bestellmenge;
 
 	/**
-	 * Diese erste Version des Benutzermenus funktioniert auf 3 Runden von Entscheidungen 
+	 * Das Benutzermenu funktioniert auf 3 Runden von Entscheidungen 
 	 * wobei man in der 1. Ebene zwischen der Gesamten Liste, beenden des Programms oder der weiteren Einsicht der Warengruppen 
 	 * auswählen muss. Die 2. Ebene bietet die Auswahl der Warengruppen an, wo man dann die jeweiligen Anwendungen in der 
 	 * 3. Ebene benutzen kann. Dies läuft so lange in einer Schleife bis man die Zurüeckoption waehlt die einem zurueck zur 
 	 * 2. Ebene, der Warengruppenauswahl wo man auch wieder zurueck waehlen kann, was einem aus dieser Schleife schlieslich
 	 * ins Haptmenu Programm bringt wo man Supermarkt schliessen waehlen kann was das Programm beendet.
 	 *  
-	 * @param args
+	 * @param args wird nicht verwendet.
 	 */
 	public static void main(String[] args) {
 		
@@ -202,15 +202,11 @@ public class Supermarkt {
 		schliessung();
 	}
 	/**
-	 * Methode Die Eine Begruessung und die Bedienungsanleitung für die erste Instanz des Anwendermenus ausgibt.
+	 * Diese Methode gibt je nach Auswahl den Kontext zur Umgebung in der sich der Anwender befindet.
+	 * Es werden jeweils der Name der aktuellen Instanz, Anweisungen und Beschreibungen zusammen mit den Optionen,
+	 * die der Anwender treffen kann. Gegebenfalls wird auch die Inventarliste der jeweiligen Warengruppe ausgegeben.
 	 * 
-	 */
-	public static void begruessung() {
-
-		System.out.println("text");
-	}
-	/**
-	 * Methode soll die jeweilige Ausgabe des jeweiligen Menus übernehmen.
+	 * @param auswahl Die Zahl entspricht dem jeweiligen Auswahlmenü.
 	 */
 	public static int auswahlmenu (int auswahl) {	
 		

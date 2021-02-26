@@ -22,9 +22,9 @@ import waren.NonFoodArtikel;
 
 /**
  * Eine Klasse die zu Testzwecken des Programms von jeder Warenart 10 Objekte jeweils anlegt.
- * @author Sebastian
- * @version
- * @date
+ * @author Lennart Sparbier
+ * @version 1.0
+ * @date 25.02.2021
  *
  */
 public class Lager {
@@ -172,9 +172,6 @@ public class Lager {
 		Getraenke astraRotlicht = new Getraenke("Astra Rotlicht_", 1.50, LocalDate.now(), 6.00);
 		Getraenke.addGetraenke(astraRotlicht);
 		
-		
-		
-		
 
 		/***
 		 * Befüllen des Lagers mit Kleidungsstücken
@@ -314,9 +311,6 @@ public class Lager {
 		
 		NonFoodArtikel pampersPremiumWindelnGr1 = new NonFoodArtikel("Pampers Größe 1 Premium Protection Baby Windeln, 96 Stück," , 14.58, LocalDate.now(), "Windeln für Babys", Untergruppen.DROGERIEARTIKEL);
 		NonFoodArtikel.addNonFoodArtikel(pampersPremiumWindelnGr1);
-		
-		
-		
 		
 	}
 

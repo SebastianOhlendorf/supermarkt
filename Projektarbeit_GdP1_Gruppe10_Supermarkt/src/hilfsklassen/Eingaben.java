@@ -4,12 +4,22 @@ import java.util.Scanner;
 import enums.Allergene;
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Jahreszeit;
+import enums.Kennungen;
 import enums.Koerperteile;
 import enums.Nutzung;
 import enums.Sprachen;
 import enums.Stofftypen;
 import enums.Untergruppen;
+
+/**
+ * Hilfsklasse welche dazu dient verschiedenste Eingabemöglichkeiten die im Programm verwendet werden zu sammeln
+ * @author Sebastian Ohlendorf
+ * @version 1.0
+ * @date 22.02.2021
+ *
+ */
 public class Eingaben {
 
 	/** Scanner initialisiert. */
@@ -22,6 +32,7 @@ public class Eingaben {
     public static void scannerSchliessen() {
     	in.close();
     }
+    
 	
 	/**
 	 * Klassenmethode um einen Text zu ermitteln
@@ -153,7 +164,7 @@ public class Eingaben {
 		case 3: jahreszeit = Jahreszeit.HERBST;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie die Jahreszeit des Artikels als Zahl an:");
+				Eingaben.eingabeJahreszeit("Bitte geben Sie die Jahreszeit des Artikels als Zahl an:");
 		}
 		
 		return jahreszeit;
@@ -200,7 +211,7 @@ public class Eingaben {
 		case 6: koerperteil = Koerperteile.FUESSE;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie den Körperteil des Artikels als Zahl an:");
+				Eingaben.eingabeKoerperteil("Bitte geben Sie den Körperteil des Artikels als Zahl an:");
 		}
 		
 		return koerperteil;
@@ -244,7 +255,7 @@ public class Eingaben {
 		case 5: stofftyp = Stofftypen.CHEMIEFASER;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie den Stofftyp des Artikels als Zahl an:");
+				Eingaben.eingabeStofftyp("Bitte geben Sie den Stofftyp des Artikels als Zahl an:");
 		}
 		
 		return stofftyp;
@@ -306,7 +317,7 @@ public class Eingaben {
 		case 11: nutzung = Nutzung.ELEKTRONIK;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie die Nutzung des Artikels als Zahl an:");
+				Eingaben.eingabeNutzung("Bitte geben Sie die Nutzung des Artikels als Zahl an:");
 		}
 		
 		return nutzung;
@@ -356,7 +367,7 @@ public class Eingaben {
 		case 7: allergene = Allergene.SOJA;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie das Allergen des Artikels als Zahl an:");
+				Eingaben.eingabeAllergene("Bitte geben Sie das Allergen des Artikels als Zahl an:");
 		}
 		
 		return allergene;
@@ -397,7 +408,7 @@ public class Eingaben {
 		case 4: fsk = Fsk.FSK18;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie das FSK des Artikels als Zahl an:");
+				Eingaben.eingabeFsk("Bitte geben Sie das FSK des Artikels als Zahl an:");
 		}
 		
 		return fsk;
@@ -450,7 +461,54 @@ public class Eingaben {
 		case 8: genre = Filmgenre.WESTERN;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");
+				Eingaben.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
+		}
+		
+		return genre;
+	}
+	
+	/**
+	 * Klassenmethode um das Genre zu ermitteln
+	 * Hierfür muss der Benutzer über eine Eingabe das gewünschte Genre aus einer Liste auswählen
+	 * Wird eine falsche Zahleingegeben, wird der Benutzer informiert und darf die Eingabe wiederholen.
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return genre Die ausgewählte Genre aus dem Enum
+	 */
+	public static Genre eingabeGenre (String eingabeString) {
+		
+		Genre genre = null;
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Kein Genre\n"
+				+ "(1) Bücher\n"
+				+ "(2) Computer\n"
+				+ "(3) Konsole\n"
+				+ "(4) Musik\n"
+				+ "(5) Hardware\n"
+				+ "(6) Software\n");
+
+		int genreID = in.nextInt();
+		
+		switch(genreID) {
+		
+		case 0: genre = Genre.KEINE;
+				break;
+		case 1: genre = Genre.BUECHER;
+				break;
+		case 2: genre = Genre.COMPUTER;
+				break;
+		case 3: genre = Genre.KONSOLE;
+				break;
+		case 4: genre = Genre.MUSIK;
+				break;
+		case 5: genre = Genre.HARDWARE;
+				break;
+		case 6: genre = Genre.SOFTWARE;
+				break;
+		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
+				Eingaben.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
 		}
 		
 		return genre;
@@ -518,9 +576,239 @@ public class Eingaben {
 		case 13: sprache = Sprachen.VIETNAMESISCH;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
-				Eingaben.eingabeUntergruppe("Bitte geben Sie das Genre des Artikels als Zahl an:");
+				Eingaben.eingabeSprache("Bitte geben Sie das Genre des Artikels als Zahl an:");
 		}
 		
 		return sprache;
+	}
+	
+	/**
+	 * Klassenmethode zur Auswahl des Warentyps
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return warentyp Der ausgewählte Warentyp als Kennung
+	 */
+	public static Kennungen eingabeWarentyp(String eingabeString) {
+		
+		Kennungen warentyp = null;
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Lebensmittel\n"
+				+ "(1) Backwaren\n"
+				+ "(2) Getränke\n"
+				+ "(3) NonFood-Artikel\n"
+				+ "(4) Medien\n"
+				+ "(5) Kleidung\n"
+				+ "(6) Drogerie-Artikel\n"
+				+ "(7) Filme\n"
+				+ "(8) Ende\n");
+		
+		int auswahlWarentyp = in.nextInt();
+		
+		switch(auswahlWarentyp) {
+		
+		case 0: warentyp = Kennungen.LEBENSMITTEL;
+				break;
+		case 1: warentyp = Kennungen.BACKWAREN;
+				break;
+		case 2: warentyp = Kennungen.GETRAENKE;
+				break;
+		case 3: warentyp = Kennungen.NONFOODARTIKEL;
+				break;
+		case 4: warentyp = Kennungen.MEDIEN;
+				break;
+		case 5: warentyp = Kennungen.KLEIDUNG;
+				break;
+		case 6: warentyp = Kennungen.DROGERIEARTIKEL;
+				break;
+		case 7: warentyp = Kennungen.FILME;
+				break;
+		case 8: warentyp = Kennungen.ENDE;
+				break;
+		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
+				Eingaben.eingabeWarentyp("Bitte geben Sie das Genre des Artikels als Zahl an:");
+		}
+	
+		return warentyp;	
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Hauptmenüs der Supermarkt Main
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlHauptmenu(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Alle Waren im Lager ansehen\n"
+				+ "(1) Neue Waren anlegen\n"
+				+ "(2) Ware nachbestellen\n"
+				+ "(3) Ware herausgeben\n"
+				+ "(4) Weitere Funktionen zu den Waren\n"
+				+ "(5) Programm beenden\n");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von Lebensmittel
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenLebensmittel(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Prüfung bis wann ein Lebensmittel haltbar ist\n"
+				+ "(1) Prüfung ob ein Lebensmittel noch haltbar ist\n"
+				+ "(2) Prüfung Lebensmittel mit kurzen MHD\n"
+				+ "(3) Alle Lbensmittel ausgeben\n"
+				+ "(4) zürück ins Untermenü\n");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von Backwaren
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenBackwaren(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Backwaren aufbacken\n"
+				+ "(1) Alle Backwaren ausgeben\n"
+				+ "(2) zürück ins Untermenü\n");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von Getränke
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenGetraenke(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Prüfung ob ein Getränk alkohoolisch ist\n"
+				+ "(1) Alle Getränke ausgeben\n"
+				+ "(2) Alle Non-Alkoholischen Getränke ausgeben\n"
+				+ "(3) zürück ins Untermenü\n");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von NonFood
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenNonFood(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Alle NonFood-Artikel ausgeben\n"
+				+ "(1) zürück ins Untermenü\n");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von Medien
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenMedien(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Alle Digitalen Medien ausgeben\n"
+				+ "(1) Alle Analogen Medien ausgeben\n"
+				+ "(2) Welche Medien haben ein bestimmtes Genre\n"
+				+ "(3) Alle Medien ausgeben\n"
+				+ "(4) zürück ins Untermenü");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von Kleidung
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenKleidung(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Ausgabe Kleidung nach Jahreszeit\n"
+				+ "(1) Ausgabe Kleidung nach Stofftyp\n"
+				+ "(2) Alle Kleidungen ausgeben\n"
+				+ "(3) zürück ins Untermenü");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von Drogerie Artikeln
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenDrogerie(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Ausgabe Drogerie Artikel nach Bestnote\n"
+				+ "(1) Ausgabe Drogerie Artikel nach bestimmten Allergenen\n"
+				+ "(2) Alle Drogerie Artikel ausgeben\n"
+				+ "(3) zürück ins Untermenü");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
+	}
+	
+	/**
+	 * Klassenmethode zur Steuerung des Untermenüs für die Funktionen von Filme
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return auswahl Der ausgewählte Warentyp als Integer
+	 */
+	public static int eingabeAuswahlFunktionenFilme(String eingabeString) {
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Alle Filme ausgeben\n"
+				+ "(1) zürück ins Untermenü");
+		
+		int auswahl = in.nextInt();
+		
+		return auswahl;
 	}
 }

@@ -2,14 +2,13 @@ package waren;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import enums.Kennungen;
-
 import java.time.temporal.ChronoUnit;
 
 
 /**
- * Kinderklasse der Klasse Ware zum anlegen von Lebensmittelobjekten
+ * Kinderklasse der Klasse Ware zum anlegen von Lebensmittelobjekten und weiterer Methodenaufrufe
+ * rund um Lebensmittel
  * @author Sebastian Ohlendorf
  * @version 1.0
  * @date 14.02.2021
@@ -19,16 +18,10 @@ public class Lebensmittel extends Ware {
 	
 	//Objektattribute für das Lebensmittelobjekt
 	protected double gewicht;
-	//protected int haltbarkeit; //Die Haltbarkeit wird in Tagen gemessen
 	protected boolean bedarfKuehlung;
 	
 	//Klassenattribute zum zaehlen der Lebensmittel und Backwaren 
 	private static int zaehler_lebensmittel = 0;
-
-	
-	
-	
-
 	
 	/**
 	 * Konstruktor der Klasse Lebensmittel um ein neues Lebensmittel-Objekt zu erzeugen.
@@ -194,7 +187,9 @@ public class Lebensmittel extends Ware {
 		String name = this.name;
 		boolean herausgeben = false;
 		
+		
 		for (int i = 0; i < alleWaren.size(); i++) { 
+			
 			
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
@@ -206,8 +201,8 @@ public class Lebensmittel extends Ware {
 				if(neueLegermenge > 0) {
 					
 					for(int j = 0; j < menge; j++) {
-						
-						alleWaren.get(i).remove(j);
+		
+						alleWaren.get(i).remove(0);
 					}
 					
 					System.out.println(
@@ -246,8 +241,8 @@ public class Lebensmittel extends Ware {
 	 */
 	@Override
 	public String toString() {
-		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
-				" Haltbarkeit in Tagen: "+ this.haltbarkeit + " Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
+		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand + ", Gewicht: " + this.gewicht +
+				", Haltbarkeit in Tagen: "+ this.haltbarkeit + ", Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
 	}
 	
 	
@@ -272,7 +267,8 @@ public class Lebensmittel extends Ware {
 					
 					if(alleWaren.get(i).get(j).seitWannImBestand.plusDays(alleWaren.get(i).get(j).haltbarkeit).isAfter(LocalDate.now())) {
 
-						haltbarBis = "Das Lebensmittel ist haltbar bis " + alleWaren.get(i).get(j).seitWannImBestand.plusDays(alleWaren.get(i).get(j).haltbarkeit);
+						haltbarBis = String.format("Das Lebensmittel %s ist haltbar bis " + alleWaren.get(i).get(j).seitWannImBestand.plusDays(alleWaren.get(i).get(j).haltbarkeit),
+								this.name);
 			
 					}else {
 
@@ -373,6 +369,7 @@ public class Lebensmittel extends Ware {
 	
 	/**
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
 	 * @return Gibt ein Lebensmittelobjekt zurück
 	 */
@@ -380,6 +377,45 @@ public class Lebensmittel extends Ware {
 		
 		return (Lebensmittel) alleWaren.get(objektId).get(0);
 		
+	}
+	
+	/**
+	 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Lebensmittel im Array alleWaren
+	 * 
+	 * @return Gibt die höchste ID des Arrays für Lebensmittel aus Integer aus
+	 */
+	public static int erhalteObjektMaxID() {
+		
+		int maxID = 0;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL) {
+				maxID = i;
+			}
+		}
+		return maxID;
+	}
+	
+	/**
+	 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Lebensmittel im Array alleWaren
+	 * 
+	 * @return Gibt die niedrigste ID des Arrays für Lebensmittel aus Integer aus
+	 */
+	public static int erhalteObjektMinID() {
+		
+		int minID = 6000;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.LEBENSMITTEL) {
+				
+				if(minID > i) {
+					
+					minID = i;
+				}
+			}
+		}
+		return minID;
 	}
 }
 

@@ -8,7 +8,8 @@ import enums.Nutzung;
 import enums.Untergruppen;
 
 /**
- * Kinderklasse der Klasse NonFoodArtikel zum anlegen von DrogerieArtkiel-Objekten
+ * Kinderklasse der Klasse NonFoodArtikel zum anlegen von DrogerieArtkiel-Objekten und weiterer Methodenaufrufe
+ * rund um DrogerieArtikel
  * @author Ethan Stapff
  * @version 1.02
  * @date 19.02.2021
@@ -16,11 +17,6 @@ import enums.Untergruppen;
  */
 public class DrogerieArtikel extends NonFoodArtikel {
 	
-	protected String nutzung;
-	protected double stiftungwarentest;
-	protected String allergene;	
-	
-	//Klassenvariable zum Z�hlen der Drogerieartikeltypen
 	//Klassenvariable zum Z�hlen der Drogerieartikeltypen
 	private static int DrogerieArtikel_zaehler = 0;
 	
@@ -37,21 +33,10 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * @param stiftungwarentest Gibt die Bewertung des Stiftungwarentestes als Double an
 	 * @param allergene Gibt an ob bei dem Artikel Allergene enthalten sind als String
 	 */
-
-	public DrogerieArtikel(String name, double preis, int anzahl, LocalDate seitWannImBestand, String beschreibung, String nutzung, double stiftungwarentest, String allergene) {
-		super(name, preis, anzahl, seitWannImBestand, beschreibung);
-							
-
-	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, int anzahl, String beschreibung,
-			int unterGruppe, String nutzung, double stiftungwarentest, String allergene) {
-		super(name, preis, seitWannImBestand, anzahl, beschreibung, unterGruppe);
-
 	public DrogerieArtikel(String name, double preis, LocalDate seitWannImBestand, String beschreibung,
 			Untergruppen unterGruppe, Nutzung nutzung, double stiftungwarentest, Allergene allergene) {
 		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
-		
-
 		this.nutzung = nutzung;
 		this.stiftungwarentest = stiftungwarentest;
 		this.allergene = allergene;
@@ -86,44 +71,6 @@ public class DrogerieArtikel extends NonFoodArtikel {
 				alleWaren.add(neuerDrogeriArtikel);
 				
 		}else {
-			System.out.println(("Die Anzahl 30 verschiedener Waren wurde ueberschritten. Das Produkt konnte nicht hinzugefuegt werden. : %s ")  drogerieArtikel.name );
-}	
- }
- 	public boolean nachbestellen(int menge) {
-		
-		//Methodenvariablen
-		int mengeLager = this.anzahl + menge;
-		int diffMenge;
-		boolean nachbestellung;
-	
-		//Pruefung ob Lagermenge einer Ware gleich der Lagergroesse ist
-		if (this.anzahl == MAXMENGE) {
-		
-			System.out.println(String.format("Der NonFoodArtikel hat bereits die maximale Lagerkapazit�t, daher wird keine Nachbestellung durchgefuehrt!", this.name));
-		
-			nachbestellung = false;	
-		}
-		//Pr�fung ob die zu bestellende Megen mit der Lagermenge g��er ist als die Lagerroe�e
-		else if(mengeLager > MAXMENGE) {
-			diffMenge = MAXMENGE - this.anzahl;
-			this.anzahl = this.anzahl + diffMenge;
-		
-			System.out.println(String.format("Die Maximale Lagermenge (100) wurde �berschritten! Es wurden daher %s Einheiten nachbestellt", diffMenge));
-			this.seitWannImBestand = LocalDate.now();
-		
-			nachbestellung = true;	
-		}
-		//Nachbestellung der Ware
-		else {
-		
-			this.anzahl = this.anzahl + menge;
-			this.seitWannImBestand = LocalDate.now();
-		
-			nachbestellung = true;
-		}
-			return nachbestellung;
-}	
-	public boolean herausgeben(int menge) {
 				System.out.println(
 						String.format(
 								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde �berschritten! Der Medien-Artikel %s konnte nicht hinzugef�gt werden", 
@@ -155,16 +102,9 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		double stiftungwarentest = this.stiftungwarentest;
 		Allergene allergene = this.allergene;
 		
-<<<<<<< HEAD
-		if(mengeLager > 0) {
-			this.anzahl = this.anzahl - menge;
-			
-			System.out.println(String.format("Fuer das Drogerieartikel %s wurden %s Einheiten herausgegeben.", this.name, menge));
-=======
 		boolean nachbestellung = false;
 		
 		for (int i = 0; i < alleWaren.size(); i++) {
->>>>>>> 4efd2070ba7e4f3f2ba861c093ba613a3e31a6ae
 			
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
@@ -172,10 +112,6 @@ public class DrogerieArtikel extends NonFoodArtikel {
 				int neueLegermenge = aktuellLagermenge + menge;
 				int diffMenge = 0;
 			
-<<<<<<< HEAD
-			System.out.println(
-					String.format("Fuer die Drogerieartikel %s gibt es nur noch %s Einheiten auf Lager.", this.name, this.anzahl));
-=======
 				//Pr�fung ob Lagermene einer Ware gleich der Lagergroe�e ist
 				if (alleWaren.get(i).size() == MAXMENGE) {
 					
@@ -249,7 +185,6 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		boolean herausgeben = false;
 		
 		for (int i = 0; i < alleWaren.size(); i++) { 
->>>>>>> 4efd2070ba7e4f3f2ba861c093ba613a3e31a6ae
 			
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL && alleWaren.get(i).get(0).name.equals(name)) {
 				
@@ -262,7 +197,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 					
 					for(int j = 0; j < menge; j++) {
 						
-						alleWaren.get(i).remove(j);
+						alleWaren.get(i).remove(0);
 					}
 							
 					System.out.println(
@@ -293,31 +228,17 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		}
 	return herausgeben;
 	}
-<<<<<<< HEAD
-	public static void gebeDrogerieArtikelAus() {
-		
-		for(int i = 0; i < alleWaren.size(); i++) {
-			
-			if(alleWaren.get(i).getKennung() == DROGERIEARTIKEL) {
-				System.out.println("(" + i + ") " + alleWaren.get(i));
-			}
-			
-		}
-		 
-	}
-=======
 	
 	/**
 	 * toString Methode der Klasse Medien um eine Ausgabe
 	 * zu dem Medien zu t�tigen
 	 */
->>>>>>> 4efd2070ba7e4f3f2ba861c093ba613a3e31a6ae
 	@Override
 	public String toString() {
 		
-		return"Neuer Kleidung Artikel [Name= "+ this.name + " Preis= "+ this.preis + " Seit wann im Bestand= " + this.seitWannImBestand +  
-				" Beschreibung= " + this.beschreibung + " Nutzung = "+ this.nutzung + 
-				" Stiftungwarentest= " + this.stiftungwarentest + " Allergene= " + this.allergene + "]";
+		return"Neuer Drogerie-Artikel [Name: "+ this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand +  
+				", Beschreibung: " + this.beschreibung + ", Nutzung: "+ this.nutzung + 
+				", Stiftungwarentest: " + this.stiftungwarentest + ", Allergene: " + this.allergene + "]";
 			
 	}
 	
@@ -349,7 +270,6 @@ public class DrogerieArtikel extends NonFoodArtikel {
 					System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Benotung Stiftungwarentest: " + alleWaren.get(i).get(0).stiftungwarentest);
 				}
 			}
-
 		}
 	}
 	
@@ -357,15 +277,25 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * Klassenmethode, welche alle Drogerie-Artikel ausgibt die ein bestimmtes Allergen haben
 	 */
 	public static void gibAllergeneAus(Allergene allergen) {
+		
+		int zaehleAllergene =0;
+		
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL && alleWaren.get(i).get(0).allergene == allergen) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Allergen: " + alleWaren.get(i).get(0).allergene);
+				
+				zaehleAllergene++;
 			}
+		}
+		
+		if(zaehleAllergene == 0) {
+			System.out.println("Es konnten zu dem angegebenen Allergen keine Artikel gefunden werden.");
 		}
 	}
 
 	/**
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
 	 * @return Gibt ein DrogerieArtikel-Objekt zur�ck
 	 */
@@ -373,6 +303,45 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		
 		return (DrogerieArtikel) alleWaren.get(objektId).get(0);
 		
+	}
+	
+	/**
+	 * Klassenmethode um die Maximale ID zu erhalten f�r den Bereich Drogie Artikel im Array alleWaren
+	 * 
+	 * @return Gibt die h�chste ID des Arrays f�r Drogie Artikel aus Integer aus
+	 */
+	public static int erhalteObjektMaxID() {
+		
+		int maxID = 0;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL) {
+				maxID = i;
+			}
+		}
+		return maxID;
+	}
+	
+	/**
+	 * Klassenmethode um die Minimale ID zu erhalten f�r den Bereich Drogerie Artikel im Array alleWaren
+	 * 
+	 * @return Gibt die niedrigste ID des Arrays f�r Drogerie Artikel aus Integer aus
+	 */
+	public static int erhalteObjektMinID() {
+		
+		int minID = 6000;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.DROGERIEARTIKEL) {
+				
+				if(minID > i) {
+					
+					minID = i;
+				}
+			}
+		}
+		return minID;
 	}
 
 }

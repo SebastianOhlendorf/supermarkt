@@ -3,6 +3,10 @@ package test;
 import java.time.LocalDate;
 import waren.Getraenke;
 
+/**
+ * Testklasse für die Klassen Getränke.
+ * Hier werden alle Funktionalitäten der Klasse ausgetestet 
+ */
 public class GetraenkeTest {
 
 	public static void main(String[] args){

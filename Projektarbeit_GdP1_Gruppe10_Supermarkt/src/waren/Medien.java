@@ -3,14 +3,15 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import enums.Filmgenre;
+import enums.Genre;
 import enums.Kennungen;
 import enums.Untergruppen;
 
-//import supermarkt.SupermarktExceptions;
+
 
 /**
- * Kinderklasse der Klasse NonFoodArtikel zum anlegen von Medien-Objekten
+ * Kinderklasse der Klasse NonFoodArtikel zum anlegen von Medien-Objekten und weiterer Methodenaufrufe
+ * rund um Medien
  * @author Lennart Sparbier
  * @version 1.0
  * @date 18.02.2021
@@ -37,7 +38,7 @@ public class Medien extends NonFoodArtikel {
  	 * @param erscheinungsjahr Gibt das Erscheinungsjahr als Integer an
 	 */
 	public Medien(String name, double preis, LocalDate seitWannImBestand, 
-			 String beschreibung, Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr) {
+			 String beschreibung, Untergruppen unterGruppe, boolean isDigital, Genre genre, int erscheinungsjahr) {
 		
 		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
@@ -104,7 +105,7 @@ public class Medien extends NonFoodArtikel {
 		String beschreibung = this.beschreibung;
 		Untergruppen untergruppe = this.unterGruppe;
 		boolean isDigital = this.isDigital;
-		Filmgenre genre = this.genre;
+		Genre genre = this.genre;
 		int erscheinungsjahr = this.erscheinungsjahr;
 		
 		boolean nachbestellung = false;
@@ -202,7 +203,7 @@ public class Medien extends NonFoodArtikel {
 					
 					for(int j = 0; j < menge; j++) {
 						
-						alleWaren.get(i).remove(j);
+						alleWaren.get(i).remove(0);
 					}
 							
 					System.out.println(
@@ -241,9 +242,9 @@ public class Medien extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"neuer Medien Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
-				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
-				" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + "]";
+		return"Neuer Medien Artikel [Name: "+ this.name + ", Preis: "+ this.preis + ", SeitWannImBestand: " + this.seitWannImBestand +  
+				", Anzahl: " + this.anzahl +  ", Beschreibung: " + this.beschreibung + ", Untergruppe: "+ this.unterGruppe + 
+				", ist Digital: " + this.isDigital + ", Genre: " + this.genre + ", Erscheinungsjahr: " + this.erscheinungsjahr + "]";
 			
 	}
 	
@@ -283,7 +284,7 @@ public class Medien extends NonFoodArtikel {
 	/**
 	 * Klassenmethode, welche alle Medien-Artikel mit Genre ausgibt
 	 */
-	public static void gebenGenreAus(Filmgenre genre) {
+	public static void gebenGenreAus(Genre genre) {
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).genre == genre) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Genre: " + alleWaren.get(i).get(0).genre);
@@ -293,6 +294,7 @@ public class Medien extends NonFoodArtikel {
 	
 	/**
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
 	 * @return Gibt ein Medien-Objekt zurück
 	 */
@@ -300,6 +302,45 @@ public class Medien extends NonFoodArtikel {
 		
 		return (Medien) alleWaren.get(objektId).get(0);
 		
+	}
+	
+	/**
+	 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Medien im Array alleWaren
+	 * 
+	 * @return Gibt die höchste ID des Arrays für Medien aus Integer aus
+	 */
+	public static int erhalteObjektMaxID() {
+		
+		int maxID = 0;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN) {
+				maxID = i;
+			}
+		}
+		return maxID;
+	}
+	
+	/**
+	 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Medien im Array alleWaren
+	 * 
+	 * @return Gibt die niedrigste ID des Arrays für Medien aus Integer aus
+	 */
+	public static int erhalteObjektMinID() {
+		
+		int minID = 6000;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN) {
+				
+				if(minID > i) {
+					
+					minID = i;
+				}
+			}
+		}
+		return minID;
 	}
 }
  

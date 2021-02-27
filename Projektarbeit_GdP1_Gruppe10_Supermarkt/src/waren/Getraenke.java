@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import enums.Kennungen;
 
 /**
- * Kinderklasse der Klasse Ware zum anlegen von Getränke-Objekten
+ * Kinderklasse der Klasse Ware zum anlegen von Getränke-Objekten und weiterer Methodenaufrufe
+ * rund um Getränke
  * @author Lennart Sparbier
  * @version 1.0
  * @date 09.02.2021
@@ -13,9 +14,6 @@ import enums.Kennungen;
  */
 public class Getraenke extends Ware {
 
-	//Objektattribute
-	
-	
 	//Klassenattribut zum zählen der Getränke
 	private static int zaehler_getraenke = 0;
 	
@@ -185,7 +183,7 @@ public class Getraenke extends Ware {
 							
 							for(int j = 0; j < menge; j++) {
 								
-								alleWaren.get(i).remove(j);
+								alleWaren.get(i).remove(0);
 							}
 							
 							System.out.println(
@@ -224,7 +222,7 @@ public class Getraenke extends Ware {
 	@Override
 	public String toString() {
 		
-		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Alkoholgehalt: " + this.alcProzente +"]"; 
+		return "Neuer Getränke Artikel [Name: "+ this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand + ", Alkoholgehalt: " + this.alcProzente +"]"; 
 	}
 	
 	
@@ -294,6 +292,7 @@ public class Getraenke extends Ware {
 	
 	/**
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
 	 * @return Gibt ein Getraenkeobjekt zurück
 	 */
@@ -301,5 +300,44 @@ public class Getraenke extends Ware {
 		
 		return (Getraenke) alleWaren.get(objektId).get(0);
 		
+	}
+	
+	/**
+	 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Getränke im Array alleWaren
+	 * 
+	 * @return Gibt die höchste ID des Arrays für Getränke aus Integer aus
+	 */
+	public static int erhalteObjektMaxID() {
+		
+		int maxID = 0;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.GETRAENKE) {
+				maxID = i;
+			}
+		}
+		return maxID;
+	}
+	
+	/**
+	 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Getränke im Array alleWaren
+	 * 
+	 * @return Gibt die niedrigste ID des Arrays für Getränke aus Integer aus
+	 */
+	public static int erhalteObjektMinID() {
+		
+		int minID = 6000;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.GETRAENKE) {
+				
+				if(minID > i) {
+					
+					minID = i;
+				}
+			}
+		}
+		return minID;
 	}
 }

@@ -5,37 +5,50 @@ import java.util.ArrayList;
 
 import enums.Allergene;
 import enums.Filmgenre;
+import enums.Fsk;
+import enums.Genre;
 import enums.Jahreszeit;
 import enums.Kennungen;
+import enums.Koerperteile;
 import enums.Nutzung;
+import enums.Sprachen;
 import enums.Stofftypen;
+import enums.Untergruppen;
 
 /**
  * Eine Abstrakte Klasse mit der neue Warenobjekte angelegt, Waren nachbestellt oder herausgegeben werden können.
- * @author 
- * @version
- * @date
+ * Alle Attribute zu allen Warentypen sind in der Klasse Ware abgelegt.
+ * @author Sebastian Ohlendorf
+ * @version 1.0
+ * @date 15.02.2021
  *
  */
 public abstract class Ware {
 	
-	//Variablen anlegen
+	//Objekt Attribute
 	protected String name;
 	protected double preis;
 	protected int anzahl;
 	protected LocalDate seitWannImBestand;
 	protected int haltbarkeit;
-	private boolean aufgebacken;
+	protected boolean aufgebacken;
 	protected double alcProzente;
 	private Kennungen kennung;
 	protected Stofftypen stofftyp;
 	protected Jahreszeit jahreszeit;
+	protected Koerperteile koerperteil;
 	protected boolean isDigital;
-	protected Filmgenre genre;
+	protected Filmgenre filmgenre;
+	protected Genre genre;
 	protected int erscheinungsjahr;
 	protected Nutzung nutzung;
 	protected double stiftungwarentest;
 	protected Allergene allergene;
+	protected  String beschreibung;
+	protected Untergruppen unterGruppe;
+	protected double dauer;
+	protected Fsk fsk;
+	protected Sprachen sprache;
 	
 	//Konstante füe Maximale Lagermenge, der Maximalen Warentypen und der jeweiligen Warentypkennungen
 	protected static final int MAXMENGE = 100;
@@ -72,6 +85,18 @@ public abstract class Ware {
 	 * @return Gibt ein True oder False zurück ob Waren herausgegeben werden können
 	 */
 	public abstract boolean herausgeben(int menge);
+	
+	/**
+	 * Klassenmethode welche alle Waren ausgibt welche sich im Lager befinden
+	 * Diese werden auf der Konsole ausgegeben.
+	 */
+	public static void gebAlleWarenAus() {
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Anzahl im Lager: " + alleWaren.get(i).size());
+		}
+	}
 
 	
 	//--------------- GETTER und SETTER -------------------------
@@ -83,28 +108,4 @@ public abstract class Ware {
 	public void setKennung(Kennungen kleidung) {
 		this.kennung = kleidung;
 	}
-
-	public Stofftypen getStofftyp() {
-		return stofftyp;
-	}
-
-	public Jahreszeit getJahreszeit() {
-		return jahreszeit;
-	}
-
-	public void setJahreszeit(Jahreszeit jahreszeit) {
-		this.jahreszeit = jahreszeit;
-	}
-
-	public boolean isAufgebacken() {
-		return aufgebacken;
-	}
-
-	public void setAufgebacken(boolean aufgebacken) {
-		this.aufgebacken = aufgebacken;
-	}
-
-	
-
-	
 }

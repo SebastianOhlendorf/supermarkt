@@ -5,6 +5,13 @@ import java.time.LocalDate;
 import waren.Backwaren;
 import waren.Lebensmittel;
 
+/**
+ * Testklasse um alle Funktionalitäten der Klassen Lebensmittel und Backwaren einmal auszuprobieren
+ * @author Sebastian Ohlendorf
+ * @version 1.0
+ * @date 15.02.2021
+ *
+ */
 public class LebensmittelTest {
 
 	public static void main(String[] args) {
@@ -12,13 +19,16 @@ public class LebensmittelTest {
 					//---------------Lebensmittel---------------------------
 					Lebensmittel lebensmittel = new Lebensmittel("Tee", 2.98, LocalDate.now(), 0.5, 25, false);
 					Lebensmittel.addLebensmittel(new Lebensmittel("Kekse", 2.98, LocalDate.now(), 0.5, 0, false));
-					Lebensmittel.addLebensmittel(new Lebensmittel("Käse", 2.98, LocalDate.now(), 0.5, 2, false));
 					Lebensmittel.addLebensmittel(lebensmittel);
+					Lebensmittel lebensmittel2 = new Lebensmittel("Käse", 2.98, LocalDate.now(), 0.5, 2, false);
+					Lebensmittel.addLebensmittel(lebensmittel2);
 					Lebensmittel.gebeLebensmittelAus();
 					
+					System.out.println(lebensmittel.haltbarBis());
+					
 					LocalDate date = LocalDate.parse("2021-01-17");
-					Lebensmittel lebensmittel2 = new Lebensmittel("Suppe", 2.98, date, 0.5, 1, false);
-					Lebensmittel.addLebensmittel(lebensmittel2);
+					Lebensmittel lebensmittel3 = new Lebensmittel("Suppe", 2.98, date, 0.5, 1, false);
+					Lebensmittel.addLebensmittel(lebensmittel3);
 					
 					for(int i = 0; i < 40; i++) {
 
@@ -51,7 +61,7 @@ public class LebensmittelTest {
 					
 					System.out.println("Start herausgabe 2:");
 					//Von Tee werden 50 herausgegeben, neue Lagermenge 50
-					lebensmittel.herausgeben(50);
+					lebensmittel.herausgeben(99);
 					System.out.println("Start Ausgabe 5:");
 					Lebensmittel.gebeLebensmittelAus();
 					
@@ -76,8 +86,10 @@ public class LebensmittelTest {
 					
 					System.out.println("Start kurzesMHD 1:");
 					System.out.println(Lebensmittel.kurzesMHD());
-										
 					
+					System.out.println("Prüfung IDS");
+					System.out.println("Min IDs: " + Lebensmittel.erhalteObjektMinID());
+					System.out.println("Max IDs: " + Lebensmittel.erhalteObjektMaxID());
 					
 					//---------------Backwaren---------------------------
 					
@@ -131,14 +143,10 @@ public class LebensmittelTest {
 					System.out.println("Start Ausgabe 6:");
 					Backwaren.gebeBackwareAus();
 					
-					
 					System.out.println("Start backWare 1:");
 					System.out.println(backwaren.backeWare());
 					System.out.println("---------------------------------------------");
 					System.out.println("Start backWare 2:");
-					System.out.println(backwaren.backeWare());
-	
-	
-					
+					System.out.println(backwaren.backeWare());				
 	}
 }

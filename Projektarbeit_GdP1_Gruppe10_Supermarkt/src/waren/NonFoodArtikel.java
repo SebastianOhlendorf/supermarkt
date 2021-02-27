@@ -7,18 +7,14 @@ import enums.Kennungen;
 import enums.Untergruppen;
 
 /**
- * Kinderklasse der Klasse Ware zum anlegen von NonFoodArtikel-Objekten
+ * Kinderklasse der Klasse Ware zum anlegen von NonFoodArtikel-Objekten und weiterer Methodenaufrufe
+ * rund um NonFoodArtikel
  * @author Lennart Sparbier
  * @version 1.0
  * @date 18.02.2021
  *
  */
 public class NonFoodArtikel extends Ware {
-	
-	//Objektattribute
-	protected  String beschreibung;
-	protected Untergruppen unterGruppe;
-	
 	
 	//Klassenattribut. Zählt die NonFood Artikel
 	private static int nonFoodArtikel_zaehler = 0;
@@ -193,7 +189,7 @@ public class NonFoodArtikel extends Ware {
 					
 					for(int j = 0; j < menge; j++) {
 						
-						alleWaren.get(i).remove(j);
+						alleWaren.get(i).remove(0);
 					}
 							
 					System.out.println(
@@ -232,9 +228,9 @@ public class NonFoodArtikel extends Ware {
 	@Override
 	public String toString() {
 		
-		return "neuer NonFood Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
-				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung +
-				" unterGruppe = "+ this.unterGruppe + "]";
+		return "Neuer NonFood Artikel [ Name: "+ this.name + ", Preis: "+ this.preis + ", seit wann im Bestand: " + this.seitWannImBestand +  
+				", Anzahl: " + this.anzahl +  ", Beschreibung: " + this.beschreibung +
+				", Untergruppe: "+ this.unterGruppe + "]";
 			
 	}
 	
@@ -252,6 +248,7 @@ public class NonFoodArtikel extends Ware {
 	
 	/**
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
 	 * @return Gibt ein NonFoodArtikel-Objekt zurück
 	 */
@@ -259,6 +256,45 @@ public class NonFoodArtikel extends Ware {
 		
 		return (NonFoodArtikel) alleWaren.get(objektId).get(0);
 		
+	}
+	
+	/**
+	 * Klassenmethode um die Maximale ID zu erhalten für den Bereich NonFoodArtikel im Array alleWaren
+	 * 
+	 * @return Gibt die höchste ID des Arrays für NonFoodArtikel aus Integer aus
+	 */
+	public static int erhalteObjektMaxID() {
+		
+		int maxID = 0;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.NONFOODARTIKEL) {
+				maxID = i;
+			}
+		}
+		return maxID;
+	}
+	
+	/**
+	 * Klassenmethode um die Minimale ID zu erhalten für den Bereich NonFoodArtikel im Array alleWaren
+	 * 
+	 * @return Gibt die niedrigste ID des Arrays für NonFoodArtikel aus Integer aus
+	 */
+	public static int erhalteObjektMinID() {
+		
+		int minID = 600000;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.NONFOODARTIKEL) {
+				
+				if(minID > i) {
+					
+					minID = i;
+				}
+			}
+		}
+		return minID;
 	}
 }
 

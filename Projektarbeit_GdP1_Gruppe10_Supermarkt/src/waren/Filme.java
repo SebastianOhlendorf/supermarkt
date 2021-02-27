@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Kennungen;
 import enums.Sprachen;
 import enums.Untergruppen;
 
 /**
- * Kinderklasse der Klasse Medien zum anlegen von Film-Objekten
+ * Kinderklasse der Klasse Medien zum anlegen von Film-Objekten und weiterer Methodenaufrufe
+ * rund um Filme
  * @author Lennart Sparbier
  * @version 1.0
  * @date 18.02.2021
@@ -17,14 +19,9 @@ import enums.Untergruppen;
  */
 public class Filme extends Medien {
 
-	
-		//Objektattribute speziell für die Klasse Filme
-		protected double dauer;
-		protected Fsk fsk;
-		protected Sprachen sprache;
-		
 		//Klassenattribute
-		private static int zaehler_filme = 0;		
+		private static int zaehler_filme = 0;
+		private static Genre genre;		
 		
 		/**
 		 * Konstruktor der Klasse Filme um ein neues Film-Objekt zu erzeugen.
@@ -44,9 +41,10 @@ public class Filme extends Medien {
 		 * @param sprache Gibt die Sprache als Integer an
 		 */
 		public Filme(String name, double preis, LocalDate seitWannImBestand, String beschreibung,
-				Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr, double dauer, Fsk fsk, Sprachen sprache) {
+				Untergruppen unterGruppe, boolean isDigital, Filmgenre filmgenre, int erscheinungsjahr, double dauer, Fsk fsk, Sprachen sprache) {
 			super(name, preis, seitWannImBestand, beschreibung, unterGruppe, isDigital, genre, erscheinungsjahr);
 			
+			this.filmgenre = filmgenre;
 			this.dauer = dauer;
 			this.fsk = fsk;
 			this.sprache = sprache;	
@@ -109,7 +107,7 @@ public class Filme extends Medien {
 			String beschreibung = this.beschreibung;
 			Untergruppen untergruppe = this.unterGruppe;
 			boolean isDigital = this.isDigital;
-			Filmgenre genre = this.genre;
+			Filmgenre genre = this.filmgenre;
 			int erscheinungsjahr = this.erscheinungsjahr;
 			double dauer = this.dauer;
 			Fsk fsk = this.fsk;
@@ -211,7 +209,7 @@ public class Filme extends Medien {
 						
 						for(int j = 0; j < menge; j++) {
 							
-							alleWaren.get(i).remove(j);
+							alleWaren.get(i).remove(0);
 						}
 								
 						System.out.println(
@@ -250,10 +248,10 @@ public class Filme extends Medien {
 		 */
 		@Override
 		public String toString() {
-		return "neuer Film Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
-		" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
-		" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + 
-		" dauer= " + this.dauer + " FSK= " + this.fsk + " sprache= " + this.sprache + "]";
+		return "Neuer Film Artikel [Name: " + this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand +  
+		", Anzahl: " + this.anzahl +  ", Beschreibung: " + this.beschreibung + ", Untergruppe: "+ this.unterGruppe + 
+		", ist Digital: " + this.isDigital + ", Genre: " + this.filmgenre + ", Erscheinungsjahr: " + this.erscheinungsjahr + 
+		", Dauer: " + this.dauer + "h, FSK: " + this.fsk + ", Sprache: " + this.sprache + "]";
 		}
 
 		/**
@@ -269,6 +267,7 @@ public class Filme extends Medien {
 		
 		/**
 		 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+		 * 
 		 * @param objektId ID des Objektes aus dem Array alleWaren
 		 * @return Gibt ein Filme-Objekt zurück
 		 */
@@ -276,5 +275,44 @@ public class Filme extends Medien {
 			
 			return (Filme) alleWaren.get(objektId).get(0);
 			
+		}
+		
+		/**
+		 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Filme im Array alleWaren
+		 * 
+		 * @return Gibt die höchste ID des Arrays für Filme aus Integer aus
+		 */
+		public static int erhalteObjektMaxID() {
+			
+			int maxID = 0;
+			
+			for (int i = 0; i < alleWaren.size(); i++) { 
+				if(alleWaren.get(i).get(0).getKennung() == Kennungen.FILME) {
+					maxID = i;
+				}
+			}
+			return maxID;
+		}
+		
+		/**
+		 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Filme im Array alleWaren
+		 * 
+		 * @return Gibt die niedrigste ID des Arrays für Filme aus Integer aus
+		 */
+		public static int erhalteObjektMinID() {
+			
+			int minID = 6000;
+			
+			for (int i = 0; i < alleWaren.size(); i++) { 
+				
+				if(alleWaren.get(i).get(0).getKennung() == Kennungen.FILME) {
+					
+					if(minID > i) {
+						
+						minID = i;
+					}
+				}
+			}
+			return minID;
 		}
 }	

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 
 import enums.Allergene;
-import enums.Filmgenre;
+import enums.Genre;
 import enums.Jahreszeit;
 import enums.Stofftypen;
 import hilfsklassen.Ausgaben;
@@ -221,7 +221,7 @@ public class Untermenu {
 	public static void untermenuMedien() {
 				
 		int auswahl = 0;
-		Filmgenre genre = null;
+		Genre genre = null;
 		
 		do {
 			
@@ -249,7 +249,7 @@ public class Untermenu {
 				case 2: 
 					
 					try {
-						genre = Eingaben.eingabeFilmgenre("Welches Genre möchten sie auswählen?");
+						genre = Eingaben.eingabeGenre("Welches Genre möchten sie auswählen?");
 					}catch(InputMismatchException e) {
 						Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Die Aktion konnte nicht durchgeführt werden!");
 					}

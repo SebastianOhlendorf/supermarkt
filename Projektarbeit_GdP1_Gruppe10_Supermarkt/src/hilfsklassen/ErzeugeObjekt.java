@@ -6,6 +6,7 @@ import java.util.InputMismatchException;
 import enums.Allergene;
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Jahreszeit;
 import enums.Koerperteile;
 import enums.Nutzung;
@@ -315,7 +316,7 @@ public class ErzeugeObjekt {
 		String beschreibung;
 		Untergruppen untergruppe;
 		boolean isDigital;
-		Filmgenre genre;
+		Genre genre;
 		int erscheinungsjahr;
 		
 		try {
@@ -325,7 +326,7 @@ public class ErzeugeObjekt {
 			beschreibung = Eingaben.eingabeString("Bitte geben Sie die Beschreibung des Artikels als Text an:");
 			untergruppe = Untergruppen.MEDIEN;
 			isDigital = Eingaben.eingabeBoolean("Bitte geben Sie an ob der Artikel Digital (true) oder Analog (false) ist:");
-			genre = Eingaben.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
+			genre = Eingaben.eingabeGenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
 			erscheinungsjahr = Eingaben.eingabeInteger("Bitte geben Sie das Erscheinungsjahr des Artikels in XXXX an:");
 			
 			Medien medien = new Medien(name, preis, seitWannImBestand, beschreibung, untergruppe, isDigital, genre, erscheinungsjahr);

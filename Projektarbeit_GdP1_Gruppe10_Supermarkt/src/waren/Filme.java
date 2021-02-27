@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Kennungen;
 import enums.Sprachen;
 import enums.Untergruppen;
@@ -19,7 +20,8 @@ import enums.Untergruppen;
 public class Filme extends Medien {
 
 		//Klassenattribute
-		private static int zaehler_filme = 0;		
+		private static int zaehler_filme = 0;
+		private static Genre genre;		
 		
 		/**
 		 * Konstruktor der Klasse Filme um ein neues Film-Objekt zu erzeugen.
@@ -39,9 +41,10 @@ public class Filme extends Medien {
 		 * @param sprache Gibt die Sprache als Integer an
 		 */
 		public Filme(String name, double preis, LocalDate seitWannImBestand, String beschreibung,
-				Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr, double dauer, Fsk fsk, Sprachen sprache) {
+				Untergruppen unterGruppe, boolean isDigital, Filmgenre filmgenre, int erscheinungsjahr, double dauer, Fsk fsk, Sprachen sprache) {
 			super(name, preis, seitWannImBestand, beschreibung, unterGruppe, isDigital, genre, erscheinungsjahr);
 			
+			this.filmgenre = filmgenre;
 			this.dauer = dauer;
 			this.fsk = fsk;
 			this.sprache = sprache;	
@@ -104,7 +107,7 @@ public class Filme extends Medien {
 			String beschreibung = this.beschreibung;
 			Untergruppen untergruppe = this.unterGruppe;
 			boolean isDigital = this.isDigital;
-			Filmgenre genre = this.genre;
+			Filmgenre genre = this.filmgenre;
 			int erscheinungsjahr = this.erscheinungsjahr;
 			double dauer = this.dauer;
 			Fsk fsk = this.fsk;
@@ -247,7 +250,7 @@ public class Filme extends Medien {
 		public String toString() {
 		return "Neuer Film Artikel [Name: " + this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand +  
 		", Anzahl: " + this.anzahl +  ", Beschreibung: " + this.beschreibung + ", Untergruppe: "+ this.unterGruppe + 
-		", ist Digital: " + this.isDigital + ", Genre: " + this.genre + ", Erscheinungsjahr: " + this.erscheinungsjahr + 
+		", ist Digital: " + this.isDigital + ", Genre: " + this.filmgenre + ", Erscheinungsjahr: " + this.erscheinungsjahr + 
 		", Dauer: " + this.dauer + "h, FSK: " + this.fsk + ", Sprache: " + this.sprache + "]";
 		}
 

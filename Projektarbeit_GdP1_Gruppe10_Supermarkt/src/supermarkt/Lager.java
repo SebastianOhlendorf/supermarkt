@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import enums.Allergene;
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Jahreszeit;
 import enums.Koerperteile;
 import enums.Nutzung;
@@ -247,34 +248,34 @@ public class Lager {
 		 * Befüllen des Lagers mit Medien Artikeln
 		 */
 		
-		Medien eminemRelapseAlbum = new Medien("Eminem mit dem Album Relapse" ,9.99, LocalDate.now(), "Album von Eminem", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2009);
+		Medien eminemRelapseAlbum = new Medien("Eminem mit dem Album Relapse" ,9.99, LocalDate.now(), "Album von Eminem", Untergruppen.MEDIEN, true, Genre.MUSIK, 2009);
 		Medien.addMedien(eminemRelapseAlbum);
 		
-		Medien theRaid = new Medien("The Raid Actionfilm" , 7.99, LocalDate.now(), "Actionfilm", Untergruppen.MEDIEN, true, Filmgenre.ACTION, 2011);
+		Medien theRaid = new Medien("The Raid Actionfilm" , 7.99, LocalDate.now(), "Actionfilm", Untergruppen.MEDIEN, true, Genre.KEINE, 2011);
 		Medien.addMedien(theRaid);
 		
-		Medien dieGeissensStaffel3 = new Medien("Die Geissens Staffel 3 DVD", 15.00, LocalDate.now(), "DVD von den Geissens", Untergruppen.MEDIEN, true, Filmgenre.HUMOR, 2015);
+		Medien dieGeissensStaffel3 = new Medien("Die Geissens Staffel 3 DVD", 15.00, LocalDate.now(), "DVD von den Geissens", Untergruppen.MEDIEN, true, Genre.KEINE, 2015);
 		Medien.addMedien(dieGeissensStaffel3);
 		
-		Medien intelligentInvestierenBenjaminGraham = new Medien("Buch Intelligent investieren von Benjamin Graham" , 30.00, LocalDate.now(), "Buch investieren", Untergruppen.MEDIEN, false, Filmgenre.KEINE, 2016);
+		Medien intelligentInvestierenBenjaminGraham = new Medien("Buch Intelligent investieren von Benjamin Graham" , 30.00, LocalDate.now(), "Buch investieren", Untergruppen.MEDIEN, false, Genre.BUECHER, 2016);
 		Medien.addMedien(intelligentInvestierenBenjaminGraham);
 		
-		Medien sakrileg = new Medien("das Buch Sakrileg" , 9.99, LocalDate.now(), "Buch zu dem Bestseller Sakrileg", Untergruppen.MEDIEN,false, Filmgenre.KEINE, 2003);
+		Medien sakrileg = new Medien("das Buch Sakrileg" , 9.99, LocalDate.now(), "Buch zu dem Bestseller Sakrileg", Untergruppen.MEDIEN,false, Genre.BUECHER, 2003);
 		Medien.addMedien(sakrileg);
 		
-		Medien volbeatRewindReplayRebound = new Medien("Volbeat mit dem Album Rewind Replay Rebound" , 20.00, LocalDate.now(), "Musik Album Volbeat", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2019);
+		Medien volbeatRewindReplayRebound = new Medien("Volbeat mit dem Album Rewind Replay Rebound" , 20.00, LocalDate.now(), "Musik Album Volbeat", Untergruppen.MEDIEN, true, Genre.MUSIK, 2019);
 		Medien.addMedien(volbeatRewindReplayRebound);
 		
-		Medien romeTotalWar2Computer = new Medien("Computerspiel Rome Total War 2 von Creative Assembly " , 18.99, LocalDate.now(), "Computerspiel Strategie", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2013);
+		Medien romeTotalWar2Computer = new Medien("Computerspiel Rome Total War 2 von Creative Assembly " , 18.99, LocalDate.now(), "Computerspiel Strategie", Untergruppen.MEDIEN, true, Genre.COMPUTER, 2013);
 		Medien.addMedien(romeTotalWar2Computer);
 		
-		Medien battlefield5Computer = new Medien("Computerspiel Battlefield 5 von Electronic Arts", 30.00, LocalDate.now(), "Computerspiel Ego Shooter", Untergruppen.MEDIEN, true, Filmgenre.KEINE, 2018);
+		Medien battlefield5Computer = new Medien("Computerspiel Battlefield 5 von Electronic Arts", 30.00, LocalDate.now(), "Computerspiel Ego Shooter", Untergruppen.MEDIEN, true, Genre.COMPUTER, 2018);
 		Medien.addMedien(battlefield5Computer);
 		
-		Medien mrBeanZeichentrickSerieStaffel2 = new Medien("Mr Bean die Cartoon Zeichentrick Serie Staffel 2" , 19.99, LocalDate.now(), "Zeichentrick Serie", Untergruppen.MEDIEN, true, Filmgenre.HUMOR, 2006);
+		Medien mrBeanZeichentrickSerieStaffel2 = new Medien("Mr Bean die Cartoon Zeichentrick Serie Staffel 2" , 19.99, LocalDate.now(), "Zeichentrick Serie", Untergruppen.MEDIEN, true, Genre.MUSIK, 2006);
 		Medien.addMedien(mrBeanZeichentrickSerieStaffel2);
 		
-		Medien einerFlogUeberDasKuckucksnestFilm = new Medien("Einer Flog über das Kuckucksnest" , 5.99, LocalDate.now(), "DVD Film von 1975", Untergruppen.MEDIEN, false, Filmgenre.DRAMA, 1975);
+		Medien einerFlogUeberDasKuckucksnestFilm = new Medien("Einer Flog über das Kuckucksnest" , 5.99, LocalDate.now(), "DVD Film von 1975", Untergruppen.MEDIEN, false, Genre.KEINE, 1975);
 		Medien.addMedien(einerFlogUeberDasKuckucksnestFilm);
 		
 		

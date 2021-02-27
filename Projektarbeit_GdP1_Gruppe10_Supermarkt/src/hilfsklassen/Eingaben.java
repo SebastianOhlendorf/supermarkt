@@ -4,6 +4,7 @@ import java.util.Scanner;
 import enums.Allergene;
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Jahreszeit;
 import enums.Kennungen;
 import enums.Koerperteile;
@@ -458,6 +459,53 @@ public class Eingaben {
 		case 7: genre = Filmgenre.LIEBE;
 				break;
 		case 8: genre = Filmgenre.WESTERN;
+				break;
+		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
+				Eingaben.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");
+		}
+		
+		return genre;
+	}
+	
+	/**
+	 * Klassenmethode um das Genre zu ermitteln
+	 * Hierfür muss der Benutzer über eine Eingabe das gewünschte Genre aus einer Liste auswählen
+	 * Wird eine falsche Zahleingegeben, wird der Benutzer informiert und darf die Eingabe wiederholen.
+	 * 
+	 * @param eingabeString Aufforderungstext als String
+	 * @return genre Die ausgewählte Genre aus dem Enum
+	 */
+	public static Genre eingabeGenre (String eingabeString) {
+		
+		Genre genre = null;
+		
+		System.out.println(eingabeString);
+		System.out.println("Bitte wählen sie eine der Optionen und tragen die gewünschte Zahl in die Kommandozeile ein:");
+		System.out.println("(0) Kein Genre\n"
+				+ "(1) Bücher\n"
+				+ "(2) Computer\n"
+				+ "(3) Konsole\n"
+				+ "(4) Musik\n"
+				+ "(5) Hardware\n"
+				+ "(6) Software\n");
+
+		int genreID = in.nextInt();
+		
+		switch(genreID) {
+		
+		case 0: genre = Genre.KEINE;
+				break;
+		case 1: genre = Genre.BUECHER;
+				break;
+		case 2: genre = Genre.COMPUTER;
+				break;
+		case 3: genre = Genre.KONSOLE;
+				break;
+		case 4: genre = Genre.MUSIK;
+				break;
+		case 5: genre = Genre.HARDWARE;
+				break;
+		case 6: genre = Genre.SOFTWARE;
 				break;
 		default: System.out.println("Es wurde kein gültiger Wert übergeben. Probieren Sie es erneut");
 				Eingaben.eingabeFilmgenre("Bitte geben Sie das Genre des Artikels als Zahl an:");

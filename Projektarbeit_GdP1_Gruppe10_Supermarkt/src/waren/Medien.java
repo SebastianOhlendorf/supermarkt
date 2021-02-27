@@ -3,7 +3,7 @@ package waren;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import enums.Filmgenre;
+import enums.Genre;
 import enums.Kennungen;
 import enums.Untergruppen;
 
@@ -38,7 +38,7 @@ public class Medien extends NonFoodArtikel {
  	 * @param erscheinungsjahr Gibt das Erscheinungsjahr als Integer an
 	 */
 	public Medien(String name, double preis, LocalDate seitWannImBestand, 
-			 String beschreibung, Untergruppen unterGruppe, boolean isDigital, Filmgenre genre, int erscheinungsjahr) {
+			 String beschreibung, Untergruppen unterGruppe, boolean isDigital, Genre genre, int erscheinungsjahr) {
 		
 		super(name, preis, seitWannImBestand, beschreibung, unterGruppe);
 		
@@ -105,7 +105,7 @@ public class Medien extends NonFoodArtikel {
 		String beschreibung = this.beschreibung;
 		Untergruppen untergruppe = this.unterGruppe;
 		boolean isDigital = this.isDigital;
-		Filmgenre genre = this.genre;
+		Genre genre = this.genre;
 		int erscheinungsjahr = this.erscheinungsjahr;
 		
 		boolean nachbestellung = false;
@@ -284,7 +284,7 @@ public class Medien extends NonFoodArtikel {
 	/**
 	 * Klassenmethode, welche alle Medien-Artikel mit Genre ausgibt
 	 */
-	public static void gebenGenreAus(Filmgenre genre) {
+	public static void gebenGenreAus(Genre genre) {
 		for (int i = 0; i < alleWaren.size(); i++) { 
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.MEDIEN && alleWaren.get(i).get(0).genre == genre) {
 				System.out.println("(" + i + ") " + alleWaren.get(i).get(0).name + " Genre: " + alleWaren.get(i).get(0).genre);

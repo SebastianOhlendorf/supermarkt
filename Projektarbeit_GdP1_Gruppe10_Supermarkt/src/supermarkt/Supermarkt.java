@@ -66,7 +66,7 @@ public class Supermarkt {
 				case 4: // Methoden Warentypen
 					Hauptmenu.funktionenWaretypen();
 					break;
-				case 5: //ende = "yes";
+				case 5: //ende loop;
 					break;
 				default: System.out.println("Bitte versuchen sie es erneut!\n");
 					break;

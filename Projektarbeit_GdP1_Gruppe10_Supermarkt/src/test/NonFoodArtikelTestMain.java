@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import enums.Allergene;
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Jahreszeit;
 import enums.Koerperteile;
 import enums.Nutzung;
@@ -101,18 +102,18 @@ public class NonFoodArtikelTestMain {
 		 * protected static final int WESTERN =8;
 		 */
 		
-		Medien medien = new Medien("CD" + 0, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.HORROR, 2020);
-		Medien medien2 = new Medien("CD" + 1, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.ACTION, 2020);
+		Medien medien = new Medien("CD" + 0, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
+		Medien medien2 = new Medien("CD" + 1, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
 		Medien.addMedien(medien2);
-		Medien medien3 = new Medien("CD" + 2, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.THRILLER, 2020);
+		Medien medien3 = new Medien("CD" + 2, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
 		Medien.addMedien(medien3);
-		Medien medien4 = new Medien("CD" + 3, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.HUMOR, 2020);
+		Medien medien4 = new Medien("CD" + 3, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
 		Medien.addMedien(medien4);
-		Medien medien5 = new Medien("CD" + 4, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.DRAMA, 2020);
+		Medien medien5 = new Medien("CD" + 4, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
 		Medien.addMedien(medien5);
-		Medien medien6 = new Medien("CD" + 5, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.KRIEG, 2020);
+		Medien medien6 = new Medien("CD" + 5, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
 		Medien.addMedien(medien6);
-		Medien medien7 = new Medien("CD" + 6, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.LIEBE, 2020);
+		Medien medien7 = new Medien("CD" + 6, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
 		Medien.addMedien(medien7);
 		Medien.addMedien(medien);
 		
@@ -122,11 +123,11 @@ public class NonFoodArtikelTestMain {
 		medien.herausgeben(200);
 		Medien.gebenMedienArtikelAnalogAus();
 		Medien.gebenMedienArtikelDigitalAus();
-		Medien.gebenGenreAus(Filmgenre.THRILLER);
+		Medien.gebenGenreAus(Genre.KEINE);
 		
 						
 		for(int i = 0; i < 40; i++) {
-			Medien medien8 = new Medien("CD" + 7, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Filmgenre.WESTERN, 2020);
+			Medien medien8 = new Medien("CD" + 7, 2.98, LocalDate.now(), "Musik", Untergruppen.MEDIEN, true, Genre.KEINE, 2020);
 			Medien.addMedien(medien8);
 			
 		}

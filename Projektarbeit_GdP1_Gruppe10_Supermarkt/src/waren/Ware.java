@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import enums.Allergene;
 import enums.Filmgenre;
 import enums.Fsk;
+import enums.Genre;
 import enums.Jahreszeit;
 import enums.Kennungen;
 import enums.Koerperteile;
@@ -37,7 +38,8 @@ public abstract class Ware {
 	protected Jahreszeit jahreszeit;
 	protected Koerperteile koerperteil;
 	protected boolean isDigital;
-	protected Filmgenre genre;
+	protected Filmgenre filmgenre;
+	protected Genre genre;
 	protected int erscheinungsjahr;
 	protected Nutzung nutzung;
 	protected double stiftungwarentest;

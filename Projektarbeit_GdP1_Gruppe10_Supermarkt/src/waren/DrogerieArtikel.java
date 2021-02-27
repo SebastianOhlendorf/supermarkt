@@ -236,9 +236,9 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"Neuer Kleidung Artikel [Name= "+ this.name + " Preis= "+ this.preis + " Seit wann im Bestand= " + this.seitWannImBestand +  
-				" Beschreibung= " + this.beschreibung + " Nutzung = "+ this.nutzung + 
-				" Stiftungwarentest= " + this.stiftungwarentest + " Allergene= " + this.allergene + "]";
+		return"Neuer Drogerie-Artikel [Name: "+ this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand +  
+				", Beschreibung: " + this.beschreibung + ", Nutzung: "+ this.nutzung + 
+				", Stiftungwarentest: " + this.stiftungwarentest + ", Allergene: " + this.allergene + "]";
 			
 	}
 	

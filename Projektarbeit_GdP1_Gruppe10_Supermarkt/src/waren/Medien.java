@@ -242,9 +242,9 @@ public class Medien extends NonFoodArtikel {
 	@Override
 	public String toString() {
 		
-		return"neuer Medien Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
-				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
-				" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + "]";
+		return"Neuer Medien Artikel [Name: "+ this.name + ", Preis: "+ this.preis + ", SeitWannImBestand: " + this.seitWannImBestand +  
+				", Anzahl: " + this.anzahl +  ", Beschreibung: " + this.beschreibung + ", Untergruppe: "+ this.unterGruppe + 
+				", ist Digital: " + this.isDigital + ", Genre: " + this.genre + ", Erscheinungsjahr: " + this.erscheinungsjahr + "]";
 			
 	}
 	

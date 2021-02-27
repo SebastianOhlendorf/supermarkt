@@ -245,10 +245,10 @@ public class Filme extends Medien {
 		 */
 		@Override
 		public String toString() {
-		return "neuer Film Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
-		" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung + " unterGruppe = "+ this.unterGruppe + 
-		" isDigital= " + this.isDigital + " genre= " + this.genre + " erscheinungsjahr= " + this.erscheinungsjahr + 
-		" dauer= " + this.dauer + " FSK= " + this.fsk + " sprache= " + this.sprache + "]";
+		return "Neuer Film Artikel [Name: " + this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand +  
+		", Anzahl: " + this.anzahl +  ", Beschreibung: " + this.beschreibung + ", Untergruppe: "+ this.unterGruppe + 
+		", ist Digital: " + this.isDigital + ", Genre: " + this.genre + ", Erscheinungsjahr: " + this.erscheinungsjahr + 
+		", Dauer: " + this.dauer + "h, FSK: " + this.fsk + ", Sprache: " + this.sprache + "]";
 		}
 
 		/**

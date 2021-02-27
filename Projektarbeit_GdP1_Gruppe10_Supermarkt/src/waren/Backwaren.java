@@ -221,8 +221,8 @@ public class Backwaren extends Lebensmittel{
 	 */
 	@Override
 	public String toString() {
-		return "Neuer Backwaren Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
-				" Haltbarkeit in Tagen: "+ this.haltbarkeit + " Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
+		return "Neuer Backwaren Artikel [ Name: "+ this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand + ", Gewicht: " + this.gewicht +
+				", Haltbarkeit in Tagen: "+ this.haltbarkeit + ", Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
 	} 
 	
 	/**

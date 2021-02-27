@@ -228,9 +228,9 @@ public class NonFoodArtikel extends Ware {
 	@Override
 	public String toString() {
 		
-		return "neuer NonFood Artikel [ name= "+ this.name + " preis= "+ this.preis + " seitWannImBestand= " + this.seitWannImBestand +  
-				" anzahl= " + this.anzahl +  " beschreibung= " + this.beschreibung +
-				" unterGruppe = "+ this.unterGruppe + "]";
+		return "Neuer NonFood Artikel [ Name: "+ this.name + ", Preis: "+ this.preis + ", seit wann im Bestand: " + this.seitWannImBestand +  
+				", Anzahl: " + this.anzahl +  ", Beschreibung: " + this.beschreibung +
+				", Untergruppe: "+ this.unterGruppe + "]";
 			
 	}
 	

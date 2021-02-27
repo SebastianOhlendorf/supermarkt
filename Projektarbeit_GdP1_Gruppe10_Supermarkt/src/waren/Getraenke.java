@@ -222,7 +222,7 @@ public class Getraenke extends Ware {
 	@Override
 	public String toString() {
 		
-		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Alkoholgehalt: " + this.alcProzente +"]"; 
+		return "Neuer Getränke Artikel [Name: "+ this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand + ", Alkoholgehalt: " + this.alcProzente +"]"; 
 	}
 	
 	

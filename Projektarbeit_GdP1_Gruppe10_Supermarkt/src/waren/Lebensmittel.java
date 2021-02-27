@@ -241,8 +241,8 @@ public class Lebensmittel extends Ware {
 	 */
 	@Override
 	public String toString() {
-		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + " Preis: "+ this.preis + " Seit wann im Bestand: " + this.seitWannImBestand + " Gewicht: " + this.gewicht +
-				" Haltbarkeit in Tagen: "+ this.haltbarkeit + " Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
+		return "Neuer Lebensmittel Artikel [ Name: "+ this.name + ", Preis: "+ this.preis + ", Seit wann im Bestand: " + this.seitWannImBestand + ", Gewicht: " + this.gewicht +
+				", Haltbarkeit in Tagen: "+ this.haltbarkeit + ", Benötigt Kühlung: "+ this.bedarfKuehlung +"]";
 	}
 	
 	

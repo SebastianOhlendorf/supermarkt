@@ -50,13 +50,17 @@ public class Untermenu {
 				//Prüfung bis wann ein Lebensmittel haltbar ist
 				case 0: 
 					Lebensmittel lebensmittelObjekt = FindeObjekt.ermittelLebensmittelObjekt();
-					System.out.println(lebensmittelObjekt.haltbarBis());
+					if(lebensmittelObjekt != null) {
+						System.out.println(lebensmittelObjekt.haltbarBis());
+					}
 					Ausgaben.leereZeile(); //Leerzeile für eine bessere Konsolenausgabe
 					break;
 				//Prüfung wie lange ein Lebensmittel haltbar ist in Tagen	
 				case 1: 
 					Lebensmittel lebensmittelObjekt2 = FindeObjekt.ermittelLebensmittelObjekt();
+					if(lebensmittelObjekt2 != null) {
 					System.out.println("Das ausgewählte Lebensmittel ist noch " + lebensmittelObjekt2.istHaltbar() + " Tage haltbar.");
+					}
 					Ausgaben.leereZeile(); //Leerzeile für eine bessere Konsolenausgabe
 					break;
 				//Gibt alle Lebensmittel in einem Array aus, welche ein Kurzes MHD haben
@@ -104,7 +108,9 @@ public class Untermenu {
 				//Aufbacken einer Backware
 				case 0: 
 					Backwaren backwarenObjekt = FindeObjekt.ermittelBackwarenObjekt();
+					if(backwarenObjekt != null) {
 					System.out.println(backwarenObjekt.backeWare());
+					}
 					Ausgaben.leereZeile(); //Leerzeile für eine bessere Konsolenausgabe
 					break;
 				//Gibt alle Backwaren aus die sich im Lager befinden
@@ -148,7 +154,9 @@ public class Untermenu {
 				//Prüft ob ein Getränk alkoholisch ist
 				case 0: 
 					Getraenke getraenkeObjekt = FindeObjekt.ermittelGetraenkeObjekt();
+					if(getraenkeObjekt != null) {
 					System.out.println(getraenkeObjekt.istAlkoholhaltig());
+					}
 					Ausgaben.leereZeile(); //Leerzeile für eine bessere Konsolenausgabe
 					break;
 				//Gibt alle Getränke aus die sich im Lager befinden	
@@ -371,7 +379,7 @@ public class Untermenu {
 				case 1: 
 					
 					try {
-						allergen = Eingaben.eingabeAllergene("Welchen Stofftyp möchten sie auswählen?");
+						allergen = Eingaben.eingabeAllergene("Welches Allergen möchten sie auswählen?");
 					}catch(InputMismatchException e) {
 						Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Die Aktion konnte nicht durchgeführt werden!");
 					}

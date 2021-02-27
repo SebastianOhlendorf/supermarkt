@@ -16,7 +16,10 @@ import waren.Kleidung;
 import waren.Medien;
 import waren.NonFoodArtikel;
 
-
+/**
+ * Testklasse für die Klassen NonFoodArtikel, Medien, Kleidung, DrogerieArtikel und Filme.
+ * Hier werden alle Funktionalitäten der jeweiligen Klassen ausgetestet 
+ */
 public class NonFoodArtikelTestMain {
 
 	public static void main(String[] args) {

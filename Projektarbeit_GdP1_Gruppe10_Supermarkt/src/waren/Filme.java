@@ -9,7 +9,8 @@ import enums.Sprachen;
 import enums.Untergruppen;
 
 /**
- * Kinderklasse der Klasse Medien zum anlegen von Film-Objekten
+ * Kinderklasse der Klasse Medien zum anlegen von Film-Objekten und weiterer Methodenaufrufe
+ * rund um Filme
  * @author Lennart Sparbier
  * @version 1.0
  * @date 18.02.2021
@@ -17,12 +18,6 @@ import enums.Untergruppen;
  */
 public class Filme extends Medien {
 
-	
-		//Objektattribute speziell für die Klasse Filme
-		protected double dauer;
-		protected Fsk fsk;
-		protected Sprachen sprache;
-		
 		//Klassenattribute
 		private static int zaehler_filme = 0;		
 		
@@ -211,7 +206,7 @@ public class Filme extends Medien {
 						
 						for(int j = 0; j < menge; j++) {
 							
-							alleWaren.get(i).remove(j);
+							alleWaren.get(i).remove(0);
 						}
 								
 						System.out.println(
@@ -269,6 +264,7 @@ public class Filme extends Medien {
 		
 		/**
 		 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+		 * 
 		 * @param objektId ID des Objektes aus dem Array alleWaren
 		 * @return Gibt ein Filme-Objekt zurück
 		 */
@@ -276,5 +272,44 @@ public class Filme extends Medien {
 			
 			return (Filme) alleWaren.get(objektId).get(0);
 			
+		}
+		
+		/**
+		 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Filme im Array alleWaren
+		 * 
+		 * @return Gibt die höchste ID des Arrays für Filme aus Integer aus
+		 */
+		public static int erhalteObjektMaxID() {
+			
+			int maxID = 0;
+			
+			for (int i = 0; i < alleWaren.size(); i++) { 
+				if(alleWaren.get(i).get(0).getKennung() == Kennungen.FILME) {
+					maxID = i;
+				}
+			}
+			return maxID;
+		}
+		
+		/**
+		 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Filme im Array alleWaren
+		 * 
+		 * @return Gibt die niedrigste ID des Arrays für Filme aus Integer aus
+		 */
+		public static int erhalteObjektMinID() {
+			
+			int minID = 6000;
+			
+			for (int i = 0; i < alleWaren.size(); i++) { 
+				
+				if(alleWaren.get(i).get(0).getKennung() == Kennungen.FILME) {
+					
+					if(minID > i) {
+						
+						minID = i;
+					}
+				}
+			}
+			return minID;
 		}
 }	

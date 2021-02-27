@@ -38,13 +38,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			lebensmittelObjekt = Lebensmittel.erhalteObjekt(objektID);
-			
+
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= Lebensmittel.erhalteObjektMinID() && objektID <= Lebensmittel.erhalteObjektMaxID()) {
+				lebensmittelObjekt = Lebensmittel.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
+		
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Lebensmittel ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
-		
 		return lebensmittelObjekt;
 	}
 	
@@ -66,12 +72,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			backwarenObjekt = Backwaren.erhalteObjekt(objektID);
+			
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= Backwaren.erhalteObjektMinID() && objektID <= Backwaren.erhalteObjektMaxID()) {
+				backwarenObjekt = Backwaren.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
 			
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte keine Backware ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
 		return backwarenObjekt;
 	}
 	
@@ -93,12 +106,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			getraenkeObjekt = Getraenke.erhalteObjekt(objektID);
 			
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= Getraenke.erhalteObjektMinID() && objektID <= Getraenke.erhalteObjektMaxID()) {
+				getraenkeObjekt = Getraenke.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
+				
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Getränk ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
 		return getraenkeObjekt;
 	}
 	
@@ -120,13 +140,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			nonFoodArtikelObjekt = NonFoodArtikel.erhalteObjekt(objektID);
+			
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= NonFoodArtikel.erhalteObjektMinID() && objektID <= NonFoodArtikel.erhalteObjektMaxID()) {
+				nonFoodArtikelObjekt = NonFoodArtikel.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
 			
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein NonFood-Artikel ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
-		
 		return nonFoodArtikelObjekt;
 	}
 	
@@ -148,13 +174,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			medienObjekt = Medien.erhalteObjekt(objektID);
+			
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= Medien.erhalteObjektMinID() && objektID <= Medien.erhalteObjektMaxID()) {
+				medienObjekt = Medien.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
 			
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Medienartikel ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
-		
 		return medienObjekt;
 	}
 	
@@ -176,12 +208,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			kleidungObjekt = Kleidung.erhalteObjekt(objektID);
+			
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= Kleidung.erhalteObjektMinID() && objektID <= Kleidung.erhalteObjektMaxID()) {
+				kleidungObjekt = Kleidung.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
 			
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte keine Kleidung ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
 		return kleidungObjekt;
 	}
 	
@@ -203,13 +242,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			drogerieArtikelObjekt = DrogerieArtikel.erhalteObjekt(objektID);
+			
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= DrogerieArtikel.erhalteObjektMinID() && objektID <= DrogerieArtikel.erhalteObjektMaxID()) {
+				drogerieArtikelObjekt = DrogerieArtikel.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
 			
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte kein Drogerieartikel ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
-		
 		return drogerieArtikelObjekt;
 	}
 	
@@ -231,14 +276,19 @@ public class FindeObjekt {
 		
 		try {
 			objektID = Eingaben.eingabeInteger("Bitte geben sie die gewünschte Nummer der Ware ein:");
-			filmobjektObjekt = Filme.erhalteObjekt(objektID);
+			
+			//Prüfung ob die übergebene objektID in der richtigen Array Range liegt
+			if(objektID >= Filme.erhalteObjektMinID() && objektID <= Filme.erhalteObjektMaxID()) {
+				filmobjektObjekt = Filme.erhalteObjekt(objektID);
+			}else {
+				
+				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+			}
 			
 		}catch (InputMismatchException e) {
-			Eingaben.eingabeString("Es wurde ein falscher Datentyp eingegeben. Es konnte keine Backware ermittelt werden!");
+			System.out.println(e + "\n\n");
 		}
-		
-		
 		return filmobjektObjekt;
 	}
-
 }

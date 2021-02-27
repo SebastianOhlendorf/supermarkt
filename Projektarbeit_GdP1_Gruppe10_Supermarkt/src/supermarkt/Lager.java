@@ -166,10 +166,10 @@ public class Lager {
 		Getraenke elCotoBlanco = new Getraenke("Weißwein El Coto Blanco_", 15.00, LocalDate.now(), 12.00);
 		Getraenke.addGetraenke(elCotoBlanco);
 		
-		Getraenke licor43 = new Getraenke("Licor 43_", 15.00, LocalDate.now(), 31.00);
+		Getraenke licor43 = new Getraenke("Fanta", 15.00, LocalDate.now(), 0.00);
 		Getraenke.addGetraenke(licor43);
 		
-		Getraenke astraRotlicht = new Getraenke("Astra Rotlicht_", 1.50, LocalDate.now(), 6.00);
+		Getraenke astraRotlicht = new Getraenke("Cola", 1.50, LocalDate.now(), 0.00);
 		Getraenke.addGetraenke(astraRotlicht);
 		
 
@@ -221,7 +221,7 @@ public class Lager {
 		Lebensmittel chesterGutUndGuenstig = new Lebensmittel("Chester Scheiblettenkäse von Gut und Günstig", 0.99, LocalDate.now(), 250, 30, false);
 		Lebensmittel.addLebensmittel(chesterGutUndGuenstig);
 		
-		Lebensmittel grandDessertvanillePuddingEhrmann = new Lebensmittel("Ehrmann GrandDessert Vaille Pudding",0.70, LocalDate.now(), 100, 10, true);
+		Lebensmittel grandDessertvanillePuddingEhrmann = new Lebensmittel("Ehrmann GrandDessert Vaille Pudding",0.70, LocalDate.now(), 100, 1, true);
 		Lebensmittel.addLebensmittel(grandDessertvanillePuddingEhrmann);
 		
 		Lebensmittel superSandwichHarryBrot = new Lebensmittel("Harry Brot Sammys Super Sandwich", 1.30, LocalDate.now(), 750, 21, false);

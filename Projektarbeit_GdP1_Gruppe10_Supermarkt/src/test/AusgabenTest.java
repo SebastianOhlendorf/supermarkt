@@ -17,6 +17,7 @@ public class AusgabenTest {
 		Ausgaben.supermaktLogo();
 		Ausgaben.gruppeZehn();
 		Ausgaben.hauptmenue();
+		Ausgaben.untermenue();
 		Ausgaben.untermenueLebensmittel();
 		Ausgaben.untermenueBackwaren();
 		Ausgaben.untermenueGetraenke();

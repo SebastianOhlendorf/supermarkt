@@ -10,15 +10,14 @@ import enums.Stofftypen;
 import enums.Untergruppen;
 
 /**
- * Kinderklasse der Klasse Kleidung zum anlegen von Kleidung-Objekten
+ * Kinderklasse der Klasse Kleidung zum anlegen von Kleidung-Objekten und weiterer Methodenaufrufe
+ * rund um Kleidung
  * @author Sebastian Ohlendorf
  * @version 1.0
  * @date 13.02.2021
  *
  */
 public class Kleidung  extends NonFoodArtikel {
-	
-	protected Koerperteile koerperteil;
 	
 	//Klassenvariablen zum zählen der Kleidungsartikel
 	private static int zaehler_kleidung = 0;
@@ -202,7 +201,7 @@ public class Kleidung  extends NonFoodArtikel {
 					
 					for(int j = 0; j < menge; j++) {
 						
-						alleWaren.get(i).remove(j);
+						alleWaren.get(i).remove(0);
 					}
 							
 					System.out.println(
@@ -294,6 +293,7 @@ public class Kleidung  extends NonFoodArtikel {
 	
 	/**
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
 	 * @return Gibt ein Kleidung-Objekt zurück
 	 */
@@ -301,5 +301,44 @@ public class Kleidung  extends NonFoodArtikel {
 		
 		return (Kleidung) alleWaren.get(objektId).get(0);
 		
+	}
+	
+	/**
+	 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Kleidung im Array alleWaren
+	 * 
+	 * @return Gibt die höchste ID des Arrays für Kleidung aus Integer aus
+	 */
+	public static int erhalteObjektMaxID() {
+		
+		int maxID = 0;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG) {
+				maxID = i;
+			}
+		}
+		return maxID;
+	}
+	
+	/**
+	 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Kleidung im Array alleWaren
+	 * 
+	 * @return Gibt die niedrigste ID des Arrays für Kleidung aus Integer aus
+	 */
+	public static int erhalteObjektMinID() {
+		
+		int minID = 6000;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.KLEIDUNG) {
+				
+				if(minID > i) {
+					
+					minID = i;
+				}
+			}
+		}
+		return minID;
 	}
 }

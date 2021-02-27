@@ -1,232 +1,85 @@
 package supermarkt;
 
-import waren.Backwaren;
-import waren.Getraenke;
-import waren-+.Kleidung;
-import waren.Lebensmittel;
-import waren.NonFoodArtikel;
+import java.util.InputMismatchException;
 
+import hilfsklassen.Ausgaben;
+import hilfsklassen.Eingaben;
+import menu.Hauptmenu;
+
+/**
+ * Das Programm ist eine Abschlussprojektaufgabe wo alle Elemente des Moduls GDP1 eingearbeitet wurden.
+ * Das Programm ist f�r den Warenbestand eines Supermarktes und bietet eine Reihe von Funktionen
+ * Funktionen:
+ * Alle Waren oder einzelne Warentypen AusAusgeben
+ * Eine neue Ware im Warensystem anlegen
+ * F�r eine Ware eine nachbestellung t�tigen
+ * F�r eine Ware eine herausgabe t�tigen
+ * Weitere Funktionen zu den jeweiligen Warentypen
+ * @author Ethan Stapff
+ * @version 1.0
+ * @date 26.02.2021
+ *
+ */
 public class Supermarkt {
 
-	private static int instanz;
-	private static boolean zurueck1;
-	private static int auswahl2;
-	private static int auswahl3;
-	private static boolean zurueck2;
-	private static boolean ende;
-
-	/**
-	 * Diese erste Version des Benutzermenus funktioniert auf 3 Runden von Entscheidungen 
-	 * wobei man in der 1. Ebene zwischen der Gesamten Liste, beenden des Programms oder der weiteren Einsicht der Warengruppen 
-	 * auswählen muss. Die 2. Ebene bietet die Auswahl der Warengruppen an, wo man dann die jeweiligen Anwendungen in der 
-	 * 3. Ebene benutzen kann. Dies läuft so lange in einer Schleife bis man die Zurüeckoption waehlt die einem zurueck zur 
-	 * 2. Ebene, der Warengruppenauswahl wo man auch wieder zurueck waehlen kann, was einem aus dieser Schleife schlieslich
-	 * ins Haptmenu Programm bringt wo man Supermarkt schliessen waehlen kann was das Programm beendet.
-	 *  
-	 * @param args
-	 */
+    /**
+     * Main-Method zum Starten des Programms Supermarkt. Diese main-Methode
+     * ist der definierte Einstiegspunkt fuer die Ausfuehrung des Programs und
+     * erlaubt das Programm zu testen.
+     * 
+     * @param args
+     *            die Argumente, die man im Allgemeinen fuer die Ausfuehrung
+     *            geben kann
+     */
 	public static void main(String[] args) {
 		
-		begruessung();
+		int auswahlHauptmen� = 6;
+		
+		Ausgaben.supermaktLogo();
+		Ausgaben.gruppeZehn();
+		Ausgaben.begruessung();
+		
+		Lager.erstelleLager();
       
-		do { // geben sie ihre Auswahl ein.
-			instanz = einAusgabe.auswahl();
-			zurueck1 = false;
-			switch (instanz) {
-				case 1: // Gesamtarray
-				case 2: // Menue Warrengruppen
-						while (zurueck1 == false) {
-							// Ausgabe des Warrengruppenmenu
-							
-							auswahl2 = einAusgabe.auswahl();
-							switch (auswahl2) {
-								case 1: // Lebensmittel 
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Lebenmittel
-											Lebensmittel.gebeLebensmittelAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: Lebensmittel.addLebensmittel(lebensmittel);
-												case 2: Lebensmittel.herausgeben();
-												case 3: Lebensmittel.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-										}
-								case 2: // Backwaren 
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Backwaren
-											Backwaren.gebeBackwareAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: Backwaren.addBackwaren(backwaren);
-												case 2: Backwaren.herausgeben();
-												case 3: Backwaren.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-								case 3: // Getraenke
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Getraenke
-											Getraenke.gebeGetraenkeAus();
-											Getraenke.gebeNonAlkGetraenkeAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: Getraenke.addGetraenke(getraenk);
-												case 2: Getraenke.herausgeben();
-												case 3: Getraenke.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-										}
-								case 4: // NonFoodArtikel
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Getraenke
-											NonFoodArtikel.gebenNFArtikelAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: NonFoodArtikel.addNonFoodArtikel();
-												case 2: NonFoodArtikel.herausgeben();
-												case 3: NonFoodArtikel.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-										}
-								case 5: // Kleidung
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Getraenke
-											Kleidung.gebeKleidungAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: Kleidung.addKleidung();
-												case 2: Kleidung.herausgeben();
-												case 3: Kleidung.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-										}
-								case 6: // DrogerieArtikel
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Getraenke
-											DrogerieArtikel.gebeDrogerieArtikelAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: DrogerieArtikel.addDrogerieArtikel();
-												case 2: DrogerieArtikel.herausgeben();
-												case 3: DrogerieArtikel.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-										}
-								case 7: // Medien
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Getraenke
-											Medien.gebeMedienAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: Medien.addMedien();
-												case 2: Medien.herausgeben();
-												case 3: Medien.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-										}
-								case 8: // Filme
-										zurueck2 = false;
-										while (zurueck2 == false) {
-											// Erstellung + Ausgabe Array Getraenke
-											Filme.gebeFilmeAus();
-											// Ausgabe Handlungsoptionen
-											auswahl3 = einAusgabe.auswahl();
-											switch (auswahl3) {
-												case 1: Filme.addFilme();
-												case 2: Filme.herausgeben();
-												case 3: Filme.nachbestellen();
-												case 4: // zurueckoption 
-														zurueck2 = true;
-											}
-										}
-								case 9: // Zurueckfunktion
-										zurueck1 = true;
-							}
-						}
-				case 3: ende = true;
+		do { 
+			
+			Ausgaben.hauptmenue();
+			
+			//Auswahl Hauptmen�
+			try {
+				auswahlHauptmen� = Eingaben.eingabeAuswahlHauptmenu("Welchen Men�punk m�chten sie w�hlen?");
+				
+			}catch (InputMismatchException e) {
+				System.out.println("Es wurde ein falscher Datentyp eingegeben. Die Aktion konnte nicht durchgef�hrt werden!");
+				Eingaben.eingabeString("");
+			}	
+			
+			switch(auswahlHauptmen�) {
+			
+			case 0: // Alle Waren anzeigen
+				Hauptmenu.alleWarenAusgeben();
+				break;
+			case 1: // Neue Ware anlegen
+				Hauptmenu.neueWareAnlegen();
+				break;
+			case 2: // Waren nachbestellen
+				Hauptmenu.warenNachbestellen();
+				break;
+			case 3: // Waren herausgeben
+				Hauptmenu.warenHerausgeben();
+				break;
+			case 4: // Methoden Warentypen
+				Hauptmenu.funktionenWaretypen();
+				break;
+			case 5: //ende = "yes";
+				break;
+			default: System.out.println("Bitte versuchen sie es erneut!\n");
+				break;
 			}
 
-		} while (ende = false) 
-		schliessung();
-	}
-	/**
-	 * Methode Die Eine Begruessung und die Bedienungsanleitung für die erste Instanz des Anwendermenus ausgibt.
-	 * 
-	 */
-	public static void begruessung() {
-
-		System.out.println("text");
-	}
-	/**
-	 * Methode soll die jeweilige Ausgabe des jeweiligen Menus übernehmen.
-	 */
-	public static int auswahlmenu (int auswahl) {	
+		}while (auswahlHauptmen� != 5);
 		
-		switch (auswahl) {
-			case 1: System.out.println("Hauptmenü"+ "/n" + "Ausgabe vom Gesamten Lager: 1"+ "/n"+ "Auswahl der Warengruppen: 2" + "/n" + "Anwendung schliessen: 3");
-					einAusgabe.eingabeAuswahl();
-			
-					case 2: System.out.println("Warengruppenmenü" + "/n" + "Bitte wählen sie eine Warengruppe aus" + "/n" + "Lebensmittel: 1"+ "/n" + "Backwaren: 2" + "/n" + "Getränke: 3"
-					+ "/n" + "NonFoodArtikel: 4" + "/n" + "Kleidung: 5" + "/n" + "Drogerieartikel: 6" + "/n" + "Medien: 7" + "/n" + "Filme: 8" + "/n" + "Zurück zum Hauptmenü: 9");
-					einAusgabe.eingabeAuswahl();
-			
-		case 3: System.out.println("Auswahlmenü Lebensmittel" + "/n" + "Neues Lebensmittel hinzufügen: 1" + "/n" + "Lebensmittel herausgeben: 2" + "/n" + "Lebensmittel nachbestellen: 3" + "/n" +
-				"Zurück zum Warengruppenmenü: 4" + "/n" + "Zurück zum Hauptmenü: 5");
-				Lebensmittel.gebeLebensmittelAus();
-		case 4: System.out.println("Auswahlmenü Backwaren" + "/n" + "Neue Backware hinzufügen: 1" + "/n" + "Backware backen: 2" + "/n" + "Backwaren herausgeben: 3" + "/n" + "Backwaren nachbestellen: 4"
-				 + "/n" + "Zurück zum Warengruppenmenü: 5" + "/n" + "Zurück zum Hauptmenü: 6");
-				Backwaren.gebeBackwareAus();
-		case 5: System.out.println("Auswahlmenü Getränke" + "/n" + "Neues Getränk hinzufügen: 1" + "/n" + "Backware backen: 2" + "/n" + "Backwaren herausgeben: 3" + "/n" + "Backwaren nachbestellen: 4"
-				+ "/n" + "Zurück zum Warengruppenmenü: 5" + "/n" + "Zurück zum Hauptmenü: 6");
-	   			Backwaren.gebeBackwareAus();
-		}			
-	}
-	public static void auswahlOption(int aktion) {
-
-		public int aktion;
-
-		if (aktion < 3)
-			switch (aktion) {
-				case 1:	System.out.println("Wie viel?");
-						einAusgabe.eingabeAnzahl();						
-						Ware.nachbestellen();
-
-			}
-	}
-	/**
-	 * Methode beendet das Programm.
-	 */
-	public static void schliessung () {
-
-		Supermarkt.close();
-	}
-public class Supermarkt {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+		Ausgaben.beendigung();
+	}	
 }
- 
+

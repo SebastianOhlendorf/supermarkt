@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import enums.Kennungen;
 
 /**
- * Kinderklasse der Klasse Lebensmittel zum anlegen von Backwaren-Objekten
+ * Kinderklasse der Klasse Lebensmittel zum anlegen von Backwaren-Objekten und weiterer Methodenaufrufe
+ * rund um Backwaren
  * @author Sebastian Ohlendorf
  * @version 1.0
  * @date 12.02.2021
@@ -50,7 +51,7 @@ public class Backwaren extends Lebensmittel{
 			
 					neueBackwaren.add(backwaren);
 					backwaren.seitWannImBestand = LocalDate.now();
-					backwaren.setAufgebacken(false);
+					backwaren.aufgebacken = false;
 					backwaren.setKennung(Kennungen.BACKWAREN);
 				}
 		
@@ -181,7 +182,7 @@ public class Backwaren extends Lebensmittel{
 					
 					for(int j = 0; j < menge; j++) {
 						
-						alleWaren.get(i).remove(j);
+						alleWaren.get(i).remove(0);
 					}
 					
 					System.out.println(
@@ -228,6 +229,7 @@ public class Backwaren extends Lebensmittel{
 	 * Methode zum aufbacken von Waren. 
 	 * Handelt es sich um eine Backware wird diese aufgebacken und der Wert True zurückgegeben
 	 * Handelt es ich um keine Backware wird der Wert False zurückgegeben 
+	 * 
 	 * @return Bollean gibt True oder False zurück, wenn die Ware aufbackbar ist
 	 */
 	public boolean backeWare() {
@@ -240,13 +242,13 @@ public class Backwaren extends Lebensmittel{
 			
 			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN && alleWaren.get(i).get(0).name.equals(name)) {
 					
-				if(alleWaren.get(i).get(0).isAufgebacken() == false) {
+				if(alleWaren.get(i).get(0).aufgebacken == false) {
 						
 					System.out.println(
 							String.format("Die Backware %s wurde aufgebacken.",
 									alleWaren.get(i).get(0).name));
 					
-					alleWaren.get(i).get(0).setAufgebacken(true);
+					alleWaren.get(i).get(0).aufgebacken = true;
 					
 					//"Waren wird aufgebacken!"
 				  	backWare = true;
@@ -278,6 +280,7 @@ public class Backwaren extends Lebensmittel{
 	
 	/**
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
+	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
 	 * @return Gibt ein Backwarenobjekt zurück
 	 */
@@ -285,5 +288,44 @@ public class Backwaren extends Lebensmittel{
 		
 		return (Backwaren) alleWaren.get(objektId).get(0);
 		
+	}
+	
+	/**
+	 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Backwaren im Array alleWaren
+	 * 
+	 * @return Gibt die höchste ID des Arrays für Backwaren aus Integer aus
+	 */
+	public static int erhalteObjektMaxID() {
+		
+		int maxID = 0;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN) {
+				maxID = i;
+			}
+		}
+		return maxID;
+	}
+	
+	/**
+	 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Backwaren im Array alleWaren
+	 * 
+	 * @return Gibt die niedrigste ID des Arrays für Backwaren aus Integer aus
+	 */
+	public static int erhalteObjektMinID() {
+		
+		int minID = 6000;
+		
+		for (int i = 0; i < alleWaren.size(); i++) { 
+			
+			if(alleWaren.get(i).get(0).getKennung() == Kennungen.BACKWAREN) {
+				
+				if(minID > i) {
+					
+					minID = i;
+				}
+			}
+		}
+		return minID;
 	}
 }

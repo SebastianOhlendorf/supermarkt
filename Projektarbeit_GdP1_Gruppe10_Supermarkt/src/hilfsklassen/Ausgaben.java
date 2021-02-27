@@ -72,6 +72,27 @@ public class Ausgaben {
 	}
 	
 	/**
+	 * Klassenmethode zur Ausgabe des Titels Hauptmenü
+	 */
+	public static void untermenue() {
+		
+		System.out.println(
+				  "###############################################################################################################\r\n"
+				+ "# ooooo     ooo                 .                                                               o8o   o8o    #\r\n"
+				+ "# `888'     `8'               .o8                                                               `\"'   `\"'     #\r\n"
+				+ "#  888       8  ooo. .oo.   .o888oo  .ooooo.  oooo d8b ooo. .oo.  .oo.    .ooooo.  ooo. .oo.   oooo  oooo     #\r\n"
+				+ "#  888       8  `888P\"Y88b    888   d88' `88b `888\"\"8P `888P\"Y88bP\"Y88b  d88' `88b `888P\"Y88b  `888  `888     #\r\n"
+				+ "#  888       8   888   888    888   888ooo888  888      888   888   888  888ooo888  888   888   888   888     #\r\n"
+				+ "#  `88.    .8'   888   888    888 . 888    .o  888      888   888   888  888    .o  888   888   888   888     #\r\n"
+				+ "#    `YbodP'    o888o o888o   \"888\" `Y8bod8P' d888b    o888o o888o o888o `Y8bod8P' o888o o888o  `V88V\"V8P'    #\r\n"
+				+ "#                                                                                                             #\r\n"
+				+ "###############################################################################################################\r\n");
+		
+	}
+	
+	
+	
+	/**
 	 * Klassenmethode zur Ausgabe des Titels Lebensmittel
 	 */
 	public static void untermenueLebensmittel() {
@@ -234,6 +255,14 @@ public class Ausgaben {
 		
 		System.out.println("Vielen Dank das sie das Supermakt Programm der Gruppe 10 genutzt haben.\n"
 				+ "Wir wünschen noch einen schönen Tag.\n");
+	}
+	
+	/**
+	 * Klassenmethode zur Ausgabe Verabschiedung auf der Konsole
+	 */
+	public static void leereZeile() {
+		
+		System.out.println("\n");
 	}
 	
 

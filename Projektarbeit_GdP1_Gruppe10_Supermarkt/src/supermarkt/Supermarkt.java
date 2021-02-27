@@ -49,34 +49,34 @@ public class Supermarkt {
 			try {
 				auswahlHauptmenü = Eingaben.eingabeAuswahlHauptmenu("Welchen Menüpunk möchten sie wählen?");
 				
+				switch(auswahlHauptmenü) {
+				
+				case 0: // Alle Waren anzeigen
+					Hauptmenu.alleWarenAusgeben();
+					break;
+				case 1: // Neue Ware anlegen
+					Hauptmenu.neueWareAnlegen();
+					break;
+				case 2: // Waren nachbestellen
+					Hauptmenu.warenNachbestellen();
+					break;
+				case 3: // Waren herausgeben
+					Hauptmenu.warenHerausgeben();
+					break;
+				case 4: // Methoden Warentypen
+					Hauptmenu.funktionenWaretypen();
+					break;
+				case 5: //ende = "yes";
+					break;
+				default: System.out.println("Bitte versuchen sie es erneut!\n");
+					break;
+				}
+				
 			}catch (InputMismatchException e) {
 				System.out.println("Es wurde ein falscher Datentyp eingegeben. Die Aktion konnte nicht durchgeführt werden!");
 				Eingaben.eingabeString("");
 			}	
 			
-			switch(auswahlHauptmenü) {
-			
-			case 0: // Alle Waren anzeigen
-				Hauptmenu.alleWarenAusgeben();
-				break;
-			case 1: // Neue Ware anlegen
-				Hauptmenu.neueWareAnlegen();
-				break;
-			case 2: // Waren nachbestellen
-				Hauptmenu.warenNachbestellen();
-				break;
-			case 3: // Waren herausgeben
-				Hauptmenu.warenHerausgeben();
-				break;
-			case 4: // Methoden Warentypen
-				Hauptmenu.funktionenWaretypen();
-				break;
-			case 5: //ende = "yes";
-				break;
-			default: System.out.println("Bitte versuchen sie es erneut!\n");
-				break;
-			}
-
 		}while (auswahlHauptmenü != 5);
 		
 		Ausgaben.beendigung();

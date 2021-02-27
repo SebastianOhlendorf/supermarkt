@@ -273,7 +273,7 @@ public class Lebensmittel extends Ware {
 					}else {
 
 						haltbarBis = String.format(
-										"Das Mindesthaltbatkeitsdatum der Lebensmittels %s (%s) ist abgelaufen.",
+										"Das Mindesthaltbarkeitsdatum der Lebensmittels %s (%s) ist abgelaufen.",
 										this.name,
 										j);
 				

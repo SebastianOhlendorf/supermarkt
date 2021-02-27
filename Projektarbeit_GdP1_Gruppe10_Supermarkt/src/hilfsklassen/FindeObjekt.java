@@ -45,7 +45,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 		
 		}catch (InputMismatchException e) {
@@ -79,7 +79,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 			
 		}catch (InputMismatchException e) {
@@ -113,7 +113,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 				
 		}catch (InputMismatchException e) {
@@ -147,7 +147,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 			
 		}catch (InputMismatchException e) {
@@ -181,7 +181,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 			
 		}catch (InputMismatchException e) {
@@ -215,7 +215,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 			
 		}catch (InputMismatchException e) {
@@ -249,7 +249,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 			
 		}catch (InputMismatchException e) {
@@ -283,7 +283,7 @@ public class FindeObjekt {
 			}else {
 				
 				throw new InputMismatchException("Es wurde ein falscher Datentyp oder eine ungültige Objekt ID übergeben.\n "
-						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Hauptmenü zurückgeleitet.");
+						+ "Es konnte keine Ware ermittelt werden, daher werden sie zum Menü zurückgeleitet.");
 			}
 			
 		}catch (InputMismatchException e) {

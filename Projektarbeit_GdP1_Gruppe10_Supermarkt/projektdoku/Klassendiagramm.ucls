@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="waren.Getraenke" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/waren/Getraenke.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="245" y="893"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="waren.Filme" project="supermarkt_v3" file="/supermarkt_v3/src/waren/Filme.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="601" y="1643"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="waren.Ware" project="supermarkt_v3" file="/supermarkt_v3/src/waren/Ware.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="639" width="219" x="524" y="99"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="waren.Backwaren" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/waren/Backwaren.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="294" x="1324" y="1169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="waren.DrogerieArtikel" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/waren/DrogerieArtikel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="446" x="-69" y="1169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="waren.NonFoodArtikel" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/waren/NonFoodArtikel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="618" y="899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="waren.Kleidung" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/waren/Kleidung.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="457" x="827" y="1169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="waren.Lebensmittel" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/waren/Lebensmittel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1153" y="912"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="waren.Medien" project="supermarkt_v3" file="/supermarkt_v3/src/waren/Medien.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="370" x="417" y="1169"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="10" language="java" name="enums.Untergruppen" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Untergruppen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="67" y="11"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="11" language="java" name="enums.Fsk" project="supermarkt_v3" file="/supermarkt_v3/src/enums/Fsk.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="262" y="11"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="12" language="java" name="enums.Koerperteile" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Koerperteile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="444" y="29"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="13" language="java" name="enums.Stofftypen" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Stofftypen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="643" y="20"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="14" language="java" name="enums.Allergene" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Allergene.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="828" y="38"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="15" language="java" name="enums.Filmgenre" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Filmgenre.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1000" y="47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="16" language="java" name="enums.Genre" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Genre.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1165" y="29"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="17" language="java" name="enums.Kennungen" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Kennungen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1356" y="47"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="18" language="java" name="enums.Sprachen" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Sprachen.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1560" y="95"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="19" language="java" name="enums.Nutzung" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Nutzung.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1767" y="77"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="20" language="java" name="enums.Jahreszeit" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/enums/Jahreszeit.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1960" y="5"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="21" language="java" name="hilfsklassen.FindeObjekt" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/hilfsklassen/FindeObjekt.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2119" y="616"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="hilfsklassen.Eingaben" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/hilfsklassen/Eingaben.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="549" width="270" x="2260" y="215"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="hilfsklassen.Ausgaben" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/hilfsklassen/Ausgaben.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="351" width="185" x="2570" y="215"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="hilfsklassen.ErzeugeObjekt" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/hilfsklassen/ErzeugeObjekt.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="170" x="2795" y="215"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="menu.Untermenu" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/menu/Untermenu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="181" x="1859" y="751"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="menu.Hauptmenu" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/menu/Hauptmenu.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="160" x="2080" y="751"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="supermarkt.Supermarkt" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/supermarkt/Supermarkt.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="1941" y="1041"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="supermarkt.Lager" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/supermarkt/Lager.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="120" x="2094" y="1041"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="test.NonFoodArtikelTestMain" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/test/NonFoodArtikelTestMain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2421" y="867"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="test.GetraenkeTest" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/test/GetraenkeTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2598" y="867"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="test.AusgabenTest" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/test/AusgabenTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2751" y="867"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="test.ErzeugeObjektTest" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/test/ErzeugeObjektTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2416" y="990"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="test.FindeObjektTest" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/test/FindeObjektTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2579" y="990"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="test.LebensmittelTest" project="supermarkt_v3" 
+    file="/supermarkt_v3/src/test/LebensmittelTest.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2738" y="990"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="36">    
+    <bendpoint x="265" y="418"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="37" name="fsk"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="40">    
+    <bendpoint x="1357" y="417"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="41" name="kennung"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="44">    
+    <bendpoint x="1962" y="419"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="45" name="jahreszeit"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <bendpoint x="1767" y="420"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="48" name="nutzung"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="51">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="52" name="stofftyp"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <bendpoint x="72" y="417"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="55" name="unterGruppe"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="58">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="59">    
+    <bendpoint x="827" y="420"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="60" name="allergene"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="62">    
+    <bendpoint x="444" y="421"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="63" name="koerperteil"/>      
+      <multiplicity id="64" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <bendpoint x="1562" y="420"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="66" name="sprache"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="68">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="69">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="70">    
+    <bendpoint x="1165" y="419"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="71" name="genre"/>      
+      <multiplicity id="72" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="73">    
+    <bendpoint x="999" y="415"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="74" name="filmgenre"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

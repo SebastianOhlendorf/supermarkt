@@ -29,7 +29,6 @@ public class Kleidung  extends NonFoodArtikel {
 	 * 
 	 * @param name Die Bezeichnung des Non-Food-Artikels oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
-	 * @param anzahl Stellt die Menge einer Ware als Integer dar
 	 * @param seitWannImBestand Gibt das Datum an seit wann der Die Ware im Bestand ist
 	 * @param beschreibung Enthält zusätzliche Informationen zum Artikel als String
 	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Enum
@@ -236,6 +235,8 @@ public class Kleidung  extends NonFoodArtikel {
 	/**
 	 * toString Methode der Klasse Medien um eine Ausgabe
 	 * zu dem Medien zu tätigen
+	 * 
+	 * @return Rückgabe des Objektes und seiner Attribute als String
 	 */
 	@Override
 	public String toString() {

@@ -60,8 +60,10 @@ public abstract class Ware {
 	/**
 	 * Konstruktor der Klasse Ware um ein neues Warenobjekt zu erzeugen.
 	 * @author Sebastian Ohlendorf / 01.02.2020
+	 * 
 	 * @param name Die Bezeichnung der Ware oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
+	 * @param seitWannImBestand Gibt an seit wnn die Ware im bestand ist als LocalDate
 	 */
 	public Ware(String name, double preis,LocalDate seitWannImBestand) {
 		
@@ -73,6 +75,7 @@ public abstract class Ware {
 	/**
 	 * Abstakte Methode zum nachbestellen von Waren.
 	 * Die Methode wird durch die Subklassen instanziert.
+	 * 
 	 * @param menge Gibt die Menge an, welche bestellt werden soll als Integer
 	 * @return Gibt ein True oder False zurück ob waren bestellt werden können
 	 */
@@ -81,6 +84,7 @@ public abstract class Ware {
 	/**
 	 * Abstakte Methode zum nachbestellen von Waren.
 	 * Die Methode wird durch die Subklassen instanziert.
+	 * 
 	 * @param menge Gibt die Menge an, welche herausgegeben werden kann als Integer
 	 * @return Gibt ein True oder False zurück ob Waren herausgegeben werden können
 	 */

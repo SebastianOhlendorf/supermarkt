@@ -29,7 +29,6 @@ public class Lebensmittel extends Ware {
 	 * 
 	 * @param name Die Bezeichnung des Lebensmitels oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
-	 * @param anzahl Die Anzahl der Waren (Lagermenge) als Integer
 	 * @param seitWannImBestand Datum seit wann die Ware im Bestand ist als LocalDate
 	 * @param gewicht Gewicht der Ware als Double
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
@@ -238,6 +237,8 @@ public class Lebensmittel extends Ware {
 	/**
 	 * toString Methode der Klasse Lebensmittel um eine Ausgabe
 	 * zu dem Lebensmittel zu tätigen
+	 * 
+	 * @return Rückgabe des Objektes und seiner Attribute als String
 	 */
 	@Override
 	public String toString() {

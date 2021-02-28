@@ -20,7 +20,9 @@ import waren.Medien;
 import waren.NonFoodArtikel;
 
 /**
- * Klasse welche die untermenüpunkte des Hauptmenüs beinhaltet
+ * Klasse welche die untermenüpunkte des Hauptmenüs beinhaltet 
+ * und je nach Benutzereingabe stellt es die spezifischen Methoden 
+ * zum jeweiligen Warentyp bereit.
  * @author Sebastian Ohlendorf
  * @version 1.0
  * @date 25.02.2021

@@ -18,7 +18,7 @@ import waren.NonFoodArtikel;
 import waren.Ware;
 
 /**
- * Klasse welche das Menü der Supermarkt Main Klasse unterstützt 
+ * Klasse welche das Menü der Supermarkt Main Klasse unterstützt und die Hauptmenüpunkte enthält.
  * @author Sebastian Ohlendorf
  * @version 1.0
  * @date 24.02.2021
@@ -248,7 +248,7 @@ public class Hauptmenu {
 			}
 			
 			/*
-			 * Je nach Warentyp das ausgewählt wurde wird eine Methode zum jewiligen Untermenü des Warentyps aufgerufen
+			 * Je nach Warentyp das ausgewählt wurde, wird eine Methode zum jeweiligen Untermenü des Warentyps aufgerufen.
 			 */
 			switch(warentyp) {
 			
@@ -280,8 +280,9 @@ public class Hauptmenu {
 	
 	/**
 	 * Klassenmethode, welche die Menge der Benutzereingabe zurückgibt
-	 * und bei einEingabe eines Falschen Datentyps eine entsprechende Meldung zurückgibt.
-	 * @return
+     * und bei Eingabe eines Falschen Datentyps eine entsprechende Meldung zurückgibt.
+	 *
+	 * @return Rückgabe der Menge aus der benutzereingabe für nachbestellen und herausgeben
 	 */
 	public static int erhalteMenge() {
 		

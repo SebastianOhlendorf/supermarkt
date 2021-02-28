@@ -26,7 +26,6 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * @param name Name des Drogerieartikels als String
 	 * @param preis	Preis des Drogerieartikels als Double	
 	 * @param seitWannImBestand Zeitstempel von wann das Drogerieartikel hinzugefügt wurde.
-	 * @param anzahl Stellt die Menge einer Ware als Integer dar
 	 * @param beschreibung Beschreibung vom Drogerieartikel
 	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Integer
 	 * @param nutzung Gibt den Nutzen des Artikels als String an
@@ -232,6 +231,8 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	/**
 	 * toString Methode der Klasse Medien um eine Ausgabe
 	 * zu dem Medien zu tätigen
+	 * 
+	 * @return Rückgabe des Objektes und seiner Attribute als String
 	 */
 	@Override
 	public String toString() {
@@ -275,6 +276,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	
 	/**
 	 * Klassenmethode, welche alle Drogerie-Artikel ausgibt die ein bestimmtes Allergen haben
+	 * @param allergen Das übergebene Allegen nach dem die Lebensmittel ausgegeben werden sollen
 	 */
 	public static void gibAllergeneAus(Allergene allergen) {
 		

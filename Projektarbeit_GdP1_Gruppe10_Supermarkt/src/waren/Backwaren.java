@@ -23,7 +23,6 @@ public class Backwaren extends Lebensmittel{
 	 * 
 	 * @param name Die Bezeichnung des Lebensmitels oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
-	 * @param anzahl Die Anzahl der Waren (Lagermenge) als Integer
 	 * @param seitWannImBestand Datum seit wann die Ware im Bestand ist als LocalDate
 	 * @param gewicht Gewicht der Ware als Double
 	 * @param haltbarkeit Die Haltbarkeit in Tagen gemessen als Integer
@@ -39,7 +38,7 @@ public class Backwaren extends Lebensmittel{
 	 * Backware (Name) nicht hinugefuegt werden konnte.
 	 * @author Sebastian Ohlendorf
 	 * 
-	 * @param backware das hinzuzufuegende eines neuen Backwaren-Objektes
+	 * @param backwaren das hinzuzufuegende eines neuen Backwaren-Objektes
 	 */
 	public static void addBackwaren(Backwaren backwaren){
 			
@@ -218,6 +217,8 @@ public class Backwaren extends Lebensmittel{
 	/**
 	 * toString Methode der Klasse Backwaren um eine Ausgabe
 	 * zu der Backware und des Lagerbestand zu tätigen
+	 * 
+	 * @return Rückgabe des Objektes und seiner Attribute als String
 	 */
 	@Override
 	public String toString() {

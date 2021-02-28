@@ -10,7 +10,7 @@ package hilfsklassen;
 public class Ausgaben {
 	
 	/**
-	 * Klassenmethode zur Ausgabe des Supermarktlogos.
+	 * Klassenmethode zur Ausgabe des Supermarktlogos
 	 */
 	public static void supermaktLogo() {
 		

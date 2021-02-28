@@ -22,7 +22,8 @@ import waren.Medien;
 import waren.NonFoodArtikel;
 
 /**
- * Eine Klasse die zu Testzwecken des Programms von jeder Warenart 10 Objekte jeweils anlegt.
+ * Eine Klasse die zu Testzwecken des Programms 
+ * von jeder Warenart jeweils 10 Waren anlegt mit jeweils 100 Einheiten.
  * @author Lennart Sparbier
  * @version 1.0
  * @date 25.02.2021

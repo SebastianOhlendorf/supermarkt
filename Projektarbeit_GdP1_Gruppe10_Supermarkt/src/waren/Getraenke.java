@@ -23,7 +23,6 @@ public class Getraenke extends Ware {
 	 * 
 	 * @param name Die Bezeichnung des Getränks oder des Produkts als String
 	 * @param preis Der Preis der Ware als Double
-	 * @param anzahl Die Anzahl der Waren (Lagermenge) als Integer
 	 * @param seitWannImBestand Datum seit wann die Ware im Bestand ist als LocalDate
 	 * @param alcProzente Gibt den alkoholgehalt des Getränks in Double an
 	 */
@@ -218,6 +217,8 @@ public class Getraenke extends Ware {
 	/**
 	 * toString Methode der Klasse Getraenk um eine Ausgabe
 	 * zu dem Getränk zu tätigen
+	 * 
+	 * @return Rückgabe des Objektes und seiner Attribute als String
 	 */
 	@Override
 	public String toString() {

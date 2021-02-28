@@ -80,6 +80,7 @@ public class Supermarkt {
 		}while (auswahlHauptmenü != 5);
 		
 		Ausgaben.beendigung();
+		Eingaben.scannerSchliessen();
 	}	
 }
 

@@ -10,10 +10,25 @@ package enums;
  */
 public enum Untergruppen {
 	
+	/**
+	 * KLEIDUNG
+	 */
 	KLEIDUNG,
+	/**
+	 * DROGERIEARTIKEL
+	 */
 	DROGERIEARTIKEL,
+	/**
+	 * MEDIEN
+	 */
 	MEDIEN, 
+	/**
+	 * FILME
+	 */
 	FILME,
+	/**
+	 * KEINE
+	 */
 	KEINE
 	
 }

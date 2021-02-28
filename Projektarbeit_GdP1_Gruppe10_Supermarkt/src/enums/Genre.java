@@ -10,12 +10,33 @@ package enums;
  */
 public enum Genre {
 	
+	/**
+	 * KEINE
+	 */
 	KEINE,
+	/**
+	 * BUECHER
+	 */
 	BUECHER,
+	/**
+	 * COMPUTER
+	 */
 	COMPUTER,
+	/**
+	 * KONSOLE
+	 */
 	KONSOLE,
+	/**
+	 * MUSIK
+	 */
 	MUSIK,
+	/**
+	 * HARDWARE
+	 */
 	HARDWARE,
+	/**
+	 * SOFTWARE
+	 */
 	SOFTWARE
 
 }

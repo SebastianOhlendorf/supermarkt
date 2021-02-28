@@ -10,11 +10,32 @@ package enums;
  */
 public enum Koerperteile {
 
+	/**
+	 * KEINE
+	 */
 	KEINE,
+	/**
+	 * KOPF
+	 */
 	KOPF,
+	/**
+	 * OBERKOERPER
+	 */
 	OBERKOERPER,
+	/**
+	 * BEINE
+	 */
 	BEINE,
+	/**
+	 * FUESSE
+	 */
 	FUESSE,
+	/**
+	 * ARME
+	 */
 	ARME,
+	/**
+	 * HAENDE
+	 */
 	HAENDE
 }

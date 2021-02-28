@@ -9,18 +9,61 @@ package enums;
  *
  */
 public enum Sprachen {
+	
+	/**
+	 * CHINESISCH
+	 */
 	CHINESISCH,
+	/**
+	 * DEUTSCH
+	 */
 	DEUTSCH,
+	/**
+	 * ENGLISCH
+	 */
 	ENGLISCH,
+	/**
+	 * FRANZÖSISCH
+	 */
 	FRANZÖSISCH,
+	/**
+	 * GRIECHISCH
+	 */
 	GRIECHISCH,
+	/**
+	 * INDISCH
+	 */
 	INDISCH,
+	/**
+	 * ITALIENISCH
+	 */
 	ITALIENISCH,
+	/**
+	 * JAPANISCH
+	 */
 	JAPANISCH,
+	/**
+	 * NIEDERLÄNDISCH
+	 */
 	NIEDERLÄNDISCH,
+	/**
+	 * POLNISCH
+	 */
 	POLNISCH,
+	/**
+	 * RUSSISCH
+	 */
 	RUSSISCH,
+	/**
+	 * SPANISCH
+	 */
 	SPANISCH, 
+	/**
+	 * TÜRKISCH
+	 */
 	TÜRKISCH,
+	/**
+	 * VIETNAMESISCH
+	 */
 	VIETNAMESISCH
 }

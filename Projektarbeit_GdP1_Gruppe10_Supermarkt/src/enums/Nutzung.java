@@ -10,17 +10,53 @@ package enums;
  */
 public enum Nutzung {
 
+	/**
+	 * KEINE
+	 */
 	KEINE,
+	/**
+	 * HEILMITTEL
+	 */
 	HEILMITTEL,
+	/**
+	 * REINIGUNG
+	 */
 	REINIGUNG,
+	/**
+	 * WELLNESS
+	 */
 	WELLNESS,
+	/**
+	 * KOERPERPFLEGE
+	 */
 	KOERPERPFLEGE,
+	/**
+	 * PARFUEM
+	 */
 	PARFUEM,
+	/**
+	 * OELE
+	 */
 	OELE,
+	/**
+	 * KOSMETIK
+	 */
 	KOSMETIK,
+	/**
+	 * REFORMPRODUKTE
+	 */
 	REFORMPRODUKTE,
+	/**
+	 * NAHRUNGSMITTEL
+	 */
 	NAHRUNGSMITTEL,
+	/**
+	 * SACHPFLEGE
+	 */
 	SACHPFLEGE,
+	/**
+	 * ELEKTRONIK
+	 */
 	ELEKTRONIK
 	
 }

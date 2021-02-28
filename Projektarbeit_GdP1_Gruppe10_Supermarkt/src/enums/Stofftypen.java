@@ -10,10 +10,28 @@ package enums;
  */
 public enum Stofftypen {
 
+	/**
+	 * KEINE
+	 */
 	KEINE,
+	/**
+	 * BAUMWOLLE
+	 */
 	BAUMWOLLE,
+	/**
+	 * LEINE
+	 */
 	LEINE,
+	/**
+	 * WOLLE
+	 */
 	WOLLE,
+	/**
+	 * SEIDE
+	 */
 	SEIDE,
+	/**
+	 * CHEMIEFASER
+	 */
 	CHEMIEFASER
 }

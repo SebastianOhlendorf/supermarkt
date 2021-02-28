@@ -9,14 +9,37 @@ package enums;
  *
  */
 public enum Allergene {
-	
+	/**
+	 * KEINE
+	 */
 	KEINE,
+	/**
+	 * EIER
+	 */
 	EIER,
+	/**
+	 * ERDNUESSE
+	 */
 	ERDNUESSE,
+	/**
+	 * FISCH
+	 */
 	FISCH,
+	/**
+	 * GLUTEN
+	 */
 	GLUTEN,
+	/**
+	 * KREBSTIERE
+	 */
 	KREBSTIERE,
+	/**
+	 * MILCH
+	 */
 	MILCH,
+	/**
+	 * SOJA
+	 */
 	SOJA
 	
 

@@ -284,6 +284,7 @@ public class Medien extends NonFoodArtikel {
 	
 	/**
 	 * Klassenmethode, welche alle Medien-Artikel mit Genre ausgibt
+	 * @param genre Gibt alle Medien aus welche einem bestimmten Genre zugeordnet sind
 	 */
 	public static void gebenGenreAus(Genre genre) {
 		for (int i = 0; i < alleWaren.size(); i++) { 

@@ -33,7 +33,7 @@ public class Filme extends Medien {
 	 	 * @param beschreibung Enthält zusätzliche Informationen zum Artikel als String
 	 	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Integer
  	 	 * @param isDigital Gibt an ob es sich um ein Digitales Medium handelt als Boolean
- 	 	 * @param genre Gibt an zu welchen Genre der Medienartikel gehört als Integer
+ 	 	 * @param filmgenre Gibt an zu welchen Filmgenre der Medienartikel gehört als Integer
  	 	 * @param erscheinungsjahr Gibt das Erscheinungsjahr als Integer an
 		 * @param dauer Gibt die Dauer des Films als Double an
 		 * @param fsk Gibt die FSK des Films als Integer an
@@ -57,7 +57,7 @@ public class Filme extends Medien {
 		 * Lebensmittel (Name) nicht hinugefuegt werden konnte.
 		 * @author Sebastian Ohlendorf
 		 * 
-		 * @param lebensmittel das hinzuzufuegende neue Lebensmittel
+		 * @param film das hinzuzufuegende neue Lebensmittel
 		 */
 		public static void addFilm(Filme film){
 			

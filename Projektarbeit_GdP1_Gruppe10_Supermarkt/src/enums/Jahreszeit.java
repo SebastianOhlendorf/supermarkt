@@ -10,9 +10,21 @@ package enums;
  */
 public enum Jahreszeit {
 	
+	/**
+	 * WINTER
+	 */
 	WINTER,
+	/**
+	 * FRUEHLING
+	 */
 	FRUEHLING,
+	/**
+	 * SOMMER
+	 */
 	SOMMER,
+	/**
+	 * HERBST
+	 */
 	HERBST
 
 }

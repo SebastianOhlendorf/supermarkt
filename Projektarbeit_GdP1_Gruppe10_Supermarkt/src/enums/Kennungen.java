@@ -10,14 +10,41 @@ package enums;
  */
 public enum Kennungen {
 
+	/**
+	 * LEBENSMITTEL
+	 */
 	LEBENSMITTEL,
+	/**
+	 * BACKWAREN
+	 */
 	BACKWAREN,
+	/**
+	 * GETRAENKE
+	 */
 	GETRAENKE,
+	/**
+	 * NONFOODARTIKEL
+	 */
 	NONFOODARTIKEL,
+	/**
+	 * KLEIDUNG
+	 */
 	KLEIDUNG,
+	/**
+	 * MEDIEN
+	 */
 	MEDIEN,
+	/**
+	 * DROGERIEARTIKEL
+	 */
 	DROGERIEARTIKEL,
+	/**
+	 * FILME
+	 */
 	FILME,
+	/**
+	 * ENDE zur Beendigung in der Menüauswahl
+	 */
 	ENDE
 	
 }

@@ -10,13 +10,40 @@ package enums;
  */
 public enum Filmgenre {
 
+	/**
+	 * KEINE
+	 */
 	KEINE,
+	/**
+	 * HORROR
+	 */
 	HORROR,
+	/**
+	 * ACTION
+	 */
 	ACTION,
+	/**
+	 * THRILLER
+	 */
 	THRILLER,
+	/**
+	 * HUMOR
+	 */
 	HUMOR,
+	/**
+	 * DRAMA
+	 */
 	DRAMA,
+	/**
+	 * KRIEG
+	 */
 	KRIEG,
+	/**
+	 * LIEBE
+	 */
 	LIEBE,
+	/**
+	 * WESTERN
+	 */
 	WESTERN
 }

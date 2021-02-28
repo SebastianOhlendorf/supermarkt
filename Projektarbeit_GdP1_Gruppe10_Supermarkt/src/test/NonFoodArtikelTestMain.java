@@ -23,6 +23,15 @@ import waren.NonFoodArtikel;
  */
 public class NonFoodArtikelTestMain {
 
+    /**
+     * Main-Method zum testen der Klassen NonFoodArtikel, Medien, Kleidung, DrogerieArtikel und Filme. Diese main-Methode
+     * ist der definierte Einstiegspunkt fuer die Ausfuehrung des Programs und
+     * erlaubt das Programm zu testen.
+     * 
+     * @param args
+     *            die Argumente, die man im Allgemeinen fuer die Ausfuehrung
+     *            geben kann
+     */
 	public static void main(String[] args) {
 
 		/*

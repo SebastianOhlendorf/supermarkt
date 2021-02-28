@@ -11,6 +11,15 @@ import hilfsklassen.Ausgaben;
  */
 public class AusgabenTest {
 
+	/**
+     * Main-Method zum testen der Klasse Ausgaben. Diese main-Methode
+     * ist der definierte Einstiegspunkt fuer die Ausfuehrung des Programs und
+     * erlaubt das Programm zu testen.
+     * 
+     * @param args
+     *            die Argumente, die man im Allgemeinen fuer die Ausfuehrung
+     *            geben kann
+     */
 	public static void main(String[] args) {
 		
 		

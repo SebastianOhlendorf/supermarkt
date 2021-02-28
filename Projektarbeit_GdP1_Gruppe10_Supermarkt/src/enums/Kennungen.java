@@ -1,7 +1,7 @@
 package enums;
 
 /**
- * Enum für die Verschiedenen Kennungen für alle Klasse  
+ * Enum für die Verschiedenen Kennungen für alle Klassen  
  * um diese bei den Ausgaben besser unterscheiden zu können
  * @author Sebastian Ohlendorf
  * @version 1.0

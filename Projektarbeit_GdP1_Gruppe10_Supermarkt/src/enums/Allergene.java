@@ -1,7 +1,7 @@
 package enums;
 
 /**
- * Enum für die Verschiedenen Allergene für die Klasse Drogerie 
+ * Enum für die verschiedenen Allergene für die Klasse Drogerie 
  * um das Attribut allergen des Objektes zu befüllen
  * @author Sebastian Ohlendorf
  * @version 1.0

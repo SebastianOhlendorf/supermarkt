@@ -8,12 +8,12 @@ import menu.Hauptmenu;
 
 /**
  * Das Programm ist eine Abschlussprojektaufgabe wo alle Elemente des Moduls GDP1 eingearbeitet wurden.
- * Das Programm ist für den Warenbestand eines Supermarktes und bietet eine Reihe von Funktionen
+ * Das Programm ist fï¿½r den Warenbestand eines Supermarktes und bietet eine Reihe von Funktionen
  * Funktionen:
  * Alle Waren oder einzelne Warentypen AusAusgeben
  * Eine neue Ware im Warensystem anlegen
- * Für eine Ware eine nachbestellung tätigen
- * Für eine Ware eine herausgabe tätigen
+ * Fï¿½r eine Ware eine nachbestellung tï¿½tigen
+ * Fï¿½r eine Ware eine herausgabe tï¿½tigen
  * Weitere Funktionen zu den jeweiligen Warentypen
  * @author Ethan Stapff
  * @version 1.0
@@ -33,7 +33,7 @@ public class Supermarkt {
      */
 	public static void main(String[] args) {
 		
-		int auswahlHauptmenü = 6;
+		int auswahlHauptmenï¿½ = 6;
 		
 		Ausgaben.supermaktLogo();
 		Ausgaben.gruppeZehn();
@@ -45,11 +45,11 @@ public class Supermarkt {
 			
 			Ausgaben.hauptmenue();
 			
-			//Auswahl Hauptmenü
+			//Auswahl Hauptmenï¿½
 			try {
-				auswahlHauptmenü = Eingaben.eingabeAuswahlHauptmenu("Welchen Menüpunk möchten sie wählen?");
+				auswahlHauptmenï¿½ = Eingaben.eingabeAuswahlHauptmenu("Welchen Menï¿½punk mï¿½chten sie wï¿½hlen?");
 				
-				switch(auswahlHauptmenü) {
+				switch(auswahlHauptmenï¿½) {
 				
 				case 0: // Alle Waren anzeigen
 					Hauptmenu.alleWarenAusgeben();
@@ -73,11 +73,11 @@ public class Supermarkt {
 				}
 				
 			}catch (InputMismatchException e) {
-				System.out.println("Es wurde ein falscher Datentyp eingegeben. Die Aktion konnte nicht durchgeführt werden!");
+				System.out.println("Es wurde ein falscher Datentyp eingegeben. Die Aktion konnte nicht durchgefï¿½hrt werden!");
 				Eingaben.eingabeString("");
 			}	
 			
-		}while (auswahlHauptmenü != 5);
+		}while (auswahlHauptmenï¿½ != 5);
 		
 		Ausgaben.beendigung();
 	}	

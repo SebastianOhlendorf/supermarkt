@@ -17,7 +17,7 @@ import enums.Untergruppen;
  */
 public class DrogerieArtikel extends NonFoodArtikel {
 	
-	//Klassenvariable zum Zählen der Drogerieartikeltypen
+	//Klassenvariable zum Zï¿½hlen der Drogerieartikeltypen
 	private static int DrogerieArtikel_zaehler = 0;
 	
 	/**
@@ -25,10 +25,10 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * 
 	 * @param name Name des Drogerieartikels als String
 	 * @param preis	Preis des Drogerieartikels als Double	
-	 * @param seitWannImBestand Zeitstempel von wann das Drogerieartikel hinzugefügt wurde.
+	 * @param seitWannImBestand Zeitstempel von wann das Drogerieartikel hinzugefï¿½gt wurde.
 	 * @param anzahl Stellt die Menge einer Ware als Integer dar
 	 * @param beschreibung Beschreibung vom Drogerieartikel
-	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehört bspw. Kleidung als Integer
+	 * @param unterGruppe gibt an zu welcher Untergruppe der Artikel gehï¿½rt bspw. Kleidung als Integer
 	 * @param nutzung Gibt den Nutzen des Artikels als String an
 	 * @param stiftungwarentest Gibt die Bewertung des Stiftungwarentestes als Double an
 	 * @param allergene Gibt an ob bei dem Artikel Allergene enthalten sind als String
@@ -47,7 +47,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * Fuegt dem Array alleWaren ein neues DrogerieArikel-Objekt hinzu, solange dieses nicht
 	 * voll ist. Ansonsten wird ausgegeben, dass das Lager voll ist und der
 	 * DrogerieArikel (Name) nicht hinugefuegt werden konnte.
-	 * Hier wird das übergebene Genre verwendet
+	 * Hier wird das ï¿½bergebene Genre verwendet
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param drogerieArtikel das hinzuzufuegende eines neuen DrogerieArikel-Objektes
@@ -73,22 +73,22 @@ public class DrogerieArtikel extends NonFoodArtikel {
 		}else {
 				System.out.println(
 						String.format(
-								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde überschritten! Der Medien-Artikel %s konnte nicht hinzugefügt werden", 
+								"Die Anzahl (30) verschiedeneser Medien-Artikelarten wurde ï¿½berschritten! Der Medien-Artikel %s konnte nicht hinzugefï¿½gt werden", 
 								drogerieArtikel.name));
 		}
 	}
 
 	/**
-	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird für ein DrogerieArikel-Objekt eine Nachbestellung zu tätigen.
-	 * Ist die Maximale Lagermenge bereits gegeben wird darüber Informiert
-	 * Ist die Bestellemenge plus die auf Lager liegende Menge größer als die Maximale Lagermenge, 
-	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darüber Infomiert
-	 * Wenn die Maximal Menge nicht überschritten wird, dann wird die übergebene Menge bestellt
+	 * Abstrakte Methode der Klasse Ware, welche dazu verwendet wird fï¿½r ein DrogerieArikel-Objekt eine Nachbestellung zu tï¿½tigen.
+	 * Ist die Maximale Lagermenge bereits gegeben wird darï¿½ber Informiert
+	 * Ist die Bestellemenge plus die auf Lager liegende Menge grï¿½ï¿½er als die Maximale Lagermenge, 
+	 * wird nur die differenz zur Maximalen Lagermenge bestellt und der Anwender darï¿½ber Infomiert
+	 * Wenn die Maximal Menge nicht ï¿½berschritten wird, dann wird die ï¿½bergebene Menge bestellt
 	 * Bei den Aktualisierungen der Lagermenge wird auch das Bestandsdatum aktualisiert
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param menge Gibt die Anzahl der zu bestellenden Menge als Integer dar
-	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurück ob eine Bestellung getätigt wurde 
+	 * @return Gibt ein Boolean (True = es wurde bestellt, False = wurde nicht bestellt) zurï¿½ck ob eine Bestellung getï¿½tigt wurde 
 	 */
 	@Override
 	public boolean nachbestellen(int menge) {
@@ -112,18 +112,18 @@ public class DrogerieArtikel extends NonFoodArtikel {
 				int neueLegermenge = aktuellLagermenge + menge;
 				int diffMenge = 0;
 			
-				//Prüfung ob Lagermene einer Ware gleich der Lagergroeße ist
+				//Prï¿½fung ob Lagermene einer Ware gleich der Lagergroeï¿½e ist
 				if (alleWaren.get(i).size() == MAXMENGE) {
 					
 					System.out.println(
 							String.format(
-									"Der Drogerieartikel %s hat bereits die maximale Lagerkapazität, daher wird keine Nachbestellung durchgeführt!", 
+									"Der Drogerieartikel %s hat bereits die maximale Lagerkapazitï¿½t, daher wird keine Nachbestellung durchgefï¿½hrt!", 
 									this.name));
 					
 					nachbestellung = false;
 					
 				}
-				//Prüfung b die zu bestellende Megen mit der Lagermenge gößer ist als die Lagerroeße
+				//Prï¿½fung b die zu bestellende Megen mit der Lagermenge gï¿½ï¿½er ist als die Lagerroeï¿½e
 				else if(neueLegermenge > MAXMENGE) {
 					
 					diffMenge = MAXMENGE - aktuellLagermenge;
@@ -139,7 +139,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 							
 					System.out.println(
 							String.format(
-									"Es wurden daher %s Einheiten nachbestellt um die maximale Lagerkapazität (100) zu erreichen.", 
+									"Es wurden daher %s Einheiten nachbestellt um die maximale Lagerkapazitï¿½t (100) zu erreichen.", 
 									diffMenge));
 							
 					nachbestellung = true;	
@@ -169,12 +169,12 @@ public class DrogerieArtikel extends NonFoodArtikel {
 
 	/**
 	 * Abstrakte Methoden der Klasse Ware, welche zum herausgeben von Drogerieartikel verwendet wird.
-	 * Ist die angegebene Menge zum herausgeben möglich wird der Mengenbestand aktualisiert.
+	 * Ist die angegebene Menge zum herausgeben mï¿½glich wird der Mengenbestand aktualisiert.
 	 * Sind nicht mehr genug Einheiten auf Lager wird eine Meldung ausgegeben und die Methode nachbestellen aufgerufen.
 	 * @author Sebastian Ohlendorf
 	 * 
 	 * @param menge Gibt die Anzahl der zu herausgebende Menge als Integer an
-	 * @return Gibt ein Boolean (True = es wurde herausgegeben, False = wurde nicht nicht herausgegeben) zurück ob eine Ausgabe getätigt wurde 
+	 * @return Gibt ein Boolean (True = es wurde herausgegeben, False = wurde nicht nicht herausgegeben) zurï¿½ck ob eine Ausgabe getï¿½tigt wurde 
 	 * 
 	 */
 	@Override
@@ -192,7 +192,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 				int neueLegermenge = aktuellLagermenge - menge;
 				
 				
-				//Prüfung ob noch genug im Lager ist zum herausgeben
+				//Prï¿½fung ob noch genug im Lager ist zum herausgeben
 				if(neueLegermenge > 0) {
 					
 					for(int j = 0; j < menge; j++) {
@@ -202,7 +202,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 							
 					System.out.println(
 							String.format(
-									"Für den Drogerieartikel %s wurden %s Einheiten herausgegeben.", 
+									"Fï¿½r den Drogerieartikel %s wurden %s Einheiten herausgegeben.", 
 									this.name,
 									menge));
 					
@@ -213,8 +213,8 @@ public class DrogerieArtikel extends NonFoodArtikel {
 					
 					System.out.println(
 							String.format(
-									"Für den Drogerieartikel %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
-									+ "Daher wird eine Nachbestellung getätigt.", 
+									"Fï¿½r den Drogerieartikel %s gibt es nur noch %s Einheiten auf Lager. Die Herausgabe von %s Einheiten konnte nicht erfolgen.\n"
+									+ "Daher wird eine Nachbestellung getï¿½tigt.", 
 									this.name,
 									alleWaren.get(i).size(),
 									menge));
@@ -231,7 +231,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	
 	/**
 	 * toString Methode der Klasse Medien um eine Ausgabe
-	 * zu dem Medien zu tätigen
+	 * zu dem Medien zu tï¿½tigen
 	 */
 	@Override
 	public String toString() {
@@ -297,7 +297,7 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	 * Klassenmethode um ein Bestimmtes Objekt zu erhalten
 	 * 
 	 * @param objektId ID des Objektes aus dem Array alleWaren
-	 * @return Gibt ein DrogerieArtikel-Objekt zurück
+	 * @return Gibt ein DrogerieArtikel-Objekt zurï¿½ck
 	 */
 	public static DrogerieArtikel erhalteObjekt(int objektId) {
 		
@@ -306,9 +306,9 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	}
 	
 	/**
-	 * Klassenmethode um die Maximale ID zu erhalten für den Bereich Drogie Artikel im Array alleWaren
+	 * Klassenmethode um die Maximale ID zu erhalten fï¿½r den Bereich Drogie Artikel im Array alleWaren
 	 * 
-	 * @return Gibt die höchste ID des Arrays für Drogie Artikel aus Integer aus
+	 * @return Gibt die hï¿½chste ID des Arrays fï¿½r Drogie Artikel aus Integer aus
 	 */
 	public static int erhalteObjektMaxID() {
 		
@@ -323,9 +323,9 @@ public class DrogerieArtikel extends NonFoodArtikel {
 	}
 	
 	/**
-	 * Klassenmethode um die Minimale ID zu erhalten für den Bereich Drogerie Artikel im Array alleWaren
+	 * Klassenmethode um die Minimale ID zu erhalten fï¿½r den Bereich Drogerie Artikel im Array alleWaren
 	 * 
-	 * @return Gibt die niedrigste ID des Arrays für Drogerie Artikel aus Integer aus
+	 * @return Gibt die niedrigste ID des Arrays fï¿½r Drogerie Artikel aus Integer aus
 	 */
 	public static int erhalteObjektMinID() {
 		
